@@ -5,13 +5,11 @@ import companyData from '../data/company.json';
 <header class="fixed top-0 w-full z-50">
 	<!-- Top bar with contact info -->
 	<div class="bg-black w-full py-2 px-4">
-		<div class="container mx-auto flex justify-between items-center" style="color: #4CAF50;">
+		<div class="container mx-auto flex justify-between items-center text-green-500">
 			<div class="flex items-center">
-				<span class="mr-1">📞</span>
 				<a href={companyData.contact.phoneLink} class="hover:opacity-80 transition">{companyData.contact.phone}</a>
 			</div>
 			<div class="flex items-center">
-				<span class="mr-1">📍</span>
 				<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:opacity-80 transition">
 					{companyData.location.full}
 				</a>
