@@ -1,0 +1,32 @@
+{
+  "name": "Masters Golf Cars, LLC",
+  "tagline": "Your #1 Source For Golf Carts in Ocala, The Villages and Central Florida",
+  "founded": "1999",
+  "location": {
+    "address": "12885 S US Hwy 441",
+    "city": "Belleview",
+    "state": "FL",
+    "zip": "34420",
+    "full": "12885 S US Hwy 441 Belleview, FL 34420"
+  },
+  "contact": {
+    "phone": "(352) 307-0111",
+    "phoneLink": "tel:3523070111",
+    "email": "info@mastersgolfcars.com"
+  },
+  "description": "Since 1999, Masters Golf Cars LLC has been a cornerstone in Central Florida's golf cart industry, offering top-tier rentals, sales, service and custom-built carts. Conveniently located at 12885 S US Highway 441 in Belleview, they have become the go-to destination for golf cart enthusiasts in Ocala, The Villages, and surrounding counties.",
+  "services": [
+    "Golf Cart Rentals",
+    "Sales of New and Pre-Owned Carts",
+    "Customization",
+    "Maintenance and Repairs"
+  ],
+  "areasServed": [
+    "Marion County",
+    "Sumter County",
+    "Lake County",
+    "Alachua County"
+  ],
+  "logo": "https://mastersgolfcars.com/images/Masters-Golf-Cars-logo-400.png"
+}
+

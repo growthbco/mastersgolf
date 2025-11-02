@@ -1,16 +1,190 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import CartCard from '../components/CartCard.astro';
+import inventoryData from '../data/inventory.json';
+import companyData from '../data/company.json';
+import servicesData from '../data/services.json';
 
+const featuredCarts = inventoryData.slice(0, 6);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={`${companyData.name} - ${companyData.tagline}`}>
+	<!-- Hero Section -->
+	<section class="bg-gradient-to-br from-green-600 to-green-800 text-white py-20">
+		<div class="container mx-auto px-4">
+			<div class="max-w-3xl">
+				<h1 class="text-5xl font-bold mb-6">{companyData.tagline}</h1>
+				<p class="text-xl mb-8 text-green-100">{companyData.description}</p>
+				<div class="flex flex-wrap gap-4">
+					<a href="/inventory" class="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 transition">
+						Shop Golf Carts
+					</a>
+					<a href="/rentals" class="border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-green-600 transition">
+						Rent a Cart
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Services Overview -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
+				Comprehensive Golf Cart Services
+			</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+						<span class="text-4xl">🛒</span>
+					</div>
+					<h3 class="text-xl font-bold mb-2">Golf Cart Sales</h3>
+					<p class="text-gray-600">New and used carts from top brands</p>
+					<a href="/inventory" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
+						View Inventory →
+					</a>
+				</div>
+				
+				<div class="text-center">
+					<div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+						<span class="text-4xl">🚗</span>
+					</div>
+					<h3 class="text-xl font-bold mb-2">Cart Rentals</h3>
+					<p class="text-gray-600">Flexible rental options for events</p>
+					<a href="/rentals" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
+						Learn More →
+					</a>
+				</div>
+				
+				<div class="text-center">
+					<div class="bg-purple-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+						<span class="text-4xl">🚛</span>
+					</div>
+					<h3 class="text-xl font-bold mb-2">Fleet Rentals</h3>
+					<p class="text-gray-600">Rent a fleet for large events</p>
+					<a href="/fleet" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
+						Get Quote →
+					</a>
+				</div>
+				
+				<div class="text-center">
+					<div class="bg-orange-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+						<span class="text-4xl">🔧</span>
+					</div>
+					<h3 class="text-xl font-bold mb-2">Service & Repairs</h3>
+					<p class="text-gray-600">Expert maintenance and repair</p>
+					<a href="/contact" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
+						Contact Us →
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Featured Inventory -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="flex justify-between items-center mb-12">
+				<h2 class="text-4xl font-bold text-gray-900">Featured Golf Carts</h2>
+				<a href="/inventory" class="text-green-600 font-semibold hover:underline">
+					View All Inventory →
+				</a>
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{featuredCarts.map((cart) => (
+					<CartCard
+						name={cart.name}
+						model={cart.model}
+						price={cart.price}
+						salePrice={cart.salePrice}
+						stock={cart.stock}
+						image={cart.image}
+						slug={`${cart.id}`}
+					/>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Brands We Work With -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
+				Brands We Work With
+			</h2>
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+				{servicesData.brands.map((brand) => (
+					<div class="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+						<img src={brand.icon} alt={brand.name} class="max-h-16 object-contain" />
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Financing CTA -->
+	<section class="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+		<div class="container mx-auto px-4 text-center">
+			<h2 class="text-4xl font-bold mb-4">Easy Financing Available</h2>
+			<p class="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
+				We offer flexible financing options on all new and used golf carts. 
+				Talk to our team to find the best path for you.
+			</p>
+			<a href="/contact" class="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 transition inline-block">
+				Apply For Financing
+			</a>
+		</div>
+	</section>
+
+	<!-- About Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2 class="text-4xl font-bold mb-6 text-gray-900">
+						Your #1 Source for Golf Carts in Central Florida
+					</h2>
+					<p class="text-lg text-gray-600 mb-4">
+						<strong>Masters Golf Cars</strong> is Ocala, The Villages & Central Florida's 
+						premier authorized golf car dealer for <strong>Advanced EV</strong>, as well as 
+						other leading golf cart brands. Since {companyData.founded}, Masters Golf Cars 
+						is locally owned and operated and has proudly been serving our community.
+					</p>
+					<p class="text-lg text-gray-600 mb-4">
+						Whether you're looking for Low Speed Vehicle golf carts, Neighborhood electric 
+						vehicles or standard golf cars for sale, we offer Advanced EV, Yamaha, Club Car & 
+						EZ-GO solutions for both commercial and residential use.
+					</p>
+					<a href="/contact" class="text-green-600 font-semibold hover:underline">
+						Contact Us Today →
+					</a>
+				</div>
+				<div class="bg-gray-100 rounded-lg p-8">
+					<h3 class="text-2xl font-bold mb-4">Why Choose Masters Golf Cars?</h3>
+					<ul class="space-y-3">
+						<li class="flex items-start">
+							<span class="text-green-600 text-xl mr-3">✓</span>
+							<span class="text-gray-700">{companyData.founded} years of experience</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-green-600 text-xl mr-3">✓</span>
+							<span class="text-gray-700">300+ late-model golf carts in fleet</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-green-600 text-xl mr-3">✓</span>
+							<span class="text-gray-700">Full-service repair and maintenance</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-green-600 text-xl mr-3">✓</span>
+							<span class="text-gray-700">Free delivery and pickup</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-green-600 text-xl mr-3">✓</span>
+							<span class="text-gray-700">Competitive pricing and financing</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

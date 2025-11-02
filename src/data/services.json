@@ -1,0 +1,84 @@
+{
+  "brands": [
+    {
+      "name": "Club Car",
+      "icon": "https://mastersgolfcars.com/uploads/club-car-icon-0-0.webp"
+    },
+    {
+      "name": "Yamaha",
+      "icon": "https://mastersgolfcars.com/uploads/yamaha-icon-0-1.webp"
+    },
+    {
+      "name": "EZ-GO",
+      "icon": "https://mastersgolfcars.com/uploads/ez-go-icon-0-2.webp"
+    },
+    {
+      "name": "Trojan Batteries",
+      "icon": "https://mastersgolfcars.com/uploads/trojan-batteries-icon-0-3.webp"
+    },
+    {
+      "name": "24 Cart Club",
+      "icon": "https://mastersgolfcars.com/uploads/24-cart-club-icon-0-4.webp"
+    },
+    {
+      "name": "Advanced EV",
+      "icon": "https://mastersgolfcars.com/uploads/advanced-ev-icon-0-5.webp"
+    }
+  ],
+  "rentalAreas": [
+    "Local Neighborhoods",
+    "The Villages",
+    "Ocala",
+    "Downtown Ocala",
+    "Woodfields",
+    "Del Webb Spruce Creek",
+    "Spruce Creek South",
+    "Spruce Creek Preserve",
+    "Stonecrest",
+    "Rolling Greens",
+    "HITS Ocala",
+    "RV Park Rentals",
+    "Country Club of Ocala",
+    "WEC",
+    "Golden Ocala",
+    "Ocala Palms",
+    "The Florida Horse Park",
+    "Oak Run",
+    "On Top of The World",
+    "Elite RV",
+    "Tall Timbers",
+    "Ocala Breeders Sales",
+    "South Eastern Livestock Pavillion",
+    "Gainesville"
+  ],
+  "fleetUseCases": [
+    "Equestrian Parks",
+    "Auto Racing",
+    "Local Colleges & Universities",
+    "Weddings",
+    "Golf Tournaments",
+    "Fairs and Festivals",
+    "Concerts",
+    "Campgrounds",
+    "Corporate Events",
+    "Tailgating",
+    "Marathons",
+    "Summer Camps",
+    "Air Shows",
+    "Horse Shows",
+    "Dog Shows",
+    "Grand Openings",
+    "Parades",
+    "Gun Clubs",
+    "Motorcross",
+    "Races",
+    "Resorts",
+    "Municipalities",
+    "Seasonal Events",
+    "Graduation",
+    "Reunions",
+    "Security",
+    "Special Events"
+  ]
+}
+

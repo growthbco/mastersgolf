@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
+---
+
+<Layout title="Golf Cart Rentals - Masters Golf Cars" description="Rent golf carts for events and daily use in Central Florida">
+	<!-- Hero Section -->
+	<section class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+		<div class="container mx-auto px-4">
+			<h1 class="text-5xl font-bold mb-6">Reserve Your Golf Cart Rental</h1>
+			<p class="text-xl mb-8 text-blue-100">
+				Whether you need a single cart or want to explore our neighborhood rental options, 
+				we have flexible rental packages to fit your needs.
+			</p>
+		</div>
+	</section>
+
+	<!-- Cart Types -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
+				Choose Your Golf Cart
+			</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<img 
+						src="https://mastersgolfcars.com/uploads/2-seater-golf-cart_img_v31.webp" 
+						alt="2 Seater Golf Cart" 
+						class="w-full h-48 object-cover rounded-lg mb-4"
+					/>
+					<h3 class="text-xl font-bold mb-2">2-Seater Cart</h3>
+					<p class="text-gray-600">Perfect for couples or individuals exploring the neighborhood</p>
+				</div>
+				
+				<div class="text-center">
+					<img 
+						src="https://mastersgolfcars.com/uploads/4-seater-golf-cart_img_v32.webp" 
+						alt="4 Seater Golf Cart" 
+						class="w-full h-48 object-cover rounded-lg mb-4"
+					/>
+					<h3 class="text-xl font-bold mb-2">4-Seater Cart</h3>
+					<p class="text-gray-600">Spacious seating for small groups and families</p>
+				</div>
+				
+				<div class="text-center">
+					<img 
+						src="https://mastersgolfcars.com/uploads/6-seater-golf-cart_img_v33.webp" 
+						alt="6 Seater Golf Cart" 
+						class="w-full h-48 object-cover rounded-lg mb-4"
+					/>
+					<h3 class="text-xl font-bold mb-2">6-Seater Cart</h3>
+					<p class="text-gray-600">Ideal for larger groups and events</p>
+				</div>
+				
+				<div class="text-center">
+					<img 
+						src="https://mastersgolfcars.com/uploads/utility-cart_img_v34.webp" 
+						alt="Utility Cart" 
+						class="w-full h-48 object-cover rounded-lg mb-4"
+					/>
+					<h3 class="text-xl font-bold mb-2">Utility Cart</h3>
+					<p class="text-gray-600">Built for work and convenience</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Areas Served -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
+				Areas We Serve
+			</h2>
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">The Villages</h4>
+				</div>
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">Ocala</h4>
+				</div>
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">Downtown Ocala</h4>
+				</div>
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">Gainesville</h4>
+				</div>
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">Belleview</h4>
+				</div>
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">WEC</h4>
+				</div>
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">HITS Ocala</h4>
+				</div>
+				<div class="bg-white p-4 rounded-lg text-center">
+					<h4 class="font-semibold text-gray-900">And More!</h4>
+				</div>
+			</div>
+			<p class="text-center text-gray-600 mt-8">
+				We proudly serve Marion County, Sumter County, Lake County, and Alachua County
+			</p>
+		</div>
+	</section>
+
+	<!-- Rental Form CTA -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-4xl font-bold mb-6 text-gray-900">Ready to Rent?</h2>
+				<p class="text-xl text-gray-600 mb-8">
+					Fill out our rental form below and our rental manager will check availability 
+					and contact you promptly.
+				</p>
+				<a href="/contact" class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-700 transition inline-block">
+					Request a Rental
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Info -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 text-center">
+			<h2 class="text-3xl font-bold mb-4">Have Questions?</h2>
+			<p class="text-xl mb-6 text-gray-400">
+				Call us at <a href={companyData.contact.phoneLink} class="hover:underline font-semibold text-white">
+					{companyData.contact.phone}
+				</a> or come by today
+			</p>
+			<p class="text-gray-400">
+				{companyData.location.full}
+			</p>
+		</div>
+	</section>
+</Layout>
+

@@ -1,0 +1,63 @@
+[
+  {
+    "id": "101",
+    "name": "2025 Advanced EV Advent 2 Deluxe Golf Ready",
+    "model": "Advent 2",
+    "brand": "Advanced EV",
+    "year": "2025",
+    "price": 17595,
+    "salePrice": 13395,
+    "stock": "101",
+    "image": "https://i31.dlrwebservice.com/52004/i/139811/wm650/3_52004_139811_8156808.jpg",
+    "type": "Golf Cart"
+  },
+  {
+    "id": "105",
+    "name": "2025 Advanced EV Advent 2 Deluxe Golf Ready",
+    "model": "Advent 2",
+    "brand": "Advanced EV",
+    "year": "2025",
+    "price": 17595,
+    "salePrice": 13395,
+    "stock": "105",
+    "image": "https://mastersgolfcars.com/WebResource.axd?d=p0DvQO950oVj9655gaE-crYigeYq9SznsgqPbj_WLxFU_FI3wTLO5LZtLWukUvswYh3WrwOHWltTlS3QxiHAfmjvYS9iqj9N54lO_QAPBdd-CIgw9_esAtA3npQz9MD0DlBYjLp6Pmx1zh6k3-1cwQ2&t=638949988398580819",
+    "type": "Golf Cart"
+  },
+  {
+    "id": "106",
+    "name": "2025 Advanced EV Advent 2 Deluxe Golf Ready",
+    "model": "Advent 2",
+    "brand": "Advanced EV",
+    "year": "2025",
+    "price": 17595,
+    "salePrice": 13395,
+    "stock": "106",
+    "image": "https://mastersgolfcars.com/WebResource.axd?d=p0DvQO950oVj9655gaE-crYigeYq9SznsgqPbj_WLxFU_FI3wTLO5LZtLWukUvswYh3WrwOHWltTlS3QxiHAfmjvYS9iqj9N54lO_QAPBdd-CIgw9_esAtA3npQz9MD0DlBYjLp6Pmx1zh6k3-1cwQ2&t=638949988398580819",
+    "type": "Golf Cart"
+  },
+  {
+    "id": "108",
+    "name": "2025 Advanced EV Advent 4 Deluxe 4 Passenger",
+    "model": "Advent 4",
+    "brand": "Advanced EV",
+    "year": "2025",
+    "price": 16195,
+    "salePrice": 14895,
+    "stock": "108",
+    "image": "https://mastersgolfcars.com/WebResource.axd?d=p0DvQO950oVj9655gaE-crYigeYq9SznsgqPbj_WLxFU_FI3wTLO5LZtLWukUvswYh3WrwOHWltTlS3QxiHAfmjvYS9iqj9N54lO_QAPBdd-CIgw9_esAtA3npQz9MD0DlBYjLp6Pmx1zh6k3-1cwQ2&t=638949988398580819",
+    "type": "Golf Cart"
+  },
+  {
+    "id": "107",
+    "name": "2025 Advanced EV Advent 4F Deluxe Golf Ready",
+    "model": "Advent 4F",
+    "brand": "Advanced EV",
+    "year": "2025",
+    "price": 17595,
+    "salePrice": 16195,
+    "stock": "107",
+    "image": "https://i31.dlrwebservice.com/52004/i/139819/wm650/3_52004_139819_8156859.jpg",
+    "type": "Golf Cart"
+  }
+]
+
