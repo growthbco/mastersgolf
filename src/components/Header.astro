@@ -2,44 +2,49 @@
 import companyData from '../data/company.json';
 ---
 
-<header class="fixed top-0 w-full bg-white shadow-md z-50">
-	<nav class="container mx-auto px-4 py-4">
-		<div class="flex items-center justify-between">
-			<a href="/" class="flex items-center space-x-3">
-				<img src={companyData.logo} alt={companyData.name} class="h-12" />
-			</a>
-			
-			<!-- Mobile menu button -->
-			<button id="mobile-menu-button" class="md:hidden text-2xl" aria-label="Toggle menu">
-				☰
-			</button>
-			
-			<!-- Navigation links -->
-			<div id="nav-menu" class="hidden md:flex items-center space-x-6">
-				<a href="/" class="text-gray-700 hover:text-green-600 font-medium">Home</a>
-				<a href="/inventory" class="text-gray-700 hover:text-green-600 font-medium">Inventory</a>
-				<a href="/rentals" class="text-gray-700 hover:text-green-600 font-medium">Rentals</a>
-				<a href="/fleet" class="text-gray-700 hover:text-green-600 font-medium">Fleet</a>
-				<a href="/gallery" class="text-gray-700 hover:text-green-600 font-medium">Gallery</a>
-				<a href="/golf-cart-repairs" class="text-gray-700 hover:text-green-600 font-medium">Repairs</a>
-				<a href="/contact" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 font-medium">
-					Contact
+<header class="fixed top-0 w-full z-50">
+	<!-- Top bar with contact info -->
+	<div class="bg-black w-full py-2 px-4">
+		<div class="container mx-auto flex justify-between items-center text-green-400">
+			<div class="flex items-center">
+				<span class="mr-1">📞</span>
+				<a href={companyData.contact.phoneLink} class="hover:text-green-300 transition">{companyData.contact.phone}</a>
+			</div>
+			<div class="flex items-center">
+				<span class="mr-1">📍</span>
+				<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:text-green-300 transition">
+					{companyData.location.full}
 				</a>
 			</div>
 		</div>
-		
-		<!-- Mobile navigation -->
-		<div id="mobile-nav" class="hidden md:hidden mt-4 pb-4">
-			<div class="flex flex-col space-y-3">
-				<a href="/" class="text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
-				<a href="/inventory" class="text-gray-700 hover:text-green-600 font-medium py-2">Inventory</a>
-				<a href="/rentals" class="text-gray-700 hover:text-green-600 font-medium py-2">Rentals</a>
-				<a href="/fleet" class="text-gray-700 hover:text-green-600 font-medium py-2">Fleet</a>
-				<a href="/gallery" class="text-gray-700 hover:text-green-600 font-medium py-2">Gallery</a>
-				<a href="/golf-cart-repairs" class="text-gray-700 hover:text-green-600 font-medium py-2">Repairs</a>
-				<a href="/contact" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 font-medium text-center">
-					Contact
+	</div>
+	
+	<!-- Main navigation -->
+	<nav class="bg-white bg-opacity-95 backdrop-blur-sm shadow-md">
+		<div class="container mx-auto px-4 py-6">
+			<!-- Logo -->
+			<div class="flex justify-center mb-6">
+				<a href="/" class="inline-block">
+					<h1 class="text-6xl font-bold" style="font-family: 'Brush Script MT', cursive;">
+						<span style="background: linear-gradient(to bottom, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;">Masters</span>
+					</h1>
+					<p class="text-xl font-bold uppercase tracking-wide" style="background: linear-gradient(to bottom, #FFD700, #FF8C00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;">
+						Golf Cars, LLC
+					</p>
 				</a>
+			</div>
+			
+			<!-- Navigation bar -->
+			<div class="bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3">
+				<div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white font-bold uppercase text-sm md:text-base">
+					<a href="/" class="hover:text-green-400 transition">Home</a>
+					<a href="/golf-cart-repairs" class="hover:text-green-400 transition">Service</a>
+					<a href="/rentals" class="hover:text-green-400 transition">Rentals</a>
+					<a href="/gallery" class="hover:text-green-400 transition">Gallery</a>
+					<a href="/inventory" class="hover:text-green-400 transition">Golf Carts for Sale</a>
+					<a href="/sell-your-cart" class="hover:text-green-400 transition">Sell Your Cart</a>
+					<a href="/contact" class="hover:text-green-400 transition">Contact</a>
+				</div>
 			</div>
 		</div>
 	</nav>
