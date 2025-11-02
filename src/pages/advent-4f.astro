@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CartCard from '../components/CartCard.astro';
+import inventoryData from '../data/inventory.json';
+
+const advent4fCarts = inventoryData.filter(cart => cart.model === 'Advent 4F');
+---
+
+<Layout title="Advent 4F Golf Carts For Sale - Masters Golf Cars" description="Browse our selection of Advanced EV Advent 4F golf carts for sale in The Villages, FL">
+	<section class="py-20 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h1 class="text-4xl font-bold mb-4 text-gray-900">Advent 4F Golf Carts For Sale</h1>
+			<p class="text-gray-600 mb-8">
+				Advanced EV Advent 4F Deluxe Golf Ready carts available now
+			</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{advent4fCarts.map((cart) => (
+					<CartCard
+						name={cart.name}
+						model={cart.model}
+						price={cart.price}
+						salePrice={cart.salePrice}
+						stock={cart.stock}
+						image={cart.image}
+						slug={`${cart.id}`}
+					/>
+				))}
+			</div>
+
+			<div class="mt-12 text-center">
+				<a href="/inventory" class="text-green-600 font-semibold hover:underline">
+					← Back to Full Inventory
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>
+
