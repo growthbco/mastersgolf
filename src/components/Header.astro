@@ -31,10 +31,75 @@ import companyData from '../data/company.json';
 			<div class="bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3">
 				<div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white font-bold uppercase text-sm md:text-base">
 					<a href="/" class="hover:opacity-80 transition">Home</a>
-					<a href="/golf-cart-repairs" class="hover:opacity-80 transition">Service</a>
-					<a href="/rentals" class="hover:opacity-80 transition">Rentals</a>
+					
+					<!-- Service Dropdown -->
+					<div class="relative group">
+						<a href="/golf-cart-repairs" class="hover:opacity-80 transition flex items-center">
+							Service ▼
+						</a>
+						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+							<div class="py-2">
+								<a href="/golf-cart-repairs" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Golf Cart Repairs
+								</a>
+								<a href="/schedule-golf-cart-service" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Schedule Service
+								</a>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Rentals Dropdown -->
+					<div class="relative group">
+						<a href="/rentals" class="hover:opacity-80 transition flex items-center">
+							Rentals ▼
+						</a>
+						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+							<div class="py-2">
+								<a href="/rentals" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Individual Rentals
+								</a>
+								<a href="/fleet" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Fleet Rentals
+								</a>
+							</div>
+						</div>
+					</div>
+					
 					<a href="/gallery" class="hover:opacity-80 transition">Gallery</a>
-					<a href="/inventory" class="hover:opacity-80 transition">Golf Carts for Sale</a>
+					
+					<!-- Golf Carts for Sale Dropdown -->
+					<div class="relative group">
+						<a href="/inventory" class="hover:opacity-80 transition flex items-center">
+							Golf Carts for Sale ▼
+						</a>
+						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+							<div class="py-2">
+								<a href="/inventory" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Golf Carts For Sale
+								</a>
+								<a href="/advent-2" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Advent 2
+								</a>
+								<a href="/advent-4" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Advent 4
+								</a>
+								<a href="/advent-4f" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Advent 4F
+								</a>
+								<a href="/advent-4l" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Advent 4L
+								</a>
+								<a href="/advent-6" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Advent 6
+								</a>
+								<a href="/advent-6l" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+									Advent 6L
+								</a>
+							</div>
+						</div>
+					</div>
+					
 					<a href="/sell-your-cart" class="hover:opacity-80 transition">Sell Your Cart</a>
 					<a href="/contact" class="hover:opacity-80 transition">Contact</a>
 				</div>
@@ -42,13 +107,3 @@ import companyData from '../data/company.json';
 		</div>
 	</nav>
 </header>
-
-<script>
-	const mobileMenuButton = document.getElementById('mobile-menu-button');
-	const mobileNav = document.getElementById('mobile-nav');
-	
-	mobileMenuButton?.addEventListener('click', () => {
-		mobileNav?.classList.toggle('hidden');
-	});
-</script>
-
