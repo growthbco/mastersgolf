@@ -13,8 +13,17 @@ import companyData from '../data/company.json';
 		<!-- Transparent Header Overlay -->
 		<Header transparent={true} />
 		
+		<!-- SEO H1 Heading -->
+		<div class="relative z-10 mt-32 mb-8 px-4">
+			<div class="container mx-auto max-w-4xl">
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center drop-shadow-lg" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5);">
+					{companyData.tagline}
+				</h1>
+			</div>
+		</div>
+		
 		<!-- Spacer to push carts to bottom -->
-		<div class="flex-grow min-h-[50vh]"></div>
+		<div class="flex-grow min-h-[30vh]"></div>
 		
 		<!-- Golf Carts Row - Transparent Overlay -->
 		<div class="relative z-10 py-16">
