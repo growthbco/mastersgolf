@@ -2,27 +2,27 @@
   "brands": [
     {
       "name": "Club Car",
-      "icon": "https://mastersgolfcars.com/uploads/club-car-icon-0-0.webp"
+      "icon": "/images/logos/club-car-icon-0-0.webp"
     },
     {
       "name": "Yamaha",
-      "icon": "https://mastersgolfcars.com/uploads/yamaha-icon-0-1.webp"
+      "icon": "/images/logos/yamaha-icon-0-1.webp"
     },
     {
       "name": "EZ-GO",
-      "icon": "https://mastersgolfcars.com/uploads/ez-go-icon-0-2.webp"
+      "icon": "/images/logos/ez-go-icon-0-2.webp"
     },
     {
       "name": "Trojan Batteries",
-      "icon": "https://mastersgolfcars.com/uploads/trojan-batteries-icon-0-3.webp"
+      "icon": "/images/logos/trojan-batteries-icon-0-3.webp"
     },
     {
       "name": "24 Cart Club",
-      "icon": "https://mastersgolfcars.com/uploads/24-cart-club-icon-0-4.webp"
+      "icon": "/images/logos/24-cart-club-icon-0-4.webp"
     },
     {
       "name": "Advanced EV",
-      "icon": "https://mastersgolfcars.com/uploads/advanced-ev-icon-0-5.webp"
+      "icon": "/images/logos/advanced-ev-icon-0-5.webp"
     }
   ],
   "rentalAreas": [
