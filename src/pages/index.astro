@@ -112,8 +112,11 @@ import companyData from '../data/company.json';
 	</section>
 	
 	<!-- Advent Lineup Section -->
-	<section class="py-16" style="background-color: #F3F3F3;">
-		<div class="container mx-auto px-4">
+	<section class="relative py-16" style="background-color: #F3F3F3;">
+		<!-- Green bar at top -->
+		<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #86CA25;"></div>
+		
+		<div class="container mx-auto px-4 pt-8">
 			<div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
 				<!-- Title -->
 				<div class="mb-12 md:mb-0 flex-shrink-0">
@@ -124,14 +127,14 @@ import companyData from '../data/company.json';
 				</div>
 				
 				<!-- Vehicle Grid -->
-				<div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 ml-auto">
+				<div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 ml-auto">
 				<!-- Advent -->
 				<div class="text-center">
 					<div class="mb-4">
 						<img src="/images/Advent Section/advent-golf-cart_img_v43 (1).webp" alt="Advent Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" />
 					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advent-logo_img_v49.webp" alt="Advent" class="h-8" />
+					<div class="text-gray-800 font-bold uppercase text-lg">
+						ADV<span class="text-green-600 inline-block">E</span>NT
 					</div>
 				</div>
 				
@@ -140,12 +143,24 @@ import companyData from '../data/company.json';
 					<div class="mb-4">
 						<img src="/images/Advent Section/ae-horizon-golf-cart_img_v44.webp" alt="Horizon Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" />
 					</div>
+					<div class="text-gray-800 font-bold uppercase text-lg">
+						ADVANCED <span>E</span><span class="text-green-600 inline-block">V</span>
+					</div>
+					<div class="text-gray-800 italic text-base mt-1" style="font-family: 'Brush Script MT', cursive;">
+						Horizon
+					</div>
 				</div>
 				
 				<!-- Advent Click / HD Click -->
 				<div class="text-center">
 					<div class="mb-4">
 						<img src="/images/Advent Section/ae-advent-click-golf-cart_img_v45.webp" alt="Advent Click Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" />
+					</div>
+					<div class="text-gray-800 font-bold uppercase text-lg">
+						ADV<span class="text-green-600 inline-block">E</span>NT CLICK
+					</div>
+					<div class="text-gray-800 font-bold uppercase text-base mt-1">
+						ADV<span class="text-green-600 inline-block">E</span>NT HD CLICK
 					</div>
 				</div>
 				
@@ -154,8 +169,8 @@ import companyData from '../data/company.json';
 					<div class="mb-4">
 						<img src="/images/Advent Section/ae-advent-hd-golf-cart_img_v46.webp" alt="Advent HD Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" />
 					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advanced-ev-advent-hd-logo_img_v52.webp" alt="Advent HD" class="h-8" />
+					<div class="text-gray-800 font-bold uppercase text-lg">
+						ADV<span class="text-green-600 inline-block">E</span>NT <span class="font-black">HD</span>
 					</div>
 				</div>
 				
@@ -164,6 +179,12 @@ import companyData from '../data/company.json';
 					<div class="mb-4">
 						<img src="/images/Advent Section/ae-advent-specialty-golf-cart_img_v47.webp" alt="Advent Specialty Vehicle" class="w-full h-auto object-contain max-h-64 mx-auto" />
 					</div>
+					<div class="text-gray-800 font-bold uppercase text-lg">
+						ADV<span class="text-green-600 inline-block">E</span>NT
+					</div>
+					<div class="text-gray-800 font-bold uppercase text-base mt-1">
+						SPECIALTY VEHICLES
+					</div>
 				</div>
 				
 				<!-- Stellar -->
@@ -171,8 +192,8 @@ import companyData from '../data/company.json';
 					<div class="mb-4">
 						<img src="/images/Advent Section/ae-advent-stellar-golf-cart_img_v48.webp" alt="Stellar Vehicle" class="w-full h-auto object-contain max-h-64 mx-auto" />
 					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advanced-ev-stellar-logo_img_v54.webp" alt="Stellar" class="h-8" />
+					<div class="text-gray-800 font-bold uppercase text-lg">
+						ST<span class="text-green-600 inline-block">E</span>LLAR
 					</div>
 				</div>
 				</div>
