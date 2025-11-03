@@ -1,196 +1,50 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import CartCard from '../components/CartCard.astro';
-import inventoryData from '../data/inventory.json';
 import companyData from '../data/company.json';
-import servicesData from '../data/services.json';
-
-const featuredCarts = inventoryData.slice(0, 6);
 ---
 
 <Layout title={`${companyData.name} - ${companyData.tagline}`}>
 	<!-- Hero Section with Golf Course Background -->
-	<section class="relative -mt-48 min-h-screen flex items-end pb-20" style="background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920&q=80'); background-size: cover; background-position: center;">
-		<!-- Overlay for readability -->
-		<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+	<section class="relative -mt-48 min-h-screen flex flex-col">
+		<!-- Full-screen golf course background -->
+		<div class="absolute inset-0 z-0" style="background-image: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1920&q=80'); background-size: cover; background-position: center; background-attachment: fixed;"></div>
 		
-		<!-- Content container -->
-		<div class="container mx-auto px-4 relative z-10">
-			<div class="max-w-4xl">
-				<h1 class="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-					{companyData.tagline}
-				</h1>
-				<p class="text-xl mb-8 text-white drop-shadow-md">
-					{companyData.description}
-				</p>
-				<div class="flex flex-wrap gap-4">
-					<a href="/inventory" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold transition shadow-lg text-lg">
-						Shop Golf Carts
-					</a>
-					<a href="/rentals" class="bg-white hover:bg-gray-50 text-green-600 px-8 py-4 rounded-lg font-bold transition shadow-lg text-lg border-2 border-green-600">
-						Rent a Cart
-					</a>
+		<!-- Spacer to push content to bottom -->
+		<div class="flex-grow min-h-[60vh]"></div>
+		
+		<!-- Golf Carts Row on Light Background -->
+		<div class="relative z-10 bg-gray-50 py-16">
+			<div class="container mx-auto px-4">
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+					<div class="flex justify-center items-end">
+						<img src="/images/home page carts/rental-club-car-golf-cart_img_v38.webp" alt="Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+					</div>
+					<div class="flex justify-center items-end">
+						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Fleet Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+					</div>
+					<div class="flex justify-center items-end">
+						<img src="/images/home page carts/fleet-rental-ez-go-golf-cart_img_v40.webp" alt="EZ-GO Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+					</div>
+					<div class="flex justify-center items-end">
+						<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Advanced EV Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-
-	<!-- Services Overview -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
-				Comprehensive Golf Cart Services
-			</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-				<div class="text-center">
-					<div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span class="text-4xl font-bold text-green-600">GC</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2">Golf Cart Sales</h3>
-					<p class="text-gray-600">New and used carts from top brands</p>
-					<a href="/inventory" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
-						View Inventory →
+		
+		<!-- CTA Boxes -->
+		<div class="relative z-10 bg-black py-8">
+			<div class="container mx-auto px-4">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition border-2 border-transparent hover:border-green-600">
+						Cart Rentals
 					</a>
-				</div>
-				
-				<div class="text-center">
-					<div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span class="text-4xl font-bold text-green-600">R</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2">Cart Rentals</h3>
-					<p class="text-gray-600">Flexible rental options for events</p>
-					<a href="/rentals" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
-						Learn More →
+					<a href="/fleet" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition border-2 border-transparent hover:border-green-600">
+						Fleet Rentals
 					</a>
-				</div>
-				
-				<div class="text-center">
-					<div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span class="text-4xl font-bold text-green-600">F</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2">Fleet Rentals</h3>
-					<p class="text-gray-600">Rent a fleet for large events</p>
-					<a href="/fleet" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
-						Get Quote →
+					<a href="/inventory" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition border-2 border-transparent hover:border-green-600">
+						Golf Carts For Sale
 					</a>
-				</div>
-				
-				<div class="text-center">
-					<div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span class="text-4xl font-bold text-green-600">S</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2">Service & Repairs</h3>
-					<p class="text-gray-600">Expert maintenance and repair</p>
-					<a href="/contact" class="text-green-600 font-semibold mt-2 inline-block hover:underline">
-						Contact Us →
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Featured Inventory -->
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="flex justify-between items-center mb-12">
-				<h2 class="text-4xl font-bold text-gray-900">Featured Golf Carts</h2>
-				<a href="/inventory" class="text-green-600 font-semibold hover:underline">
-					View All Inventory →
-				</a>
-			</div>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-				{featuredCarts.map((cart) => (
-					<CartCard
-						name={cart.name}
-						model={cart.model}
-						price={cart.price}
-						salePrice={cart.salePrice}
-						stock={cart.stock}
-						image={cart.image}
-						slug={`${cart.id}`}
-					/>
-				))}
-			</div>
-		</div>
-	</section>
-
-	<!-- Brands We Work With -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
-				Brands We Work With
-			</h2>
-			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-				{servicesData.brands.map((brand) => (
-					<div class="flex items-center justify-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
-						<img src={brand.icon} alt={brand.name} class="max-h-16 object-contain" />
-					</div>
-				))}
-			</div>
-		</div>
-	</section>
-
-	<!-- Financing CTA -->
-	<section class="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
-		<div class="container mx-auto px-4 text-center">
-			<h2 class="text-4xl font-bold mb-4">Easy Financing Available</h2>
-			<p class="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
-				We offer flexible financing options on all new and used golf carts. 
-				Talk to our team to find the best path for you.
-			</p>
-			<a href="/contact" class="bg-white text-green-600 px-8 py-3 rounded-lg font-bold hover:bg-green-50 transition inline-block">
-				Apply For Financing
-			</a>
-		</div>
-	</section>
-
-	<!-- About Section -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-				<div>
-					<h2 class="text-4xl font-bold mb-6 text-gray-900">
-						Your #1 Source for Golf Carts in Central Florida
-					</h2>
-					<p class="text-lg text-gray-600 mb-4">
-						<strong>Masters Golf Cars</strong> is Ocala, The Villages & Central Florida's 
-						premier authorized golf car dealer for <strong>Advanced EV</strong>, as well as 
-						other leading golf cart brands. Since {companyData.founded}, Masters Golf Cars 
-						is locally owned and operated and has proudly been serving our community.
-					</p>
-					<p class="text-lg text-gray-600 mb-4">
-						Whether you're looking for Low Speed Vehicle golf carts, Neighborhood electric 
-						vehicles or standard golf cars for sale, we offer Advanced EV, Yamaha, Club Car & 
-						EZ-GO solutions for both commercial and residential use.
-					</p>
-					<a href="/contact" class="text-green-600 font-semibold hover:underline">
-						Contact Us Today →
-					</a>
-				</div>
-				<div class="bg-gray-100 rounded-lg p-8">
-					<h3 class="text-2xl font-bold mb-4">Why Choose Masters Golf Cars?</h3>
-					<ul class="space-y-3">
-						<li class="flex items-start">
-							<span class="text-green-600 text-xl mr-3 font-bold">•</span>
-							<span class="text-gray-700">{companyData.founded} years of experience</span>
-						</li>
-						<li class="flex items-start">
-							<span class="text-green-600 text-xl mr-3 font-bold">•</span>
-							<span class="text-gray-700">300+ late-model golf carts in fleet</span>
-						</li>
-						<li class="flex items-start">
-							<span class="text-green-600 text-xl mr-3 font-bold">•</span>
-							<span class="text-gray-700">Full-service repair and maintenance</span>
-						</li>
-						<li class="flex items-start">
-							<span class="text-green-600 text-xl mr-3 font-bold">•</span>
-							<span class="text-gray-700">Free delivery and pickup</span>
-						</li>
-						<li class="flex items-start">
-							<span class="text-green-600 text-xl mr-3 font-bold">•</span>
-							<span class="text-gray-700">Competitive pricing and financing</span>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>
