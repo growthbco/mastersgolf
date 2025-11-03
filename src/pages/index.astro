@@ -37,20 +37,72 @@ import companyData from '../data/company.json';
 		</div>
 		
 		<!-- CTA Boxes -->
-		<div class="relative z-10 bg-black bg-opacity-80 py-8">
+		<div class="relative z-10 bg-black py-8">
 			<div class="container mx-auto px-4">
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition border-2 border-transparent hover:border-green-600">
+					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition">
 						Cart Rentals
 					</a>
-					<a href="/fleet" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition border-2 border-transparent hover:border-green-600">
+					<a href="/fleet" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition">
 						Fleet Rentals
 					</a>
-					<a href="/inventory" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition border-2 border-transparent hover:border-green-600">
+					<a href="/inventory" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition">
 						Golf Carts For Sale
 					</a>
 				</div>
 			</div>
+		</div>
+	</section>
+	
+	<!-- Search Inventory Section -->
+	<section class="bg-green-500 py-12 relative">
+		<!-- Grass texture border at top -->
+		<div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-b from-green-600 to-green-500 opacity-80"></div>
+		
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Search Our Golf Cart Inventory</h2>
+			
+			<form action="/inventory" method="GET" class="max-w-5xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+					<!-- Condition Dropdown -->
+					<div>
+						<label for="condition" class="block text-gray-800 font-semibold mb-2">Condition</label>
+						<select id="condition" name="condition" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600">
+							<option value="">Any</option>
+							<option value="new">New</option>
+							<option value="used">Used</option>
+						</select>
+					</div>
+					
+					<!-- Brand Dropdown -->
+					<div>
+						<label for="brand" class="block text-gray-800 font-semibold mb-2">Brand</label>
+						<select id="brand" name="brand" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600">
+							<option value="">Any</option>
+							<option value="advanced-ev">Advanced EV</option>
+							<option value="club-car">Club Car</option>
+							<option value="ez-go">EZ-GO</option>
+							<option value="yamaha">Yamaha</option>
+						</select>
+					</div>
+					
+					<!-- Keyword/Stock # Input -->
+					<div>
+						<label for="keyword" class="block text-gray-800 font-semibold mb-2">Keyword Or Stock #</label>
+						<input type="text" id="keyword" name="keyword" placeholder="Any" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600" />
+					</div>
+					
+					<!-- Search Button -->
+					<div>
+						<button type="submit" class="w-full bg-black hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-bold uppercase transition flex items-center justify-center gap-2">
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+							</svg>
+							SEARCH
+						</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</section>
 </Layout>
