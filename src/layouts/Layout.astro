@@ -6,9 +6,10 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	hideHeader?: boolean;
 }
 
-const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala." } = Astro.props;
+const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,7 +23,7 @@ const { title, description = "Masters Golf Cars offers golf carts for sale and r
 		<title>{title}</title>
 	</head>
 	<body class="min-h-screen bg-gray-50">
-		<Header />
+		{!hideHeader && <Header />}
 		<main>
 			<slot />
 		</main>

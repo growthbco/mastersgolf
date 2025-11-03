@@ -1,39 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
 import companyData from '../data/company.json';
 ---
 
-<Layout title={`${companyData.name} - ${companyData.tagline}`}>
+<Layout title={`${companyData.name} - ${companyData.tagline}`} hideHeader={true}>
 	<!-- Hero Section with Golf Course Background -->
 	<section class="relative min-h-screen flex flex-col">
 		<!-- Full-screen golf course background -->
 		<div class="absolute inset-0 z-0" style="background-image: url('/images/landing-pg-hero-3.jpg'); background-size: cover; background-position: center;"></div>
 		
-		<!-- Spacer to push content to bottom -->
-		<div class="flex-grow min-h-[60vh]"></div>
+		<!-- Transparent Header Overlay -->
+		<Header transparent={true} />
 		
-		<!-- Golf Carts Row on Light Background -->
-		<div class="relative z-10 bg-gray-50 py-16">
+		<!-- Spacer to push carts to bottom -->
+		<div class="flex-grow min-h-[50vh]"></div>
+		
+		<!-- Golf Carts Row - Transparent Overlay -->
+		<div class="relative z-10 py-16">
 			<div class="container mx-auto px-4">
 				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/rental-club-car-golf-cart_img_v38.webp" alt="Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+						<img src="/images/home page carts/rental-club-car-golf-cart_img_v38.webp" alt="Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Fleet Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Fleet Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/fleet-rental-ez-go-golf-cart_img_v40.webp" alt="EZ-GO Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+						<img src="/images/home page carts/fleet-rental-ez-go-golf-cart_img_v40.webp" alt="EZ-GO Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Advanced EV Golf Cart" class="w-full h-auto max-h-64 object-contain" />
+						<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Advanced EV Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 				</div>
 			</div>
 		</div>
 		
 		<!-- CTA Boxes -->
-		<div class="relative z-10 bg-black py-8">
+		<div class="relative z-10 bg-black bg-opacity-80 py-8">
 			<div class="container mx-auto px-4">
 				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
 					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition border-2 border-transparent hover:border-green-600">

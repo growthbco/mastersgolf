@@ -1,16 +1,18 @@
 ---
 import companyData from '../data/company.json';
+
+const { transparent = false } = Astro.props;
 ---
 
-<header class="relative w-full z-50">
+<header class={transparent ? "absolute top-0 left-0 w-full z-50" : "relative w-full z-50"}>
 	<!-- Top bar with contact info -->
-	<div class="bg-black w-full py-2 px-4">
+	<div class={transparent ? "bg-black bg-opacity-50 w-full py-2 px-4" : "bg-black w-full py-2 px-4"}>
 		<div class="container mx-auto flex justify-between items-center text-green-500">
 			<div class="flex items-center">
 				<a href={companyData.contact.phoneLink} class="hover:opacity-80 transition">{companyData.contact.phone}</a>
 			</div>
 			<div class="flex items-center">
-				<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:opacity-80 transition">
+				<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:opacity-80 transition text-white">
 					{companyData.location.full}
 				</a>
 			</div>
@@ -18,7 +20,7 @@ import companyData from '../data/company.json';
 	</div>
 	
 	<!-- Main navigation -->
-	<nav class="bg-white bg-opacity-95 backdrop-blur-sm shadow-md">
+	<nav class={transparent ? "bg-transparent" : "bg-white bg-opacity-95 backdrop-blur-sm shadow-md"}>
 		<div class="container mx-auto px-4 py-6">
 			<!-- Logo -->
 			<div class="flex justify-center mb-6">
@@ -28,7 +30,7 @@ import companyData from '../data/company.json';
 			</div>
 			
 			<!-- Navigation bar -->
-			<div class="bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3">
+			<div class={transparent ? "bg-gray-900 bg-opacity-70 backdrop-blur-sm rounded-lg px-6 py-3" : "bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3"}>
 				<div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white font-bold uppercase text-sm md:text-base">
 					<a href="/" class="hover:opacity-80 transition">Home</a>
 					
