@@ -31,6 +31,17 @@ const { transparent = false } = Astro.props;
 				</a>
 			</div>
 			
+			<!-- SEO H1 Heading - only show when transparent -->
+			{transparent && (
+				<div class="flex justify-center mb-6 px-4">
+					<div class="max-w-4xl">
+						<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5);">
+							{companyData.tagline}
+						</h1>
+					</div>
+				</div>
+			)}
+			
 			<!-- Navigation bar -->
 			<div class={transparent ? "bg-gray-900 bg-opacity-25 backdrop-blur-sm rounded-lg px-6 py-4 max-w-6xl mx-auto" : "bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3"}>
 				<div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white font-bold uppercase text-base md:text-lg">
