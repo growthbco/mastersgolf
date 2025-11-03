@@ -37,16 +37,16 @@ import companyData from '../data/company.json';
 		</div>
 		
 		<!-- CTA Boxes -->
-		<div class="relative z-10 bg-black py-8">
+		<div class="relative z-10 bg-white py-8">
 			<div class="container mx-auto px-4">
-				<div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition">
+				<div class="flex flex-wrap justify-center items-center gap-4 max-w-6xl mx-auto">
+					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-6 py-4 text-center font-bold uppercase text-base transition">
 						Cart Rentals
 					</a>
-					<a href="/fleet" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition">
+					<a href="/fleet" class="bg-black hover:bg-gray-900 text-white px-6 py-4 text-center font-bold uppercase text-base transition">
 						Fleet Rentals
 					</a>
-					<a href="/inventory" class="bg-black hover:bg-gray-900 text-white px-8 py-6 text-center font-bold uppercase text-lg transition">
+					<a href="/inventory" class="bg-black hover:bg-gray-900 text-white px-6 py-4 text-center font-bold uppercase text-base transition">
 						Golf Carts For Sale
 					</a>
 				</div>
@@ -55,11 +55,13 @@ import companyData from '../data/company.json';
 	</section>
 	
 	<!-- Search Inventory Section -->
-	<section class="bg-green-500 py-12 relative">
+	<section class="py-12 relative" style="background-color: #86CA25;">
 		<!-- Grass texture border at top -->
-		<div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-b from-green-600 to-green-500 opacity-80"></div>
+		<div class="absolute top-0 left-0 right-0 h-12 overflow-hidden">
+			<img src="/images/grass-edge-min.png" alt="" class="w-full h-full object-cover object-top" />
+		</div>
 		
-		<div class="container mx-auto px-4">
+		<div class="container mx-auto px-4 pt-16">
 			<h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Search Our Golf Cart Inventory</h2>
 			
 			<form action="/inventory" method="GET" class="max-w-5xl mx-auto">
