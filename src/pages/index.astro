@@ -287,4 +287,146 @@ import servicesData from '../data/services.json';
 			</div>
 		</div>
 	</section>
+	
+	<!-- Advanced EV Advent Carousel Section -->
+	<section class="bg-white py-16">
+		<div class="container mx-auto px-4">
+			<!-- Description Text -->
+			<div class="max-w-4xl mx-auto mb-12">
+				<p class="text-lg text-gray-700 text-center">
+					Elevate your lifestyle in the all-new Advanced EV Advent. The Advent boasts sleek style, a world class suspension, and an energy efficient AC powertrain. Its on-road finesse and higher ground clearance contribute towards an industry leading ride quality. All Advents come standard with an LED Drive Package, independent front suspension, Electromagnetic Brakes, and an Onboard Charger/Maintainer.
+				</p>
+			</div>
+			
+			<!-- Carousel Container -->
+			<div class="relative max-w-7xl mx-auto">
+				<!-- Navigation Arrows -->
+				<button id="adventCarouselPrev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 rounded-full p-3 transition hidden md:flex items-center justify-center">
+					<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+					</svg>
+				</button>
+				<button id="adventCarouselNext" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-300 rounded-full p-3 transition hidden md:flex items-center justify-center">
+					<svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+					</svg>
+				</button>
+				
+				<!-- Scrollable Carousel -->
+				<div id="adventCarousel" class="overflow-x-auto scroll-smooth scrollbar-hide flex gap-6 md:gap-8 pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
+					<!-- Product Card 1: Advent 2 -->
+					<div class="flex-shrink-0 w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
+						<!-- Image Container with Overlay -->
+						<div class="relative">
+							<img src="https://i31.dlrwebservice.com/52004/i/139811/wm650/3_52004_139811_8156808.jpg" alt="2025 Advanced EV Advent 2 Deluxe Golf Ready" class="w-full h-64 object-cover" />
+							<!-- Overlay with Logo -->
+							<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+								<div class="flex items-center gap-3 mb-2">
+									<img src={companyData.logo} alt="Masters Golf Cars" class="h-12" />
+								</div>
+								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
+								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
+								<p class="text-green-500 text-sm font-semibold">{companyData.contact.phone}</p>
+								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
+							</div>
+						</div>
+						<!-- Product Info -->
+						<div class="p-6">
+							<h3 class="text-xl font-bold text-gray-800 mb-4">2025 Advanced EV Advent 2 Deluxe Golf Ready</h3>
+							<div class="space-y-2">
+								<p class="text-gray-600 line-through">Price: $14,595.00</p>
+								<p class="text-2xl font-bold text-gray-800">Sale Price: $13,395.00</p>
+							</div>
+						</div>
+						<!-- Black Footer -->
+						<div class="bg-black h-2"></div>
+					</div>
+					
+					<!-- Product Card 2: Advent 4F -->
+					<div class="flex-shrink-0 w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
+						<!-- Image Container with Overlay -->
+						<div class="relative">
+							<img src="https://i31.dlrwebservice.com/52004/i/139819/wm650/3_52004_139819_8156859.jpg" alt="2025 Advanced EV Advent 4F Deluxe Golf Ready" class="w-full h-64 object-cover" />
+							<!-- Overlay with Logo -->
+							<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+								<div class="flex items-center gap-3 mb-2">
+									<img src={companyData.logo} alt="Masters Golf Cars" class="h-12" />
+								</div>
+								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
+								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
+								<p class="text-green-500 text-sm font-semibold">{companyData.contact.phone}</p>
+								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
+							</div>
+						</div>
+						<!-- Product Info -->
+						<div class="p-6">
+							<h3 class="text-xl font-bold text-gray-800 mb-4">2025 Advanced EV Advent 4F Deluxe Golf Ready</h3>
+							<div class="space-y-2">
+								<p class="text-gray-600 line-through">Price: $17,595.00</p>
+								<p class="text-2xl font-bold text-gray-800">Sale Price: $16,195.00</p>
+							</div>
+						</div>
+						<!-- Black Footer -->
+						<div class="bg-black h-2"></div>
+					</div>
+					
+					<!-- Product Card 3: Advent 2 (Second one) -->
+					<div class="flex-shrink-0 w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
+						<!-- Image Container with Overlay -->
+						<div class="relative">
+							<img src="https://mastersgolfcars.com/WebResource.axd?d=p0DvQO950oVj9655gaE-crYigeYq9SznsgqPbj_WLxFU_FI3wTLO5LZtLWukUvswYh3WrwOHWltTlS3QxiHAfmjvYS9iqj9N54lO_QAPBdd-CIgw9_esAtA3npQz9MD0DlBYjLp6Pmx1zh6k3-1cwQ2&t=638949988398580819" alt="2025 Advanced EV Advent 2 Deluxe Golf Ready" class="w-full h-64 object-cover" />
+							<!-- Overlay with Logo -->
+							<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+								<div class="flex items-center gap-3 mb-2">
+									<img src={companyData.logo} alt="Masters Golf Cars" class="h-12" />
+								</div>
+								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
+								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
+								<p class="text-green-500 text-sm font-semibold">{companyData.contact.phone}</p>
+								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
+							</div>
+						</div>
+						<!-- Product Info -->
+						<div class="p-6">
+							<h3 class="text-xl font-bold text-gray-800 mb-4">2025 Advanced EV Advent 2 Deluxe Golf Ready</h3>
+							<div class="space-y-2">
+								<p class="text-gray-600 line-through">Price: $14,595.00</p>
+								<p class="text-2xl font-bold text-gray-800">Sale Price: $13,395.00</p>
+							</div>
+						</div>
+						<!-- Black Footer -->
+						<div class="bg-black h-2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<script is:inline>
+		// Carousel navigation
+		document.addEventListener('DOMContentLoaded', () => {
+			const carousel = document.getElementById('adventCarousel');
+			const prevBtn = document.getElementById('adventCarouselPrev');
+			const nextBtn = document.getElementById('adventCarouselNext');
+			const cardWidth = 384; // w-96 = 384px
+			const gap = 32; // gap-8 = 32px
+			const scrollAmount = cardWidth + gap;
+			
+			if (prevBtn && nextBtn && carousel) {
+				prevBtn.addEventListener('click', () => {
+					carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+				});
+				
+				nextBtn.addEventListener('click', () => {
+					carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+				});
+			}
+		});
+	</script>
+	
+	<style>
+		.scrollbar-hide::-webkit-scrollbar {
+			display: none;
+		}
+	</style>
 </Layout>
