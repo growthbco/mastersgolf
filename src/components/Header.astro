@@ -9,10 +9,16 @@ const { transparent = false } = Astro.props;
 	{!transparent && (
 		<div class="bg-black w-full py-2 px-4">
 			<div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm" style="color: #86CA26;">
-				<div class="flex items-center">
+				<div class="flex items-center gap-2">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+					</svg>
 					<a href={companyData.contact.phoneLink} class="hover:opacity-80 transition">{companyData.contact.phone}</a>
 				</div>
-				<div class="flex items-center">
+				<div class="flex items-center gap-2">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+					</svg>
 					<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:opacity-80 transition text-white text-center">
 						{companyData.location.full}
 					</a>
@@ -22,19 +28,24 @@ const { transparent = false } = Astro.props;
 	)}
 	
 	<!-- Main navigation -->
-	<nav class={transparent ? "bg-transparent" : "bg-white bg-opacity-95 backdrop-blur-sm shadow-md"}>
-		<div class="container mx-auto px-4 py-6">
+	<nav class={transparent ? "bg-transparent" : "relative"}>
+		{!transparent && (
+			<!-- Golf Course Background for non-transparent headers -->
+			<div class="absolute inset-0 z-0" style="background-image: url('/images/landing-pg-hero-3.jpg'); background-size: cover; background-position: center;"></div>
+		)}
+		
+		<div class={transparent ? "container mx-auto px-4 py-6" : "container mx-auto px-4 py-6 relative z-10"}>
 			<!-- Logo and Mobile Menu Button -->
 			<div class="flex justify-between items-center mb-6">
 				<div class="flex-1"></div>
 				<div class="flex-1 flex justify-center">
 					<a href="/" class="inline-block max-w-[200px] sm:max-w-none">
-						<img src={companyData.logo} alt={companyData.name} class={transparent ? "h-24 sm:h-32 md:h-36 w-auto max-w-full" : "h-20 sm:h-24 w-auto max-w-full"} style="object-fit: contain;" />
+						<img src={companyData.logo} alt={companyData.name} class={transparent ? "h-24 sm:h-32 md:h-36 w-auto max-w-full" : "h-24 sm:h-32 md:h-40 w-auto max-w-full"} style="object-fit: contain;" />
 					</a>
 				</div>
 				<div class="flex-1 flex justify-end">
 					<!-- Mobile Menu Button -->
-					<button id="mobile-menu-button" class="md:hidden text-white p-2 hover:opacity-80 transition" aria-label="Toggle menu">
+					<button id="mobile-menu-button" class={transparent ? "md:hidden text-white p-2 hover:opacity-80 transition" : "md:hidden text-white p-2 hover:opacity-80 transition"} aria-label="Toggle menu">
 						<svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
 						</svg>
@@ -57,7 +68,7 @@ const { transparent = false } = Astro.props;
 			)}
 			
 			<!-- Desktop Navigation bar -->
-			<div class={transparent ? "hidden md:block bg-gray-900 bg-opacity-25 backdrop-blur-sm rounded-lg px-6 py-4 max-w-6xl mx-auto" : "hidden md:block bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3"}>
+			<div class={transparent ? "hidden md:block bg-gray-900 bg-opacity-25 backdrop-blur-sm rounded-lg px-6 py-4 max-w-6xl mx-auto" : "hidden md:block bg-gray-900 bg-opacity-95 rounded-lg px-6 py-3"}>
 				<div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white font-bold uppercase text-base md:text-lg">
 					<a href="/" class="hover:opacity-80 transition">Home</a>
 					
@@ -136,7 +147,7 @@ const { transparent = false } = Astro.props;
 			
 			<!-- Mobile Navigation Menu -->
 			<div id="mobile-menu" class="md:hidden hidden">
-				<div class={transparent ? "bg-gray-900 bg-opacity-90 backdrop-blur-sm rounded-lg px-4 py-4" : "bg-gray-800 bg-opacity-95 rounded-lg px-4 py-4"}>
+				<div class={transparent ? "bg-gray-900 bg-opacity-90 backdrop-blur-sm rounded-lg px-4 py-4" : "bg-gray-900 bg-opacity-95 rounded-lg px-4 py-4"}>
 					<div class="flex flex-col gap-4 text-white font-bold uppercase text-base">
 						<a href="/" class="hover:opacity-80 transition py-2 border-b border-gray-700">Home</a>
 						
