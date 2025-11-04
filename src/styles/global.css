@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+:root {
+	--brand-green: #86CA26;
+}
+
+/* Hover states for links */
+a.hover-brand-green:hover {
+	color: #86CA26 !important;
+}
+
+.bg-brand-green {
+	background-color: #86CA26 !important;
+}
+
+.bg-brand-green:hover {
+	background-color: #6fa020 !important;
+}
+
+.text-brand-green {
+	color: #86CA26 !important;
+}
+
+.border-brand-green {
+	border-color: #86CA26 !important;
+}
+
+.focus-brand-green:focus {
+	outline: 2px solid #86CA26;
+	outline-offset: 2px;
+}

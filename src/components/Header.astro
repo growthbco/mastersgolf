@@ -8,7 +8,7 @@ const { transparent = false } = Astro.props;
 	<!-- Top bar with contact info - only show when not transparent -->
 	{!transparent && (
 		<div class="bg-black w-full py-2 px-4">
-			<div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-green-500 text-sm">
+			<div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm" style="color: #86CA26;">
 				<div class="flex items-center">
 					<a href={companyData.contact.phoneLink} class="hover:opacity-80 transition">{companyData.contact.phone}</a>
 				</div>
@@ -68,10 +68,10 @@ const { transparent = false } = Astro.props;
 						</a>
 						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
 							<div class="py-2">
-								<a href="/golf-cart-repairs" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/golf-cart-repairs" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Golf Cart Repairs
 								</a>
-								<a href="/schedule-golf-cart-service" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/schedule-golf-cart-service" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Schedule Service
 								</a>
 							</div>
@@ -85,10 +85,10 @@ const { transparent = false } = Astro.props;
 						</a>
 						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
 							<div class="py-2">
-								<a href="/rentals" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/rentals" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Individual Rentals
 								</a>
-								<a href="/fleet" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/fleet" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Fleet Rentals
 								</a>
 							</div>
@@ -104,25 +104,25 @@ const { transparent = false } = Astro.props;
 						</a>
 						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
 							<div class="py-2">
-								<a href="/inventory" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/inventory" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Golf Carts For Sale
 								</a>
-								<a href="/advent-2" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/advent-2" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Advent 2
 								</a>
-								<a href="/advent-4" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/advent-4" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Advent 4
 								</a>
-								<a href="/advent-4f" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/advent-4f" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Advent 4F
 								</a>
-								<a href="/advent-4l" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/advent-4l" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Advent 4L
 								</a>
-								<a href="/advent-6" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/advent-6" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Advent 6
 								</a>
-								<a href="/advent-6l" class="block px-4 py-2 text-gray-800 hover:bg-green-50 hover:text-green-600 transition">
+								<a href="/advent-6l" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
 									Advent 6L
 								</a>
 							</div>
@@ -144,10 +144,10 @@ const { transparent = false } = Astro.props;
 						<div>
 							<a href="/golf-cart-repairs" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Service</a>
 							<div class="pl-4 pt-2 pb-2">
-								<a href="/golf-cart-repairs" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/golf-cart-repairs" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Golf Cart Repairs
 								</a>
-								<a href="/schedule-golf-cart-service" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/schedule-golf-cart-service" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Schedule Service
 								</a>
 							</div>
@@ -157,10 +157,10 @@ const { transparent = false } = Astro.props;
 						<div>
 							<a href="/rentals" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Rentals</a>
 							<div class="pl-4 pt-2 pb-2">
-								<a href="/rentals" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/rentals" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Individual Rentals
 								</a>
-								<a href="/fleet" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/fleet" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Fleet Rentals
 								</a>
 							</div>
@@ -172,25 +172,25 @@ const { transparent = false } = Astro.props;
 						<div>
 							<a href="/inventory" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Golf Carts for Sale</a>
 							<div class="pl-4 pt-2 pb-2">
-								<a href="/inventory" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/inventory" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Golf Carts For Sale
 								</a>
-								<a href="/advent-2" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/advent-2" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Advent 2
 								</a>
-								<a href="/advent-4" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/advent-4" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Advent 4
 								</a>
-								<a href="/advent-4f" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/advent-4f" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Advent 4F
 								</a>
-								<a href="/advent-4l" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/advent-4l" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Advent 4L
 								</a>
-								<a href="/advent-6" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/advent-6" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Advent 6
 								</a>
-								<a href="/advent-6l" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+								<a href="/advent-6l" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Advent 6L
 								</a>
 							</div>

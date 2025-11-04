@@ -6,10 +6,10 @@ import servicesData from '../data/services.json';
 
 <Layout title="Fleet Rentals - Masters Golf Cars" description="Rent a fleet of golf carts for your event in Central Florida">
 	<!-- Hero Section -->
-	<section class="bg-gradient-to-br from-green-600 to-green-800 text-white py-20">
+	<section style="background: linear-gradient(to right, #86CA26, var(--gradient-end, #6fa020));" class="bg-gradient-to-br  to-#5a8019 text-white py-20">
 		<div class="container mx-auto px-4">
 			<h1 class="text-5xl font-bold mb-6">Golf Cart Fleet Rental</h1>
-			<p class="text-xl mb-8 text-green-100">
+			<p style="color: rgba(134, 202, 38, 0.1);" class="text-xl mb-8 (134, 202, 38, 0.1)">
 				Masters Golf Cars makes it easy to rent a fleet of reliable golf carts for your event, 
 				resort, or special occasion. With over 25 years of experience and a fleet of more than 
 				300 late-model, gas-powered carts, we provide dependable transportation for gatherings of any size.
@@ -87,7 +87,7 @@ import servicesData from '../data/services.json';
 			</h2>
 			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 				{servicesData.fleetUseCases.map((useCase) => (
-					<div class="bg-white p-4 rounded-lg text-center hover:bg-green-50 transition">
+					<div style="background-color: rgba(134, 202, 38, 0.05);" class="bg-white p-4 rounded-lg text-center hover:(134, 202, 38, 0.05) transition">
 						<h4 class="font-semibold text-gray-900">{useCase}</h4>
 					</div>
 				))}
@@ -114,7 +114,7 @@ import servicesData from '../data/services.json';
 	</section>
 
 	<!-- Testimonials -->
-	<section class="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+	<section style="background: linear-gradient(to right, #86CA26, var(--gradient-end, #6fa020));" class="py-16 bg-gradient-to-r  to-#6fa020 text-white">
 		<div class="container mx-auto px-4">
 			<h2 class="text-4xl font-bold text-center mb-12">What Our Customers Say</h2>
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -151,7 +151,7 @@ import servicesData from '../data/services.json';
 					From equestrian parks and golf tournaments to weddings, festivals, and corporate events, 
 					our team ensures your carts arrive on time and ready to serve your guests.
 				</p>
-				<a href="/contact" class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-700 transition inline-block">
+				<a href="/contact" style="background-color: #86CA26;" class=" text-white px-8 py-4 rounded-lg font-bold  transition inline-block" style="--hover-bg: #6fa020;">
 					Request Your Fleet Quote Today
 				</a>
 			</div>

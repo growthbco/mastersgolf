@@ -63,7 +63,7 @@ import servicesData from '../data/services.json';
 		</div>
 		
 		<!-- Green background below grass -->
-		<div class="absolute top-12 left-0 right-0 bottom-0" style="background-color: #86CA25;"></div>
+		<div class="absolute top-12 left-0 right-0 bottom-0" style="background-color: #86CA26;"></div>
 		
 		<div class="container mx-auto px-4 pt-16 relative z-10">
 			<h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Search Our Golf Cart Inventory</h2>
@@ -73,7 +73,7 @@ import servicesData from '../data/services.json';
 					<!-- Condition Dropdown -->
 					<div>
 						<label for="condition" class="block text-gray-800 font-semibold mb-2">Condition</label>
-						<select id="condition" name="condition" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600">
+						<select id="condition" name="condition" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2" style="--tw-ring-color: #86CA26;">
 							<option value="">Any</option>
 							<option value="new">New</option>
 							<option value="used">Used</option>
@@ -83,7 +83,7 @@ import servicesData from '../data/services.json';
 					<!-- Brand Dropdown -->
 					<div>
 						<label for="brand" class="block text-gray-800 font-semibold mb-2">Brand</label>
-						<select id="brand" name="brand" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600">
+						<select id="brand" name="brand" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2" style="--tw-ring-color: #86CA26;">
 							<option value="">Any</option>
 							<option value="advanced-ev">Advanced EV</option>
 							<option value="club-car">Club Car</option>
@@ -95,7 +95,7 @@ import servicesData from '../data/services.json';
 					<!-- Keyword/Stock # Input -->
 					<div>
 						<label for="keyword" class="block text-gray-800 font-semibold mb-2">Keyword Or Stock #</label>
-						<input type="text" id="keyword" name="keyword" placeholder="Any" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600" />
+						<input type="text" id="keyword" name="keyword" placeholder="Any" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2" style="--tw-ring-color: #86CA26;" />
 					</div>
 					
 					<!-- Search Button -->
@@ -115,14 +115,14 @@ import servicesData from '../data/services.json';
 	<!-- Advent Lineup Section -->
 	<section class="relative py-16" style="background-color: #F3F3F3;">
 		<!-- Green bar at top -->
-		<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #86CA25;"></div>
+		<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #86CA26;"></div>
 		
 		<div class="container mx-auto px-4 pt-8">
 			<div class="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12">
 				<!-- Title -->
 				<div class="mb-8 md:mb-12 lg:mb-0 flex-shrink-0 text-center md:text-left">
 					<h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400 mb-2">
-						ADV<span class="text-green-600">E</span>NT
+						ADV<span style="color: #86CA26;">E</span>NT
 					</h2>
 					<p class="text-lg sm:text-xl text-gray-800 font-semibold">OUR LINEUPS</p>
 				</div>
@@ -326,7 +326,7 @@ import servicesData from '../data/services.json';
 								</div>
 								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
 								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
-								<p class="text-green-500 text-sm font-semibold">{companyData.contact.phone}</p>
+								<p class="text-sm font-semibold" style="color: #86CA26;">{companyData.contact.phone}</p>
 								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
 							</div>
 						</div>
@@ -354,7 +354,7 @@ import servicesData from '../data/services.json';
 								</div>
 								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
 								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
-								<p class="text-green-500 text-sm font-semibold">{companyData.contact.phone}</p>
+								<p class="text-sm font-semibold" style="color: #86CA26;">{companyData.contact.phone}</p>
 								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
 							</div>
 						</div>
@@ -382,7 +382,7 @@ import servicesData from '../data/services.json';
 								</div>
 								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
 								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
-								<p class="text-green-500 text-sm font-semibold">{companyData.contact.phone}</p>
+								<p class="text-sm font-semibold" style="color: #86CA26;">{companyData.contact.phone}</p>
 								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
 							</div>
 						</div>
@@ -522,7 +522,7 @@ import servicesData from '../data/services.json';
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
 				<!-- Golf Cart Rentals -->
 				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-green-500 text-xl font-bold mb-4">Golf Cart Rentals</h3>
+					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Golf Cart Rentals</h3>
 					<p class="text-white text-sm leading-relaxed">
 						Golf carts aren't just for the golf courses anymore! Whether you're exploring The Villages, navigating through the local neighborhoods of downtown Ocala or getting around a large event, renting a golf cart can add convenience and fun to your experience. Learn more about our golf cart rentals.
 					</p>
@@ -530,7 +530,7 @@ import servicesData from '../data/services.json';
 				
 				<!-- Fleet Rentals -->
 				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-green-500 text-xl font-bold mb-4">Fleet Rentals</h3>
+					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Fleet Rentals</h3>
 					<p class="text-white text-sm leading-relaxed">
 						Planning an event in Florida and need a fleet of golf carts? We are one of the most experienced golf cart fleet rental companies in all of Florida. Learn more about our Fleet Rentals or get a quote now.
 					</p>
@@ -538,7 +538,7 @@ import servicesData from '../data/services.json';
 				
 				<!-- Golf Cart Repair -->
 				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-green-500 text-xl font-bold mb-4">Golf Cart Repair</h3>
+					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Golf Cart Repair</h3>
 					<p class="text-white text-sm leading-relaxed">
 						Does your golf cart need repair or general maintenance, but you are not sure how you would transport it to a garage? No worries! Masters Golf Cars has a pickup and delivery service, run by the most knowledgeable technicians in the area.
 					</p>
@@ -546,7 +546,7 @@ import servicesData from '../data/services.json';
 				
 				<!-- Golf Cart Accessories and Parts -->
 				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-green-500 text-xl font-bold mb-4">Golf Cart Accessories and Parts</h3>
+					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Golf Cart Accessories and Parts</h3>
 					<p class="text-white text-sm leading-relaxed">
 						Tires and wheels, lift kits, custom packages, 4-seat conversion kits, Sunbrella seat covers and all-weather enclosures, dashboards, lights, and so much more. Learn more about how we can help you with all of your golf cart parts and accessories.
 					</p>

@@ -21,6 +21,26 @@ const { title, description = "Masters Golf Cars offers golf carts for sale and r
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<style>
+			:root {
+				--brand-green: #86CA26;
+			}
+			.hover-green:hover {
+				color: #86CA26 !important;
+			}
+			.bg-brand-green {
+				background-color: #86CA26 !important;
+			}
+			.text-brand-green {
+				color: #86CA26 !important;
+			}
+			.border-brand-green {
+				border-color: #86CA26 !important;
+			}
+			.focus-brand-green:focus {
+				--tw-ring-color: #86CA26;
+			}
+		</style>
 	</head>
 	<body class="min-h-screen bg-gray-50">
 		{!hideHeader && <Header />}
