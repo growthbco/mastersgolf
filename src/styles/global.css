@@ -29,3 +29,20 @@ a.hover-brand-green:hover {
 	outline: 2px solid #86CA26;
 	outline-offset: 2px;
 }
+
+/* Accordion styling */
+details summary {
+	list-style: none;
+}
+
+details summary::-webkit-details-marker {
+	display: none;
+}
+
+details[open] summary svg {
+	transform: rotate(90deg);
+}
+
+details summary:hover {
+	opacity: 0.8;
+}
