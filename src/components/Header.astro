@@ -8,12 +8,12 @@ const { transparent = false } = Astro.props;
 	<!-- Top bar with contact info - only show when not transparent -->
 	{!transparent && (
 		<div class="bg-black w-full py-2 px-4">
-			<div class="container mx-auto flex justify-between items-center text-green-500">
+			<div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-green-500 text-sm">
 				<div class="flex items-center">
 					<a href={companyData.contact.phoneLink} class="hover:opacity-80 transition">{companyData.contact.phone}</a>
 				</div>
 				<div class="flex items-center">
-					<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:opacity-80 transition text-white">
+					<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:opacity-80 transition text-white text-center">
 						{companyData.location.full}
 					</a>
 				</div>
@@ -24,26 +24,40 @@ const { transparent = false } = Astro.props;
 	<!-- Main navigation -->
 	<nav class={transparent ? "bg-transparent" : "bg-white bg-opacity-95 backdrop-blur-sm shadow-md"}>
 		<div class="container mx-auto px-4 py-6">
-			<!-- Logo -->
-			<div class="flex justify-center mb-6">
-				<a href="/" class="inline-block">
-					<img src={companyData.logo} alt={companyData.name} class={transparent ? "h-32 md:h-36" : "h-24"} />
-				</a>
+			<!-- Logo and Mobile Menu Button -->
+			<div class="flex justify-between items-center mb-6">
+				<div class="flex-1"></div>
+				<div class="flex-1 flex justify-center">
+					<a href="/" class="inline-block">
+						<img src={companyData.logo} alt={companyData.name} class={transparent ? "h-24 sm:h-32 md:h-36" : "h-20 sm:h-24"} />
+					</a>
+				</div>
+				<div class="flex-1 flex justify-end">
+					<!-- Mobile Menu Button -->
+					<button id="mobile-menu-button" class="md:hidden text-white p-2 hover:opacity-80 transition" aria-label="Toggle menu">
+						<svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+						<svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+						</svg>
+					</button>
+				</div>
 			</div>
 			
 			<!-- SEO H1 Heading - only show when transparent -->
 			{transparent && (
 				<div class="flex justify-center mb-6 px-4">
 					<div class="max-w-4xl">
-						<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5);">
+						<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5);">
 							{companyData.tagline}
 						</h1>
 					</div>
 				</div>
 			)}
 			
-			<!-- Navigation bar -->
-			<div class={transparent ? "bg-gray-900 bg-opacity-25 backdrop-blur-sm rounded-lg px-6 py-4 max-w-6xl mx-auto" : "bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3"}>
+			<!-- Desktop Navigation bar -->
+			<div class={transparent ? "hidden md:block bg-gray-900 bg-opacity-25 backdrop-blur-sm rounded-lg px-6 py-4 max-w-6xl mx-auto" : "hidden md:block bg-gray-800 bg-opacity-90 rounded-lg px-6 py-3"}>
 				<div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white font-bold uppercase text-base md:text-lg">
 					<a href="/" class="hover:opacity-80 transition">Home</a>
 					
@@ -119,6 +133,109 @@ const { transparent = false } = Astro.props;
 					<a href="/contact" class="hover:opacity-80 transition">Contact</a>
 				</div>
 			</div>
+			
+			<!-- Mobile Navigation Menu -->
+			<div id="mobile-menu" class="md:hidden hidden">
+				<div class={transparent ? "bg-gray-900 bg-opacity-90 backdrop-blur-sm rounded-lg px-4 py-4" : "bg-gray-800 bg-opacity-95 rounded-lg px-4 py-4"}>
+					<div class="flex flex-col gap-4 text-white font-bold uppercase text-base">
+						<a href="/" class="hover:opacity-80 transition py-2 border-b border-gray-700">Home</a>
+						
+						<!-- Service Mobile Menu -->
+						<div>
+							<a href="/golf-cart-repairs" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Service</a>
+							<div class="pl-4 pt-2 pb-2">
+								<a href="/golf-cart-repairs" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Golf Cart Repairs
+								</a>
+								<a href="/schedule-golf-cart-service" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Schedule Service
+								</a>
+							</div>
+						</div>
+						
+						<!-- Rentals Mobile Menu -->
+						<div>
+							<a href="/rentals" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Rentals</a>
+							<div class="pl-4 pt-2 pb-2">
+								<a href="/rentals" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Individual Rentals
+								</a>
+								<a href="/fleet" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Fleet Rentals
+								</a>
+							</div>
+						</div>
+						
+						<a href="/gallery" class="hover:opacity-80 transition py-2 border-b border-gray-700">Gallery</a>
+						
+						<!-- Golf Carts for Sale Mobile Menu -->
+						<div>
+							<a href="/inventory" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Golf Carts for Sale</a>
+							<div class="pl-4 pt-2 pb-2">
+								<a href="/inventory" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Golf Carts For Sale
+								</a>
+								<a href="/advent-2" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Advent 2
+								</a>
+								<a href="/advent-4" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Advent 4
+								</a>
+								<a href="/advent-4f" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Advent 4F
+								</a>
+								<a href="/advent-4l" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Advent 4L
+								</a>
+								<a href="/advent-6" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Advent 6
+								</a>
+								<a href="/advent-6l" class="block text-sm font-normal py-2 text-gray-300 hover:text-green-400 transition">
+									Advent 6L
+								</a>
+							</div>
+						</div>
+						
+						<a href="/sell-your-cart" class="hover:opacity-80 transition py-2 border-b border-gray-700">Sell Your Cart</a>
+						<a href="/contact" class="hover:opacity-80 transition py-2">Contact</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</nav>
 </header>
+
+<script>
+	// Mobile menu toggle
+	const mobileMenuButton = document.getElementById('mobile-menu-button');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuIcon = document.getElementById('menu-icon');
+	const closeIcon = document.getElementById('close-icon');
+	
+	if (mobileMenuButton && mobileMenu) {
+		mobileMenuButton.addEventListener('click', () => {
+			mobileMenu.classList.toggle('hidden');
+			menuIcon.classList.toggle('hidden');
+			closeIcon.classList.toggle('hidden');
+		});
+		
+		// Close menu when clicking outside
+		document.addEventListener('click', (e) => {
+			if (!mobileMenuButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+				mobileMenu.classList.add('hidden');
+				menuIcon.classList.remove('hidden');
+				closeIcon.classList.add('hidden');
+			}
+		});
+		
+		// Close menu when clicking a link
+		const mobileLinks = mobileMenu.querySelectorAll('a');
+		mobileLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				mobileMenu.classList.add('hidden');
+				menuIcon.classList.remove('hidden');
+				closeIcon.classList.add('hidden');
+			});
+		});
+	}
+</script>

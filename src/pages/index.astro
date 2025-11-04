@@ -18,36 +18,36 @@ import servicesData from '../data/services.json';
 		<div class="flex-grow min-h-[30vh]"></div>
 		
 		<!-- Golf Carts Row - Transparent Overlay -->
-		<div class="relative z-10 py-16">
+		<div class="relative z-10 py-8 md:py-16">
 			<div class="container mx-auto px-4">
-				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto">
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-7xl mx-auto">
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/rental-club-car-golf-cart_img_v38.webp" alt="Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
+						<img src="/images/home page carts/rental-club-car-golf-cart_img_v38.webp" alt="Club Car Golf Cart" class="w-full h-auto max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Fleet Club Car Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
+						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Fleet Club Car Golf Cart" class="w-full h-auto max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/fleet-rental-ez-go-golf-cart_img_v40.webp" alt="EZ-GO Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
+						<img src="/images/home page carts/fleet-rental-ez-go-golf-cart_img_v40.webp" alt="EZ-GO Golf Cart" class="w-full h-auto max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Advanced EV Golf Cart" class="w-full h-auto max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
+						<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Advanced EV Golf Cart" class="w-full h-auto max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" />
 					</div>
 				</div>
 			</div>
 		</div>
 		
 		<!-- CTA Boxes -->
-		<div class="relative z-10 bg-white py-8">
+		<div class="relative z-10 bg-white py-6 md:py-8">
 			<div class="container mx-auto px-4">
-				<div class="flex flex-wrap justify-center items-center gap-4 max-w-6xl mx-auto">
-					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-6 py-4 text-center font-bold uppercase text-base transition">
+				<div class="flex flex-col sm:flex-row flex-wrap justify-center items-stretch sm:items-center gap-3 sm:gap-4 max-w-6xl mx-auto">
+					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-6 py-3 sm:py-4 text-center font-bold uppercase text-sm sm:text-base transition flex-1 sm:flex-initial min-w-[140px]">
 						Cart Rentals
 					</a>
-					<a href="/fleet" class="bg-black hover:bg-gray-900 text-white px-6 py-4 text-center font-bold uppercase text-base transition">
+					<a href="/fleet" class="bg-black hover:bg-gray-900 text-white px-6 py-3 sm:py-4 text-center font-bold uppercase text-sm sm:text-base transition flex-1 sm:flex-initial min-w-[140px]">
 						Fleet Rentals
 					</a>
-					<a href="/inventory" class="bg-black hover:bg-gray-900 text-white px-6 py-4 text-center font-bold uppercase text-base transition">
+					<a href="/inventory" class="bg-black hover:bg-gray-900 text-white px-6 py-3 sm:py-4 text-center font-bold uppercase text-sm sm:text-base transition flex-1 sm:flex-initial min-w-[140px]">
 						Golf Carts For Sale
 					</a>
 				</div>
@@ -69,7 +69,7 @@ import servicesData from '../data/services.json';
 			<h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Search Our Golf Cart Inventory</h2>
 			
 			<form action="/inventory" method="GET" class="max-w-5xl mx-auto">
-				<div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
 					<!-- Condition Dropdown -->
 					<div>
 						<label for="condition" class="block text-gray-800 font-semibold mb-2">Condition</label>
@@ -120,15 +120,15 @@ import servicesData from '../data/services.json';
 		<div class="container mx-auto px-4 pt-8">
 			<div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-12">
 				<!-- Title -->
-				<div class="mb-12 md:mb-0 flex-shrink-0">
-					<h2 class="text-6xl md:text-7xl font-bold text-gray-400 mb-2">
+				<div class="mb-8 md:mb-12 lg:mb-0 flex-shrink-0">
+					<h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400 mb-2">
 						ADV<span class="text-green-600">E</span>NT
 					</h2>
-					<p class="text-xl text-gray-800 font-semibold">OUR LINEUPS</p>
+					<p class="text-lg sm:text-xl text-gray-800 font-semibold">OUR LINEUPS</p>
 				</div>
 				
 				<!-- Vehicle Grid -->
-				<div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 ml-auto">
+				<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 ml-auto">
 				<!-- Advent -->
 				<div class="text-center">
 					<div class="mb-4">
@@ -313,9 +313,9 @@ import servicesData from '../data/services.json';
 				</button>
 				
 				<!-- Scrollable Carousel -->
-				<div id="adventCarousel" class="overflow-x-auto scroll-smooth scrollbar-hide flex gap-6 md:gap-8 pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
+				<div id="adventCarousel" class="overflow-x-auto scroll-smooth scrollbar-hide flex gap-4 md:gap-8 pb-4" style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;">
 					<!-- Product Card 1: Advent 2 -->
-					<div class="flex-shrink-0 w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
+					<div class="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
 						<!-- Image Container with Overlay -->
 						<div class="relative">
 							<img src="https://i31.dlrwebservice.com/52004/i/139811/wm650/3_52004_139811_8156808.jpg" alt="2025 Advanced EV Advent 2 Deluxe Golf Ready" class="w-full h-64 object-cover" />
@@ -343,7 +343,7 @@ import servicesData from '../data/services.json';
 					</div>
 					
 					<!-- Product Card 2: Advent 4F -->
-					<div class="flex-shrink-0 w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
+					<div class="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
 						<!-- Image Container with Overlay -->
 						<div class="relative">
 							<img src="https://i31.dlrwebservice.com/52004/i/139819/wm650/3_52004_139819_8156859.jpg" alt="2025 Advanced EV Advent 4F Deluxe Golf Ready" class="w-full h-64 object-cover" />
@@ -371,7 +371,7 @@ import servicesData from '../data/services.json';
 					</div>
 					
 					<!-- Product Card 3: Advent 2 (Second one) -->
-					<div class="flex-shrink-0 w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
+					<div class="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden">
 						<!-- Image Container with Overlay -->
 						<div class="relative">
 							<img src="https://mastersgolfcars.com/WebResource.axd?d=p0DvQO950oVj9655gaE-crYigeYq9SznsgqPbj_WLxFU_FI3wTLO5LZtLWukUvswYh3WrwOHWltTlS3QxiHAfmjvYS9iqj9N54lO_QAPBdd-CIgw9_esAtA3npQz9MD0DlBYjLp6Pmx1zh6k3-1cwQ2&t=638949988398580819" alt="2025 Advanced EV Advent 2 Deluxe Golf Ready" class="w-full h-64 object-cover" />
@@ -408,16 +408,24 @@ import servicesData from '../data/services.json';
 			const carousel = document.getElementById('adventCarousel');
 			const prevBtn = document.getElementById('adventCarouselPrev');
 			const nextBtn = document.getElementById('adventCarouselNext');
-			const cardWidth = 384; // w-96 = 384px
-			const gap = 32; // gap-8 = 32px
-			const scrollAmount = cardWidth + gap;
 			
 			if (prevBtn && nextBtn && carousel) {
+				const getScrollAmount = () => {
+					// Get card width based on screen size
+					const firstCard = carousel.querySelector('.flex-shrink-0');
+					if (firstCard) {
+						return firstCard.offsetWidth + 16; // card width + gap
+					}
+					return 384; // fallback
+				};
+				
 				prevBtn.addEventListener('click', () => {
+					const scrollAmount = getScrollAmount();
 					carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
 				});
 				
 				nextBtn.addEventListener('click', () => {
+					const scrollAmount = getScrollAmount();
 					carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 				});
 			}
@@ -480,8 +488,8 @@ import servicesData from '../data/services.json';
 			</h2>
 			
 			<!-- CTA Button -->
-			<div class="flex justify-center mb-12">
-				<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-8 py-4 font-bold uppercase text-base transition">
+			<div class="flex justify-center mb-12 px-4">
+				<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-4 sm:px-8 py-3 sm:py-4 font-bold uppercase text-xs sm:text-base text-center transition">
 					LEARN MORE ABOUT OUR LOCATIONS SERVED
 				</a>
 			</div>
