@@ -1,6 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import companyData from '../data/company.json';
+
+const heroImages = [
+	{
+		src: '/images/golf cart repair page/05-08-2025-14-31-50_52.webp',
+		alt: 'Golf cart undergoing front suspension repair',
+	},
+	{
+		src: '/images/golf cart repair page/05-08-2025-14-31-50_53.webp',
+		alt: 'Golf cart electrical system diagnostics',
+	},
+	{
+		src: '/images/golf cart repair page/05-08-2025-14-31-51_54.webp',
+		alt: 'Technician servicing golf cart battery compartment',
+	},
+	{
+		src: '/images/golf cart repair page/05-08-2025-14-31-52_55.webp',
+		alt: 'Professional golf cart maintenance tools',
+	},
+	{
+		src: '/images/golf cart repair page/05-08-2025-14-31-52_56.webp',
+		alt: 'Close-up of golf cart suspension components',
+	},
+	{
+		src: '/images/golf cart repair page/05-08-2025-14-31-53_57.webp',
+		alt: 'Technician performing golf cart diagnostics',
+	},
+];
 ---
 
 <Layout title="Golf Cart Repairs - Masters Golf Cars" description="Fast, reliable golf cart repairs in The Villages and Ocala. 24-hour turnaround on most repairs.">
@@ -9,30 +36,54 @@ import companyData from '../data/company.json';
 		<div class="container mx-auto px-4">
 			<div class="max-w-6xl mx-auto">
 				<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Golf Cart Repairs In The Villages, Florida</h1>
-				<h2 class="text-2xl md:text-3xl font-bold mb-8 text-gray-900">Golf Cart Repairs: Get Your Cart Running Like New</h2>
-				
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-					<!-- Image on Left -->
-					<div>
-						<img src="/images/home page carts/rental-club-car-golf-cart_img_v38.webp" alt="Golf Cart" class="w-full h-auto rounded-lg shadow-lg" />
+				<h2 class="text-2xl md:text-3xl font-semibold mb-10 text-gray-900">Golf Cart Repairs: Get Your Cart Running Like New</h2>
+
+				<div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center">
+					<!-- Image Carousel -->
+					<div class="relative w-full md:w-1/2">
+						<div class="overflow-hidden rounded-2xl shadow-xl">
+							<div id="repair-hero-slider" class="flex transition-transform duration-500 ease-in-out" data-slides={heroImages.length}>
+								{heroImages.map((image, index) => (
+									<div class="w-full flex-shrink-0" data-slide={index}>
+										<img src={image.src} alt={image.alt} class="w-full h-64 md:h-[360px] object-cover" />
+									</div>
+								))}
+							</div>
+						</div>
+
+						<!-- Slider Controls -->
+						<button type="button" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-opacity-90 transition" aria-label="Previous slide" data-hero-prev>
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+							</svg>
+						</button>
+						<button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-opacity-90 transition" aria-label="Next slide" data-hero-next>
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+							</svg>
+						</button>
+
+						<!-- Slider Indicators -->
+						<div class="flex justify-center gap-2 mt-4">
+							{heroImages.map((_image, index) => (
+								<button type="button" class="w-2.5 h-2.5 rounded-full bg-gray-300 transition" aria-label={`Go to slide ${index + 1}`} data-hero-indicator={index}></button>
+							))}
+						</div>
 					</div>
-					
-					<!-- Text on Right -->
-					<div>
-						<p class="text-lg text-gray-700 mb-6">
-							Golf carts have become a popular mode of transportation not only on the golf course but also in 
-							neighborhoods, retirement communities, resorts, and even large event venues. Whether gas-powered 
-							or electric, these handy vehicles offer convenience and efficiency—but like any machine, they 
-							require regular maintenance and occasional repairs to stay in top shape.
+
+					<!-- Text Content -->
+					<div class="w-full md:w-1/2">
+						<p class="text-lg text-gray-700 mb-6 leading-relaxed">
+							Golf carts have become a popular mode of transportation not only on the golf course but also in neighborhoods, retirement communities, resorts, and even large event venues. Whether gas-powered or electric, these handy vehicles offer convenience and efficiency—but like any machine, they require regular maintenance and occasional repairs to stay in top shape.
 						</p>
-						<p class="text-lg text-gray-700 mb-8">
-							When it comes to golf cart repairs, experience matters the most! With over 26 years of experience, 
-							we can handle all types of golf cart issues. We specialize in both gas and electric golf carts. 
-							We also take pride in being a trusted golf cart service repair dealership with a reputation for 
-							offering fast, affordable, and reliable repairs.
+						<p class="text-lg text-gray-700 mb-8 leading-relaxed">
+							When it comes to golf cart repairs, experience matters the most! With over 26 years of experience, we can handle all types of golf cart issues. We specialize in both gas and electric golf carts. We also take pride in being a trusted golf cart service repair dealership with a reputation for offering fast, affordable, and reliable repairs.
 						</p>
-						<a href="/schedule-golf-cart-service" class="bg-brand-green text-white px-8 py-4 rounded-lg font-bold transition inline-block hover:opacity-90">
+						<a href="/schedule-golf-cart-service" class="bg-brand-green text-white px-8 py-4 rounded-lg font-bold transition inline-flex items-center justify-center gap-2 hover:opacity-90 shadow-lg">
 							Schedule Your Golf Cart Repairs
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+							</svg>
 						</a>
 					</div>
 				</div>
@@ -505,4 +556,50 @@ import companyData from '../data/company.json';
 			</div>
 		</div>
 	</section>
+
+	<script is:inline>
+		const heroSlider = document.getElementById('repair-hero-slider');
+		if (heroSlider) {
+			const totalSlides = Number(heroSlider.dataset.slides || '0');
+			const indicators = Array.from(document.querySelectorAll('[data-hero-indicator]'));
+			let currentIndex = 0;
+
+			const updateSlider = () => {
+				heroSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+				indicators.forEach((indicator, index) => {
+					if (index === currentIndex) {
+						indicator.classList.add('bg-brand-green');
+						indicator.classList.remove('bg-gray-300');
+					} else {
+						indicator.classList.remove('bg-brand-green');
+						indicator.classList.add('bg-gray-300');
+					}
+				});
+			};
+
+			if (totalSlides > 0) {
+				document.querySelector('[data-hero-prev]')?.addEventListener('click', () => {
+					currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+					updateSlider();
+				});
+
+				document.querySelector('[data-hero-next]')?.addEventListener('click', () => {
+					currentIndex = (currentIndex + 1) % totalSlides;
+					updateSlider();
+				});
+
+				indicators.forEach((indicator) => {
+					indicator.addEventListener('click', () => {
+						const targetIndex = Number(indicator.dataset.heroIndicator);
+						if (!Number.isNaN(targetIndex)) {
+							currentIndex = targetIndex;
+							updateSlider();
+						}
+					});
+				});
+
+				updateSlider();
+			}
+		}
+	</script>
 </Layout>
