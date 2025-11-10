@@ -4,28 +4,26 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Golf Cart Rentals - Masters Golf Cars" description="Reserve high-quality golf cart rentals for neighborhoods, events, and businesses across Central Florida.">
 	<!-- Hero -->
-	<section class="bg-white pb-16 pt-12">
+	<section class="bg-white py-12">
 		<div class="container mx-auto px-4">
-			<h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">Golf Cart Rentals</h1>
+			<h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10">Golf Cart Rentals</h1>
 
-			<div class="bg-gray-100 rounded-lg p-8 md:p-12">
-				<div class="grid gap-8 md:grid-cols-[1.2fr,1fr] items-center">
-					<div>
-						<h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Enjoy the Convenience of Golf Cart Rentals</h2>
-						<p class="text-gray-700 leading-relaxed mb-6">
-							Renting a golf cart from us is the perfect solution if you need reliable, affordable, and convenient transportation of a <a href="#" class="text-blue-600 underline">golf cart</a> without the commitment or ownership. Whether you're planning for a quick getaway or a large event, we make it easier for you. Other customers come to us after facing issues with golf carts from other dealerships. While we repair their golf carts, they take advantage of our golf cart rental options, staying mobile without interruption. Renting a golf cart from us will give you peace of mind, whether for a short-term fix or a specific need.
-						</p>
-						<p class="text-gray-700 leading-relaxed mb-6">
-							We have a minimum 3-day golf cart rental, with options for weekly or monthly rentals for individuals. We also offer golf cart rentals for businesses hosting events across Central Florida.
-						</p>
-						<ul class="space-y-2 text-gray-700">
-							<li>• Individual & Event Rentals</li>
-							<li>• Delivery & Pick-Up Options</li>
-						</ul>
-					</div>
-					<div class="flex items-center justify-center">
-						<img src="/images/golf-cart-rentals-page/golf-cart-rentals-in-the-villages_img_v69_250813_160043497.webp" alt="White golf cart rental" class="w-full max-w-sm object-contain" loading="lazy" />
-					</div>
+			<div class="grid md:grid-cols-[1fr,0.9fr] gap-12 items-center">
+				<div class="space-y-6">
+					<h2 class="text-2xl md:text-3xl font-bold text-gray-900">Enjoy the Convenience of Golf Cart Rentals</h2>
+					<p class="text-gray-700 leading-relaxed">
+						Renting a golf cart from us is the perfect solution if you need reliable, affordable, and convenient transportation of a golf cart without the commitment of ownership. Whether you're planning for a quick getaway or a large event, we make it easier for you. Other customers come to us after facing issues with golf carts from other dealerships. While we repair their golf carts, they take advantage of our golf cart rental options, staying mobile without interruption. Renting a golf cart from us will give you peace of mind, whether for a short-term fix or a specific need.
+					</p>
+					<p class="text-gray-700 leading-relaxed">
+						We have a minimum 3-day golf cart rental, with options for weekly or monthly rentals for individuals. We also offer golf cart rentals for businesses hosting events across Central Florida.
+					</p>
+					<ul class="space-y-2 text-gray-700">
+						<li>• Individual &amp; Event Rentals</li>
+						<li>• Delivery &amp; Pick-Up Options</li>
+					</ul>
+				</div>
+				<div class="bg-white rounded-3xl shadow-xl border border-gray-200 p-6">
+					<img src="/images/golf-cart-rentals-page/golf-cart-rentals-in-the-villages_img_v69_250813_160043497.webp" alt="Golf cart rental" class="w-full h-auto rounded-2xl" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -170,7 +168,7 @@ import Layout from '../layouts/Layout.astro';
 				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
 					<div class="mb-4 flex gap-1 text-brand-green">
 						{Array.from({ length: 5 }).map((_star, index) => (
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" key={`review-1-star-${index}`}>
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 							</svg>
 						))}
@@ -183,7 +181,7 @@ import Layout from '../layouts/Layout.astro';
 				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
 					<div class="mb-4 flex gap-1 text-brand-green">
 						{Array.from({ length: 5 }).map((_star, index) => (
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" key={`review-2-star-${index}`}>
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 							</svg>
 						))}
@@ -196,7 +194,7 @@ import Layout from '../layouts/Layout.astro';
 				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
 					<div class="mb-4 flex gap-1 text-brand-green">
 						{Array.from({ length: 5 }).map((_star, index) => (
-							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" key={`review-3-star-${index}`}>
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
 							</svg>
 						))}
