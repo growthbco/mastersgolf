@@ -4,156 +4,102 @@ import companyData from '../data/company.json';
 ---
 
 <Layout title="Contact Us - Masters Golf Cars" description="Contact Masters Golf Cars for sales, rentals, service, and more">
-	<!-- Hero Section -->
-	<section style="background: linear-gradient(to right, #86CA26, var(--gradient-end, #6fa020));" class="bg-gradient-to-br  to-#5a8019 text-white py-20">
+	<section class="bg-white py-12">
 		<div class="container mx-auto px-4">
-			<h1 class="text-5xl font-bold mb-6">Contact Us</h1>
-			<p style="color: rgba(134, 202, 38, 0.1);" class="text-xl (134, 202, 38, 0.1)">
-				We're here to help you find the perfect golf cart solution
-			</p>
-		</div>
-	</section>
+			<h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10">Contact Us</h1>
 
-	<!-- Contact Info -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-				<!-- Contact Details -->
-				<div>
-					<h2 class="text-3xl font-bold mb-6 text-gray-900">Get In Touch</h2>
-					
+			<div class="bg-white border border-gray-200 rounded-[32px] shadow-xl overflow-hidden">
+				<img src="/images/logos/master-golf-cars-delivery-truck_img_v19.webp" alt="Masters Golf Cars service truck" class="w-full h-80 md:h-[360px] object-cover" loading="lazy" />
+
+				<div class="grid md:grid-cols-[1.2fr,0.8fr] gap-10 p-8 md:p-12">
 					<div class="space-y-6">
 						<div>
-							<h3 class="text-xl font-semibold mb-2 text-gray-900">Location</h3>
-							<p class="text-gray-600">
-								{companyData.location.full}
-							</p>
-							<p class="text-gray-600 text-sm mt-1">
-								Located between Ocala and The Villages, right on 441 across from the Market of Marion
-							</p>
+							<h2 class="text-2xl font-bold text-gray-900 mb-1">Get In Touch</h2>
+							<p class="text-gray-700">{companyData.location.full}</p>
+							<p class="text-gray-600 text-sm mt-1">Located between Ocala and The Villages, right on 441 across from the Market of Marion.</p>
 						</div>
-						
-						<div>
-							<h3 class="text-xl font-semibold mb-2 text-gray-900">Phone</h3>
-							<a href={companyData.contact.phoneLink} class=" text-2xl font-bold hover:underline">
-								{companyData.contact.phone}
-							</a>
+
+						<div class="grid sm:grid-cols-2 gap-6">
+							<div class="space-y-2">
+								<h3 class="text-lg font-semibold text-gray-900">Phone</h3>
+								<a href={companyData.contact.phoneLink} class="text-2xl font-bold text-brand-green hover:underline">
+									{companyData.contact.phone}
+								</a>
+							</div>
+							<div class="space-y-2">
+								<h3 class="text-lg font-semibold text-gray-900">Email</h3>
+								<a href={`mailto:${companyData.contact.email}`} class="text-brand-green hover:underline">
+									{companyData.contact.email}
+								</a>
+							</div>
 						</div>
-						
+
 						<div>
-							<h3 class="text-xl font-semibold mb-2 text-gray-900">Email</h3>
-							<a href={`mailto:${companyData.contact.email}`} class=" hover:underline">
-								{companyData.contact.email}
-							</a>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Hours</h3>
+							<ul class="text-gray-700 space-y-1">
+								<li>Monday – Friday: 8:30am – 5:00pm</li>
+								<li>Saturday: 9:00am – 2:00pm</li>
+								<li>Sunday: Closed</li>
+							</ul>
 						</div>
-						
+
 						<div>
-							<h3 class="text-xl font-semibold mb-2 text-gray-900">Hours</h3>
-							<p class="text-gray-600">Monday - Friday: 8:00 AM - 5:00 PM</p>
-							<p class="text-gray-600">Saturday: 9:00 AM - 2:00 PM</p>
-							<p class="text-gray-600">Sunday: Closed</p>
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Connect With Us</h3>
+							<div class="flex items-center gap-4">
+								<a href="https://www.facebook.com/mastersgolfcars" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-brand-green transition">
+									<span class="sr-only">Facebook</span>
+									<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M22 12.073c0-5.522-4.477-10-10-10s-10 4.478-10 10c0 4.991 3.657 9.128 8.438 9.878v-6.988H7.898v-2.89h2.54V9.845c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.459h-1.26c-1.241 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.988C18.343 21.201 22 17.064 22 12.073z" />
+									</svg>
+								</a>
+								<a href="https://www.instagram.com/mastersgolfcars/" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-brand-green transition">
+									<span class="sr-only">Instagram</span>
+									<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+										<path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm4.25 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm5.5-.875a1.125 1.125 0 1 1-2.25 0 1.125 1.125 0 0 1 2.25 0Z" />
+									</svg>
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
-				
-				<!-- Contact Form -->
-				<div>
-					<h2 class="text-3xl font-bold mb-6 text-gray-900">Send Us a Message</h2>
-					<form class="space-y-4">
+
+					<div class="space-y-6">
 						<div>
-							<label for="name" class="block text-sm font-medium text-gray-700 mb-1">
-								Name *
-							</label>
-							<input 
-								type="text" 
-								id="name" 
-								name="name" 
-								required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent"
-							/>
+							<h3 class="text-lg font-semibold text-gray-900 mb-3">Google Reviews</h3>
+							<div class="grid gap-4 sm:grid-cols-2">
+								<div class="border border-gray-200 rounded-2xl p-4 shadow-sm">
+									<p class="text-sm text-gray-500 mb-2">Scott Lennox — ★★★★★</p>
+									<p class="text-gray-700 text-sm">“Fantastic people to work with. Delivered my rental cart on time as promised. Highly recommend!”</p>
+								</div>
+								<div class="border border-gray-200 rounded-2xl p-4 shadow-sm">
+									<p class="text-sm text-gray-500 mb-2">C Porter — ★★★★★</p>
+									<p class="text-gray-700 text-sm">“Matt spoke with my husband at length and sincerely expressed his appreciation for our business.”</p>
+								</div>
+							</div>
 						</div>
-						
-						<div>
-							<label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-								Email *
-							</label>
-							<input 
-								type="email" 
-								id="email" 
-								name="email" 
-								required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent"
-							/>
+
+						<div class="border border-dashed border-gray-300 rounded-2xl p-8 text-center">
+							<h3 class="text-lg font-semibold text-gray-900 mb-2">Contact Form</h3>
+							<p class="text-gray-600 text-sm">We’re preparing an updated contact form experience. Your form embed can be placed right here.</p>
 						</div>
-						
-						<div>
-							<label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
-								Phone *
-							</label>
-							<input 
-								type="tel" 
-								id="phone" 
-								name="phone" 
-								required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent"
-							/>
-						</div>
-						
-						<div>
-							<label for="subject" class="block text-sm font-medium text-gray-700 mb-1">
-								Subject *
-							</label>
-							<select 
-								id="subject" 
-								name="subject" 
-								required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent"
-							>
-								<option value="">Select a subject</option>
-								<option value="rental">Golf Cart Rental</option>
-								<option value="fleet">Fleet Rental</option>
-								<option value="purchase">Purchase Inquiry</option>
-								<option value="service">Service & Repairs</option>
-								<option value="other">Other</option>
-							</select>
-						</div>
-						
-						<div>
-							<label for="message" class="block text-sm font-medium text-gray-700 mb-1">
-								Message *
-							</label>
-							<textarea 
-								id="message" 
-								name="message" 
-								rows="5" 
-								required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent"
-							></textarea>
-						</div>
-						
-						<button 
-							type="submit"
-							style="background-color: #86CA26;" class="w-full  text-white px-6 py-3 rounded-lg font-bold  transition" style="--hover-bg: #6fa020;"
-						>
-							Send Message
-						</button>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Map Placeholder -->
 	<section class="py-16 bg-gray-50">
 		<div class="container mx-auto px-4">
-			<h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Find Us</h2>
-			<div class="max-w-4xl mx-auto">
-				<div class="bg-gray-300 h-96 rounded-lg flex items-center justify-center">
-					<div class="text-center">
-						<p class="text-gray-600 text-xl mb-4">{companyData.location.full}</p>
-						<p class="text-gray-500">Map integration can be added here</p>
-					</div>
-				</div>
+			<h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Visit Our Showroom</h2>
+			<div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
+					width="100%"
+					height="450"
+					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
 			</div>
 		</div>
 	</section>
