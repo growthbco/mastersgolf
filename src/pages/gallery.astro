@@ -99,7 +99,7 @@ modalImages.forEach((item, index) => imageIndexMap.set(item.src, index));
 				<h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-wide">Golf Cart Fleets</h2>
 
 				<div class="overflow-hidden shadow-lg mb-10">
-					<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(fleetPrimary)}>
+					<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(fleetPrimary)}>
 						<img src={fleetPrimary} alt="Masters Golf Cars fleet delivery truck" class="w-full aspect-[16/6] md:aspect-[16/5] object-cover" loading="lazy" />
 					</button>
 				</div>
@@ -107,7 +107,7 @@ modalImages.forEach((item, index) => imageIndexMap.set(item.src, index));
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 					{fleetGallery.map((image) => (
 						<div class="overflow-hidden shadow-md">
-							<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(image)}>
+							<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(image)}>
 								<img src={image} alt="Masters Golf Cars fleet" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
 							</button>
 						</div>
@@ -115,7 +115,7 @@ modalImages.forEach((item, index) => imageIndexMap.set(item.src, index));
 				</div>
 
 				<div class="overflow-hidden shadow-lg mt-10">
-					<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(fleetPanorama)}>
+					<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(fleetPanorama)}>
 						<img src={fleetPanorama} alt="Large golf cart fleet lineup" class="w-full aspect-[16/6] md:aspect-[16/5] object-cover" loading="lazy" />
 					</button>
 				</div>
@@ -131,7 +131,7 @@ modalImages.forEach((item, index) => imageIndexMap.set(item.src, index));
 					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 						{section.images.map((image) => (
 							<div class="overflow-hidden shadow-md">
-								<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(image)}>
+								<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(image)}>
 									<img src={image} alt={section.title} class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
 								</button>
 							</div>
@@ -181,7 +181,7 @@ modalImages.forEach((item, index) => imageIndexMap.set(item.src, index));
 	</div>
 
 	<script type="application/json" id="gallery-data">{JSON.stringify(modalImages)}</script>
-	<script>
+	<script is:inline>
 		const galleryDataEl = document.getElementById('gallery-data');
 		const galleryData = galleryDataEl ? JSON.parse(galleryDataEl.textContent || '[]') : [];
 		const modalEl = document.getElementById('gallery-modal');
