@@ -5,83 +5,54 @@ import companyData from '../data/company.json';
 
 <Layout title="Schedule Golf Cart Service - Masters Golf Cars" description="Schedule your golf cart service appointment in The Villages and Ocala">
 	<!-- Hero Section -->
-	<section style="background: linear-gradient(to right, #86CA26, var(--gradient-end, #6fa020));" class="bg-gradient-to-br  to-#5a8019 text-white py-20">
-		<div class="container mx-auto px-4">
-			<h1 class="text-5xl font-bold mb-6">Schedule Golf Cart Service</h1>
-			<p style="color: rgba(134, 202, 38, 0.1);" class="text-xl mb-8 (134, 202, 38, 0.1)">
-				Book your appointment for repairs, maintenance, or service
-			</p>
+	<section class="relative">
+		<div class="absolute inset-0">
+			<img src="/images/landing-pg-hero-3.jpg" alt="Golf course background" class="w-full h-full object-cover" />
+			<div class="absolute inset-0 bg-black/50"></div>
+		</div>
+		<div class="relative z-10 container mx-auto px-4 py-20">
+			<div class="bg-black/60 border border-white/10 rounded-3xl max-w-4xl mx-auto px-8 py-12 text-center text-white shadow-2xl">
+				<h1 class="text-4xl md:text-5xl font-bold tracking-wide uppercase">Schedule Service</h1>
+				<p class="mt-4 text-lg md:text-xl font-medium">
+					Please fill out the form below and someone will contact you promptly.
+				</p>
+			</div>
 		</div>
 	</section>
 
 	<!-- Main Content -->
 	<section class="py-16 bg-white">
 		<div class="container mx-auto px-4">
-			<div class="max-w-3xl mx-auto">
-				<h2 class="text-3xl font-bold mb-6 text-gray-900">Get Your Golf Cart Serviced</h2>
-				<p class="text-lg text-gray-700 mb-8">
-					Book an appointment for golf cart repairs, maintenance, or service. Our team offers 
-					fast turnaround times and convenient pickup and delivery.
-				</p>
-
-				<!-- Service Form -->
-				<div class="bg-gray-50 rounded-lg p-8">
-					<form class="space-y-6">
-						<div>
-							<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
-							<input type="text" id="name" name="name" required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent" />
-						</div>
-
-						<div>
-							<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-							<input type="email" id="email" name="email" required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent" />
-						</div>
-
-						<div>
-							<label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
-							<input type="tel" id="phone" name="phone" required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent" />
-						</div>
-
-						<div>
-							<label for="service-type" class="block text-sm font-medium text-gray-700 mb-1">Service Type *</label>
-							<select id="service-type" name="service-type" required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent">
-								<option value="">Select service type</option>
-								<option value="repair">Repair</option>
-								<option value="maintenance">Maintenance</option>
-								<option value="battery">Battery Replacement</option>
-								<option value="custom">Custom Work</option>
-								<option value="inspection">Inspection</option>
-								<option value="other">Other</option>
-							</select>
-						</div>
-
-						<div>
-							<label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
-							<textarea id="description" name="description" rows="5" required
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent"></textarea>
-						</div>
-
-						<div>
-							<label for="pickup" class="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
-							<input type="date" id="pickup" name="pickup"
-								class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-#86CA26 focus:border-transparent" />
-						</div>
-
-						<button type="submit" style="background-color: #86CA26;" class="w-full  text-white px-6 py-3 rounded-lg font-bold  transition" style="--hover-bg: #6fa020;">
-							Schedule Service
-						</button>
-					</form>
+			<div class="max-w-4xl mx-auto">
+				<!-- Service Form Embed -->
+				<div class="bg-white rounded-[32px] shadow-2xl border border-gray-200 p-0 md:p-4">
+					<div class="rounded-[28px] overflow-hidden">
+						<iframe
+							src="https://links.roadsidelaunch.com/widget/form/jk7yYqm8mDLzUAxFYP4H"
+							style="width:100%;height:902px;border:none;border-radius:0"
+							id="inline-jk7yYqm8mDLzUAxFYP4H"
+							data-layout="{'id':'INLINE'}"
+							data-trigger-type="alwaysShow"
+							data-trigger-value=""
+							data-activation-type="alwaysActivated"
+							data-activation-value=""
+							data-deactivation-type="neverDeactivate"
+							data-deactivation-value=""
+							data-form-name="Masters Golf Cart Service Form"
+							data-height="902"
+							data-layout-iframe-id="inline-jk7yYqm8mDLzUAxFYP4H"
+							data-form-id="jk7yYqm8mDLzUAxFYP4H"
+							title="Masters Golf Cart Service Form"
+							loading="lazy"
+						></iframe>
+					</div>
 				</div>
 
 				<!-- Contact Info -->
-				<div style="background-color: rgba(134, 202, 38, 0.05);" class="mt-12 (134, 202, 38, 0.05) rounded-lg p-8 text-center">
-					<h3 class="text-2xl font-bold mb-4 text-gray-900">Need Immediate Assistance?</h3>
-					<p class="text-xl mb-6 text-gray-700">
-						Call us at <a href={companyData.contact.phoneLink} class=" hover:underline font-semibold">
+				<div class="mt-16 bg-gray-100 rounded-3xl p-8 md:p-10 text-center shadow-lg">
+					<h2 class="text-2xl font-bold mb-4 text-gray-900 uppercase tracking-wide">Need Immediate Assistance?</h2>
+					<p class="text-lg text-gray-700 mb-4">
+						Call us at <a href={companyData.contact.phoneLink} class="font-semibold text-brand-green hover:underline">
 							{companyData.contact.phone}
 						</a>
 					</p>
@@ -90,5 +61,32 @@ import companyData from '../data/company.json';
 			</div>
 		</div>
 	</section>
+
+	<!-- Visit Our Location -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 uppercase tracking-wide">Visit Our Location</h2>
+				<p class="text-lg text-gray-700 mb-2">
+					We are located between Ocala and The Villages right on 441 across from the Market of Marion.
+				</p>
+				<p class="text-lg font-semibold text-gray-900 mb-8">{companyData.location.full}</p>
+
+				<div class="rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
+						width="100%"
+						height="450"
+						style="border:0;"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://links.roadsidelaunch.com/js/form_embed.js" defer></script>
 </Layout>
 
