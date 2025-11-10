@@ -31,22 +31,16 @@ const heroImages = [
 
 const testimonialSlides = [
 	{
-		image: '/images/golf cart repair page/05-08-2025-14-31-50_52.webp',
-		alt: 'Golf cart suspension inspection',
 		quote: 'Excellent company, fast service, prices fair. I had the annual service and also replaced worn out bearings and hubs. Picked the cart up yesterday and returned it today. Runs great without the grinding noise. Very pleased with the communications about the estimate.',
 		name: 'Robert McIntyre',
 		role: 'Homeowner in The Villages',
 	},
 	{
-		image: '/images/golf cart repair page/05-08-2025-14-31-52_55.webp',
-		alt: 'Detailing the underside of a golf cart',
 		quote: "They have been repairing our fleet of carts for over 15 years. Nothing but professional and extremely speedy service at an affordable price! That's all a customer asks for. Not to mention that they will pick up your cart and then bring it all the way back to you, doesn't get any better than that.",
 		name: 'Jay DeFalco',
 		role: 'Commercial Fleet Owner',
 	},
 	{
-		image: '/images/golf cart repair page/05-08-2025-14-31-51_54.webp',
-		alt: 'Technician working on golf cart battery system',
 		quote: 'They will bend over backwards to earn your business and the service side of things is nothing less than professional and timely.',
 		name: 'West Shore Outfitters',
 		role: 'Event Rental Partner',
@@ -162,19 +156,16 @@ const batterySlides = [
 							<div id="review-slider" class="flex transition-transform duration-500 ease-in-out" data-slides={testimonialSlides.length}>
 								{testimonialSlides.map((slide, index) => (
 									<div class="w-full flex-shrink-0" data-review-slide={index}>
-										<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-8 md:p-12">
-											<div class="order-1 md:order-none">
-												<img src={slide.image} alt={slide.alt} class="w-full rounded-2xl shadow-md object-cover h-64 md:h-[320px]" />
+										<div class="p-8 md:p-12 flex flex-col gap-6 md:gap-8 text-left">
+											<div class="flex items-start">
+												<svg class="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+													<path d="M7.17 6A4.992 4.992 0 002 11v5a2 2 0 002 2h4a2 2 0 002-2v-5H6.172a2.992 2.992 0 012.997-3h.006V6h-2zM15.17 6A4.992 4.992 0 0010 11v5a2 2 0 002 2h4a2 2 0 002-2v-5h-3.828a2.992 2.992 0 012.997-3h.006V6h-2z" />
+												</svg>
+												<p class="ml-4 text-lg md:text-xl text-gray-800 leading-relaxed">
+													{slide.quote}
+												</p>
 											</div>
-											<div class="text-left">
-												<div class="flex items-start mb-6">
-													<svg class="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-														<path d="M7.17 6A4.992 4.992 0 002 11v5a2 2 0 002 2h4a2 2 0 002-2v-5H6.172a2.992 2.992 0 012.997-3h.006V6h-2zM15.17 6A4.992 4.992 0 0010 11v5a2 2 0 002 2h4a2 2 0 002-2v-5h-3.828a2.992 2.992 0 012.997-3h.006V6h-2z" />
-													</svg>
-													<p class="ml-4 text-lg md:text-xl text-gray-800 leading-relaxed">
-														{slide.quote}
-													</p>
-												</div>
+											<div>
 												<p class="font-bold text-gray-900 text-lg">{slide.name}</p>
 												<p class="text-sm text-gray-500">{slide.role}</p>
 											</div>
@@ -552,11 +543,8 @@ const batterySlides = [
 				</ul>
 				
 				<!-- Promotional Block -->
-				<div class="relative bg-brand-green text-white rounded-[32px] mb-10 overflow-hidden shadow-xl">
-					<div class="absolute top-0 left-0 right-0">
-						<img src="/images/grass-edge-min.png" alt="" class="w-full h-16 object-cover object-top" loading="lazy" />
-					</div>
-					<div class="relative z-10 flex flex-col items-center text-center gap-6 px-6 md:px-12 py-16 md:py-20">
+				<div class="bg-brand-green text-white rounded-[32px] mb-10 shadow-xl">
+					<div class="flex flex-col items-center text-center gap-6 px-6 md:px-12 py-16 md:py-20">
 						<p class="text-xl md:text-2xl font-semibold leading-relaxed max-w-3xl">
 							Join 24hr Cart Club and get a 1-year free membership when purchasing a NEW golf cart from our dealership. Stay moving without worry.
 						</p>
