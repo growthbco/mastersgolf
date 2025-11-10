@@ -1,136 +1,140 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import companyData from '../data/company.json';
+
+const fleetPrimary = '/images/gallery/golf-cart-fleet-rental-delivery_img_v35.webp';
+const fleetGallery = [
+	'/images/gallery/golf-cart-fleet-rentals-at-masters-golf-cars_img_v27.webp',
+	'/images/gallery/02-07-2025-14-18-32_48.webp',
+	'/images/gallery/02-07-2025-14-19-37_49.webp',
+	'/images/gallery/02-04-2025-14-21-12_21.webp',
+	'/images/gallery/02-04-2025-14-22-34_22.webp',
+	'/images/gallery/02-04-2025-14-23-09_23.webp',
+];
+const fleetPanorama = '/images/gallery/02-04-2025-14-24-34_25.webp';
+
+const gallerySections = [
+	{
+		title: 'Lifted Golf Carts',
+		images: [
+			'/images/gallery/02-04-2025-14-25-01_26.webp',
+			'/images/gallery/02-04-2025-14-25-27_27.webp',
+			'/images/gallery/02-04-2025-14-25-48_28.webp',
+		],
+	},
+	{
+		title: '2 Seater Golf Carts',
+		images: [
+			'/images/gallery/02-04-2025-14-26-11_29.webp',
+			'/images/gallery/02-04-2025-14-26-38_30.webp',
+			'/images/gallery/02-04-2025-14-27-04_31.webp',
+		],
+	},
+	{
+		title: '4 Seater Golf Carts',
+		images: [
+			'/images/gallery/02-04-2025-14-28-00_32.webp',
+			'/images/gallery/02-04-2025-14-28-23_33.webp',
+			'/images/gallery/02-04-2025-14-28-46_34.webp',
+		],
+	},
+	{
+		title: '6 Seater Golf Carts',
+		images: [
+			'/images/gallery/02-04-2025-14-17-59_18.webp',
+			'/images/gallery/02-04-2025-14-19-39_20.webp',
+			'/images/gallery/02-04-2025-14-21-12_21.webp',
+		],
+	},
+	{
+		title: 'Utility / Hunting Golf Carts',
+		images: [
+			'/images/gallery/02-04-2025-14-13-24_12.webp',
+			'/images/gallery/02-04-2025-14-13-43_13.webp',
+			'/images/gallery/02-04-2025-14-15-58_17.webp',
+		],
+	},
+	{
+		title: 'Custom Golf Carts',
+		images: [
+			'/images/gallery/02-04-2025-14-04-34_6.webp',
+			'/images/gallery/02-04-2025-14-04-55_7.webp',
+			'/images/gallery/02-04-2025-14-05-18_8.webp',
+			'/images/gallery/02-04-2025-14-07-31_9.webp',
+			'/images/gallery/02-04-2025-14-08-14_10.webp',
+			'/images/gallery/02-04-2025-14-08-42_11.webp',
+			'/images/gallery/02-04-2025-14-38-44_37.webp',
+			'/images/gallery/02-04-2025-14-39-44_38.webp',
+			'/images/gallery/02-04-2025-14-25-48_28.webp',
+		],
+	},
+];
 ---
 
-<Layout title="Gallery - Masters Golf Cars" description="View our golf cart gallery featuring custom builds, fleets, and more in The Villages, FL.">
-	<!-- Hero Section -->
-	<section style="background: linear-gradient(to right, #86CA26, var(--gradient-end, #6fa020));" class="bg-gradient-to-br  to-#5a8019 text-white py-20">
+<Layout title="Golf Cart Gallery - Masters Golf Cars" description="Explore Masters Golf Cars gallery featuring fleets, custom builds, lifted carts, and more.">
+	<section class="bg-white py-12">
 		<div class="container mx-auto px-4">
-			<h1 class="text-5xl font-bold mb-6">Golf Cart Gallery</h1>
-			<p style="color: rgba(134, 202, 38, 0.1);" class="text-xl mb-8 (134, 202, 38, 0.1)">
-				Explore our collection of golf carts, custom builds, and fleet rentals
-			</p>
+			<h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900">Golf Cart Gallery</h1>
 		</div>
 	</section>
 
-	<!-- Gallery Grid -->
-	<section class="py-16 bg-white">
+	<section class="bg-white pb-16">
 		<div class="container mx-auto px-4">
-			<h2 class="text-3xl font-bold mb-8 text-gray-900">Our Collection</h2>
-			
-			<!-- Fleet Rentals -->
-			<div class="mb-16">
-				<h3 class="text-2xl font-bold mb-6 text-gray-900">Golf Cart Fleets</h3>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/golf-cart-fleet-rentals-at-masters-golf-cars_img_v27.webp" alt="Golf Cart Fleet" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/02-07-2025-14-19-37_49.webp" alt="Golf Cart Fleet" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/masters-golf-cars-fleet-rentals_img_v36.webp" alt="Fleet Delivery" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-				</div>
-			</div>
+			<div class="bg-white border border-gray-200 rounded-[32px] shadow-xl p-6 md:p-10">
+				<h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-wide">Golf Cart Fleets</h2>
 
-			<!-- 2 Seater Carts -->
-			<div class="mb-16">
-				<h3 class="text-2xl font-bold mb-6 text-gray-900">2 Seater Golf Carts</h3>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/2-seater-golf-cart_img_v31.webp" alt="2 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://i31.dlrwebservice.com/52004/i/139811/wm650/3_52004_139811_8156808.jpg" alt="2 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://i31.dlrwebservice.com/52004/i/139815/wm650/3_52004_139815_8156841.jpg" alt="2 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
+				<div class="overflow-hidden rounded-[28px] shadow-lg mb-10">
+					<img src={fleetPrimary} alt="Masters Golf Cars fleet delivery truck" class="w-full h-auto object-cover" loading="lazy" />
 				</div>
-			</div>
 
-			<!-- 4 Seater Carts -->
-			<div class="mb-16">
-				<h3 class="text-2xl font-bold mb-6 text-gray-900">4 Seater Golf Carts</h3>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/4-seater-golf-cart_img_v32.webp" alt="4 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://i32.dlrwebservice.com/52004/i/139862/wm650/3_52004_139862_8158399.jpg" alt="4 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://i31.dlrwebservice.com/52004/i/139819/wm650/3_52004_139819_8156859.jpg" alt="4 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+					{fleetGallery.map((image) => (
+						<div class="overflow-hidden rounded-3xl shadow-md">
+							<img src={image} alt="Masters Golf Cars fleet" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+						</div>
+					))}
 				</div>
-			</div>
 
-			<!-- 6 Seater Carts -->
-			<div class="mb-16">
-				<h3 class="text-2xl font-bold mb-6 text-gray-900">6 Seater Golf Carts</h3>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/6-seater-golf-cart_img_v33.webp" alt="6 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/6-seater-golf-cart_img_v14.webp" alt="6 Seater Golf Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/golf-cart-rentals-for-equestrian-events_img_v17.webp" alt="Equestrian Event Carts" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-				</div>
-			</div>
-
-			<!-- Custom Carts -->
-			<div class="mb-16">
-				<h3 class="text-2xl font-bold mb-6 text-gray-900">Custom Golf Carts</h3>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/05-08-2025-14-31-50_52.webp" alt="Custom LED Lighting" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/05-08-2025-14-31-50_53.webp" alt="Custom Cart with Upgrades" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/05-08-2025-14-31-51_54.webp" alt="Custom Leather Interior" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-				</div>
-			</div>
-
-			<!-- Utility Carts -->
-			<div>
-				<h3 class="text-2xl font-bold mb-6 text-gray-900">Utility Carts</h3>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/utility-cart_img_v34.webp" alt="Utility Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg">
-						<img src="https://mastersgolfcars.com/uploads/utility-cart_img_v15.webp" alt="Utility Cart" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
-					</div>
-					<div class="overflow-hidden rounded-lg bg-gray-200 rounded-lg flex items-center justify-center">
-						<p class="text-gray-500">More utility carts available</p>
-					</div>
+				<div class="overflow-hidden rounded-[28px] shadow-lg mt-10">
+					<img src={fleetPanorama} alt="Large golf cart fleet lineup" class="w-full h-auto object-cover" loading="lazy" />
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- CTA -->
-	<section style="background: linear-gradient(to right, #86CA26, var(--gradient-end, #6fa020));" class="py-16 bg-gradient-to-r  to-#6fa020 text-white">
-		<div class="container mx-auto px-4 text-center">
-			<h2 class="text-4xl font-bold mb-4">Interested in Our Golf Carts?</h2>
-			<p style="color: rgba(134, 202, 38, 0.1);" class="text-xl mb-8 (134, 202, 38, 0.1)">
-				Browse our inventory or contact us to learn more
+	<section class="bg-white pb-16">
+		<div class="container mx-auto px-4 space-y-16">
+			{gallerySections.map((section) => (
+				<div class="bg-white border border-gray-200 rounded-[32px] shadow-xl p-6 md:p-10">
+					<h3 class="text-2xl font-bold text-center text-gray-900 mb-8 uppercase tracking-wide">{section.title}</h3>
+					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+						{section.images.map((image) => (
+							<div class="overflow-hidden rounded-3xl shadow-md">
+								<img src={image} alt={section.title} class="w-full h-52 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+							</div>
+						))}
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Visit Our Location</h2>
+			<p class="text-center text-gray-700 max-w-2xl mx-auto mb-10">
+				We are located between Ocala and The Villages, right on 441 across from the Market of Marion. Stop by to see these carts in person!
 			</p>
-			<div class="flex flex-wrap justify-center gap-4">
-				<a href="/inventory" style="color: #86CA26;" style="background-color: rgba(134, 202, 38, 0.05);" class="bg-white  px-8 py-3 rounded-lg font-bold hover:(134, 202, 38, 0.05) transition inline-block">
-					View Inventory
-				</a>
-				<a href="/contact" class="bg-#5a8019 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-900 transition inline-block">
-					Contact Us
-				</a>
+			<div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
+					width="100%"
+					height="450"
+					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
 			</div>
 		</div>
 	</section>
