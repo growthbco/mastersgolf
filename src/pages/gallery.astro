@@ -69,6 +69,21 @@ const gallerySections = [
 		],
 	},
 ];
+
+const modalImages: { src: string; title: string }[] = [];
+const pushImage = (src: string, title: string) => {
+	modalImages.push({ src, title });
+};
+
+pushImage(fleetPrimary, 'Golf Cart Fleets');
+fleetGallery.forEach((src) => pushImage(src, 'Golf Cart Fleets'));
+pushImage(fleetPanorama, 'Golf Cart Fleets');
+gallerySections.forEach((section) => {
+	section.images.forEach((src) => pushImage(src, section.title));
+});
+
+const imageIndexMap = new Map<string, number>();
+modalImages.forEach((item, index) => imageIndexMap.set(item.src, index));
 ---
 
 <Layout title="Golf Cart Gallery - Masters Golf Cars" description="Explore Masters Golf Cars gallery featuring fleets, custom builds, lifted carts, and more.">
@@ -83,20 +98,26 @@ const gallerySections = [
 			<div class="bg-white border border-gray-200 rounded-[32px] shadow-xl p-6 md:p-10">
 				<h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-wide">Golf Cart Fleets</h2>
 
-				<div class="overflow-hidden rounded-[28px] shadow-lg mb-10">
-					<img src={fleetPrimary} alt="Masters Golf Cars fleet delivery truck" class="w-full h-auto object-cover" loading="lazy" />
+				<div class="overflow-hidden shadow-lg mb-10">
+					<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(fleetPrimary)}>
+						<img src={fleetPrimary} alt="Masters Golf Cars fleet delivery truck" class="w-full aspect-[16/6] md:aspect-[16/5] object-cover" loading="lazy" />
+					</button>
 				</div>
 
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 					{fleetGallery.map((image) => (
-						<div class="overflow-hidden rounded-3xl shadow-md">
-							<img src={image} alt="Masters Golf Cars fleet" class="w-full h-52 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+						<div class="overflow-hidden shadow-md">
+							<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(image)}>
+								<img src={image} alt="Masters Golf Cars fleet" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+							</button>
 						</div>
 					))}
 				</div>
 
-				<div class="overflow-hidden rounded-[28px] shadow-lg mt-10">
-					<img src={fleetPanorama} alt="Large golf cart fleet lineup" class="w-full h-auto object-cover" loading="lazy" />
+				<div class="overflow-hidden shadow-lg mt-10">
+					<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(fleetPanorama)}>
+						<img src={fleetPanorama} alt="Large golf cart fleet lineup" class="w-full aspect-[16/6] md:aspect-[16/5] object-cover" loading="lazy" />
+					</button>
 				</div>
 			</div>
 		</div>
@@ -109,8 +130,10 @@ const gallerySections = [
 					<h3 class="text-2xl font-bold text-center text-gray-900 mb-8 uppercase tracking-wide">{section.title}</h3>
 					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 						{section.images.map((image) => (
-							<div class="overflow-hidden rounded-3xl shadow-md">
-								<img src={image} alt={section.title} class="w-full h-52 object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+							<div class="overflow-hidden shadow-md">
+								<button type="button" class="w-full block" data-gallery-index={imageIndexMap.get(image)}>
+									<img src={image} alt={section.title} class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
+								</button>
 							</div>
 						))}
 					</div>
@@ -138,5 +161,91 @@ const gallerySections = [
 			</div>
 		</div>
 	</section>
+
+	<div id="gallery-modal" class="fixed inset-0 hidden items-center justify-center bg-black/90 z-50 px-6">
+		<div class="relative w-full max-w-5xl">
+			<button type="button" class="absolute -top-12 right-0 text-white text-3xl font-bold hover:opacity-80 transition" data-gallery-close aria-label="Close gallery">
+				&times;
+			</button>
+			<div class="relative">
+				<button type="button" class="absolute left-0 top-1/2 -translate-y-1/2 text-white text-3xl bg-black/50 hover:bg-black/70 transition px-3 py-1 rounded-full" data-gallery-prev aria-label="Previous image">
+					&#8592;
+				</button>
+				<button type="button" class="absolute right-0 top-1/2 -translate-y-1/2 text-white text-3xl bg-black/50 hover:bg-black/70 transition px-3 py-1 rounded-full" data-gallery-next aria-label="Next image">
+					&#8594;
+				</button>
+				<img src="" alt="" class="w-full max-h-[80vh] object-contain rounded-lg" data-gallery-modal-image />
+			</div>
+			<p class="text-white text-center text-lg mt-4" data-gallery-modal-title></p>
+		</div>
+	</div>
+
+	<script type="application/json" id="gallery-data">{JSON.stringify(modalImages)}</script>
+	<script>
+		const galleryDataEl = document.getElementById('gallery-data');
+		const galleryData = galleryDataEl ? JSON.parse(galleryDataEl.textContent || '[]') : [];
+		const modalEl = document.getElementById('gallery-modal');
+		const modalImg = modalEl?.querySelector('[data-gallery-modal-image]');
+		const modalTitle = modalEl?.querySelector('[data-gallery-modal-title]');
+		const closeBtn = modalEl?.querySelector('[data-gallery-close]');
+		const prevBtn = modalEl?.querySelector('[data-gallery-prev]');
+		const nextBtn = modalEl?.querySelector('[data-gallery-next]');
+		let currentIndex = 0;
+
+		const showModal = (index) => {
+			if (!modalEl || !modalImg || !modalTitle) return;
+			currentIndex = (index + galleryData.length) % galleryData.length;
+			const item = galleryData[currentIndex];
+			if (!item) return;
+			modalImg.src = item.src;
+			modalImg.alt = item.title;
+			modalTitle.textContent = item.title;
+			modalEl.classList.remove('hidden');
+			modalEl.classList.add('flex');
+			document.body.style.overflow = 'hidden';
+		};
+
+		const closeModal = () => {
+			if (!modalEl) return;
+			modalEl.classList.add('hidden');
+			modalEl.classList.remove('flex');
+			document.body.style.overflow = '';
+		};
+
+		document.querySelectorAll('[data-gallery-index]').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const index = Number(btn.getAttribute('data-gallery-index') || '0');
+				if (!Number.isNaN(index)) {
+					showModal(index);
+				}
+			});
+		});
+
+		closeBtn?.addEventListener('click', closeModal);
+		modalEl?.addEventListener('click', (event) => {
+			if (event.target === modalEl) {
+				closeModal();
+			}
+		});
+		prevBtn?.addEventListener('click', (event) => {
+			event.stopPropagation();
+			showModal(currentIndex - 1);
+		});
+		nextBtn?.addEventListener('click', (event) => {
+			event.stopPropagation();
+			showModal(currentIndex + 1);
+		});
+
+		window.addEventListener('keydown', (event) => {
+			if (!modalEl || modalEl.classList.contains('hidden')) return;
+			if (event.key === 'Escape') {
+				closeModal();
+			} else if (event.key === 'ArrowLeft') {
+				showModal(currentIndex - 1);
+			} else if (event.key === 'ArrowRight') {
+				showModal(currentIndex + 1);
+			}
+		});
+	</script>
 </Layout>
 
