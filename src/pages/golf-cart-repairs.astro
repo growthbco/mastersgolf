@@ -52,6 +52,17 @@ const testimonialSlides = [
 		role: 'Event Rental Partner',
 	},
 ];
+
+const batterySlides = [
+	{
+		src: '/images/golf cart repair page/eco-battery-lithium.webp',
+		alt: 'Eco Battery 51.2V 160Ah lithium golf cart battery',
+	},
+	{
+		src: '/images/golf cart repair page/trojan-lithium-onepack.webp',
+		alt: 'Trojan Lithium OnePack golf cart battery',
+	},
+];
 ---
 
 <Layout title="Golf Cart Repairs - Masters Golf Cars" description="Fast, reliable golf cart repairs in The Villages and Ocala. 24-hour turnaround on most repairs.">
@@ -210,36 +221,44 @@ const testimonialSlides = [
 	<section class="py-16 bg-gray-50">
 		<div class="container mx-auto px-4">
 			<div class="max-w-6xl mx-auto">
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
 					<!-- Gas Golf Cart Repairs -->
-					<div class="bg-white rounded-lg shadow-lg p-8">
-						<h3 class="text-2xl font-bold mb-6 text-gray-900">Gas Golf Cart Repairs & Services</h3>
-						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Gas Golf Cart" class="w-full h-auto rounded-lg mb-6" />
-						<ol class="space-y-3 list-decimal list-inside">
-							<li class="text-gray-700">Engine Maintenance</li>
-							<li class="text-gray-700">Oil Replacement</li>
-							<li class="text-gray-700">Fuel System Repairs</li>
-							<li class="text-gray-700">Battery and Electrical System</li>
-							<li class="text-gray-700">Exhaust System Repairs</li>
-							<li class="text-gray-700">Transmission and Clutch Maintenance</li>
-							<li class="text-gray-700">Tire & Wheel Replacement and Upgrades</li>
-							<li class="text-gray-700">Lighting Upgrades</li>
-						</ol>
+					<div class="bg-white rounded-[28px] shadow-2xl p-8 md:p-10 flex flex-col gap-6">
+						<div class="rounded-[24px] bg-gray-100 p-4 shadow-inner">
+							<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Gas Golf Cart" class="w-full h-[260px] md:h-[300px] object-cover rounded-[20px] shadow-lg" loading="lazy" />
+						</div>
+						<div class="space-y-5">
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900 text-left">Gas Golf Cart Repairs & Services</h3>
+							<ol class="space-y-3 text-gray-700 text-lg list-decimal list-inside">
+								<li>Engine Maintenance</li>
+								<li>Oil Replacement</li>
+								<li>Fuel System Repairs</li>
+								<li>Battery and Electrical System</li>
+								<li>Exhaust System Repairs</li>
+								<li>Transmission and Clutch Maintenance</li>
+								<li>Tire & Wheel Replacement and Upgrades</li>
+								<li>Lighting Upgrades</li>
+							</ol>
+						</div>
 					</div>
 
 					<!-- Electric Golf Cart Repairs -->
-					<div class="bg-white rounded-lg shadow-lg p-8">
-						<h3 class="text-2xl font-bold mb-6 text-gray-900">Electric Golf Cart Repairs & Service</h3>
-						<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Electric Golf Cart" class="w-full h-auto rounded-lg mb-6" />
-						<ol class="space-y-3 list-decimal list-inside">
-							<li class="text-gray-700">Battery Maintenance and Replacement</li>
-							<li class="text-gray-700">Charging System Service</li>
-							<li class="text-gray-700">Motor and Controller Maintenance and Upgrades</li>
-							<li class="text-gray-700">Electrical System Troubleshooting</li>
-							<li class="text-gray-700">Motor Brushes and Bearings</li>
-							<li class="text-gray-700">Tire & Wheel Replacement and Upgrades</li>
-							<li class="text-gray-700">Lighting Upgrades</li>
-						</ol>
+					<div class="bg-white rounded-[28px] shadow-2xl p-8 md:p-10 flex flex-col gap-6">
+						<div class="rounded-[24px] bg-gray-100 p-4 shadow-inner">
+							<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Electric Golf Cart" class="w-full h-[260px] md:h-[300px] object-cover rounded-[20px] shadow-lg" loading="lazy" />
+						</div>
+						<div class="space-y-5">
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900 text-left">Electric Golf Cart Repairs & Service</h3>
+							<ol class="space-y-3 text-gray-700 text-lg list-decimal list-inside">
+								<li>Battery Maintenance and Replacement</li>
+								<li>Charging System Service</li>
+								<li>Motor and Controller Maintenance and Upgrades</li>
+								<li>Electrical System Troubleshooting</li>
+								<li>Motor Brushes and Bearings</li>
+								<li>Tire & Wheel Replacement and Upgrades</li>
+								<li>Lighting Upgrades</li>
+							</ol>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -247,47 +266,70 @@ const testimonialSlides = [
 	</section>
 
 	<!-- Lithium-ion Battery Conversions Section -->
-	<section class="py-16 bg-white">
+	<section class="py-20 bg-gray-900">
 		<div class="container mx-auto px-4">
 			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Lithium-ion Battery Conversions Services</h2>
-				
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-					<div>
-						<p class="text-lg text-gray-700 mb-4">
-							Upgrade your golf cart to a lithium-ion battery system and experience superior performance, longer battery life, and reduced maintenance. Our conversion services are performed by certified technicians who ensure your cart is properly configured for optimal performance.
+				<div class="grid grid-cols-1 lg:grid-cols-[1.2fr,1fr] gap-12 items-center">
+					<div class="text-white">
+						<span class="uppercase tracking-[0.3em] text-sm text-brand-green mb-4 inline-block">Lithium-ion Experts</span>
+						<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">Boost Range & Performance With Lithium-Ion Battery Conversions</h2>
+						<p class="text-lg text-gray-200 mb-6">
+							Upgrade your golf cart to a lithium power system and experience a whole new level of reliability. Our certified technicians install premium Eco Battery and Trojan OnePack systems, recalibrate your cart, and back every conversion with full manufacturer support.
 						</p>
-						<p class="text-lg text-gray-700 mb-6">
-							Lithium-ion batteries offer significant advantages over traditional lead-acid batteries, making them an excellent investment for golf cart owners who want the best performance and reliability.
-						</p>
-						
-						<h3 class="text-xl font-bold mb-4 text-gray-900">The benefits of upgrading to a lithium-ion battery:</h3>
-						<ul class="space-y-2">
-							<li class="flex items-start">
-								<span class="text-xl mr-3 font-bold" style="color: #86CA26;">•</span>
-								<span class="text-gray-700">Longer battery life</span>
-							</li>
-							<li class="flex items-start">
-								<span class="text-xl mr-3 font-bold" style="color: #86CA26;">•</span>
-								<span class="text-gray-700">Faster charging</span>
-							</li>
-							<li class="flex items-start">
-								<span class="text-xl mr-3 font-bold" style="color: #86CA26;">•</span>
-								<span class="text-gray-700">Lighter weight</span>
-							</li>
-							<li class="flex items-start">
-								<span class="text-xl mr-3 font-bold" style="color: #86CA26;">•</span>
-								<span class="text-gray-700">Zero maintenance</span>
-							</li>
-							<li class="flex items-start">
-								<span class="text-xl mr-3 font-bold" style="color: #86CA26;">•</span>
-								<span class="text-gray-700">Sustainability</span>
-							</li>
-						</ul>
+						<div class="bg-white/10 border border-white/15 rounded-3xl p-6 md:p-8 backdrop-blur-sm">
+							<h3 class="text-xl font-semibold mb-4 text-white">Why owners love lithium upgrades:</h3>
+							<ul class="space-y-4">
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100">3-4x longer battery life compared to lead-acid packs</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100">Faster charging with smart onboard battery management</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100">Lightweight modules for improved acceleration and range</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100">Maintenance-free power that just works every time</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100">Industry-leading warranties and remote monitoring</span>
+								</li>
+							</ul>
+						</div>
 					</div>
-					
-					<div>
-						<img src="/images/logos/trojan-batteries-icon-0-3.webp" alt="Trojan Lithium OnePack Battery" class="w-full h-auto rounded-lg shadow-lg max-w-md mx-auto" />
+
+					<div class="relative">
+						<div class="overflow-hidden rounded-[28px] shadow-2xl bg-black">
+							<div id="battery-slider" class="flex transition-transform duration-500 ease-in-out" data-slides={batterySlides.length}>
+								{batterySlides.map((slide, index) => (
+									<div class="w-full flex-shrink-0" data-battery-slide={index}>
+										<img src={slide.src} alt={slide.alt} class="w-full h-[260px] md:h-[360px] object-cover" loading="lazy" />
+									</div>
+								))}
+							</div>
+						</div>
+
+						<button type="button" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 text-gray-900 rounded-full w-11 h-11 flex items-center justify-center shadow-lg hover:bg-white transition" aria-label="Previous battery image" data-battery-prev>
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+							</svg>
+						</button>
+						<button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 text-gray-900 rounded-full w-11 h-11 flex items-center justify-center shadow-lg hover:bg-white transition" aria-label="Next battery image" data-battery-next>
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+							</svg>
+						</button>
+
+						<div class="flex justify-center gap-2 mt-4">
+							{batterySlides.map((_slide, index) => (
+								<button type="button" class="w-2.5 h-2.5 rounded-full bg-white/40 transition" aria-label={`Go to battery image ${index + 1}`} data-battery-indicator={index}></button>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -706,6 +748,52 @@ const testimonialSlides = [
 				});
 
 				updateReviewSlider();
+			}
+		}
+
+		const batterySlider = document.getElementById('battery-slider');
+		if (batterySlider) {
+			const totalBatterySlides = Number(batterySlider.dataset.slides || '0');
+			const batteryIndicators = Array.from(document.querySelectorAll('[data-battery-indicator]'));
+			let batteryIndex = 0;
+
+			const updateBatterySlider = () => {
+				batterySlider.style.transform = `translateX(-${batteryIndex * 100}%)`;
+				batteryIndicators.forEach((indicator, index) => {
+					if (index === batteryIndex) {
+						indicator.classList.add('bg-brand-green');
+						indicator.classList.remove('bg-white/40');
+					} else {
+						indicator.classList.remove('bg-brand-green');
+						if (!indicator.classList.contains('bg-white/40')) {
+							indicator.classList.add('bg-white/40');
+						}
+					}
+				});
+			};
+
+			if (totalBatterySlides > 0) {
+				document.querySelector('[data-battery-prev]')?.addEventListener('click', () => {
+					batteryIndex = (batteryIndex - 1 + totalBatterySlides) % totalBatterySlides;
+					updateBatterySlider();
+				});
+
+				document.querySelector('[data-battery-next]')?.addEventListener('click', () => {
+					batteryIndex = (batteryIndex + 1) % totalBatterySlides;
+					updateBatterySlider();
+				});
+
+				batteryIndicators.forEach((indicator) => {
+					indicator.addEventListener('click', () => {
+						const targetIndex = Number(indicator.dataset.batteryIndicator);
+						if (!Number.isNaN(targetIndex)) {
+							batteryIndex = targetIndex;
+							updateBatterySlider();
+						}
+					});
+				});
+
+				updateBatterySlider();
 			}
 		}
 	</script>
