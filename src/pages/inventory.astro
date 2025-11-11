@@ -122,7 +122,7 @@ import inventoryData from '../data/inventory.json';
 										<i class="fa-regular fa-envelope"></i>
 										<span>SEND EMAIL</span>
 									</button>
-									<a href={`/cart/${cart.id}`} class="w-full bg-white text-gray-900 font-semibold py-3 px-4 rounded-md border-2 border-brand-green hover:bg-green-50 transition-colors flex items-center justify-center space-x-2">
+									<a href={cart.slug ? `/${cart.slug}` : `/cart/${cart.id}`} class="w-full bg-white text-gray-900 font-semibold py-3 px-4 rounded-md border-2 border-brand-green hover:bg-green-50 transition-colors flex items-center justify-center space-x-2">
 										<i class="fa-regular fa-eye"></i>
 										<span>VIEW DETAILS</span>
 									</a>

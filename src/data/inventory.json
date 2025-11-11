@@ -1,6 +1,7 @@
 [
   {
     "id": "101",
+    "slug": "2025-advanced-ev-advent-2-deluxe-golf-ready-belleview-fl-34420-psi139811",
     "name": "2025 Advanced EV Advent 2 Deluxe Golf Ready",
     "model": "Advent 2",
     "brand": "Advanced EV",
@@ -8,7 +9,16 @@
     "price": 17595,
     "salePrice": 13395,
     "stock": "101",
-    "image": "https://i31.dlrwebservice.com/52004/i/139811/wm650/3_52004_139811_8156808.jpg",
+    "image": "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156808.jpg",
+    "images": [
+      "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156807.jpg",
+      "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156808.jpg",
+      "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156809.jpg",
+      "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156810.jpg",
+      "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156811.jpg",
+      "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156812.jpg",
+      "/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/3_52004_139811_8156813.jpg"
+    ],
     "type": "Golf Cart"
   },
   {
