@@ -14,6 +14,8 @@ export async function getStaticPaths() {
 const { cart, slug } = Astro.props;
 const cartImages = cart.images && cart.images.length > 0 ? cart.images : [cart.image];
 const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
+// Get similar units (exclude current cart)
+const similarUnits = inventoryData.filter(c => c.id !== cart.id && c.slug).slice(0, 5);
 ---
 
 <Layout title={`${cart.name} - Stock #${cart.stock} - Masters Golf Cars`} description={`${cart.name} for sale at Masters Golf Cars. Stock #${cart.stock}. Sale Price: $${(cart.salePrice || cart.price).toLocaleString()}`}>
@@ -258,6 +260,60 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 				</div>
 			</div>
 		</div>
+
+		<!-- Similar Units For Sale Section -->
+		<div class="mt-8">
+			<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase text-left">SIMILAR UNITS FOR SALE</h2>
+			<div class="border-t-2 border-brand-green mb-6"></div>
+			<div class="relative">
+				<button id="similar-prev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full p-2 hover:bg-gray-50 transition">
+					<i class="fa-solid fa-chevron-left text-gray-600"></i>
+				</button>
+				<div id="similar-carousel" class="flex gap-4 overflow-x-auto scrollbar-hide pb-4" style="scroll-behavior: smooth;">
+					{similarUnits.map((unit) => (
+						<div class="flex-shrink-0 w-64 bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
+							<a href={unit.slug ? `/${unit.slug}` : `/cart/${unit.id}`}>
+								<img src={unit.image} alt={unit.name} class="w-full h-48 object-cover" />
+								<div class="p-4">
+									<h3 class="font-bold text-gray-900 mb-2">{unit.year} {unit.brand} {unit.model}</h3>
+									<div class="space-y-1 mb-3">
+										<p class="text-sm text-gray-600">Price: <span class="line-through">${unit.price.toLocaleString()}</span></p>
+										<p class="text-sm font-bold text-brand-green">Sale Price: ${(unit.salePrice || unit.price).toLocaleString()}</p>
+									</div>
+									<button class="w-full bg-gray-900 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-800 transition text-sm">
+										VIEW DETAILS
+									</button>
+								</div>
+							</a>
+						</div>
+					))}
+				</div>
+				<button id="similar-next" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full p-2 hover:bg-gray-50 transition">
+					<i class="fa-solid fa-chevron-right text-gray-600"></i>
+				</button>
+			</div>
+		</div>
+
+		<!-- Dealer Information Section -->
+		<div class="mt-8">
+			<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase text-left">DEALER INFORMATION</h2>
+			<div class="border-t-2 border-brand-green mb-6"></div>
+			<div class="bg-gray-50 rounded-lg p-6">
+				<h3 class="text-xl font-bold text-gray-900 mb-4">Masters Golf Cars</h3>
+				<div class="space-y-3 mb-6">
+					<p class="text-gray-700 font-semibold">12885 US-441</p>
+					<p class="text-gray-700 font-semibold">Belleview, FL 34420</p>
+					<a href="tel:3523070111" class="flex items-center gap-2 text-brand-green font-semibold hover:opacity-80 transition">
+						<i class="fa-solid fa-phone"></i>
+						<span>352-307-0111</span>
+					</a>
+				</div>
+				<a href="/contact" class="inline-flex items-center gap-2 bg-brand-green text-white font-semibold py-3 px-6 rounded-md hover:opacity-90 transition">
+					<i class="fa-regular fa-envelope"></i>
+					<span>CONTACT US</span>
+				</a>
+			</div>
+		</div>
 	</div>
 
 	<!-- Photo Gallery Modal -->
@@ -331,6 +387,30 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 					document.body.style.overflow = '';
 				}
 			});
+
+			// Similar units carousel navigation
+			const similarCarousel = document.getElementById('similar-carousel');
+			const similarPrev = document.getElementById('similar-prev');
+			const similarNext = document.getElementById('similar-next');
+			
+			if (similarCarousel && similarPrev && similarNext) {
+				similarPrev.addEventListener('click', function() {
+					similarCarousel.scrollBy({ left: -300, behavior: 'smooth' });
+				});
+				
+				similarNext.addEventListener('click', function() {
+					similarCarousel.scrollBy({ left: 300, behavior: 'smooth' });
+				});
+			}
 		});
 	</script>
+	<style>
+		.scrollbar-hide {
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+		.scrollbar-hide::-webkit-scrollbar {
+			display: none;
+		}
+	</style>
 </Layout>
