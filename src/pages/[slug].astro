@@ -14,8 +14,8 @@ export async function getStaticPaths() {
 const { cart, slug } = Astro.props;
 const cartImages = cart.images && cart.images.length > 0 ? cart.images : [cart.image];
 const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
-// Get similar units (exclude current cart)
-const similarUnits = inventoryData.filter(c => c.id !== cart.id && c.slug).slice(0, 5);
+// Get similar units (exclude current cart, show all inventory items)
+const similarUnits = inventoryData.filter(c => c.id !== cart.id).slice(0, 5);
 ---
 
 <Layout title={`${cart.name} - Stock #${cart.stock} - Masters Golf Cars`} description={`${cart.name} for sale at Masters Golf Cars. Stock #${cart.stock}. Sale Price: $${(cart.salePrice || cart.price).toLocaleString()}`}>
@@ -275,9 +275,9 @@ const similarUnits = inventoryData.filter(c => c.id !== cart.id && c.slug).slice
 							<a href={unit.slug ? `/${unit.slug}` : `/cart/${unit.id}`}>
 								<img src={unit.image} alt={unit.name} class="w-full h-48 object-cover" />
 								<div class="p-4">
-									<h3 class="font-bold text-gray-900 mb-2">{unit.year} {unit.brand} {unit.model}</h3>
+									<h3 class="font-bold text-gray-900 mb-2 text-sm">{unit.name}</h3>
 									<div class="space-y-1 mb-3">
-										<p class="text-sm text-gray-600">Price: <span class="line-through">${unit.price.toLocaleString()}</span></p>
+										<p class="text-xs text-gray-600">Price: <span class="line-through">${unit.price.toLocaleString()}</span></p>
 										<p class="text-sm font-bold text-brand-green">Sale Price: ${(unit.salePrice || unit.price).toLocaleString()}</p>
 									</div>
 									<button class="w-full bg-gray-900 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-800 transition text-sm">
