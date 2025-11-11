@@ -70,20 +70,14 @@ const gallerySections = [
 	},
 ];
 
-const modalImages: { src: string; title: string }[] = [];
-const pushImage = (src: string, title: string) => {
-	modalImages.push({ src, title });
-};
+const modalImages = [
+	{ src: fleetPrimary, title: 'Golf Cart Fleets' },
+	...fleetGallery.map((src) => ({ src, title: 'Golf Cart Fleets' })),
+	{ src: fleetPanorama, title: 'Golf Cart Fleets' },
+	...gallerySections.flatMap((section) => section.images.map((src) => ({ src, title: section.title }))),
+];
 
-pushImage(fleetPrimary, 'Golf Cart Fleets');
-fleetGallery.forEach((src) => pushImage(src, 'Golf Cart Fleets'));
-pushImage(fleetPanorama, 'Golf Cart Fleets');
-gallerySections.forEach((section) => {
-	section.images.forEach((src) => pushImage(src, section.title));
-});
-
-const imageIndexMap = new Map<string, number>();
-modalImages.forEach((item, index) => imageIndexMap.set(item.src, index));
+const imageIndexMap = new Map(modalImages.map((item, index) => [item.src, index]));
 ---
 
 <Layout title="Golf Cart Gallery - Masters Golf Cars" description="Explore Masters Golf Cars gallery featuring fleets, custom builds, lifted carts, and more.">
