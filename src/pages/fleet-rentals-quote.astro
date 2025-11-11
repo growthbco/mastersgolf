@@ -1,0 +1,356 @@
+---
+import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
+import servicesData from '../data/services.json';
+
+const fleetOptions = [
+	{
+		title: '2-Passenger Cart',
+		description:
+			'Compact and maneuverable—ideal for resorts, security routes, and intimate venues where tight turns matter.',
+		image: '/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp',
+		alt: '2-passenger golf cart ready for events',
+	},
+	{
+		title: '4-Passenger Cart',
+		description:
+			'Comfortable seating for small groups with dependable range and storage capacity for day-long events.',
+		image: '/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp',
+		alt: '4-passenger golf cart rental option',
+	},
+	{
+		title: '6-Passenger Cart',
+		description:
+			'Move guests efficiently across festivals, campuses, and corporate grounds with cushioned seating for six.',
+		image: '/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp',
+		alt: '6-passenger golf cart for large events',
+	},
+	{
+		title: 'Utility Cart',
+		description:
+			'Heavy-duty utility beds built for hauling gear, staging equipment, maintenance support, and grounds crews.',
+		image: '/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp',
+		alt: 'Utility golf cart with cargo bed',
+	},
+];
+
+const testimonials = [
+	{
+		name: 'Megan O’Brien',
+		quote: '“If anyone is looking for a cart or a rental, Masters Golf Cars is the place to go.”',
+	},
+	{
+		name: 'Scott Lenhart',
+		quote: '“Fantastic people to work with. Delivered my rental cart on time as promised. Highly recommended!”',
+	},
+	{
+		name: 'Samantha Blanton',
+		quote: '“Great company to work with. They get the job done right!”',
+	},
+];
+
+const faqs = [
+	{
+		question: 'What is the minimum age to rent a golf cart fleet?',
+		answer: 'Drivers must be at least 21 years old with a valid driver’s license. Some venues may request additional insurance documentation.',
+	},
+	{
+		question: 'Do I need to pay a deposit?',
+		answer: 'Yes. A refundable security deposit secures your reservation and covers incidental damage. Deposits vary based on fleet size.',
+	},
+	{
+		question: 'Can I extend my rental period?',
+		answer: 'Absolutely. Contact us before your scheduled return date and we will adjust the reservation if carts are available.',
+	},
+	{
+		question: 'Do you offer delivery for golf cart rentals?',
+		answer: 'Yes. We deliver throughout Central Florida and coordinate pickup after your event. On-site orientation is included.',
+	},
+];
+
+const areasServed = [
+	'The Villages',
+	'Ocala',
+	'Belleview',
+	'Summerfield',
+	'Leesburg',
+	'Marion County',
+	'Lake County',
+	'Alachua County',
+	'Sumter County',
+	'College & University Campuses',
+	'Equestrian Venues',
+	'Resorts & Conference Centers',
+];
+---
+
+<Layout
+	title="Fleet Rentals Quote - Masters Golf Cars"
+	description="Request a customized quote for Masters Golf Cars fleet rentals. Choose from 2, 4, 6 passenger, and utility carts for events across Central Florida."
+>
+	<section class="bg-white py-16 md:py-20">
+		<div class="container mx-auto px-4 max-w-5xl text-center">
+			<p class="text-sm font-semibold uppercase tracking-[0.32em] text-brand-green mb-3">Fleet Rentals</p>
+			<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Golf Cart Fleet Rental</h1>
+			<p class="text-lg text-gray-600 mb-8">
+				Masters Golf Cars makes it easy to rent a fleet of reliable golf carts for your event, resort, or special occasion.
+				With over 25 years of experience and a fleet of more than 300 late-model, gas-powered carts, we deliver dependable transportation for gatherings of any size.
+			</p>
+			<a href="#fleet-quote" class="inline-flex items-center justify-center bg-brand-green text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-[#1f6612] transition">
+				Request Your Fleet Quote Today
+			</a>
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="text-center max-w-3xl mx-auto mb-12">
+				<h2 class="text-3xl font-bold text-gray-900 mb-3">Our Golf Cart Fleet Options</h2>
+				<p class="text-gray-600">
+					Choose the combination of carts that fits your guest capacity, terrain, and schedule. Every rental includes chargers, safety checks, and on-call support.
+				</p>
+			</div>
+			<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+				{fleetOptions.map((option) => (
+					<article class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
+						<img src={option.image} alt={option.alt} class="h-40 w-full object-cover" loading="lazy" />
+						<div class="p-6 flex flex-col gap-3">
+							<h3 class="text-lg font-semibold text-gray-900">{option.title}</h3>
+							<p class="text-sm text-gray-600 leading-relaxed">{option.description}</p>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-start">
+				<div>
+					<h2 class="text-3xl font-bold text-gray-900 mb-6">Popular Golf Cart Fleet Rental Use Cases</h2>
+					<p class="text-gray-600 mb-6">
+						Our team supports events across Central Florida—from multi-day festivals and equestrian shows to corporate campuses and collegiate events. Tell us about your schedule and we’ll map out the carts, delivery plan, and on-site support you need.
+					</p>
+					<ul class="grid gap-3 sm:grid-cols-2 text-sm text-gray-700">
+						{servicesData.fleetUseCases.map((useCase) => (
+							<li class="flex items-start gap-2 leading-relaxed">
+								<span class="mt-1 text-brand-green">•</span>
+								<span>{useCase}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div class="grid gap-4">
+					<div class="grid grid-cols-2 gap-4">
+						<img src="/images/gallery/02-04-2025-14-04-55_7.webp" alt="Fleet lineup ready for delivery" class="rounded-2xl shadow-md object-cover h-44 w-full" loading="lazy" />
+						<img src="/images/gallery/02-04-2025-14-24-08_24.webp" alt="Masters Golf Cars delivery truck" class="rounded-2xl shadow-md object-cover h-44 w-full" loading="lazy" />
+					</div>
+					<img src="/images/gallery/golf-cart-fleet-rental-delivery_img_v35.webp" alt="Golf carts staged for large event" class="rounded-2xl shadow-md object-cover h-52 w-full" loading="lazy" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Testimonials</h2>
+			<div class="grid gap-6 md:grid-cols-3">
+				{testimonials.map((item) => (
+					<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col">
+						<p class="text-gray-700 italic mb-4">{item.quote}</p>
+						<p class="text-sm font-semibold text-gray-900">— {item.name}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-white" id="fleet-quote">
+		<div class="container mx-auto px-4 max-w-4xl text-center mb-10">
+			<h2 class="text-3xl font-bold text-gray-900 mb-3">Get a Quote for Fleet Rental</h2>
+			<p class="text-gray-600">
+				Please fill out the form below. Our rental manager will confirm availability, coordinate delivery, and follow up promptly with pricing.
+			</p>
+		</div>
+		<div class="container mx-auto px-4 max-w-4xl">
+			<form class="bg-gray-50 border border-gray-200 rounded-3xl shadow-xl p-8 md:p-10 space-y-6" name="fleet-rentals-quote" method="POST" data-netlify="true">
+				<input type="hidden" name="form-name" value="fleet-rentals-quote" />
+				<div class="grid gap-6 md:grid-cols-2">
+					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+						Event Name *
+						<input type="text" name="event-name" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Event Name" />
+					</label>
+					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+						Event Start Date *
+						<input type="date" name="event-start-date" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" />
+					</label>
+					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+						Event End Date *
+						<input type="date" name="event-end-date" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" />
+					</label>
+					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+						Contact Person *
+						<input type="text" name="contact-person" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Contact Person" />
+					</label>
+					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+						Phone *
+						<input type="tel" name="phone" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Phone" />
+					</label>
+					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+						Email *
+						<input type="email" name="email" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Email" />
+					</label>
+					<label class="flex flex-col text-left text-sm font-semibold text-gray-800 md:col-span-2">
+						Delivery Address *
+						<input type="text" name="delivery-address" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Delivery Address" />
+					</label>
+				</div>
+
+				<div>
+					<h3 class="text-lg font-semibold text-gray-900 mb-4">Quantity of Carts Needed</h3>
+					<div class="grid gap-4 md:grid-cols-2">
+						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+							# of 2 Passenger Carts
+							<input type="number" name="two-passenger" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
+						</label>
+						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+							# of 4 Passenger Carts
+							<input type="number" name="four-passenger" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
+						</label>
+						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+							# of 6 Passenger Carts
+							<input type="number" name="six-passenger" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
+						</label>
+						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+							Utility Carts
+							<input type="number" name="utility-carts" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
+						</label>
+						<label class="flex flex-col text-left text-sm font-semibold text-gray-800 md:col-span-2">
+							Shuttle Carts (8 Passenger)+
+							<input type="number" name="shuttle-carts" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
+						</label>
+					</div>
+				</div>
+
+				<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
+					Additional Needs or Questions
+					<textarea name="additional-needs" rows="4" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Tell us about delivery windows, venue restrictions, accessories, or other requirements."></textarea>
+				</label>
+
+				<label class="flex items-center gap-3 text-sm text-gray-700">
+					<input type="checkbox" name="join-email-list" class="h-5 w-5 rounded border-gray-300 text-brand-green focus:ring-brand-green" />
+					<span>Please add me to your email list</span>
+				</label>
+
+				<button type="submit" class="w-full bg-brand-green text-white text-lg font-semibold py-3 rounded-full shadow hover:bg-[#1f6612] transition">
+					Submit
+				</button>
+				<p class="text-xs text-gray-500 text-center">
+					This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" class="underline hover:text-brand-green">Privacy Policy</a> and
+					<a href="https://policies.google.com/terms" target="_blank" class="underline hover:text-brand-green">Terms of Service</a> apply.
+				</p>
+			</form>
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid gap-10 lg:grid-cols-[0.9fr,1.1fr] items-start">
+				<div>
+					<img
+						src="/images/gallery/02-04-2025-14-23-09_23.webp"
+						alt="Masters Golf Cars delivering rental fleet"
+						class="rounded-3xl shadow-lg object-cover w-full h-full max-h-[420px]"
+						loading="lazy"
+					/>
+				</div>
+				<div>
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+					<p class="text-gray-600 mb-6">
+						If you have additional questions about fleet rentals, give us a call—we’re glad to help customize a package for your event.
+					</p>
+					<p class="text-lg font-semibold text-brand-green mb-6">{companyData.contact.phone}</p>
+					<div class="space-y-4">
+						{faqs.map((item) => (
+							<details class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5 group">
+								<summary class="flex items-center justify-between cursor-pointer text-left">
+									<span class="text-sm font-semibold text-gray-900">{item.question}</span>
+									<span class="text-brand-green text-lg transition group-open:rotate-45">+</span>
+								</summary>
+								<p class="mt-3 text-sm text-gray-600 leading-relaxed">{item.answer}</p>
+							</details>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-start">
+				<div>
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Areas We Serve</h2>
+					<p class="text-gray-700 leading-relaxed mb-4">
+						We deliver throughout Central Florida, including metro hubs, equestrian venues, and private communities. Whether you need a few carts or an entire fleet, our logistics team
+						ensures on-time drop-off, setup, and pickup.
+					</p>
+					<p class="text-gray-700 leading-relaxed">
+						Share your venue, desired delivery window, and any on-site restrictions—we’ll handle the rest.
+					</p>
+				</div>
+				<div>
+					<ul class="grid grid-cols-2 gap-3 text-sm text-gray-700">
+						{areasServed.map((area) => (
+							<li class="flex items-center gap-2">
+								<span class="text-brand-green">•</span>
+								<span>{area}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid gap-10 lg:grid-cols-[1fr,1fr] items-start">
+				<div class="space-y-4">
+					<h2 class="text-3xl font-bold text-gray-900">Visit Our Location</h2>
+					<p class="text-gray-600">
+						We are located between Ocala and The Villages on US 441 across from the Market of Marion. Call ahead and we can arrange a showroom visit or coordinate pickup after your rental.
+					</p>
+					<ul class="text-sm text-gray-700 space-y-2">
+						<li><strong>Address:</strong> {companyData.location.full}</li>
+						<li>
+							<strong>Phone:</strong>{' '}
+							<a href={companyData.contact.phoneLink} class="text-brand-green hover:underline">
+								{companyData.contact.phone}
+							</a>
+						</li>
+						<li>
+							<strong>Email:</strong>{' '}
+							<a href={companyData.contact.email} class="text-brand-green hover:underline">
+								Contact Us
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
+						width="100%"
+						height="400"
+						style="border:0;"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
