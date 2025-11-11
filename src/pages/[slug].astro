@@ -191,6 +191,73 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 				<li class="text-gray-700 font-semibold">• 5 Yr Warranty on Cart and 8Yr Warranty on Battery</li>
 			</ul>
 		</div>
+
+		<!-- Specifications and Unit Information Section -->
+		<div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+			<!-- Specifications -->
+			<div>
+				<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase">SPECIFICATIONS</h2>
+				<div class="border-t-2 border-brand-green mb-4"></div>
+				<div class="space-y-0">
+					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
+						<span class="text-gray-700 font-semibold">Condition</span>
+						<span class="text-gray-900 font-semibold">New</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-white">
+						<span class="text-gray-700 font-semibold">Lot Status</span>
+						<span class="text-gray-900 font-semibold">On lot</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
+						<span class="text-gray-700 font-semibold">Quantity</span>
+						<span class="text-gray-900 font-semibold">1</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-white">
+						<span class="text-gray-700 font-semibold">Golf Cart Type</span>
+						<span class="text-gray-900 font-semibold">Electric</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Unit Information -->
+			<div>
+				<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase">UNIT INFORMATION</h2>
+				<div class="border-t-2 border-brand-green mb-4"></div>
+				<div class="space-y-0">
+					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
+						<span class="text-gray-700 font-semibold">Stock #</span>
+						<span class="text-gray-900 font-semibold">{cart.stock}</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-white">
+						<span class="text-gray-700 font-semibold">Location</span>
+						<span class="text-gray-900 font-semibold">Belleview, FL</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
+						<span class="text-gray-700 font-semibold">Year</span>
+						<span class="text-gray-900 font-semibold">{cart.year}</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-white">
+						<span class="text-gray-700 font-semibold">Brand</span>
+						<span class="text-brand-green font-semibold">{cart.brand}</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
+						<span class="text-gray-700 font-semibold">Model</span>
+						<span class="text-brand-green font-semibold">{cart.model}</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-white">
+						<span class="text-gray-700 font-semibold">Trim</span>
+						<span class="text-gray-900 font-semibold">Deluxe Golf Ready</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
+						<span class="text-gray-700 font-semibold">Type</span>
+						<span class="text-brand-green font-semibold">{cart.type || "Golf Cart"}</span>
+					</div>
+					<div class="flex justify-between items-center py-3 px-4 bg-white">
+						<span class="text-gray-700 font-semibold">Sub-Category</span>
+						<span class="text-gray-900 font-semibold">Golf</span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- Photo Gallery Modal -->
