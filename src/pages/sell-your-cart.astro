@@ -74,24 +74,26 @@ const steps = [
 		<div class="container mx-auto px-4 max-w-5xl">
 			<h2 class="text-2xl font-bold text-gray-900 mb-2">Turn your golf cart into cash</h2>
 			<p class="text-gray-600 mb-6">Whether you're looking to trade in or just need to sell your golf cart, we're here to help.</p>
-			<iframe
-				src="https://links.roadsidelaunch.com/widget/form/CcrESm0x8XAjhRTIx2KQ"
-				style="width:100%;height:674px;border:none;box-shadow:0 20px 45px rgba(0,0,0,0.12)"
-				id="inline-CcrESm0x8XAjhRTIx2KQ"
-				data-layout="{'id':'INLINE'}"
-				data-trigger-type="alwaysShow"
-				data-trigger-value=""
-				data-activation-type="alwaysActivated"
-				data-activation-value=""
-				data-deactivation-type="neverDeactivate"
-				data-deactivation-value=""
-				data-form-name="Masters Golf Cart Sell Cart Form"
-				data-height="674"
-				data-layout-iframe-id="inline-CcrESm0x8XAjhRTIx2KQ"
-				data-form-id="CcrESm0x8XAjhRTIx2KQ"
-				title="Masters Golf Cart Sell Cart Form"
-				loading="lazy"
-			></iframe>
+			<div class="shadow-xl">
+				<iframe
+					src="https://links.roadsidelaunch.com/widget/form/CcrESm0x8XAjhRTIx2KQ"
+					style="width:100%;height:900px;border:none;"
+					id="inline-CcrESm0x8XAjhRTIx2KQ"
+					data-layout="{'id':'INLINE'}"
+					data-trigger-type="alwaysShow"
+					data-trigger-value=""
+					data-activation-type="alwaysActivated"
+					data-activation-value=""
+					data-deactivation-type="neverDeactivate"
+					data-deactivation-value=""
+					data-form-name="Masters Golf Cart Sell Cart Form"
+					data-height="900"
+					data-layout-iframe-id="inline-CcrESm0x8XAjhRTIx2KQ"
+					data-form-id="CcrESm0x8XAjhRTIx2KQ"
+					title="Masters Golf Cart Sell Cart Form"
+					loading="lazy"
+				></iframe>
+			</div>
 		</div>
 	</section>
 
@@ -109,11 +111,64 @@ const steps = [
 	<section class="py-16 bg-gray-50">
 		<div class="container mx-auto px-4">
 			<h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Visit Our Location</h2>
+			<p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+				We are located between Ocala and The Villages right on 441 across from the Market of Marion.
+			</p>
 			<div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-gray-200">
 				<iframe
 					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
 					width="100%"
 					height="450"
 					style="border:0;"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
+			</div>
+		</div>
+	</section>
+
+	<footer class="bg-black text-white py-12">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+				<div>
+					<img src={companyData.logo} alt={companyData.name} class="h-14 mb-4" />
+					<p class="text-sm text-gray-400">&copy; 2025 Copyright: Masters Golf Cars | Developed by Growth Brands</p>
+				</div>
+				<div>
+					<h3 class="text-sm font-semibold uppercase tracking-wide mb-3">Inventory</h3>
+					<ul class="space-y-1 text-sm text-gray-300">
+						<li><a href="/advent-2" class="hover:text-brand-green">Advent 2</a></li>
+						<li><a href="/advent-4" class="hover:text-brand-green">Advent 4</a></li>
+						<li><a href="/advent-4f" class="hover:text-brand-green">Advent 4F</a></li>
+						<li><a href="/advent-4l" class="hover:text-brand-green">Advent 4L</a></li>
+						<li><a href="/advent-6" class="hover:text-brand-green">Advent 6</a></li>
+						<li><a href="/advent-6l" class="hover:text-brand-green">Advent 6L</a></li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-sm font-semibold uppercase tracking-wide mb-3">Useful Links</h3>
+					<ul class="space-y-1 text-sm text-gray-300">
+						<li><a href="/golf-cart-repairs" class="hover:text-brand-green">Golf Cart Repairs</a></li>
+						<li><a href="/schedule-golf-cart-service" class="hover:text-brand-green">Schedule Service</a></li>
+						<li><a href="/sell-your-cart" class="hover:text-brand-green">Sell Your Cart</a></li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-sm font-semibold uppercase tracking-wide mb-3">Contact</h3>
+					<ul class="space-y-2 text-sm text-gray-300">
+						<li>{companyData.location.full}</li>
+						<li><a href={companyData.contact.email} class="hover:text-brand-green">Contact Us</a></li>
+						<li><a href={companyData.contact.phoneLink} class="hover:text-brand-green">{companyData.contact.phone}</a></li>
+						<li class="flex items-center gap-3 mt-2">
+							<a href="https://www.facebook.com/mastersgolfcars" class="hover:text-brand-green">Facebook</a>
+							<a href="https://www.instagram.com/mastersgolfcars/" class="hover:text-brand-green">Instagram</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+</Layout>
 
 
