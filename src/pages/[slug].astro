@@ -23,32 +23,32 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 	<script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-2">
 		<!-- Product Header -->
-		<div class="mb-4">
-			<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-3 mb-3">
+		<div class="mb-2">
+			<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-2">
 				<div class="flex-1">
-					<h1 class="text-xl md:text-2xl font-black text-gray-900 mb-1 uppercase">NEW {cart.name}</h1>
-					<p class="text-gray-600 mb-2 text-sm">{cart.year} {cart.brand} {cart.model} Passenger Deluxe Golf Ready</p>
+					<h1 class="text-xl md:text-2xl font-black text-gray-900 mb-0.5 uppercase">NEW {cart.name}</h1>
+					<p class="text-gray-600 mb-1 text-sm">{cart.year} {cart.brand} {cart.model} Passenger Deluxe Golf Ready</p>
 					<div class="flex flex-wrap gap-2">
 						<span class="bg-brand-green text-white px-3 py-1 rounded-full text-xs font-bold">SALE!</span>
 						<span class="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">✔ IN STOCK</span>
 					</div>
 				</div>
-				<div class="flex flex-col items-start lg:items-end gap-2">
+				<div class="flex flex-col items-start lg:items-end gap-1.5">
 					<a href="tel:3523070111" class="bg-brand-green text-white px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition flex items-center gap-2">
 						<i class="fa-solid fa-phone"></i>
 						352-307-0111
 					</a>
 					<div class="flex items-center gap-2">
 						<span class="text-gray-600 text-sm">Share:</span>
-						<a href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`} target="_blank" class="text-gray-600 hover:text-brand-green transition">
+						<a href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`} target="_blank" class="text-blue-600 hover:text-blue-700 transition">
 							<i class="fa-brands fa-facebook text-lg"></i>
 						</a>
-						<a href={`https://pinterest.com/pin/create/button/?url=${currentUrl}`} target="_blank" class="text-gray-600 hover:text-brand-green transition">
+						<a href={`https://pinterest.com/pin/create/button/?url=${currentUrl}`} target="_blank" class="text-red-600 hover:text-red-700 transition">
 							<i class="fa-brands fa-pinterest text-lg"></i>
 						</a>
-						<a href={`https://twitter.com/intent/tweet?url=${currentUrl}`} target="_blank" class="text-gray-600 hover:text-brand-green transition">
+						<a href={`https://twitter.com/intent/tweet?url=${currentUrl}`} target="_blank" class="text-black hover:text-gray-800 transition">
 							<i class="fa-brands fa-x-twitter text-lg"></i>
 						</a>
 					</div>
@@ -71,9 +71,9 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 						</button>
 					</div>
 				</div>
-				<!-- Thumbnail Gallery -->
-				<div class="grid grid-cols-3 gap-2">
-					{cartImages.slice(0, 3).map((img, index) => (
+				<!-- Thumbnail Gallery - Show All 7 Photos -->
+				<div class="grid grid-cols-7 gap-2">
+					{cartImages.map((img, index) => (
 						<button 
 							class="thumbnail-btn border-2 border-transparent hover:border-brand-green rounded-lg overflow-hidden transition"
 							data-image={img}
@@ -85,18 +85,8 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 				</div>
 			</div>
 
-			<!-- Right Column - Pricing and Form -->
+			<!-- Right Column - Form First, Then Pricing -->
 			<div class="space-y-4">
-				<!-- Pricing -->
-				<div class="bg-gray-50 rounded-lg p-4">
-					<div class="text-right">
-						<p class="text-gray-600 text-xs mb-1">PRICE</p>
-						<p class="text-xl font-bold text-gray-400 line-through">${cart.price.toLocaleString()}</p>
-						<p class="text-gray-600 text-xs mt-2 mb-1">SALE PRICE</p>
-						<p class="text-3xl font-black text-gray-900">${cart.salePrice.toLocaleString()}</p>
-					</div>
-				</div>
-
 				<!-- Request More Info Form -->
 				<div class="bg-gray-900 text-white rounded-lg p-4">
 					<h2 class="text-lg font-bold mb-3">REQUEST MORE INFO</h2>
@@ -138,6 +128,16 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 							This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" class="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" class="underline">Terms of Service</a> apply.
 						</p>
 					</form>
+				</div>
+
+				<!-- Pricing -->
+				<div class="bg-gray-50 rounded-lg p-4">
+					<div class="text-right">
+						<p class="text-gray-600 text-xs mb-1">PRICE</p>
+						<p class="text-xl font-bold text-gray-400 line-through">${cart.price.toLocaleString()}</p>
+						<p class="text-gray-600 text-xs mt-2 mb-1">SALE PRICE</p>
+						<p class="text-3xl font-black text-gray-900">${cart.salePrice.toLocaleString()}</p>
+					</div>
 				</div>
 
 				<!-- Action Buttons -->
