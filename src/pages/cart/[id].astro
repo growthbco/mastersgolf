@@ -2,12 +2,14 @@
 import Layout from '../../layouts/Layout.astro';
 import inventoryData from '../../data/inventory.json';
 
-const { id } = Astro.params;
-const cart = inventoryData.find(c => c.id === id);
-
-if (!cart) {
-	return Astro.redirect('/inventory');
+export async function getStaticPaths() {
+	return inventoryData.map((cart) => ({
+		params: { id: cart.id },
+		props: { cart },
+	}));
 }
+
+const { cart } = Astro.props;
 ---
 
 <Layout title={`${cart.name} - Stock #${cart.stock} - Masters Golf Cars`} description={`${cart.name} for sale at Masters Golf Cars. Stock #${cart.stock}. Sale Price: $${(cart.salePrice || cart.price).toLocaleString()}`}>
