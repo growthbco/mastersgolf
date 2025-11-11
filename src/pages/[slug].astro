@@ -72,7 +72,7 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 					</div>
 				</div>
 				<!-- Thumbnail Gallery - Show All 7 Photos -->
-				<div class="grid grid-cols-7 gap-2">
+				<div class="grid grid-cols-7 gap-2 mb-6">
 					{cartImages.map((img, index) => (
 						<button 
 							class="thumbnail-btn border-2 border-transparent hover:border-brand-green rounded-lg overflow-hidden transition"
@@ -82,6 +82,30 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 							<img src={img} alt={`${cart.name} - Image ${index + 1}`} class="w-full h-20 object-cover" />
 						</button>
 					))}
+				</div>
+
+				<!-- Description Section -->
+				<div class="mt-4">
+					<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase text-left">DESCRIPTION</h2>
+					<div class="border-t-2 border-brand-green mb-4"></div>
+					<ul class="space-y-2">
+						<li class="text-gray-700 font-semibold">• Deluxe Sunbrella Enclosure w/ Loxx Snaps</li>
+						<li class="text-gray-700 font-semibold">• Luxury Bench Seat w/ 3 Arm Rests</li>
+						<li class="text-gray-700 font-semibold">• 12" Wheels on Radial Tires</li>
+						<li class="text-gray-700 font-semibold">• 4 Wheel Disc Brakes</li>
+						<li class="text-gray-700 font-semibold">• 160AH Lithium Battery Pack w/ Onboard Charger</li>
+						<li class="text-gray-700 font-semibold">• Speedometer/Odometer</li>
+						<li class="text-gray-700 font-semibold">• Deluxe LED Light Kit</li>
+						<li class="text-gray-700 font-semibold">• LED Turn Signal Mirrors</li>
+						<li class="text-gray-700 font-semibold">• Seat Belts</li>
+						<li class="text-gray-700 font-semibold">• Floormat</li>
+						<li class="text-gray-700 font-semibold">• Dual USB Charge Port</li>
+						<li class="text-gray-700 font-semibold">• 2 Sand Bottles</li>
+						<li class="text-gray-700 font-semibold">• Cooler</li>
+						<li class="text-gray-700 font-semibold">• Ball Washer</li>
+						<li class="text-gray-700 font-semibold">• Lockable Drivers & Passenger Dash</li>
+						<li class="text-gray-700 font-semibold">• 5 Yr Warranty on Cart and 8Yr Warranty on Battery</li>
+					</ul>
 				</div>
 			</div>
 
@@ -166,30 +190,6 @@ const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
 					</button>
 				</div>
 			</div>
-		</div>
-
-		<!-- Description Section -->
-		<div class="mt-8">
-			<h2 class="text-2xl font-black text-gray-900 text-center mb-4 uppercase">DESCRIPTION</h2>
-			<div class="border-t-2 border-brand-green mb-6"></div>
-			<ul class="space-y-2 max-w-3xl mx-auto">
-				<li class="text-gray-700 font-semibold">• Deluxe Sunbrella Enclosure w/ Loxx Snaps</li>
-				<li class="text-gray-700 font-semibold">• Luxury Bench Seat w/ 3 Arm Rests</li>
-				<li class="text-gray-700 font-semibold">• 12" Wheels on Radial Tires</li>
-				<li class="text-gray-700 font-semibold">• 4 Wheel Disc Brakes</li>
-				<li class="text-gray-700 font-semibold">• 160AH Lithium Battery Pack w/ Onboard Charger</li>
-				<li class="text-gray-700 font-semibold">• Speedometer/Odometer</li>
-				<li class="text-gray-700 font-semibold">• Deluxe LED Light Kit</li>
-				<li class="text-gray-700 font-semibold">• LED Turn Signal Mirrors</li>
-				<li class="text-gray-700 font-semibold">• Seat Belts</li>
-				<li class="text-gray-700 font-semibold">• Floormat</li>
-				<li class="text-gray-700 font-semibold">• Dual USB Charge Port</li>
-				<li class="text-gray-700 font-semibold">• 2 Sand Bottles</li>
-				<li class="text-gray-700 font-semibold">• Cooler</li>
-				<li class="text-gray-700 font-semibold">• Ball Washer</li>
-				<li class="text-gray-700 font-semibold">• Lockable Drivers & Passenger Dash</li>
-				<li class="text-gray-700 font-semibold">• 5 Yr Warranty on Cart and 8Yr Warranty on Battery</li>
-			</ul>
 		</div>
 
 		<!-- Specifications and Unit Information Section -->
