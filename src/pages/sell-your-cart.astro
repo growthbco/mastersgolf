@@ -3,45 +3,132 @@ import Layout from '../layouts/Layout.astro';
 import companyData from '../data/company.json';
 
 const benefitList = [
-	'Fast quotes and fair market offers',
-	'No listing, no waiting—just quick sales',
-	'Serving The Villages, Ocala, Leesburg, FL, and more',
-	'Save time and skip the hassle of private selling',
-];
-const steps = [
-	'Fill out the quick form on this page.',
-	'Our team will contact you with an offer.',
-	'Accept the offer and schedule pickup or drop-off.',
+	'Fast quotes and fair market offers for gas, electric, and custom carts',
+	'Local pickup available throughout The Villages, Ocala, and surrounding areas',
+	'We handle the paperwork and transportation for a stress-free experience',
+	'Family-owned team with 25+ years helping Central Florida cart owners',
 ];
 
+const cartTypes = [
+	{
+		title: 'Standard & Lifted Carts',
+		description:
+			'We purchase 2, 4, and 6-passenger carts—lifted or standard—with interest in both stock and accessorized builds.',
+	},
+	{
+		title: 'Street-Legal LSVs',
+		description:
+			'Licensed, street-legal golf carts welcome. Include your paperwork and we will make you a competitive offer.',
+	},
+	{
+		title: 'Custom & Luxury Builds',
+		description:
+			'From custom paint to upgraded wheels, sound, and lighting packages—we value the upgrades you invested in.',
+	},
+	{
+		title: 'Utility & Specialty Carts',
+		description:
+			'Work carts, shuttles, medical, and hospitality builds are all considered. Let us know how it was used.',
+	},
+];
+
+const motivations = [
+	'Upgrading to a newer model or switching to lithium power',
+	'Moving out of the area and need a quick, reliable buyer',
+	'Selling a second cart that is no longer being used',
+	'Looking to liquidate a community, resort, or business fleet',
+	'Want a trusted partner instead of listing privately',
+	'Need a fast sale with local pickup and secure payment',
+];
+
+const testimonials = [
+	{
+		name: 'Megan O’Brien',
+		quote: '“Masters Golf Cars made selling my cart quick and easy. I had an offer and pickup scheduled within 24 hours.”',
+	},
+	{
+		name: 'Scott Lenhart',
+		quote: '“Fair price, professional communication, and they handled transport. Highly recommend the Masters team.”',
+	},
+	{
+		name: 'Samantha Blanton',
+		quote: '“Couldn’t have asked for a smoother process. They answered all my questions and sent payment right away.”',
+	},
+];
+
+const faqs = [
+	{
+		question: 'What information do you need about my cart?',
+		answer:
+			'Please share the make, model, year, condition, mileage, and any upgrades. Photos help us provide an accurate quote quickly.',
+	},
+	{
+		question: 'How fast can I receive an offer?',
+		answer:
+			'Most owners receive a response within one business day. If we need clarification or photos, we will reach out right away.',
+	},
+	{
+		question: 'Do you pick up the golf cart?',
+		answer:
+			'Yes. Once we agree on a price, we coordinate local pickup or drop-off at our Belleview location—whatever is easier for you.',
+	},
+	{
+		question: 'Can I sell multiple carts or a fleet?',
+		answer:
+			'Absolutely. We buy single carts as well as business, resort, or community fleets. Use the form to outline your needs.',
+	},
+];
+
+const serviceAreas = [
+	'The Villages',
+	'Ocala',
+	'Belleview',
+	'Summerfield',
+	'Leesburg',
+	'Marion County',
+	'Lake County',
+	'Alachua County',
+];
 ---
 
-<Layout title="Sell Your Golf Cart - Masters Golf Cars" description="Sell your golf cart quickly with Masters Golf Cars. Fair offers, simple process, fast pickup.">
-	<section class="bg-white py-12">
-		<div class="container mx-auto px-4">
-			<h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10 uppercase">Sell Your Golf Cart</h1>
+<Layout
+	title="Sell Your Golf Cart - Masters Golf Cars"
+	description="Sell your golf cart quickly with Masters Golf Cars. Fair offers, simple process, and fast pickup for owners across Central Florida."
+>
+	<section class="relative overflow-hidden bg-gradient-to-b from-[#1d3b09] via-[#27540d] to-[#3b7313] text-white">
+		<div class="absolute inset-0 bg-[url('/images/logos/bg_1_16.webp')] opacity-30 bg-cover bg-center"></div>
+		<div class="relative container mx-auto px-4 py-16 md:py-24 text-center max-w-4xl">
+			<h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 uppercase">Sell Your Golf Cart</h1>
+			<p class="text-lg md:text-xl text-white/85 mb-8">
+				Get a fair market offer from a local team you can trust. We purchase gas, electric, lifted, and custom carts across Central Florida.
+			</p>
+			<a href="#sell-form" class="inline-block bg-brand-green text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-white hover:text-[#1d3b09] transition">
+				Request Your Offer Today
+			</a>
 		</div>
 	</section>
 
-	<section class="bg-white pb-12">
-		<div class="container mx-auto px-4 max-w-5xl">
-			<div class="grid lg:grid-cols-[1.2fr,0.8fr] gap-10">
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid gap-12 lg:grid-cols-[1.2fr,0.8fr] items-start">
 				<div>
-					<h2 class="text-2xl font-bold text-gray-900 mb-6">We Buy Used Golf Carts</h2>
-					<p class="text-gray-700 leading-relaxed mb-4">
-						At Masters Golf Cars, we make it easy to sell your golf cart quickly. If you're upgrading, downsizing,
-						or simply no longer in need of your cart, we'll give you a fair market value offer and take the hassle out of
-						trying to get rid of it yourself. We buy gas and electric golf carts, whether they're standard models, street-legal, or custom builds.
+					<h2 class="text-3xl font-bold text-gray-900 mb-6">Why sell with Masters Golf Cars?</h2>
+					<p class="text-lg text-gray-700 leading-relaxed mb-4">
+						At Masters Golf Cars, we make it easy to sell your golf cart quickly. If you're upgrading, downsizing, or simply no longer in need of your cart, we'll give you a fair market value offer and take the hassle out of trying to sell it yourself.
 					</p>
-					<p class="text-gray-700 leading-relaxed">
-						With a nationwide shortage of golf carts, demand is high, and we're ready to make you a competitive offer to buy your golf cart.
+					<p class="text-lg text-gray-700 leading-relaxed mb-6">
+						Demand for quality carts remains high in our communities, and we're ready to make you a competitive offer. From standard carts to street-legal builds, we buy, transport, and close the transaction fast.
 					</p>
+					<a href="#sell-process" class="inline-flex items-center gap-2 text-brand-green font-semibold">
+						Learn how it works
+						<span aria-hidden="true">→</span>
+					</a>
 				</div>
 				<div class="bg-gray-50 border border-gray-200 rounded-3xl shadow-lg p-8">
-					<h3 class="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">Why Sell With Us?</h3>
-					<ul class="space-y-2 text-gray-700">
+					<h3 class="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">What you can expect</h3>
+					<ul class="space-y-3 text-gray-700">
 						{benefitList.map((item) => (
-							<li class="flex items-start gap-2">
+							<li class="flex items-start gap-3">
 								<span class="text-brand-green mt-1">✔</span>
 								<span>{item}</span>
 							</li>
@@ -52,78 +139,155 @@ const steps = [
 		</div>
 	</section>
 
-	<section class="bg-white pb-12">
+	<section id="sell-process" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl font-bold text-center text-gray-900 mb-12">What We Buy</h2>
+			<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+				{cartTypes.map((item) => (
+					<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col">
+						<h3 class="text-lg font-semibold text-gray-900 mb-3">{item.title}</h3>
+						<p class="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Popular Reasons Sellers Choose Us</h2>
+			<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+				{motivations.map((item) => (
+					<div class="flex items-start gap-3 bg-gray-50 border border-gray-200 rounded-2xl p-5">
+						<span class="text-brand-green mt-1">•</span>
+						<p class="text-sm text-gray-700 leading-relaxed">{item}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl font-bold text-center text-gray-900 mb-10">What Sellers Are Saying</h2>
+			<div class="grid gap-6 md:grid-cols-3">
+				{testimonials.map((item) => (
+					<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col">
+						<p class="text-gray-700 italic mb-4">{item.quote}</p>
+						<p class="text-sm font-semibold text-gray-900">— {item.name}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-16 bg-white" id="sell-form">
+		<div class="container mx-auto px-4 max-w-5xl text-center mb-10">
+			<h2 class="text-3xl font-bold text-gray-900 mb-3">Get a Quote to Sell Your Golf Cart</h2>
+			<p class="text-gray-600 max-w-3xl mx-auto">
+				Please fill out the form below. Our team will review the details, follow up for photos if needed, and deliver a fair market quote quickly.
+			</p>
+		</div>
 		<div class="container mx-auto px-4 max-w-5xl">
-			<div class="bg-white border border-gray-200 rounded-3xl shadow-lg p-8">
-				<h3 class="text-xl font-bold text-gray-900 mb-6 uppercase tracking-wide">How to Get Started</h3>
-				<div class="grid gap-6 md:grid-cols-3">
-					{steps.map((item, index) => (
-						<div class="text-center">
-							<div class="w-14 h-14 mx-auto rounded-full bg-brand-green text-white flex items-center justify-center text-xl font-bold mb-4">
-								{index + 1}
-							</div>
-							<p class="text-gray-700 text-sm leading-relaxed">{item}</p>
-						</div>
+			<iframe
+				src="https://links.roadsidelaunch.com/widget/form/CcrESm0x8XAjhRTIx2KQ"
+				style="width:100%;height:900px;border:none;"
+				id="inline-CcrESm0x8XAjhRTIx2KQ"
+				data-layout="{'id':'INLINE'}"
+				data-trigger-type="alwaysShow"
+				data-trigger-value=""
+				data-activation-type="alwaysActivated"
+				data-activation-value=""
+				data-deactivation-type="neverDeactivate"
+				data-deactivation-value=""
+				data-form-name="Masters Golf Cart Sell Cart Form"
+				data-height="900"
+				data-layout-iframe-id="inline-CcrESm0x8XAjhRTIx2KQ"
+				data-form-id="CcrESm0x8XAjhRTIx2KQ"
+				title="Masters Golf Cart Sell Cart Form"
+				loading="lazy"
+			></iframe>
+		</div>
+	</section>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid gap-10 lg:grid-cols-[0.9fr,1.1fr] items-center">
+				<div>
+					<h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+					<p class="text-gray-600 mb-6">
+						Have more questions about selling your cart? Browse our most common topics below or call our team for a quick answer.
+					</p>
+					<p class="text-lg font-semibold text-brand-green">{companyData.contact.phone}</p>
+				</div>
+				<div class="space-y-4">
+					{faqs.map((item) => (
+						<details class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5 group">
+							<summary class="flex items-center justify-between cursor-pointer text-left">
+								<span class="text-sm font-semibold text-gray-900">{item.question}</span>
+								<span class="text-brand-green text-lg transition group-open:rotate-45">+</span>
+							</summary>
+							<p class="mt-3 text-sm text-gray-600 leading-relaxed">{item.answer}</p>
+						</details>
 					))}
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="bg-gray-50 py-12">
-		<div class="container mx-auto px-4 max-w-5xl">
-			<h2 class="text-2xl font-bold text-gray-900 mb-2">Turn your golf cart into cash</h2>
-			<p class="text-gray-600 mb-6">Whether you're looking to trade in or just need to sell your golf cart, we're here to help.</p>
-			<div class="shadow-xl">
-				<iframe
-					src="https://links.roadsidelaunch.com/widget/form/CcrESm0x8XAjhRTIx2KQ"
-					style="width:100%;height:900px;border:none;"
-					id="inline-CcrESm0x8XAjhRTIx2KQ"
-					data-layout="{'id':'INLINE'}"
-					data-trigger-type="alwaysShow"
-					data-trigger-value=""
-					data-activation-type="alwaysActivated"
-					data-activation-value=""
-					data-deactivation-type="neverDeactivate"
-					data-deactivation-value=""
-					data-form-name="Masters Golf Cart Sell Cart Form"
-					data-height="900"
-					data-layout-iframe-id="inline-CcrESm0x8XAjhRTIx2KQ"
-					data-form-id="CcrESm0x8XAjhRTIx2KQ"
-					title="Masters Golf Cart Sell Cart Form"
-					loading="lazy"
-				></iframe>
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Areas We Serve</h2>
+			<div class="grid gap-10 lg:grid-cols-[1fr,1.1fr] items-center">
+				<div>
+					<p class="text-gray-700 leading-relaxed mb-6">
+						Masters Golf Cars proudly purchases carts throughout Central Florida. If you're unsure whether we can reach your location, contact us to confirm availability.
+					</p>
+					<ul class="grid grid-cols-2 gap-3 text-sm text-gray-700">
+						{serviceAreas.map((area) => (
+							<li class="flex items-center gap-2">
+								<span class="text-brand-green">•</span>
+								<span>{area}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+				<div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200">
+					<img
+						src="/images/gallery/golf-cart-fleet-rental-delivery_img_v35.webp"
+						alt="Masters Golf Cars fleet delivery"
+						class="w-full h-full object-cover"
+					/>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4 text-center max-w-4xl">
-			<h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Questions?</h2>
-			<p class="text-lg text-gray-600">
-				Call us at <a href={companyData.contact.phoneLink} class="text-brand-green font-semibold hover:underline">
-					{companyData.contact.phone}
-				</a> or visit our location at {companyData.location.full}.
-			</p>
-		</div>
-	</section>
-
 	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Visit Our Location</h2>
-			<p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
-				We are located between Ocala and The Villages right on 441 across from the Market of Marion.
-			</p>
-			<div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
-					width="100%"
-					height="450"
-					style="border:0;"
-					allowfullscreen=""
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
-				></iframe>
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid gap-10 lg:grid-cols-[1fr,1fr] items-start">
+				<div class="space-y-4">
+					<h2 class="text-3xl font-bold text-gray-900">Visit Our Location</h2>
+					<p class="text-gray-600">
+						We are located between Ocala and The Villages on US 441 across from the Market of Marion. Stop by or schedule a pickup after we finalize your offer.
+					</p>
+					<ul class="text-sm text-gray-700 space-y-2">
+						<li><strong>Address:</strong> {companyData.location.full}</li>
+						<li><strong>Phone:</strong> <a href={companyData.contact.phoneLink} class="text-brand-green hover:underline">{companyData.contact.phone}</a></li>
+						<li><strong>Email:</strong> <a href={companyData.contact.email} class="text-brand-green hover:underline">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
+						width="100%"
+						height="400"
+						style="border:0;"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
 			</div>
 		</div>
 	</section>
