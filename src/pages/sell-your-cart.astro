@@ -1,140 +1,125 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import companyData from '../data/company.json';
+
+const benefitList = [
+	'Fast quotes and fair market offers',
+	'No listing, no waiting—just quick sales',
+	'Serving The Villages, Ocala, Leesburg, FL, and more',
+	'Save time and skip the hassle of private selling',
+];
+const steps = [
+	'Fill out the quick form on this page.',
+	'Our team will contact you with an offer.',
+	'Accept the offer and schedule pickup or drop-off.',
+];
+
 ---
 
-<Layout title="Sell Your Golf Cart - Masters Golf Cars" description="We buy used golf carts - fast quotes and fair market offers in The Villages and Ocala.">
-	<!-- Hero Section -->
-	<section class="bg-gradient-to-br from-purple-600 to-purple-800 text-white py-20">
+<Layout title="Sell Your Golf Cart - Masters Golf Cars" description="Sell your golf cart quickly with Masters Golf Cars. Fair offers, simple process, fast pickup.">
+	<section class="bg-white py-12">
 		<div class="container mx-auto px-4">
-			<h1 class="text-5xl font-bold mb-6">Sell Your Golf Cart</h1>
-			<p class="text-xl mb-8 text-purple-100">
-				Get a fair market value offer - quick and hassle-free
-			</p>
+			<h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-10 uppercase">Sell Your Golf Cart</h1>
 		</div>
 	</section>
 
-	<!-- Main Content -->
+	<section class="bg-white pb-12">
+		<div class="container mx-auto px-4 max-w-5xl">
+			<div class="grid lg:grid-cols-[1.2fr,0.8fr] gap-10">
+				<div>
+					<h2 class="text-2xl font-bold text-gray-900 mb-6">We Buy Used Golf Carts</h2>
+					<p class="text-gray-700 leading-relaxed mb-4">
+						At Masters Golf Cars, we make it easy to sell your golf cart quickly. If you're upgrading, downsizing,
+						or simply no longer in need of your cart, we'll give you a fair market value offer and take the hassle out of
+						trying to get rid of it yourself. We buy gas and electric golf carts, whether they're standard models, street-legal, or custom builds.
+					</p>
+					<p class="text-gray-700 leading-relaxed">
+						With a nationwide shortage of golf carts, demand is high, and we're ready to make you a competitive offer to buy your golf cart.
+					</p>
+				</div>
+				<div class="bg-gray-50 border border-gray-200 rounded-3xl shadow-lg p-8">
+					<h3 class="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">Why Sell With Us?</h3>
+					<ul class="space-y-2 text-gray-700">
+						{benefitList.map((item) => (
+							<li class="flex items-start gap-2">
+								<span class="text-brand-green mt-1">✔</span>
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-white pb-12">
+		<div class="container mx-auto px-4 max-w-5xl">
+			<div class="bg-white border border-gray-200 rounded-3xl shadow-lg p-8">
+				<h3 class="text-xl font-bold text-gray-900 mb-6 uppercase tracking-wide">How to Get Started</h3>
+				<div class="grid gap-6 md:grid-cols-3">
+					{steps.map((item, index) => (
+						<div class="text-center">
+							<div class="w-14 h-14 mx-auto rounded-full bg-brand-green text-white flex items-center justify-center text-xl font-bold mb-4">
+								{index + 1}
+							</div>
+							<p class="text-gray-700 text-sm leading-relaxed">{item}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bg-gray-50 py-12">
+		<div class="container mx-auto px-4 max-w-5xl">
+			<div class="bg-white border border-gray-200 rounded-3xl shadow-xl p-6 md:p-10 space-y-6">
+				<div>
+					<h2 class="text-2xl font-bold text-gray-900 mb-2">Turn your golf cart into cash</h2>
+					<p class="text-gray-600">Whether you're looking to trade in or just need to sell your golf cart, we're here to help.</p>
+				</div>
+				<div class="border border-gray-200 rounded-[32px] shadow-lg p-4 sm:p-6">
+					<iframe
+						src="https://links.roadsidelaunch.com/widget/form/CcrESm0x8XAjhRTIx2KQ"
+						style="width:100%;height:674px;border:none;border-radius:20px;box-shadow:0 20px 45px rgba(0,0,0,0.12)"
+						id="inline-CcrESm0x8XAjhRTIx2KQ"
+						data-layout="{'id':'INLINE'}"
+						data-trigger-type="alwaysShow"
+						data-trigger-value=""
+						data-activation-type="alwaysActivated"
+						data-activation-value=""
+						data-deactivation-type="neverDeactivate"
+						data-deactivation-value=""
+						data-form-name="Masters Golf Cart Sell Cart Form"
+						data-height="674"
+						data-layout-iframe-id="inline-CcrESm0x8XAjhRTIx2KQ"
+						data-form-id="CcrESm0x8XAjhRTIx2KQ"
+						title="Masters Golf Cart Sell Cart Form"
+						loading="lazy"
+					></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl font-bold mb-6 text-gray-900">We Buy Used Golf Carts</h2>
-				<p class="text-lg text-gray-700 mb-6">
-					At Masters Golf Cars, we make it easy to sell your golf cart quickly. If you're upgrading, 
-					downsizing, or simply no longer in need of your cart, we'll give you a fair market value offer 
-					and take the hassle out of trying to get rid of it yourself. We buy gas and electric golf carts, 
-					whether they're standard models, street-legal, or custom builds.
-				</p>
-				<p class="text-lg text-gray-700 mb-8">
-					With a nationwide shortage of golf carts, demand is high, and we're ready to make you a 
-					competitive offer to buy your golf cart.
-				</p>
-			</div>
-		</div>
-	</section>
-
-	<!-- Benefits -->
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
-				Why Sell With Us?
-			</h2>
-			
-			<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-				<div class="text-center">
-					<div style="background-color: rgba(134, 202, 38, 0.05);" class="(134, 202, 38, 0.1) rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span style="color: #86CA26;" class="text-4xl font-bold ">Q</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2 text-gray-900">Fast Quotes</h3>
-					<p class="text-gray-600">Quick turnaround on fair market offers</p>
-				</div>
-				
-				<div class="text-center">
-					<div style="background-color: rgba(134, 202, 38, 0.05);" class="(134, 202, 38, 0.1) rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span style="color: #86CA26;" class="text-4xl font-bold ">$</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2 text-gray-900">Fair Prices</h3>
-					<p class="text-gray-600">Competitive market value offers</p>
-				</div>
-				
-				<div class="text-center">
-					<div style="background-color: rgba(134, 202, 38, 0.05);" class="(134, 202, 38, 0.1) rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span style="color: #86CA26;" class="text-4xl font-bold ">E</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2 text-gray-900">No Hassle</h3>
-					<p class="text-gray-600">No listing or waiting required</p>
-				</div>
-				
-				<div class="text-center">
-					<div style="background-color: rgba(134, 202, 38, 0.05);" class="(134, 202, 38, 0.1) rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
-						<span style="color: #86CA26;" class="text-4xl font-bold ">L</span>
-					</div>
-					<h3 class="text-xl font-bold mb-2 text-gray-900">Local Service</h3>
-					<p class="text-gray-600">Serving The Villages and Ocala</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- How It Works -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<h2 class="text-4xl font-bold text-center mb-12 text-gray-900">
-				How to Get Started
-			</h2>
-			
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-				<div class="text-center">
-					<div style="background-color: #86CA26;" class=" text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-						1
-					</div>
-					<h3 class="text-xl font-bold mb-2 text-gray-900">Fill Out Form</h3>
-					<p class="text-gray-600">Quick form on this page with your cart details</p>
-				</div>
-				
-				<div class="text-center">
-					<div style="background-color: #86CA26;" class=" text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-						2
-					</div>
-					<h3 class="text-xl font-bold mb-2 text-gray-900">Get Offer</h3>
-					<p class="text-gray-600">Our team contacts you with an offer</p>
-				</div>
-				
-				<div class="text-center">
-					<div style="background-color: #86CA26;" class=" text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-						3
-					</div>
-					<h3 class="text-xl font-bold mb-2 text-gray-900">Schedule Pickup</h3>
-					<p class="text-gray-600">Accept offer and schedule pickup or drop-off</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Sell Form CTA -->
-	<section style="background: linear-gradient(to right, #86CA26, var(--gradient-end, #6fa020));" class="py-16 bg-gradient-to-r  to-#6fa020 text-white">
-		<div class="container mx-auto px-4 text-center">
-			<h2 class="text-4xl font-bold mb-4">Ready to Sell Your Golf Cart?</h2>
-			<p style="color: rgba(134, 202, 38, 0.1);" class="text-xl mb-8 (134, 202, 38, 0.1)">
-				Contact us today to get started with your quote
-			</p>
-				<a href="/contact" style="color: #86CA26;" style="background-color: rgba(134, 202, 38, 0.05);" class="bg-white  px-8 py-3 rounded-lg font-bold hover:(134, 202, 38, 0.05) transition inline-block">
-				Contact Us for a Quote
-			</a>
-		</div>
-	</section>
-
-	<!-- Contact Info -->
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 text-center">
-			<h2 class="text-3xl font-bold mb-4 text-gray-900">Questions?</h2>
-			<p class="text-xl mb-6 text-gray-600">
-				Call us at <a href={companyData.contact.phoneLink} class=" hover:underline font-semibold">
+		<div class="container mx-auto px-4 text-center max-w-4xl">
+			<h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Questions?</h2>
+			<p class="text-lg text-gray-600">
+				Call us at <a href={companyData.contact.phoneLink} class="text-brand-green font-semibold hover:underline">
 					{companyData.contact.phone}
-				</a> or visit our location
+				</a> or visit our location at {companyData.location.full}.
 			</p>
-			<p class="text-gray-600">{companyData.location.full}</p>
 		</div>
 	</section>
-</Layout>
+
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Visit Our Location</h2>
+			<div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
+					width="100%"
+					height="450"
+					style="border:0;"
+
 
