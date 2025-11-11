@@ -1,10 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import CartCard from '../components/CartCard.astro';
-import inventoryData from '../data/inventory.json';
+import Layout from '../../layouts/Layout.astro';
+import inventoryData from '../../data/inventory.json';
+
+const { id } = Astro.params;
+const cart = inventoryData.find(c => c.id === id);
+
+if (!cart) {
+	return Astro.redirect('/inventory');
+}
 ---
 
-<Layout title="Golf Cart Inventory - Masters Golf Cars" description="Browse our selection of new and used golf carts for sale in Central Florida">
+<Layout title={`${cart.name} - Stock #${cart.stock} - Masters Golf Cars`} description={`${cart.name} for sale at Masters Golf Cars. Stock #${cart.stock}. Sale Price: $${(cart.salePrice || cart.price).toLocaleString()}`}>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -46,11 +52,11 @@ import inventoryData from '../data/inventory.json';
 						</button>
 						<div id="brand-content" class="mt-4 space-y-3">
 							<div class="flex justify-between items-center text-gray-600">
-								<a href="#" class="hover:text-brand-green">Any</a>
+								<a href="/inventory" class="hover:text-brand-green">Any</a>
 								<span class="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">{inventoryData.length}</span>
 							</div>
 							<div class="flex justify-between items-center text-brand-green font-semibold">
-								<a href="#" class="flex items-center">
+								<a href="/inventory" class="flex items-center">
 									<i class="fa-solid fa-chevron-down mr-2 text-xs"></i>
 									Advanced EV
 								</a>
@@ -76,60 +82,67 @@ import inventoryData from '../data/inventory.json';
 					
 					<!-- Update Button -->
 					<div id="filter-update-button">
-						<button class="w-full bg-gray-900 text-white font-bold py-3 px-4 rounded-md hover:bg-gray-800 transition-colors">
+						<a href="/inventory" class="block w-full bg-gray-900 text-white font-bold py-3 px-4 rounded-md hover:bg-gray-800 transition-colors text-center">
 							UPDATE
-						</button>
+						</a>
 					</div>
 				</div>
 			</aside>
 			
-			<!-- Product Grid -->
+			<!-- Product Detail -->
 			<main id="product-grid-section" class="lg:col-span-3">
 				<div id="grid-controls" class="flex justify-between items-center mb-4 pb-4 border-b">
-					<div class="flex items-center space-x-2">
-						<label for="sort-by" class="text-gray-600">Sort By</label>
-						<select id="sort-by" class="border border-gray-300 rounded-md px-3 py-2 focus:ring-brand-green focus:border-brand-green outline-none">
-							<option>-- Any --</option>
-							<option>Price: Low to High</option>
-							<option>Price: High to Low</option>
-							<option>Newest</option>
-						</select>
-					</div>
-					<p class="text-gray-600">Displaying 1 - {inventoryData.length} of {inventoryData.length}</p>
+					<a href="/inventory" class="text-brand-green hover:underline flex items-center gap-2">
+						<i class="fa-solid fa-arrow-left"></i>
+						<span>Back to Inventory</span>
+					</a>
 				</div>
 				
 				<div id="grid-header" class="bg-gray-900 text-white text-xl font-bold p-4 mb-6">
 					<h2>Golf Cart</h2>
 				</div>
 				
-				<div id="product-list" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-					{inventoryData.map((cart) => (
-						<div class="border border-gray-200 rounded-lg overflow-hidden flex flex-col">
-							<div class="h-64 overflow-hidden">
-								<img class="w-full h-full object-cover" src={cart.image} alt={cart.name} />
-							</div>
-							<div class="p-4 flex flex-col flex-grow">
-								<h4 class="font-bold text-lg text-gray-900 flex-grow">{cart.name}</h4>
-								<div class="text-center my-4">
-									<p class="text-gray-600">Sale Price <span class="font-bold text-gray-900">${(cart.salePrice || cart.price).toLocaleString()}</span></p>
-									<p class="text-gray-600">Stock # <span class="font-bold text-gray-900">{cart.stock}</span></p>
-								</div>
-								<div class="space-y-2 mt-auto">
-									<button 
-										data-stock={cart.stock} 
-										data-cart-name={cart.name}
-										class="email-button w-full bg-gray-900 text-white font-semibold py-3 px-4 rounded-md hover:bg-gray-800 transition-colors flex items-center justify-center space-x-2">
-										<i class="fa-regular fa-envelope"></i>
-										<span>SEND EMAIL</span>
-									</button>
-									<a href={`/cart/${cart.id}`} class="w-full bg-white text-gray-900 font-semibold py-3 px-4 rounded-md border-2 border-brand-green hover:bg-green-50 transition-colors flex items-center justify-center space-x-2">
-										<i class="fa-regular fa-eye"></i>
-										<span>VIEW DETAILS</span>
-									</a>
-								</div>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+					<!-- Product Image -->
+					<div class="border border-gray-200 rounded-lg overflow-hidden">
+						<img class="w-full h-auto object-contain" src={cart.image} alt={cart.name} />
+					</div>
+					
+					<!-- Product Details -->
+					<div class="space-y-6">
+						<div>
+							<h1 class="text-3xl font-bold text-gray-900 mb-4">{cart.name}</h1>
+							<div class="space-y-2">
+								<p class="text-gray-600">Stock # <span class="font-bold text-gray-900">{cart.stock}</span></p>
+								<p class="text-gray-600">Brand: <span class="font-bold text-gray-900">{cart.brand}</span></p>
+								<p class="text-gray-600">Model: <span class="font-bold text-gray-900">{cart.model}</span></p>
+								<p class="text-gray-600">Year: <span class="font-bold text-gray-900">{cart.year}</span></p>
 							</div>
 						</div>
-					))}
+						
+						<div class="border-t border-b py-6">
+							<p class="text-gray-600 mb-2">Sale Price</p>
+							<p class="text-4xl font-bold text-gray-900">${(cart.salePrice || cart.price).toLocaleString()}</p>
+							{cart.salePrice && (
+								<p class="text-gray-500 line-through mt-2">${cart.price.toLocaleString()}</p>
+							)}
+						</div>
+						
+						<div class="space-y-3">
+							<button 
+								id="detail-email-button"
+								data-stock={cart.stock} 
+								data-cart-name={cart.name}
+								class="w-full bg-gray-900 text-white font-semibold py-3 px-4 rounded-md hover:bg-gray-800 transition-colors flex items-center justify-center space-x-2">
+								<i class="fa-regular fa-envelope"></i>
+								<span>SEND EMAIL</span>
+							</button>
+							<a href="tel:3523070111" class="block w-full bg-white text-gray-900 font-semibold py-3 px-4 rounded-md border-2 border-brand-green hover:bg-green-50 transition-colors text-center">
+								<i class="fa-solid fa-phone mr-2"></i>
+								CALL (352) 307-0111
+							</a>
+						</div>
+					</div>
 				</div>
 			</main>
 		</div>
@@ -213,20 +226,22 @@ import inventoryData from '../data/inventory.json';
 			}
 		});
 
-		// Add event listeners to email buttons
+		// Initially set the filters to be open
 		document.addEventListener('DOMContentLoaded', function() {
 			document.getElementById('keyword-content').style.display = 'block';
 			document.getElementById('brand-content').style.display = 'block';
 			document.getElementById('price-content').style.display = 'block';
 			
-			// Add click handlers to all email buttons
-			document.querySelectorAll('.email-button').forEach(button => {
-				button.addEventListener('click', function() {
+			// Add click handler to email button
+			const emailButton = document.getElementById('detail-email-button');
+			if (emailButton) {
+				emailButton.addEventListener('click', function() {
 					const stockNumber = this.getAttribute('data-stock');
 					const cartName = this.getAttribute('data-cart-name');
 					openEmailModal(stockNumber, cartName);
 				});
-			});
+			}
 		});
 	</script>
 </Layout>
+
