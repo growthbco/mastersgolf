@@ -113,7 +113,7 @@ const areasServed = [
 			<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
 				{fleetOptions.map((option) => (
 					<article class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
-						<img src={option.image} alt={option.alt} class="h-40 w-full object-cover" loading="lazy" />
+						<img src={option.image} alt={option.alt} class="h-40 w-full object-contain" loading="lazy" />
 						<div class="p-6 flex flex-col gap-3">
 							<h3 class="text-lg font-semibold text-gray-900">{option.title}</h3>
 							<p class="text-sm text-gray-600 leading-relaxed">{option.description}</p>
@@ -143,10 +143,10 @@ const areasServed = [
 				</div>
 				<div class="grid gap-4">
 					<div class="grid grid-cols-2 gap-4">
-						<img src="/images/gallery/02-04-2025-14-04-55_7.webp" alt="Fleet lineup ready for delivery" class="rounded-2xl shadow-md object-cover h-44 w-full" loading="lazy" />
-						<img src="/images/gallery/02-04-2025-14-24-08_24.webp" alt="Masters Golf Cars delivery truck" class="rounded-2xl shadow-md object-cover h-44 w-full" loading="lazy" />
+						<img src="/images/gallery/02-04-2025-14-04-55_7.webp" alt="Fleet lineup ready for delivery" class="object-contain h-44 w-full" loading="lazy" />
+						<img src="/images/gallery/02-04-2025-14-24-08_24.webp" alt="Masters Golf Cars delivery truck" class="object-contain h-44 w-full" loading="lazy" />
 					</div>
-					<img src="/images/gallery/golf-cart-fleet-rental-delivery_img_v35.webp" alt="Golf carts staged for large event" class="rounded-2xl shadow-md object-cover h-52 w-full" loading="lazy" />
+					<img src="/images/gallery/golf-cart-fleet-rental-delivery_img_v35.webp" alt="Golf carts staged for large event" class="object-contain h-52 w-full" loading="lazy" />
 				</div>
 			</div>
 		</div>
@@ -261,7 +261,7 @@ const areasServed = [
 					<img
 						src="/images/gallery/02-04-2025-14-23-09_23.webp"
 						alt="Masters Golf Cars delivering rental fleet"
-						class="rounded-3xl shadow-lg object-cover w-full h-full max-h-[420px]"
+						class="object-contain w-full h-auto max-h-[420px]"
 						loading="lazy"
 					/>
 				</div>
