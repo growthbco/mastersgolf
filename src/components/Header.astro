@@ -106,6 +106,20 @@ const { transparent = false } = Astro.props;
 						</div>
 					</div>
 					
+					<!-- Locations Dropdown -->
+					<div class="relative group">
+						<a href="/the-villages-golf-cart-rentals" class="hover:opacity-80 transition flex items-center">
+							Locations ▼
+						</a>
+						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+							<div class="py-2">
+								<a href="/the-villages-golf-cart-rentals" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
+									The Villages
+								</a>
+							</div>
+						</div>
+					</div>
+					
 					<a href="/gallery" class="hover:opacity-80 transition">Gallery</a>
 					
 					<!-- Golf Carts for Sale Dropdown -->
@@ -173,6 +187,16 @@ const { transparent = false } = Astro.props;
 								</a>
 								<a href="/fleet-rentals-quote" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
 									Fleet Rentals Quote
+								</a>
+							</div>
+						</div>
+						
+						<!-- Locations Mobile Menu -->
+						<div>
+							<a href="/the-villages-golf-cart-rentals" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Locations</a>
+							<div class="pl-4 pt-2 pb-2">
+								<a href="/the-villages-golf-cart-rentals" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
+									The Villages
 								</a>
 							</div>
 						</div>
