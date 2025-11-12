@@ -1,7 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-// Redirect to golf-cart-rentals page
-return Astro.redirect('/golf-cart-rentals', 301);
 ---
+
+<Layout title="Rent a Golf Cart - Masters Golf Cars" description="Rent a golf cart from Masters Golf Cars for your event or personal use.">
+	<script>
+		// Redirect to golf-cart-rentals page
+		window.location.replace('/golf-cart-rentals');
+	</script>
+	<noscript>
+		<meta http-equiv="refresh" content="0; url=/golf-cart-rentals" />
+	</noscript>
+	<p>Redirecting to <a href="/golf-cart-rentals">Golf Cart Rentals</a>...</p>
+</Layout>
 
