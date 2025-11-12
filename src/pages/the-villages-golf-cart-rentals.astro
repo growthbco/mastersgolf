@@ -1,0 +1,246 @@
+---
+import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
+---
+
+<Layout title="Golf Cart Rentals in The Villages, FL - Masters Golf Cars" description="Rent a golf cart in The Villages, FL. We offer delivery, flexible rental terms, and premium golf carts for exploring The Villages neighborhoods, shopping centers, and recreational facilities.">
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Golf Cart Rentals in The Villages, FL</h1>
+			<p class="text-xl text-gray-700 mb-8 font-semibold">
+				Explore The Villages with convenient, reliable golf cart rentals from Masters Golf Cars. We deliver directly to your location and offer flexible rental terms to fit your needs.
+			</p>
+		</div>
+	</section>
+
+	<!-- Why Rent in The Villages -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8">Why Rent a Golf Cart in The Villages?</h2>
+			<div class="grid md:grid-cols-2 gap-8 mb-12">
+				<div class="bg-white rounded-lg p-6 shadow-md">
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Convenient Transportation</h3>
+					<p class="text-gray-700 leading-relaxed font-semibold">
+						The Villages is designed for golf cart travel. With over 100 miles of golf cart paths connecting neighborhoods, shopping centers, restaurants, and recreational facilities, a golf cart is the most convenient way to get around this active adult community.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-md">
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Explore Everything</h3>
+					<p class="text-gray-700 leading-relaxed font-semibold">
+						From the town squares to championship golf courses, from recreation centers to shopping districts, a golf cart rental gives you the freedom to explore all that The Villages has to offer at your own pace.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Points of Interest -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Popular Destinations in The Villages</h2>
+			<div class="grid md:grid-cols-3 gap-6">
+				<div class="bg-gray-50 rounded-lg p-6">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Town Squares</h3>
+					<p class="text-gray-700 font-semibold mb-2">Spanish Springs, Lake Sumter Landing, and Brownwood</p>
+					<p class="text-gray-600 text-sm">
+						Enjoy live entertainment, shopping, dining, and community events at The Villages' three town squares, all easily accessible by golf cart.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Courses</h3>
+					<p class="text-gray-700 font-semibold mb-2">50+ Championship Courses</p>
+					<p class="text-gray-600 text-sm">
+						Access world-class golf courses throughout The Villages. Our golf carts are perfect for getting to and from your favorite courses.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Recreation Centers</h3>
+					<p class="text-gray-700 font-semibold mb-2">Pools, Fitness, and Activities</p>
+					<p class="text-gray-600 text-sm">
+						Visit recreation centers featuring pools, fitness facilities, pickleball courts, and organized activities throughout The Villages.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Shopping Centers</h3>
+					<p class="text-gray-700 font-semibold mb-2">Retail and Dining</p>
+					<p class="text-gray-600 text-sm">
+						Shop at Publix, Walmart, and specialty stores, or dine at restaurants throughout The Villages - all accessible via golf cart paths.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Medical Facilities</h3>
+					<p class="text-gray-700 font-semibold mb-2">Healthcare Access</p>
+					<p class="text-gray-600 text-sm">
+						Conveniently access medical facilities, pharmacies, and healthcare services throughout The Villages using your golf cart rental.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Entertainment Venues</h3>
+					<p class="text-gray-700 font-semibold mb-2">Shows and Events</p>
+					<p class="text-gray-600 text-sm">
+						Attend concerts, shows, and special events at The Sharon Performing Arts Center and other entertainment venues.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Rental Information -->
+	<section class="py-16 bg-brand-green text-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-8 text-center">Golf Cart Rental Options for The Villages</h2>
+			<div class="grid md:grid-cols-2 gap-8 mb-10">
+				<div>
+					<h3 class="text-2xl font-bold mb-4">2-Passenger Golf Carts</h3>
+					<p class="mb-4 font-semibold leading-relaxed">
+						Perfect for couples exploring The Villages. Ideal for navigating the golf cart paths, visiting town squares, and enjoying the community's amenities.
+					</p>
+					<ul class="space-y-2 font-semibold">
+						<li>• Compact and easy to maneuver</li>
+						<li>• Perfect for daily errands</li>
+						<li>• Great for golf course access</li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-2xl font-bold mb-4">4-Passenger Golf Carts</h3>
+					<p class="mb-4 font-semibold leading-relaxed">
+						Spacious seating for small groups. Excellent for families visiting or residents hosting guests who want to explore The Villages together.
+					</p>
+					<ul class="space-y-2 font-semibold">
+						<li>• Comfortable for groups</li>
+						<li>• Extra storage space</li>
+						<li>• Ideal for shopping trips</li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-2xl font-bold mb-4">6-Passenger Golf Carts</h3>
+					<p class="mb-4 font-semibold leading-relaxed">
+						Maximum capacity for larger groups. Perfect for social gatherings, community events, or when you need to transport multiple people.
+					</p>
+					<ul class="space-y-2 font-semibold">
+						<li>• Seats up to 6 passengers</li>
+						<li>• Great for events</li>
+						<li>• Social transportation</li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-2xl font-bold mb-4">Utility Golf Carts</h3>
+					<p class="mb-4 font-semibold leading-relaxed">
+						Versatile carts with cargo space. Ideal for moving items, groceries, or when you need extra storage capacity for your activities in The Villages.
+					</p>
+					<ul class="space-y-2 font-semibold">
+						<li>• Cargo bed for storage</li>
+						<li>• Practical for errands</li>
+						<li>• Versatile use</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Rental Process -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">How to Rent a Golf Cart in The Villages</h2>
+			<div class="grid md:grid-cols-2 gap-8">
+				<div class="space-y-6">
+					<div>
+						<h3 class="text-xl font-bold text-gray-900 mb-3">1. Fill Out Our Rental Form</h3>
+						<p class="text-gray-700 font-semibold">
+							Complete our online rental inquiry form with your preferred dates, cart type, and delivery address in The Villages.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-xl font-bold text-gray-900 mb-3">2. We Check Availability</h3>
+						<p class="text-gray-700 font-semibold">
+							Our rental manager will review your request and contact you promptly to confirm availability and provide pricing.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-xl font-bold text-gray-900 mb-3">3. Delivery to Your Location</h3>
+						<p class="text-gray-700 font-semibold">
+							We deliver your golf cart directly to your address in The Villages. All carts are cleaned, inspected, and fully charged.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-xl font-bold text-gray-900 mb-3">4. Enjoy Your Rental</h3>
+						<p class="text-gray-700 font-semibold">
+							Explore The Villages at your leisure. We provide pick-up service when your rental period ends.
+						</p>
+					</div>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-8">
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Rental Requirements</h3>
+					<ul class="space-y-3 text-gray-700 font-semibold">
+						<li>• Minimum age: 21 years old</li>
+						<li>• Valid driver's license required</li>
+						<li>• Credit card for reservation</li>
+						<li>• Minimum 3-day rental period</li>
+						<li>• Delivery address in The Villages</li>
+					</ul>
+					<div class="mt-8">
+						<a href="/rent-a-golf-cart" class="inline-block bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+							Request a Rental Quote
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About The Villages -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8">About The Villages, Florida</h2>
+			<div class="grid md:grid-cols-2 gap-8">
+				<div>
+					<p class="text-gray-700 leading-relaxed font-semibold mb-4">
+						The Villages is America's premier active adult retirement community, located in Central Florida. Spanning across Sumter, Marion, and Lake counties, The Villages is home to over 130,000 residents and features an extensive network of golf cart paths connecting neighborhoods, shopping centers, recreational facilities, and entertainment venues.
+					</p>
+					<p class="text-gray-700 leading-relaxed font-semibold mb-4">
+						The community is renowned for its active lifestyle, with over 50 championship golf courses, numerous recreation centers, town squares with nightly entertainment, and a wide variety of clubs and activities. Golf carts are not just transportation here - they're an integral part of The Villages lifestyle.
+					</p>
+					<p class="text-gray-700 leading-relaxed font-semibold">
+						Whether you're a resident, visiting family, or considering a move to The Villages, having access to a reliable golf cart rental makes exploring this vibrant community easy and enjoyable.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-md">
+					<h3 class="text-xl font-bold text-gray-900 mb-4">The Villages Quick Facts</h3>
+					<ul class="space-y-2 text-gray-700 font-semibold">
+						<li>• Located in Central Florida</li>
+						<li>• Over 130,000 residents</li>
+						<li>• 50+ championship golf courses</li>
+						<li>• 100+ miles of golf cart paths</li>
+						<li>• 3 town squares with entertainment</li>
+						<li>• Multiple recreation centers</li>
+						<li>• Active adult community (55+)</li>
+						<li>• Spanning 3 counties</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Rent a Golf Cart in The Villages?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars today to reserve your golf cart rental. We deliver directly to The Villages and offer flexible rental terms.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Request a Rental
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="mt-6 text-gray-400 font-semibold">
+				{companyData.location.full}
+			</p>
+		</div>
+	</section>
+</Layout>
+
