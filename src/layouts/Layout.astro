@@ -2,14 +2,22 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import companyData from '../data/company.json';
 
 interface Props {
 	title: string;
 	description?: string;
 	hideHeader?: boolean;
+	canonical?: string;
+	ogImage?: string;
 }
 
-const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false } = Astro.props;
+const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false, canonical, ogImage } = Astro.props;
+
+const siteUrl = 'https://mastersgolfcars.com';
+const currentUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+const defaultOgImage = companyData.logo.startsWith('http') ? companyData.logo : `${siteUrl}${companyData.logo}`;
+const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`) : defaultOgImage;
 ---
 
 <!doctype html>
@@ -20,6 +28,25 @@ const { title, description = "Masters Golf Cars offers golf carts for sale and r
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Canonical URL -->
+		<link rel="canonical" href={currentUrl} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={currentUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:site_name" content={companyData.name} />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={currentUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+		
 		<title>{title}</title>
 		<style>
 			:root {

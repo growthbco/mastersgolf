@@ -1,0 +1,28 @@
+# Netlify Redirects File
+# SEO Migration - Preserve all link equity
+
+# Force HTTPS and non-www
+https://www.mastersgolfcars.com/* https://mastersgolfcars.com/:splat 301!
+http://www.mastersgolfcars.com/* https://mastersgolfcars.com/:splat 301!
+http://mastersgolfcars.com/* https://mastersgolfcars.com/:splat 301!
+
+# Existing redirects (preserve)
+/schedule-service /schedule-golf-cart-service 301
+/home / 301
+
+# Query parameter canonicalization - redirect to clean URLs
+# Golf cart inventory with query params
+/golf-cart-inventory?* /golf-cart-inventory 301
+/ps-search-results?* /ps-search-results 301
+
+# Cart detail page variations (short URLs to full URLs)
+# Pattern: /2025-advanced-ev-advent-*-fl-psi* → /2025-advanced-ev-advent-*-belleview-fl-34420-psi*
+/2025-advanced-ev-advent-2-deluxe-golf-ready-fl-psi139811 /2025-advanced-ev-advent-2-deluxe-golf-ready-belleview-fl-34420-psi139811 301
+/2025-advanced-ev-advent-2-deluxe-golf-ready-fl-psi139815 /2025-advanced-ev-advent-2-deluxe-golf-ready-belleview-fl-34420-psi139815 301
+/2025-advanced-ev-advent-2-deluxe-golf-ready-fl-psi139816 /2025-advanced-ev-advent-2-deluxe-golf-ready-belleview-fl-34420-psi139816 301
+/2025-advanced-ev-advent-4-deluxe-4-passenger-fl-psi139862 /2025-advanced-ev-advent-4-deluxe-4-passenger-belleview-fl-34420-psi139862 301
+/2025-advanced-ev-advent-4f-deluxe-golf-ready-fl-psi139819 /2025-advanced-ev-advent-4f-deluxe-golf-ready-belleview-fl-34420-psi139819 301
+
+# Fallback - catch any remaining query params on main pages
+/*?* /:splat 301
+

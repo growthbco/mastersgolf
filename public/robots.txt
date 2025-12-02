@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mastersgolfcars.com/sitemap.xml
+
+# Disallow admin/internal paths if any exist
+Disallow: /admin/
+Disallow: /_astro/
+Disallow: /api/
+
