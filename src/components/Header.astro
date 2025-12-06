@@ -40,7 +40,7 @@ const { transparent = false } = Astro.props;
 				<div class="flex-1"></div>
 				<div class="flex-1 flex justify-center">
 					<a href="/" class="inline-block max-w-[200px] sm:max-w-none">
-						<img src={companyData.logo} alt={companyData.name} class={transparent ? "h-24 sm:h-32 md:h-36 w-auto max-w-full" : "h-24 sm:h-32 md:h-40 w-auto max-w-full"} style="object-fit: contain;" />
+						<img src={companyData.logo} alt={companyData.name} class={transparent ? "h-24 sm:h-32 md:h-36 w-auto max-w-full" : "h-24 sm:h-32 md:h-40 w-auto max-w-full"} style="object-fit: contain;" loading="eager" fetchpriority="high" width="400" height="160" />
 					</a>
 				</div>
 				<div class="flex-1 flex justify-end">
