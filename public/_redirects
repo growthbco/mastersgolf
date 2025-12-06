@@ -23,6 +23,9 @@ http://mastersgolfcars.com/* https://mastersgolfcars.com/:splat 301!
 /2025-advanced-ev-advent-4-deluxe-4-passenger-fl-psi139862 /2025-advanced-ev-advent-4-deluxe-4-passenger-belleview-fl-34420-psi139862 301
 /2025-advanced-ev-advent-4f-deluxe-golf-ready-fl-psi139819 /2025-advanced-ev-advent-4f-deluxe-golf-ready-belleview-fl-34420-psi139819 301
 
+# RSS feed redirect (for compatibility)
+/rss.xml /rss 301
+
 # Fallback - catch any remaining query params on main pages
 /*?* /:splat 301
 
