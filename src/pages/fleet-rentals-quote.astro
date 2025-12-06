@@ -168,84 +168,29 @@ const areasServed = [
 			</p>
 		</div>
 		<div class="container mx-auto px-4 max-w-4xl">
-			<form class="bg-gray-50 border border-gray-200 rounded-3xl shadow-xl p-8 md:p-10 space-y-6" name="fleet-rentals-quote" method="POST" data-netlify="true">
-				<input type="hidden" name="form-name" value="fleet-rentals-quote" />
-				<div class="grid gap-6 md:grid-cols-2">
-					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-						Event Name *
-						<input type="text" name="event-name" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Event Name" />
-					</label>
-					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-						Event Start Date *
-						<input type="date" name="event-start-date" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" />
-					</label>
-					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-						Event End Date *
-						<input type="date" name="event-end-date" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" />
-					</label>
-					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-						Contact Person *
-						<input type="text" name="contact-person" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Contact Person" />
-					</label>
-					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-						Phone *
-						<input type="tel" name="phone" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Phone" />
-					</label>
-					<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-						Email *
-						<input type="email" name="email" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Email" />
-					</label>
-					<label class="flex flex-col text-left text-sm font-semibold text-gray-800 md:col-span-2">
-						Delivery Address *
-						<input type="text" name="delivery-address" required class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Delivery Address" />
-					</label>
+			<div class="bg-gray-50 border border-gray-200 rounded-3xl shadow-xl p-8 md:p-10">
+				<div style="width:100%;height:1319px;border:none;border-radius:5px;overflow:hidden;">
+					<iframe
+						src="https://links.roadsidelaunch.com/widget/form/uXyTpOWzr0B4kcjRmM6M"
+						style="width:100%;height:100%;border:none;border-radius:5px"
+						id="inline-uXyTpOWzr0B4kcjRmM6M" 
+						data-layout="{'id':'INLINE'}"
+						data-trigger-type="alwaysShow"
+						data-trigger-value=""
+						data-activation-type="alwaysActivated"
+						data-activation-value=""
+						data-deactivation-type="neverDeactivate"
+						data-deactivation-value=""
+						data-form-name="Masters Golf Cart Fleet Rentals Quote"
+						data-height="1319"
+						data-layout-iframe-id="inline-uXyTpOWzr0B4kcjRmM6M"
+						data-form-id="uXyTpOWzr0B4kcjRmM6M"
+						title="Masters Golf Cart Fleet Rentals Quote"
+					></iframe>
 				</div>
-
-				<div>
-					<h3 class="text-lg font-semibold text-gray-900 mb-4">Quantity of Carts Needed</h3>
-					<div class="grid gap-4 md:grid-cols-2">
-						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-							# of 2 Passenger Carts
-							<input type="number" name="two-passenger" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
-						</label>
-						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-							# of 4 Passenger Carts
-							<input type="number" name="four-passenger" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
-						</label>
-						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-							# of 6 Passenger Carts
-							<input type="number" name="six-passenger" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
-						</label>
-						<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-							Utility Carts
-							<input type="number" name="utility-carts" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
-						</label>
-						<label class="flex flex-col text-left text-sm font-semibold text-gray-800 md:col-span-2">
-							Shuttle Carts (8 Passenger)+
-							<input type="number" name="shuttle-carts" min="0" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="0" />
-						</label>
-					</div>
-				</div>
-
-				<label class="flex flex-col text-left text-sm font-semibold text-gray-800">
-					Additional Needs or Questions
-					<textarea name="additional-needs" rows="4" class="mt-2 rounded-lg border border-gray-300 px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-green focus:border-brand-green" placeholder="Tell us about delivery windows, venue restrictions, accessories, or other requirements."></textarea>
-				</label>
-
-				<label class="flex items-center gap-3 text-sm text-gray-700">
-					<input type="checkbox" name="join-email-list" class="h-5 w-5 rounded border-gray-300 text-brand-green focus:ring-brand-green" />
-					<span>Please add me to your email list</span>
-				</label>
-
-				<button type="submit" class="w-full bg-brand-green text-white text-lg font-semibold py-3 rounded-full shadow hover:bg-[#1f6612] transition">
-					Submit
-				</button>
-				<p class="text-xs text-gray-500 text-center">
-					This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" class="underline hover:text-brand-green">Privacy Policy</a> and
-					<a href="https://policies.google.com/terms" target="_blank" class="underline hover:text-brand-green">Terms of Service</a> apply.
-				</p>
-			</form>
+			</div>
 		</div>
+		<script src="https://links.roadsidelaunch.com/js/form_embed.js"></script>
 	</section>
 
 	<section class="py-16 bg-gray-50">
