@@ -1,0 +1,468 @@
+---
+import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
+import servicesData from '../data/services.json';
+---
+
+<Layout 
+	title="Golf Cart Rentals in Ocala, FL | Masters Golf Cars - Since 1999" 
+	description="Rent premium golf carts in Ocala, FL. Serving Ocala Palms, Golden Ocala, Woodfields & more. Delivery available. 26+ years experience. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-rentals-ocala"
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div>
+					<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Golf Cart Rentals in Ocala, FL</h1>
+					<p class="text-xl text-gray-700 font-semibold mb-4">
+						Since 1999, Masters Golf Cars has been Ocala's trusted source for premium golf cart rentals. We serve neighborhoods throughout Ocala including <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, <strong>Stonecrest</strong>, and <strong>Rolling Greens</strong>. Conveniently located at <strong>12885 S US Highway 441 in Belleview</strong>, just minutes from downtown Ocala and across from the <strong>Market of Marion</strong>.
+					</p>
+					<p class="text-lg text-gray-700 font-semibold mb-6">
+						With over 26 years of experience serving Marion County, we deliver reliable golf carts directly to your Ocala location. Whether you need a cart for exploring <strong>Silver Springs State Park</strong>, attending events at <strong>World Equestrian Center (WEC)</strong>, or navigating your neighborhood, we have the perfect rental solution.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-center">
+							Request a Rental
+						</a>
+						<a href="tel:3523070111" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition text-center">
+							Call (352) 307-0111
+						</a>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/club-car_img_v68_250813_154125925.webp" alt="Golf cart rentals in Ocala Florida" class="w-full h-auto rounded-lg shadow-lg" loading="eager" fetchpriority="high" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Rent in Ocala Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Rent a Golf Cart in Ocala, Florida?</h2>
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<div class="space-y-6">
+					<div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-3">Explore Ocala's Premier Communities</h3>
+						<p class="text-gray-700 leading-relaxed font-semibold">
+							Ocala is home to some of Florida's most beautiful active adult communities and neighborhoods. Our golf cart rentals are perfect for residents and visitors exploring <strong>Ocala Palms</strong>, <strong>Golden Ocala Golf & Equestrian Club</strong>, <strong>Woodfields</strong>, <strong>Stonecrest</strong>, <strong>Rolling Greens</strong>, and <strong>On Top of The World</strong>. These communities feature extensive golf cart paths connecting homes to clubhouses, golf courses, and recreational facilities.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-3">Access World-Class Equestrian Venues</h3>
+						<p class="text-gray-700 leading-relaxed font-semibold">
+							Ocala is known as the "Horse Capital of the World" and hosts major equestrian events throughout the year. Our golf cart rentals are ideal for navigating <strong>World Equestrian Center (WEC)</strong> in Ocala, <strong>HITS Ocala</strong> horse shows, and <strong>Florida Horse Park</strong>. We've provided fleet rentals for events at <strong>Ocala Breeders Sales</strong> and the <strong>South Eastern Livestock Pavilion</strong>, making us the trusted choice for equestrian event transportation.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-3">Convenient Location Near Downtown Ocala</h3>
+						<p class="text-gray-700 leading-relaxed font-semibold">
+							Our dealership is strategically located at <strong>12885 S US Highway 441 in Belleview</strong>, just 8 miles south of downtown Ocala. This prime location on <strong>US Highway 441</strong> (also known as Pine Avenue) makes us easily accessible from <strong>State Road 200</strong>, <strong>I-75</strong>, and <strong>SR 40</strong>. We're directly across from the <strong>Market of Marion</strong>, making pickup convenient for Ocala residents.
+						</p>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/golf-cart-rentals-in-the-villages_img_v69_250813_160043497.webp" alt="Golf cart rental in Ocala neighborhoods" class="w-full h-auto rounded-lg shadow-lg mb-6" loading="lazy" width="800" height="600" />
+					<div class="bg-white rounded-lg p-6 shadow-lg">
+						<h3 class="text-xl font-bold text-gray-900 mb-4">Serving Ocala Since 1999</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							As a locally owned and operated business, we understand Ocala's unique needs. Our team has deep roots in Marion County and has served thousands of Ocala residents, businesses, and event organizers over the past 26 years.
+						</p>
+						<ul class="space-y-2 text-gray-700 font-semibold">
+							<li>• 26+ years serving Ocala and Marion County</li>
+							<li>• Locally owned and operated since 1999</li>
+							<li>• Trusted by Ocala's premier communities</li>
+							<li>• Preferred vendor for WEC and HITS events</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Ocala Neighborhoods Served -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Ocala Neighborhoods & Communities We Serve</h2>
+			<p class="text-lg text-gray-700 text-center mb-10 font-semibold max-w-3xl mx-auto">
+				We deliver golf cart rentals throughout Ocala and surrounding Marion County communities. Our service area includes these premier neighborhoods:
+			</p>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Ocala Palms</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Active adult community with golf course access and recreational facilities. Perfect for exploring the community's amenities and nearby shopping on <strong>State Road 200</strong>.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Golden Ocala</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Premier golf and equestrian community featuring championship golf courses. Ideal for accessing the <strong>Golden Ocala Golf & Equestrian Club</strong> and community amenities.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Woodfields</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Family-friendly community with golf cart-friendly streets. Great for daily errands and accessing nearby <strong>Publix</strong>, <strong>Walmart</strong>, and shopping centers.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Stonecrest</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Active adult community with extensive golf cart paths. Perfect for visiting the clubhouse, pool, and recreational facilities.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Rolling Greens</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Well-maintained community with golf cart access to amenities. Convenient for shopping trips to <strong>Paddock Mall</strong> and <strong>Market Street at Heath Brook</strong>.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">On Top of The World</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Large active adult community with multiple recreation centers. Ideal for exploring the community's extensive amenities and nearby <strong>Silver Springs</strong> area.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Downtown Ocala</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Historic downtown area with shops, restaurants, and the <strong>Ocala Downtown Square</strong>. Perfect for exploring <strong>Marion Theatre</strong>, <strong>Tuscawilla Park</strong>, and local businesses.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Country Club of Ocala</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Exclusive country club community with golf course access. Ideal for members and guests attending events at the club.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Oak Run</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Active adult community with golf course and recreational facilities. Great for accessing community amenities and nearby shopping.
+					</p>
+				</div>
+			</div>
+			<p class="text-center text-gray-600 mt-8 font-semibold">
+				Don't see your neighborhood listed? We serve all of Marion County! Call us at <a href="tel:3523070111" class="text-brand-green hover:underline">(352) 307-0111</a> to confirm delivery to your area.
+			</p>
+		</div>
+	</section>
+
+	<!-- Local Attractions & Venues -->
+	<section class="py-16 bg-brand-green text-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Popular Ocala Destinations</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div>
+					<h3 class="text-xl font-bold mb-3">World Equestrian Center (WEC)</h3>
+					<p class="text-gray-100 font-semibold mb-2">11000 NW 80th Avenue, Ocala</p>
+					<p class="text-gray-200 text-sm">
+						One of the world's largest equestrian facilities. We provide golf cart rentals for WEC events, making it easy to navigate the expansive grounds during horse shows, competitions, and events.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">HITS Ocala</h3>
+					<p class="text-gray-100 font-semibold mb-2">13710 US Highway 27, Ocala</p>
+					<p class="text-gray-200 text-sm">
+						Premier horse show venue hosting major equestrian competitions. Our golf carts are perfect for attendees navigating between arenas, vendors, and stabling areas.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Florida Horse Park</h3>
+					<p class="text-gray-100 font-semibold mb-2">11008 S County Road 475, Ocala</p>
+					<p class="text-gray-200 text-sm">
+						Multi-purpose equestrian facility hosting events year-round. Golf cart rentals make it easy to explore the park's extensive grounds during competitions and festivals.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Silver Springs State Park</h3>
+					<p class="text-gray-100 font-semibold mb-2">5656 E Silver Springs Blvd, Silver Springs</p>
+					<p class="text-gray-200 text-sm">
+						Historic state park with glass-bottom boat tours and nature trails. Perfect for visitors staying in nearby communities like <strong>Ocala Palms</strong> or <strong>On Top of The World</strong>.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Ocala Breeders Sales</h3>
+					<p class="text-gray-100 font-semibold mb-2">1701 SW 60th Avenue, Ocala</p>
+					<p class="text-gray-200 text-sm">
+						Premier thoroughbred sales facility. We've provided fleet rentals for sales events, making it convenient for buyers and sellers to navigate the facility.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Appleton Museum of Art</h3>
+					<p class="text-gray-100 font-semibold mb-2">4333 E Silver Springs Blvd, Ocala</p>
+					<p class="text-gray-200 text-sm">
+						Cultural destination featuring art collections and exhibitions. Easy access from communities along <strong>Silver Springs Boulevard</strong> and <strong>State Road 40</strong>.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Market Street at Heath Brook</h3>
+					<p class="text-gray-100 font-semibold mb-2">State Road 200, Ocala</p>
+					<p class="text-gray-200 text-sm">
+						Popular shopping center with <strong>Target</strong>, <strong>Best Buy</strong>, and numerous restaurants. Convenient for residents of <strong>Rolling Greens</strong> and nearby communities.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Paddock Mall</h3>
+					<p class="text-gray-100 font-semibold mb-2">3100 SW College Road, Ocala</p>
+					<p class="text-gray-200 text-sm">
+						Ocala's largest shopping mall with major retailers and dining options. Easy access from communities along <strong>College Road</strong> and <strong>State Road 200</strong>.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Tuscawilla Park</h3>
+					<p class="text-gray-100 font-semibold mb-2">Downtown Ocala</p>
+					<p class="text-gray-200 text-sm">
+						Beautiful park in downtown Ocala with walking trails, playgrounds, and the <strong>Appleton Museum</strong> nearby. Perfect for families exploring downtown Ocala.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Rental Options -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Golf Cart Rental Options for Ocala</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp" alt="2-passenger golf cart rental Ocala" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">2-Passenger</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Perfect for couples exploring Ocala neighborhoods or attending events. Ideal for navigating <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, and other communities.
+					</p>
+					<ul class="space-y-1 font-semibold text-sm text-left max-w-xs mx-auto text-gray-700">
+						<li>• Compact and easy to maneuver</li>
+						<li>• Perfect for daily errands</li>
+						<li>• Great for golf course access</li>
+					</ul>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp" alt="4-passenger golf cart rental Ocala" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">4-Passenger</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Spacious seating for small groups. Excellent for families visiting Ocala or residents hosting guests in communities like <strong>Woodfields</strong> or <strong>Stonecrest</strong>.
+					</p>
+					<ul class="space-y-1 font-semibold text-sm text-left max-w-xs mx-auto text-gray-700">
+						<li>• Comfortable for groups</li>
+						<li>• Extra storage space</li>
+						<li>• Ideal for shopping trips</li>
+					</ul>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="6-passenger golf cart rental Ocala" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">6-Passenger</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Maximum capacity for larger groups. Perfect for social gatherings in <strong>On Top of The World</strong> or events at <strong>WEC Ocala</strong>.
+					</p>
+					<ul class="space-y-1 font-semibold text-sm text-left max-w-xs mx-auto text-gray-700">
+						<li>• Seats up to 6 passengers</li>
+						<li>• Great for events</li>
+						<li>• Social transportation</li>
+					</ul>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp" alt="Utility golf cart rental Ocala" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">Utility Cart</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Versatile carts with cargo space. Ideal for moving items, groceries from <strong>Publix</strong> or <strong>Walmart</strong>, or extra storage for equestrian events.
+					</p>
+					<ul class="space-y-1 font-semibold text-sm text-left max-w-xs mx-auto text-gray-700">
+						<li>• Cargo bed for storage</li>
+						<li>• Practical for errands</li>
+						<li>• Versatile use</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- E-E-A-T Section: Experience & Expertise -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Ocala Trusts Masters Golf Cars</h2>
+			<div class="grid md:grid-cols-2 gap-12">
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">26+ Years Serving Ocala</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Since 1999, Masters Golf Cars has been Ocala's trusted golf cart rental and sales dealership. We've built our reputation by providing exceptional service to thousands of Ocala residents, businesses, and event organizers.
+					</p>
+					<ul class="space-y-3 text-gray-700 font-semibold">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Locally owned and operated since 1999</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Preferred vendor for WEC Ocala and HITS events</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Trusted by Ocala's premier communities</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Authorized dealer for Club Car, Yamaha, EZ-GO, and Advanced EV</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>5-star Google reviews from Ocala customers</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">Expert Knowledge of Ocala</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Our team knows Ocala inside and out. We understand the unique needs of each community, from <strong>Ocala Palms</strong> to <strong>Golden Ocala</strong>, and we've provided rentals for events at <strong>World Equestrian Center</strong>, <strong>HITS Ocala</strong>, and <strong>Florida Horse Park</strong>.
+					</p>
+					<div class="bg-gray-50 rounded-lg p-6 mt-6">
+						<h4 class="text-lg font-bold text-gray-900 mb-3">Our Ocala Service Area Includes:</h4>
+						<ul class="grid grid-cols-2 gap-2 text-gray-700 font-semibold text-sm">
+							<li>• Ocala Palms</li>
+							<li>• Golden Ocala</li>
+							<li>• Woodfields</li>
+							<li>• Stonecrest</li>
+							<li>• Rolling Greens</li>
+							<li>• On Top of The World</li>
+							<li>• Country Club of Ocala</li>
+							<li>• Oak Run</li>
+							<li>• Downtown Ocala</li>
+							<li>• All of Marion County</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- How It Works -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">How to Rent a Golf Cart in Ocala</h2>
+			<div class="grid md:grid-cols-2 gap-12 items-start">
+				<div class="space-y-8">
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-xl">1</div>
+						<div>
+							<h3 class="text-xl font-bold text-gray-900 mb-2">Fill Out Our Rental Form</h3>
+							<p class="text-gray-700 font-semibold">
+								Complete our online rental inquiry form with your preferred dates, cart type, and delivery address in Ocala. We serve all neighborhoods including <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, and more.
+							</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-xl">2</div>
+						<div>
+							<h3 class="text-xl font-bold text-gray-900 mb-2">We Check Availability</h3>
+							<p class="text-gray-700 font-semibold">
+								Our rental manager will review your request and contact you promptly to confirm availability and provide pricing. We maintain a large fleet of Club Car and Yamaha golf carts ready for Ocala delivery.
+							</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-xl">3</div>
+						<div>
+							<h3 class="text-xl font-bold text-gray-900 mb-2">Delivery to Your Ocala Location</h3>
+							<p class="text-gray-700 font-semibold">
+								We deliver your golf cart directly to your address in Ocala. Whether you're in <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, or anywhere in Marion County, we'll bring the cart to you. All carts are cleaned, inspected, and fully charged.
+							</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-xl">4</div>
+						<div>
+							<h3 class="text-xl font-bold text-gray-900 mb-2">Enjoy Your Rental</h3>
+							<p class="text-gray-700 font-semibold">
+								Explore Ocala at your leisure. Visit <strong>Silver Springs</strong>, attend events at <strong>WEC</strong>, or simply enjoy your neighborhood. We provide pick-up service when your rental period ends.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<img src="/images/gallery/02-04-2025-14-28-23_33.webp" alt="Golf cart delivery in Ocala" class="w-full h-auto rounded-lg shadow-lg mb-8" loading="lazy" width="800" height="600" />
+					<div class="bg-gray-50 rounded-lg p-8">
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">Rental Requirements</h3>
+						<ul class="space-y-3 text-gray-700 font-semibold mb-6">
+							<li>• Minimum age: 21 years old</li>
+							<li>• Valid driver's license required</li>
+							<li>• Credit card for reservation</li>
+							<li>• Minimum 3-day rental period</li>
+							<li>• Delivery address in Ocala/Marion County</li>
+						</ul>
+						<a href="/rent-a-golf-cart" class="inline-block bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition w-full text-center">
+							Request a Rental Quote
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Local Testimonials -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h3 class="text-3xl font-black text-gray-900 text-center mb-4">What Ocala Customers Say</h3>
+			<div class="flex justify-center gap-1 mb-12">
+				{Array.from({ length: 5 }).map((_star, index) => (
+					<svg class="w-6 h-6" fill="#FFD700" viewBox="0 0 20 20">
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+					</svg>
+				))}
+			</div>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
+					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
+						"Fantastic people to work with. Delivered my rental cart to Ocala Palms on time as promised. Highly recommended!"
+					</p>
+					<p class="font-black text-gray-900">-Scott Lenhart, Ocala Palms</p>
+				</div>
+				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
+					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
+						"They were excellent to work with! They gave us an excellent deal on a rental while they fixed ours. The staff there is extremely knowledgeable and professional."
+					</p>
+					<p class="font-black text-gray-900">-Megan O'Brien, Ocala</p>
+				</div>
+				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
+					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
+						"The carts were delivered the day before our event at WEC, so we weren't waiting on the day of. The carts performed perfectly. I would highly recommend renting carts from this great company."
+					</p>
+					<p class="font-black text-gray-900">-Daniel Clark, Event Organizer</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Rent a Golf Cart in Ocala?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars today to reserve your golf cart rental. We deliver directly to Ocala neighborhoods including <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, and throughout Marion County.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Request a Rental
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Serving Ocala Since 1999
+			</p>
+			<p class="text-gray-400 font-semibold mt-2">
+				Located on US Highway 441, across from Market of Marion
+			</p>
+		</div>
+	</section>
+</Layout>

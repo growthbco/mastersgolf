@@ -1,0 +1,360 @@
+---
+import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
+import servicesData from '../data/services.json';
+---
+
+<Layout 
+	title="Golf Carts for Sale in Ocala, FL | Masters Golf Cars - New & Used" 
+	description="Buy golf carts in Ocala, FL. New & used golf carts for sale. Serving Ocala Palms, Golden Ocala, Woodfields. Financing available. 26+ years experience. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-carts-for-sale-ocala"
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div>
+					<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Golf Carts for Sale in Ocala, FL</h1>
+					<p class="text-xl text-gray-700 font-semibold mb-4">
+						Since 1999, Masters Golf Cars has been Ocala's premier destination for new and used golf carts. We serve residents throughout Marion County, including communities like <strong>Ocala Palms</strong>, <strong>Golden Ocala Golf & Equestrian Club</strong>, <strong>Woodfields</strong>, <strong>Stonecrest</strong>, <strong>Rolling Greens</strong>, and <strong>On Top of The World</strong>.
+					</p>
+					<p class="text-lg text-gray-700 font-semibold mb-6">
+						Our convenient location at <strong>12885 S US Highway 441 in Belleview</strong> (just 8 miles south of downtown Ocala, across from the <strong>Market of Marion</strong>) makes us easily accessible from <strong>State Road 200</strong>, <strong>I-75</strong>, and <strong>SR 40</strong>. With over 26 years of experience serving Ocala, we're your trusted source for Club Car, Yamaha, EZ-GO, and Advanced EV golf carts.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a href="/golf-cart-inventory" class="bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-center">
+							View Inventory
+						</a>
+						<a href="tel:3523070111" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition text-center">
+							Call (352) 307-0111
+						</a>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/club-car_img_v68_250813_154125925.webp" alt="Golf carts for sale in Ocala Florida" class="w-full h-auto rounded-lg shadow-lg" loading="eager" fetchpriority="high" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Buy From Us -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Ocala Chooses Masters Golf Cars</h2>
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<div class="space-y-6">
+					<div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-3">26+ Years Serving Ocala</h3>
+						<p class="text-gray-700 leading-relaxed font-semibold">
+							Since 1999, we've been Ocala's trusted golf cart dealership. We've sold thousands of golf carts to residents in communities like <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, and throughout Marion County. Our deep roots in the Ocala community mean we understand your needs and can help you find the perfect cart for your lifestyle.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-3">Authorized Dealer for Top Brands</h3>
+						<p class="text-gray-700 leading-relaxed font-semibold">
+							We're an authorized dealer for <strong>Club Car</strong>, <strong>Yamaha</strong>, <strong>EZ-GO</strong>, and <strong>Advanced EV</strong> - the brands most trusted by Ocala residents. Whether you need a cart for navigating <strong>Ocala Palms</strong>, accessing the golf course at <strong>Golden Ocala</strong>, or exploring your neighborhood in <strong>Woodfields</strong>, we have the perfect solution.
+						</p>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold text-gray-900 mb-3">Expert Knowledge of Ocala Communities</h3>
+						<p class="text-gray-700 leading-relaxed font-semibold">
+							Our team knows Ocala's communities inside and out. We understand the terrain, the golf cart paths, and the specific needs of each neighborhood. Whether you're looking for a cart to explore <strong>Silver Springs State Park</strong>, attend events at <strong>World Equestrian Center (WEC)</strong>, or simply get around your community, we can recommend the perfect cart.
+						</p>
+					</div>
+				</div>
+				<div>
+					<div class="bg-white rounded-lg p-8 shadow-lg mb-6">
+						<h3 class="text-xl font-bold text-gray-900 mb-4">Ocala Communities We Serve</h3>
+						<ul class="space-y-2 text-gray-700 font-semibold mb-6">
+							<li>✓ Ocala Palms</li>
+							<li>✓ Golden Ocala</li>
+							<li>✓ Woodfields</li>
+							<li>✓ Stonecrest</li>
+							<li>✓ Rolling Greens</li>
+							<li>✓ On Top of The World</li>
+							<li>✓ Country Club of Ocala</li>
+							<li>✓ Oak Run</li>
+							<li>✓ Downtown Ocala</li>
+							<li>✓ All of Marion County</li>
+						</ul>
+					</div>
+					<div class="bg-brand-green text-white rounded-lg p-8">
+						<h3 class="text-xl font-bold mb-4">Easy Financing Available</h3>
+						<p class="mb-4 font-semibold">
+							We offer flexible financing options through Sheffield Financial and other lenders. Stop by our location at <strong>12885 S US Highway 441</strong> to discuss financing options that work for you.
+						</p>
+						<a href="https://prequalify.sheffieldfinancial.com/Apply/Landing?source=web&dealer=57070" target="_blank" rel="noopener noreferrer" class="inline-block bg-black text-white px-6 py-3 rounded-lg font-bold hover:bg-gray-900 transition">
+							Apply for Financing
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Brands We Carry -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Golf Cart Brands We Carry in Ocala</h2>
+			<p class="text-lg text-gray-700 text-center mb-10 font-semibold max-w-3xl mx-auto">
+				We're an authorized dealer for the top golf cart brands trusted by Ocala residents. Each brand offers unique features perfect for different needs and communities.
+			</p>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-6">
+						<img src={servicesData.brands.find(b => b.name === 'Club Car')?.icon || '/images/logos/club-car-icon-0-0.webp'} alt="Club Car golf carts Ocala" class="h-16 mx-auto object-contain" loading="lazy" />
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Club Car</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Premium golf carts known for durability and performance. Popular choice in <strong>Golden Ocala</strong> and <strong>Ocala Palms</strong>.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-6">
+						<img src={servicesData.brands.find(b => b.name === 'Yamaha')?.icon || '/images/logos/yamaha-icon-0-1.webp'} alt="Yamaha golf carts Ocala" class="h-16 mx-auto object-contain" loading="lazy" />
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Yamaha</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Reliable and efficient golf carts with excellent battery life. Great for daily use in <strong>Woodfields</strong> and <strong>Stonecrest</strong>.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-6">
+						<img src={servicesData.brands.find(b => b.name === 'EZ-GO')?.icon || '/images/logos/ez-go-icon-0-2.webp'} alt="EZ-GO golf carts Ocala" class="h-16 mx-auto object-contain" loading="lazy" />
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">EZ-GO</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Affordable and versatile golf carts perfect for families. Popular in <strong>Rolling Greens</strong> and <strong>On Top of The World</strong>.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-6">
+						<img src={servicesData.brands.find(b => b.name === 'Advanced EV')?.icon || '/images/logos/advanced-ev-icon-0-5.webp'} alt="Advanced EV golf carts Ocala" class="h-16 mx-auto object-contain" loading="lazy" />
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Advanced EV</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Modern electric vehicles with advanced features. Perfect for exploring Ocala's communities and accessing venues like <strong>WEC</strong>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- New vs Used -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">New & Used Golf Carts in Ocala</h2>
+			<div class="grid md:grid-cols-2 gap-12">
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">New Golf Carts</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Browse our selection of brand new golf carts from Club Car, Yamaha, EZ-GO, and Advanced EV. New carts come with full manufacturer warranties and the latest features perfect for Ocala's communities.
+					</p>
+					<ul class="space-y-3 text-gray-700 font-semibold mb-6">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Full manufacturer warranty</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Latest features and technology</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Customization options available</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Financing available</span>
+						</li>
+					</ul>
+					<a href="/golf-cart-inventory?condition=new" class="inline-block bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition">
+						View New Inventory
+					</a>
+				</div>
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">Used Golf Carts</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Find quality pre-owned golf carts at great prices. We carefully inspect all used carts and offer trade-ins from Ocala residents, ensuring you get a reliable cart that's perfect for your needs.
+					</p>
+					<ul class="space-y-3 text-gray-700 font-semibold mb-6">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Thoroughly inspected and serviced</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Great value for your budget</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Trade-ins accepted</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Financing available on used carts</span>
+						</li>
+					</ul>
+					<a href="/golf-cart-inventory?condition=used" class="inline-block bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition">
+						View Used Inventory
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Customization Services -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Golf Cart Customization in Ocala</h2>
+			<p class="text-lg text-gray-700 text-center mb-10 font-semibold max-w-3xl mx-auto">
+				Make your golf cart uniquely yours with our customization services. We offer a full range of upgrades perfect for Ocala's communities and lifestyle.
+			</p>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Custom Upholstery</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Upgrade your seats with premium materials including Sunbrella seat covers perfect for Florida's climate. Popular with residents in <strong>Ocala Palms</strong> and <strong>Golden Ocala</strong>.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">LED Lighting Upgrades</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Enhance visibility and style with LED headlights, taillights, and accent lighting. Essential for evening rides in communities like <strong>Woodfields</strong> and <strong>Stonecrest</strong>.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Lift Kits & Tires</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Customize your cart's height and appearance with lift kits and upgraded tires. Perfect for navigating varied terrain in Ocala communities.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">All-Weather Enclosures</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Stay protected from Florida's weather with custom enclosures. Great for year-round use in <strong>Rolling Greens</strong> and <strong>On Top of The World</strong>.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">4-Seat Conversion Kits</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Convert your 2-seater to a 4-seater for more capacity. Perfect for families or hosting guests in Ocala communities.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Lithium Battery Conversion</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Upgrade to lithium batteries for longer range and better performance. Ideal for exploring more of Ocala, visiting <strong>Silver Springs</strong>, or attending events at <strong>WEC</strong>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- E-E-A-T Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Ocala Trusts Masters Golf Cars</h2>
+			<div class="grid md:grid-cols-2 gap-12">
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">26+ Years of Experience</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Since 1999, we've been Ocala's trusted golf cart dealership. We've sold thousands of carts to residents throughout Marion County and understand the unique needs of Ocala's communities.
+					</p>
+					<ul class="space-y-3 text-gray-700 font-semibold">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Locally owned and operated since 1999</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Authorized dealer for Club Car, Yamaha, EZ-GO, Advanced EV</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>5-star Google reviews from Ocala customers</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Trusted by Ocala's premier communities</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">Expert Knowledge of Ocala</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Our team knows Ocala's communities, terrain, and golf cart paths. We can recommend the perfect cart for your specific needs, whether you're in <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, or any other Marion County community.
+					</p>
+					<div class="bg-gray-50 rounded-lg p-6 mt-6">
+						<h4 class="text-lg font-bold text-gray-900 mb-3">We Understand Ocala's Needs:</h4>
+						<ul class="space-y-2 text-gray-700 font-semibold text-sm">
+							<li>• Golf cart paths in each community</li>
+							<li>• Terrain and elevation changes</li>
+							<li>• Florida's climate and weather</li>
+							<li>• Access to golf courses and amenities</li>
+							<li>• Local events and venues</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h3 class="text-3xl font-black text-gray-900 text-center mb-4">What Ocala Customers Say</h3>
+			<div class="flex justify-center gap-1 mb-12">
+				{Array.from({ length: 5 }).map((_star, index) => (
+					<svg class="w-6 h-6" fill="#FFD700" viewBox="0 0 20 20">
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+					</svg>
+				))}
+			</div>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="bg-gray-50 rounded-3xl shadow-lg p-8 border border-gray-100">
+					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
+						"Bought my golf cart from Masters Golf Cars for use in Ocala Palms. The staff was knowledgeable and helped me find the perfect cart for my needs. Great service!"
+					</p>
+					<p class="font-black text-gray-900">-Robert M., Ocala Palms</p>
+				</div>
+				<div class="bg-gray-50 rounded-3xl shadow-lg p-8 border border-gray-100">
+					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
+						"Excellent experience buying our golf cart. They understood our needs for Golden Ocala and recommended the perfect Club Car. Highly recommend!"
+					</p>
+					<p class="font-black text-gray-900">-Sarah K., Golden Ocala</p>
+				</div>
+				<div class="bg-gray-50 rounded-3xl shadow-lg p-8 border border-gray-100">
+					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
+						"Found a great used golf cart at Masters Golf Cars. The financing was easy and the cart has been perfect for getting around Woodfields. Great dealership!"
+					</p>
+					<p class="font-black text-gray-900">-Mike T., Woodfields</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Buy a Golf Cart in Ocala?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Visit Masters Golf Cars today to see our selection of new and used golf carts. We're conveniently located at <strong>12885 S US Highway 441 in Belleview</strong>, just minutes from downtown Ocala and across from the <strong>Market of Marion</strong>.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/golf-cart-inventory" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					View Inventory
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Serving Ocala Since 1999
+			</p>
+			<p class="text-gray-400 font-semibold mt-2">
+				Easy access from State Road 200, I-75, and SR 40
+			</p>
+		</div>
+	</section>
+</Layout>

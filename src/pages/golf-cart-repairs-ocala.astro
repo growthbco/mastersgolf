@@ -1,0 +1,383 @@
+---
+import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
+---
+
+<Layout 
+	title="Golf Cart Repairs in Ocala, FL | Masters Golf Cars - 24-Hour Service" 
+	description="Fast golf cart repairs in Ocala, FL. Serving Ocala Palms, Golden Ocala, Woodfields & more. 24-hour turnaround. Pickup & delivery. 26+ years experience. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-repairs-ocala"
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-16">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 text-center">Golf Cart Repairs in Ocala, FL</h1>
+				<h2 class="text-2xl md:text-3xl font-semibold mb-10 text-gray-900 text-center">Fast, Reliable Golf Cart Service Throughout Marion County</h2>
+
+				<div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center">
+					<!-- Image -->
+					<div class="relative w-full md:w-1/2">
+						<div class="overflow-hidden rounded-2xl shadow-xl">
+							<img src="/images/golf cart repair page/05-08-2025-14-31-50_52.webp" alt="Golf cart repair service in Ocala Florida" class="w-full h-64 md:h-[360px] object-cover" loading="eager" />
+						</div>
+					</div>
+
+					<!-- Text Content -->
+					<div class="w-full md:w-1/2">
+						<p class="text-lg text-gray-700 mb-6 leading-relaxed font-semibold">
+							Since 1999, Masters Golf Cars has been Ocala's trusted golf cart repair and service center. We serve residents throughout Marion County, including communities like <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, <strong>Stonecrest</strong>, <strong>Rolling Greens</strong>, and <strong>On Top of The World</strong>. Our convenient location at <strong>12885 S US Highway 441 in Belleview</strong> (just 8 miles south of downtown Ocala, across from the <strong>Market of Marion</strong>) makes us easily accessible from <strong>State Road 200</strong>, <strong>I-75</strong>, and <strong>SR 40</strong>.
+						</p>
+						<p class="text-lg text-gray-700 mb-8 leading-relaxed font-semibold">
+							With over 26 years of experience serving Ocala and Marion County, we specialize in both gas and electric golf cart repairs. Our certified technicians provide fast, affordable service with most repairs completed within 24 hours. We offer convenient pickup and delivery service throughout Ocala, so you don't have to worry about transporting your cart.
+						</p>
+						<a href="/schedule-golf-cart-service" class="bg-brand-green text-white px-8 py-4 rounded-lg font-bold transition inline-flex items-center justify-center gap-2 hover:opacity-90 shadow-lg">
+							Schedule Your Golf Cart Repairs
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Fast 24-Hour Repairs Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">Fast, 24-Hour Golf Cart Repairs in Ocala</h2>
+				<p class="text-lg text-gray-700 font-semibold mb-4">
+					We understand how important your golf cart is to your daily life in Ocala. Whether you rely on it to get around <strong>Ocala Palms</strong>, access the golf course at <strong>Golden Ocala</strong>, or navigate your neighborhood in <strong>Woodfields</strong>, we're committed to getting you back on the road quickly.
+				</p>
+				<p class="text-lg text-gray-700 font-semibold">
+					Most repairs are completed within 24 hours, getting you back to exploring Ocala's beautiful communities, visiting <strong>Silver Springs State Park</strong>, or attending events at <strong>World Equestrian Center (WEC)</strong> without delay. Our experienced technicians work diligently to diagnose and fix issues promptly without compromising on quality.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Choose Us Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="bg-gray-100 rounded-[32px] px-6 py-12 md:px-12 md:py-16 shadow-xl">
+					<div class="flex flex-col items-center text-center gap-6 mb-10">
+						<div class="flex gap-3">
+							{Array.from({ length: 5 }).map((_item, index) => (
+								<svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 20 20" style="color: #FFD24D;" aria-hidden="true">
+									<title>Star {index + 1}</title>
+									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+								</svg>
+							))}
+						</div>
+						<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why Ocala Chooses Us For Golf Cart Repairs</h2>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-8 mb-10">
+						<div class="bg-white rounded-lg p-6">
+							<h3 class="text-xl font-bold text-gray-900 mb-4">26+ Years Serving Ocala</h3>
+							<p class="text-gray-700 font-semibold mb-4">
+								Since 1999, we've been Ocala's trusted golf cart repair shop. We've built our reputation by providing exceptional service to thousands of Ocala residents in communities like <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, and throughout Marion County.
+							</p>
+							<ul class="space-y-2 text-gray-700 font-semibold">
+								<li>✓ Locally owned and operated since 1999</li>
+								<li>✓ Trusted by Ocala's premier communities</li>
+								<li>✓ 5-star Google reviews from Ocala customers</li>
+								<li>✓ Authorized service for all major brands</li>
+							</ul>
+						</div>
+						<div class="bg-white rounded-lg p-6">
+							<h3 class="text-xl font-bold text-gray-900 mb-4">Expert Knowledge of Ocala</h3>
+							<p class="text-gray-700 font-semibold mb-4">
+								Our team knows Ocala inside and out. We understand the unique needs of each community and the common issues faced by golf cart owners in Florida's climate. From battery problems in the heat to suspension issues on Ocala's varied terrain, we've seen it all.
+							</p>
+							<ul class="space-y-2 text-gray-700 font-semibold">
+								<li>✓ Certified technicians with 26+ years experience</li>
+								<li>✓ Knowledge of all Ocala neighborhoods</li>
+								<li>✓ Familiar with local terrain and conditions</li>
+								<li>✓ Preferred service provider for many communities</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="bg-white rounded-lg p-8">
+						<h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Ocala Communities We Serve</h3>
+						<div class="grid md:grid-cols-3 gap-4 text-gray-700 font-semibold">
+							<div>
+								<ul class="space-y-2">
+									<li>• Ocala Palms</li>
+									<li>• Golden Ocala</li>
+									<li>• Woodfields</li>
+									<li>• Stonecrest</li>
+								</ul>
+							</div>
+							<div>
+								<ul class="space-y-2">
+									<li>• Rolling Greens</li>
+									<li>• On Top of The World</li>
+									<li>• Country Club of Ocala</li>
+									<li>• Oak Run</li>
+								</ul>
+							</div>
+							<div>
+								<ul class="space-y-2">
+									<li>• Downtown Ocala</li>
+									<li>• All Marion County</li>
+									<li>• Belleview</li>
+									<li>• Silver Springs</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Service Categories Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+					<!-- Gas Golf Cart Repairs -->
+					<div class="bg-white rounded-[28px] shadow-2xl p-8 md:p-10 flex flex-col gap-6">
+						<div class="rounded-[24px] bg-gray-100 p-4 shadow-inner">
+							<img src="/images/home page carts/gas-golf-cart_img_v62.webp" alt="Gas golf cart repair service Ocala" class="w-full h-[260px] md:h-[300px] object-cover rounded-[20px] shadow-lg" loading="lazy" />
+						</div>
+						<div class="space-y-5">
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900 text-left">Gas Golf Cart Repairs & Services</h3>
+							<p class="text-gray-700 font-semibold">
+								We service all gas-powered golf carts used throughout Ocala communities. Whether you have a Club Car, Yamaha, or EZ-GO gas cart, our certified technicians can handle any repair.
+							</p>
+							<ol class="space-y-3 text-gray-700 text-lg list-decimal list-inside font-semibold">
+								<li>Engine Maintenance & Tune-ups</li>
+								<li>Oil Replacement & Filter Changes</li>
+								<li>Fuel System Repairs & Cleaning</li>
+								<li>Battery and Electrical System</li>
+								<li>Exhaust System Repairs</li>
+								<li>Transmission and Clutch Maintenance</li>
+								<li>Tire & Wheel Replacement and Upgrades</li>
+								<li>Lighting Upgrades & Repairs</li>
+							</ol>
+						</div>
+					</div>
+
+					<!-- Electric Golf Cart Repairs -->
+					<div class="bg-white rounded-[28px] shadow-2xl p-8 md:p-10 flex flex-col gap-6">
+						<div class="rounded-[24px] bg-gray-100 p-4 shadow-inner">
+							<img src="/images/home page carts/electric-golf-cart_img_v58.webp" alt="Electric golf cart repair service Ocala" class="w-full h-[260px] md:h-[300px] object-cover rounded-[20px] shadow-lg" loading="lazy" />
+						</div>
+						<div class="space-y-5">
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900 text-left">Electric Golf Cart Repairs & Service</h3>
+							<p class="text-gray-700 font-semibold">
+								Electric golf carts are popular in Ocala communities like <strong>Ocala Palms</strong> and <strong>Golden Ocala</strong>. We specialize in all electric cart repairs, including lithium battery conversions.
+							</p>
+							<ol class="space-y-3 text-gray-700 text-lg list-decimal list-inside font-semibold">
+								<li>Battery Maintenance and Replacement</li>
+								<li>Charging System Service & Repair</li>
+								<li>Motor and Controller Maintenance and Upgrades</li>
+								<li>Electrical System Troubleshooting</li>
+								<li>Motor Brushes and Bearings</li>
+								<li>Tire & Wheel Replacement and Upgrades</li>
+								<li>Lighting Upgrades & Repairs</li>
+								<li>Lithium Battery Conversions</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Lithium Battery Conversions -->
+	<section class="py-20 bg-gray-900">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 lg:grid-cols-[1.2fr,1fr] gap-12 items-center">
+					<div class="text-white">
+						<span class="uppercase tracking-[0.3em] text-sm text-brand-green mb-4 inline-block">Lithium-ion Experts in Ocala</span>
+						<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">Boost Range & Performance With Lithium-Ion Battery Conversions</h2>
+						<p class="text-lg text-gray-200 mb-6 font-semibold">
+							Upgrade your golf cart to a lithium power system and experience a whole new level of reliability. Perfect for Ocala residents who want to explore more of their community, visit <strong>Silver Springs</strong>, or attend events at <strong>WEC</strong> without worrying about battery life.
+						</p>
+						<p class="text-lg text-gray-200 mb-6 font-semibold">
+							Our certified technicians install premium Eco Battery and Trojan OnePack systems, recalibrate your cart, and back every conversion with full manufacturer support. We've completed hundreds of lithium conversions for Ocala customers in communities like <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, and <strong>Woodfields</strong>.
+						</p>
+						<div class="bg-white/10 border border-white/15 rounded-3xl p-6 md:p-8 backdrop-blur-sm">
+							<h3 class="text-xl font-semibold mb-4 text-white">Why Ocala owners love lithium upgrades:</h3>
+							<ul class="space-y-4">
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100 font-semibold">3-4x longer battery life compared to lead-acid packs</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100 font-semibold">Faster charging with smart onboard battery management</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100 font-semibold">Lightweight modules for improved acceleration and range</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100 font-semibold">Maintenance-free power that just works every time</span>
+								</li>
+								<li class="flex items-start gap-3">
+									<span class="text-brand-green text-2xl leading-none">•</span>
+									<span class="text-gray-100 font-semibold">Industry-leading warranties and remote monitoring</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="relative">
+						<div class="overflow-hidden rounded-[28px] shadow-2xl bg-black">
+							<img src="/images/home page carts/05-13-2025-12-38-40_58.webp" alt="Lithium battery conversion Ocala" class="w-full h-[260px] md:h-[360px] object-cover" loading="lazy" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pickup & Delivery Service -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">Convenient Pickup & Delivery Service in Ocala</h2>
+				<p class="text-lg text-gray-700 font-semibold mb-4">
+					We understand that transporting your golf cart can be a hassle. That's why we offer convenient pickup and delivery service throughout Ocala and Marion County. Whether you're in <strong>Ocala Palms</strong>, <strong>Golden Ocala</strong>, <strong>Woodfields</strong>, <strong>Stonecrest</strong>, or anywhere else in Marion County, we'll come to you.
+				</p>
+				<p class="text-lg text-gray-700 font-semibold mb-6">
+					Our service area includes all of Ocala and surrounding areas. We're conveniently located at <strong>12885 S US Highway 441 in Belleview</strong>, just minutes from downtown Ocala and easily accessible from <strong>State Road 200</strong>, <strong>I-75</strong>, and <strong>SR 40</strong>. You can also drop off your cart at our shop, located across from the <strong>Market of Marion</strong>.
+				</p>
+				<div class="bg-gray-50 rounded-lg p-8">
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Our Ocala Service Process:</h3>
+					<ol class="space-y-3 text-gray-700 font-semibold list-decimal list-inside">
+						<li>Call us at <a href="tel:3523070111" class="text-brand-green hover:underline">(352) 307-0111</a> to schedule pickup or drop-off</li>
+						<li>We'll pick up your cart from your Ocala location</li>
+						<li>Our technicians diagnose and repair your cart (most repairs completed in 24 hours)</li>
+						<li>We deliver your repaired cart back to your location</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Repair Process Steps -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 text-center">Our Ocala Golf Cart Repair Process</h2>
+				
+				<div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+					<!-- Step 1 -->
+					<div class="bg-black text-white p-6 rounded-lg text-center">
+						<h3 class="text-xl font-bold mb-3">Golf Cart Inspection</h3>
+						<p class="text-sm text-gray-300 font-semibold">
+							Our certified technicians thoroughly inspect your golf cart to identify issues and provide accurate estimates.
+						</p>
+					</div>
+					
+					<!-- Step 2 -->
+					<div class="bg-black text-white p-6 rounded-lg text-center">
+						<h3 class="text-xl font-bold mb-3">Repair Estimate</h3>
+						<p class="text-sm text-gray-300 font-semibold">
+							We provide detailed repair estimates including costs and timelines so you know exactly what to expect.
+						</p>
+					</div>
+					
+					<!-- Step 3 -->
+					<div class="bg-black text-white p-6 rounded-lg text-center">
+						<h3 class="text-xl font-bold mb-3">Golf Cart Repairs</h3>
+						<p class="text-sm text-gray-300 font-semibold">
+							Our certified technicians perform quality repairs using only the best parts and equipment available.
+						</p>
+					</div>
+					
+					<!-- Step 4 -->
+					<div class="bg-black text-white p-6 rounded-lg text-center">
+						<h3 class="text-xl font-bold mb-3">Post-Repair Testing</h3>
+						<p class="text-sm text-gray-300 font-semibold">
+							We thoroughly test your golf cart to ensure everything is functioning properly before delivery.
+						</p>
+					</div>
+					
+					<!-- Step 5 -->
+					<div class="bg-black text-white p-6 rounded-lg text-center">
+						<h3 class="text-xl font-bold mb-3">Delivery or Pickup</h3>
+						<p class="text-sm text-gray-300 font-semibold">
+							We arrange convenient delivery or pickup. Most repairs completed within 24 hours!
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Schedule Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: #86CA26;">Schedule Your Golf Cart Repairs in Ocala Today</h2>
+				<p class="text-lg text-gray-700 font-semibold mb-8">
+					Don't wait until your golf cart breaks down completely. Schedule a repair appointment today and keep your cart running smoothly. Our team is ready to help with all your golf cart maintenance and repair needs throughout Ocala and Marion County.
+				</p>
+				<a href="/schedule-golf-cart-service" class="bg-brand-green text-white px-8 py-4 rounded-lg font-bold transition inline-block hover:opacity-90">
+					Schedule Your Golf Cart Repairs
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Visit Our Location -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">Visit Our Ocala Area Location</h2>
+				<p class="text-lg text-gray-700 font-semibold mb-4 text-center">
+					We are located between Ocala and The Villages, right on <strong>US Highway 441</strong> across from the <strong>Market of Marion</strong>. Our convenient location makes us easily accessible from <strong>State Road 200</strong>, <strong>I-75</strong>, and <strong>SR 40</strong>.
+				</p>
+				<p class="text-lg font-bold text-gray-900 mb-8 text-center">
+					{companyData.location.full}
+				</p>
+				
+				<!-- Google Maps Embed -->
+				<div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
+						width="100%"
+						height="450"
+						style="border:0;"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Repair Your Golf Cart in Ocala?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars today for fast, reliable golf cart repairs. We serve all of Ocala and Marion County with convenient pickup and delivery service.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/schedule-golf-cart-service" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Schedule Service
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Serving Ocala Since 1999
+			</p>
+		</div>
+	</section>
+</Layout>
