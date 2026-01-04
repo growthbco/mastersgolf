@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
+---
+
+<Layout 
+	title="Golf Cart Repairs in Gainesville, FL | Masters Golf Cars - 24-Hour Service" 
+	description="Fast golf cart repairs in Gainesville, FL. Serving Haile Plantation, Tioga, UF area & more. 24-hour turnaround. Pickup & delivery. 26+ years experience. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-repairs-gainesville"
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-16">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 text-center">Golf Cart Repairs in Gainesville, FL</h1>
+				<h2 class="text-2xl md:text-3xl font-semibold mb-10 text-gray-900 text-center">Fast, Reliable Golf Cart Service Throughout Alachua County</h2>
+
+				<div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row gap-10 items-center">
+					<!-- Image -->
+					<div class="relative w-full md:w-1/2">
+						<div class="overflow-hidden rounded-2xl shadow-xl">
+							<img src="/images/golf cart repair page/05-08-2025-14-31-50_52.webp" alt="Golf cart repair service in Gainesville Florida" class="w-full h-64 md:h-[360px] object-cover" loading="eager" />
+						</div>
+					</div>
+
+					<!-- Text Content -->
+					<div class="w-full md:w-1/2">
+						<p class="text-lg text-gray-700 mb-6 leading-relaxed font-semibold">
+							Since 1999, Masters Golf Cars has been serving Gainesville and Alachua County with expert golf cart repair services. We serve residents throughout Gainesville, including communities like <strong>Haile Plantation</strong>, <strong>Tioga</strong>, <strong>Archer</strong>, and the <strong>University of Florida</strong> area. Our convenient location at <strong>12885 S US Highway 441 in Belleview</strong> (just 20 miles south of Gainesville) makes us easily accessible from <strong>I-75</strong>, <strong>Archer Road</strong>, and <strong>Newberry Road</strong>.
+						</p>
+						<p class="text-lg text-gray-700 mb-8 leading-relaxed font-semibold">
+							With over 26 years of experience serving Gainesville and Alachua County, we specialize in both gas and electric golf cart repairs. Our certified technicians provide fast, affordable service with most repairs completed within 24 hours. We offer convenient pickup and delivery service throughout Gainesville, so you don't have to worry about transporting your cart.
+						</p>
+						<a href="/schedule-golf-cart-service" class="bg-brand-green text-white px-8 py-4 rounded-lg font-bold transition inline-flex items-center justify-center gap-2 hover:opacity-90 shadow-lg">
+							Schedule Your Golf Cart Repairs
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Fast 24-Hour Repairs Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">Fast, 24-Hour Golf Cart Repairs in Gainesville</h2>
+				<p class="text-lg text-gray-700 font-semibold mb-4">
+					We understand how important your golf cart is to your daily life in Gainesville. Whether you rely on it to get around <strong>Haile Plantation</strong>, access the <strong>University of Florida campus</strong>, or navigate your neighborhood in <strong>Tioga</strong>, we're committed to getting you back on the road quickly.
+				</p>
+				<p class="text-lg text-gray-700 font-semibold">
+					Most repairs are completed within 24 hours, getting you back to exploring Gainesville's beautiful communities, visiting <strong>Paynes Prairie Preserve State Park</strong>, or attending events at <strong>Ben Hill Griffin Stadium</strong> without delay. Our experienced technicians work diligently to diagnose and fix issues promptly without compromising on quality.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Choose Us Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="bg-gray-100 rounded-[32px] px-6 py-12 md:px-12 md:py-16 shadow-xl">
+					<div class="flex flex-col items-center text-center gap-6 mb-10">
+						<div class="flex gap-3">
+							{Array.from({ length: 5 }).map((_item, index) => (
+								<svg class="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 20 20" style="color: #FFD24D;" aria-hidden="true">
+									<title>Star {index + 1}</title>
+									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+								</svg>
+							))}
+						</div>
+						<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Why Gainesville Chooses Us For Golf Cart Repairs</h2>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-8 mb-10">
+						<div class="bg-white rounded-lg p-6">
+							<h3 class="text-xl font-bold text-gray-900 mb-4">26+ Years Serving Gainesville</h3>
+							<p class="text-gray-700 font-semibold mb-4">
+								Since 1999, we've been Gainesville's trusted golf cart repair shop. We've built our reputation by providing exceptional service to thousands of Gainesville residents in communities like <strong>Haile Plantation</strong>, <strong>Tioga</strong>, <strong>Archer</strong>, and throughout Alachua County.
+							</p>
+							<ul class="space-y-2 text-gray-700 font-semibold">
+								<li>✓ Locally owned and operated since 1999</li>
+								<li>✓ Trusted by Gainesville's premier communities</li>
+								<li>✓ 5-star Google reviews from Gainesville customers</li>
+								<li>✓ Authorized service for all major brands</li>
+							</ul>
+						</div>
+						<div class="bg-white rounded-lg p-6">
+							<h3 class="text-xl font-bold text-gray-900 mb-4">Expert Knowledge of Gainesville</h3>
+							<p class="text-gray-700 font-semibold mb-4">
+								Our team knows Gainesville inside and out. We understand the unique needs of each community and the common issues faced by golf cart owners in Florida's climate. From battery problems in the heat to suspension issues on Gainesville's varied terrain, we've seen it all.
+							</p>
+							<ul class="space-y-2 text-gray-700 font-semibold">
+								<li>✓ Certified technicians with 26+ years experience</li>
+								<li>✓ Knowledge of all Gainesville neighborhoods</li>
+								<li>✓ Familiar with local terrain and conditions</li>
+								<li>✓ Preferred service provider for many communities</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="bg-white rounded-lg p-8">
+						<h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Gainesville Communities We Serve</h3>
+						<div class="grid md:grid-cols-3 gap-4 text-gray-700 font-semibold">
+							<div>
+								<ul class="space-y-2">
+									<li>• Haile Plantation</li>
+									<li>• Tioga</li>
+									<li>• Archer</li>
+									<li>• University of Florida Area</li>
+								</ul>
+							</div>
+							<div>
+								<ul class="space-y-2">
+									<li>• Newberry</li>
+									<li>• Downtown Gainesville</li>
+									<li>• All Alachua County</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Service Categories Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+					<!-- Gas Golf Cart Repairs -->
+					<div class="bg-white rounded-[28px] shadow-2xl p-8 md:p-10 flex flex-col gap-6">
+						<div class="rounded-[24px] bg-gray-100 p-4 shadow-inner">
+							<img src="/images/home page carts/gas-golf-cart_img_v62.webp" alt="Gas golf cart repair service Gainesville" class="w-full h-[260px] md:h-[300px] object-cover rounded-[20px] shadow-lg" loading="lazy" />
+						</div>
+						<div class="space-y-5">
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900 text-left">Gas Golf Cart Repairs & Services</h3>
+							<p class="text-gray-700 font-semibold">
+								We service all gas-powered golf carts used throughout Gainesville communities. Whether you have a Club Car, Yamaha, or EZ-GO gas cart, our certified technicians can handle any repair.
+							</p>
+							<ol class="space-y-3 text-gray-700 text-lg list-decimal list-inside font-semibold">
+								<li>Engine Maintenance & Tune-ups</li>
+								<li>Oil Replacement & Filter Changes</li>
+								<li>Fuel System Repairs & Cleaning</li>
+								<li>Battery and Electrical System</li>
+								<li>Exhaust System Repairs</li>
+								<li>Transmission and Clutch Maintenance</li>
+								<li>Tire & Wheel Replacement and Upgrades</li>
+								<li>Lighting Upgrades & Repairs</li>
+							</ol>
+						</div>
+					</div>
+
+					<!-- Electric Golf Cart Repairs -->
+					<div class="bg-white rounded-[28px] shadow-2xl p-8 md:p-10 flex flex-col gap-6">
+						<div class="rounded-[24px] bg-gray-100 p-4 shadow-inner">
+							<img src="/images/home page carts/electric-golf-cart_img_v58.webp" alt="Electric golf cart repair service Gainesville" class="w-full h-[260px] md:h-[300px] object-cover rounded-[20px] shadow-lg" loading="lazy" />
+						</div>
+						<div class="space-y-5">
+							<h3 class="text-2xl md:text-3xl font-bold text-gray-900 text-left">Electric Golf Cart Repairs & Service</h3>
+							<p class="text-gray-700 font-semibold">
+								Electric golf carts are popular in Gainesville communities like <strong>Haile Plantation</strong> and <strong>Tioga</strong>. We specialize in all electric cart repairs, including lithium battery conversions.
+							</p>
+							<ol class="space-y-3 text-gray-700 text-lg list-decimal list-inside font-semibold">
+								<li>Battery Maintenance and Replacement</li>
+								<li>Charging System Service & Repair</li>
+								<li>Motor and Controller Maintenance and Upgrades</li>
+								<li>Electrical System Troubleshooting</li>
+								<li>Motor Brushes and Bearings</li>
+								<li>Tire & Wheel Replacement and Upgrades</li>
+								<li>Lighting Upgrades & Repairs</li>
+								<li>Lithium Battery Conversions</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pickup & Delivery Service -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 text-center">Convenient Pickup & Delivery Service in Gainesville</h2>
+				<p class="text-lg text-gray-700 font-semibold mb-4">
+					We understand that transporting your golf cart can be a hassle. That's why we offer convenient pickup and delivery service throughout Gainesville and Alachua County. Whether you're in <strong>Haile Plantation</strong>, <strong>Tioga</strong>, <strong>Archer</strong>, or anywhere else in Alachua County, we'll come to you.
+				</p>
+				<p class="text-lg text-gray-700 font-semibold mb-6">
+					Our service area includes all of Gainesville and surrounding areas. We're conveniently located at <strong>12885 S US Highway 441 in Belleview</strong>, just 20 miles south of Gainesville and easily accessible from <strong>I-75</strong>, <strong>Archer Road</strong>, and <strong>Newberry Road</strong>. You can also drop off your cart at our shop.
+				</p>
+				<div class="bg-gray-50 rounded-lg p-8">
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Our Gainesville Service Process:</h3>
+					<ol class="space-y-3 text-gray-700 font-semibold list-decimal list-inside">
+						<li>Call us at <a href="tel:3523070111" class="text-brand-green hover:underline">(352) 307-0111</a> to schedule pickup or drop-off</li>
+						<li>We'll pick up your cart from your Gainesville location</li>
+						<li>Our technicians diagnose and repair your cart (most repairs completed in 24 hours)</li>
+						<li>We deliver your repaired cart back to your location</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Schedule Section -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: #86CA26;">Schedule Your Golf Cart Repairs in Gainesville Today</h2>
+				<p class="text-lg text-gray-700 font-semibold mb-8">
+					Don't wait until your golf cart breaks down completely. Schedule a repair appointment today and keep your cart running smoothly. Our team is ready to help with all your golf cart maintenance and repair needs throughout Gainesville and Alachua County.
+				</p>
+				<a href="/schedule-golf-cart-service" class="bg-brand-green text-white px-8 py-4 rounded-lg font-bold transition inline-block hover:opacity-90">
+					Schedule Your Golf Cart Repairs
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Related Services Section - Internal Linking -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Other Services in Gainesville</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Cart Rentals in Gainesville</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Need a golf cart while yours is being repaired? We offer convenient rentals throughout Gainesville and Alachua County.
+						</p>
+						<a href="/golf-cart-rentals-gainesville" class="text-brand-green font-bold hover:underline inline-flex items-center gap-2">
+							Learn More About Gainesville Rentals
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+							</svg>
+						</a>
+					</div>
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Carts for Sale in Gainesville</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Looking to buy a new or used golf cart? Browse our selection of quality carts perfect for Gainesville communities.
+						</p>
+						<a href="/golf-carts-for-sale-gainesville" class="text-brand-green font-bold hover:underline inline-flex items-center gap-2">
+							View Golf Carts for Sale
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Other Locations Section - Internal Linking -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Golf Cart Repairs in Other Areas</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Ocala Repairs</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Fast golf cart repairs in Ocala, FL. Serving Ocala Palms, Golden Ocala, and more.
+						</p>
+						<a href="/golf-cart-repairs-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Belleview Repairs</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Golf cart repair service in Belleview, FL. Our home location with convenient service.
+						</p>
+						<a href="/golf-cart-repairs-belleview" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">The Villages Repairs</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Expert golf cart repairs serving The Villages and surrounding communities.
+						</p>
+						<a href="/golf-cart-repairs" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Ready to Repair Your Golf Cart in Gainesville?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars today for fast, reliable golf cart repairs. We serve all of Gainesville and Alachua County with convenient pickup and delivery service.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/schedule-golf-cart-service" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Schedule Service
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Serving Gainesville Since 1999
+			</p>
+		</div>
+	</section>
+</Layout>
