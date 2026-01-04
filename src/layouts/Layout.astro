@@ -81,11 +81,12 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		</main>
 		<Footer />
 		
-		<!-- Sticky Phone Number -->
+		<!-- Sticky Phone Number - Left side to avoid chat widget -->
 		<a 
 			href={companyData.contact.phoneLink}
-			class="fixed bottom-6 right-6 z-50 bg-brand-green text-white px-6 py-4 rounded-full shadow-2xl hover:bg-opacity-90 transition-all duration-300 flex items-center gap-3 group hover:scale-105"
+			class="fixed bottom-6 left-6 z-40 bg-brand-green text-white px-6 py-4 rounded-full shadow-2xl hover:bg-opacity-90 transition-all duration-300 flex items-center gap-3 group hover:scale-105"
 			aria-label="Call {companyData.contact.phone}"
+			style="z-index: 40;"
 		>
 			<!-- Phone Icon -->
 			<svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,11 +103,15 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		</a>
 		
 		<style>
-			/* Ensure sticky phone doesn't interfere with other elements */
+			/* Ensure sticky phone doesn't interfere with chat widget or other elements */
 			@media (max-width: 640px) {
 				body {
 					padding-bottom: 80px;
 				}
+			}
+			/* Ensure chat widget stays on top */
+			[data-widget-id] {
+				z-index: 50 !important;
 			}
 		</style>
 	</body>
