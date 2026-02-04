@@ -1,6 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - The Villages Golf Cart Rentals",
+	"description": "Golf cart rentals in The Villages, FL. Serving Spanish Springs, Lake Sumter Landing, Brownwood, and all Villages neighborhoods in Sumter, Marion, and Lake counties.",
+	"url": "https://mastersgolfcars.com/the-villages-golf-cart-rentals",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Spanish Springs",
+		"Lake Sumter Landing",
+		"Brownwood",
+		"The Villages",
+		"Sumter County",
+		"Marion County Villages",
+		"Lake County Villages"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	}
+};
 ---
 
 <Layout title="Golf Cart Rentals in The Villages, FL - Masters Golf Cars" description="Rent a golf cart in The Villages, FL. We offer delivery, flexible rental terms, and premium golf carts for exploring The Villages neighborhoods, shopping centers, and recreational facilities.">
@@ -293,4 +324,6 @@ import companyData from '../data/company.json';
 			</p>
 		</div>
 	</section>
+
+	<Schema schema={localBusinessSchema} />
 </Layout>

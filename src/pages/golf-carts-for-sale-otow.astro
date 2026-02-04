@@ -1,7 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - On Top of The World Golf Carts for Sale",
+	"description": "New and used golf carts for sale for On Top of The World (OTOW) residents in Ocala, FL. Serving Circle Square Commons, The Town Square, Recreation Center, and all OTOW neighborhoods.",
+	"url": "https://mastersgolfcars.com/golf-carts-for-sale-otow",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"On Top of The World",
+		"OTOW",
+		"Circle Square Commons",
+		"The Town Square",
+		"Candler Hills",
+		"Indigo East",
+		"Marion County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	},
+	"review": [
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Barbara S."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Got my EZ-GO from Masters. They knew just what I needed for OTOW. Good service. Fair price. I drive it to Circle Square all the time!"
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Richard M."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "They fixed my cart quick. I live in OTOW and I need my cart every day. Masters got me back on the road fast. Great team."
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Carol T."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Traded in my old cart for a new Club Car. Easy deal. Good trade value. Now I ride in style to The Town Square every weekend."
+		}
+	]
+};
 ---
 
 <Layout
@@ -456,4 +532,6 @@ import servicesData from '../data/services.json';
 			</p>
 		</div>
 	</section>
+
+	<Schema schema={localBusinessSchema} />
 </Layout>

@@ -22,6 +22,13 @@ const rentalServiceSchema = {
 			"addressRegion": "FL",
 			"postalCode": "34420",
 			"addressCountry": "US"
+		},
+		"aggregateRating": {
+			"@type": "AggregateRating",
+			"ratingValue": "5",
+			"bestRating": "5",
+			"worstRating": "1",
+			"reviewCount": "150"
 		}
 	},
 	"serviceType": "Golf Cart Rental",
@@ -93,7 +100,45 @@ const rentalServiceSchema = {
 			}
 		]
 	},
-	"termsOfService": "Minimum 3-day rental. Renters must be 21 years or older. Valid credit card required. Delivery and pick-up included."
+	"termsOfService": "Minimum 3-day rental. Renters must be 21 years or older. Valid credit card required. Delivery and pick-up included.",
+	"review": [
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Scott Lenhart"
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Fantastic people to work with. Delivered my rental cart on time as promised. Highly recommended!"
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Megan O'Brien"
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "They were excellent to work with! They gave us an excellent deal on a rental while they fixed ours. The staff there is extremely knowledgeable and professional."
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Daniel Clark"
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "The carts were delivered the day before, so we weren't waiting on the day of. The carts performed the job and then some. I would highly recommend renting carts from this great company with awesome staff."
+		}
+	]
 };
 
 // Breadcrumbs for rentals page

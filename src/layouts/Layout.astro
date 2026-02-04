@@ -110,7 +110,13 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageUrl} />
-		
+
+		<!-- Geo Meta Tags -->
+		<meta name="geo.region" content="US-FL" />
+		<meta name="geo.placename" content="Belleview, Florida" />
+		<meta name="geo.position" content="29.034576;-82.025011" />
+		<meta name="ICBM" content="29.034576, -82.025011" />
+
 		<title>{title}</title>
 
 		<!-- JSON-LD Schema Markup -->

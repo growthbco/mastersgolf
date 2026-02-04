@@ -1,7 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Ocala Golf Cart Rentals",
+	"description": "Golf cart rentals in Ocala, FL. Serving Ocala Palms, Golden Ocala, Woodfields, Stonecrest, Rolling Greens, On Top of The World, and all of Marion County.",
+	"url": "https://mastersgolfcars.com/golf-cart-rentals-ocala",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Ocala Palms",
+		"Golden Ocala",
+		"Woodfields",
+		"Stonecrest",
+		"Rolling Greens",
+		"On Top of The World",
+		"Country Club of Ocala",
+		"Oak Run",
+		"Downtown Ocala",
+		"Silver Springs",
+		"Marion County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	},
+	"review": [
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Scott Lenhart"
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Fantastic people to work with. Delivered my rental cart to Ocala Palms on time as promised. Highly recommended!"
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Megan O'Brien"
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "They were excellent to work with! They gave us an excellent deal on a rental while they fixed ours. The staff there is extremely knowledgeable and professional."
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Daniel Clark"
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "The carts were delivered the day before our event at WEC, so we weren't waiting on the day of. The carts performed perfectly. I would highly recommend renting carts from this great company."
+		}
+	]
+};
 ---
 
 <Layout 
@@ -548,4 +628,6 @@ import servicesData from '../data/services.json';
 			</p>
 		</div>
 	</section>
+
+	<Schema schema={localBusinessSchema} />
 </Layout>

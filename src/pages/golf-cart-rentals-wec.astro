@@ -1,6 +1,81 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - World Equestrian Center Golf Cart Rentals",
+	"description": "Golf cart rentals for World Equestrian Center events in Ocala, FL. Fleet rentals for horse shows, exhibitors, trainers, and spectators at WEC.",
+	"url": "https://mastersgolfcars.com/golf-cart-rentals-wec",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"World Equestrian Center",
+		"WEC Ocala",
+		"Grand Arena",
+		"Equestrian Hotel",
+		"Marion County",
+		"Ocala Horse Country"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	},
+	"review": [
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Jennifer L."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Masters Golf Cars made our WEC show so much easier. They brought the cart right to our barn. It ran great all week. We will use them again!"
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Michael R."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "We rented 8 carts for our barn during the winter shows. Great service. Fair prices. The carts worked great. We tell everyone about Masters."
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Scott L."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Great people to work with. They showed up on time. The cart ran well the whole show. I tell all my WEC friends to call them."
+		}
+	]
+};
 ---
 
 <Layout
@@ -406,4 +481,6 @@ import companyData from '../data/company.json';
 			</p>
 		</div>
 	</section>
+
+	<Schema schema={localBusinessSchema} />
 </Layout>

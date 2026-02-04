@@ -1,7 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Gainesville Golf Carts for Sale",
+	"description": "New and used golf carts for sale in Gainesville, FL. Serving Haile Plantation, Tioga, Archer, University of Florida area, and all of Alachua County.",
+	"url": "https://mastersgolfcars.com/golf-carts-for-sale-gainesville",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Haile Plantation",
+		"Tioga",
+		"Archer",
+		"University of Florida",
+		"Newberry",
+		"Downtown Gainesville",
+		"Alachua County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	}
+};
 ---
 
 <Layout 
@@ -287,4 +318,6 @@ import servicesData from '../data/services.json';
 			</p>
 		</div>
 	</section>
+
+	<Schema schema={localBusinessSchema} />
 </Layout>

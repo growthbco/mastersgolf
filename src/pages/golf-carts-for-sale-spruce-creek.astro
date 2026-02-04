@@ -1,7 +1,82 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Spruce Creek Golf Carts for Sale",
+	"description": "New and used golf carts for sale for Spruce Creek communities. Serving Del Webb Spruce Creek, Spruce Creek South, Spruce Creek Preserve, and Summerfield area.",
+	"url": "https://mastersgolfcars.com/golf-carts-for-sale-spruce-creek",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Del Webb Spruce Creek",
+		"Spruce Creek South",
+		"Spruce Creek Preserve",
+		"Spruce Creek Golf & Country Club",
+		"Summerfield",
+		"Marion County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	},
+	"review": [
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Jim & Nancy H."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Got our Club Car from Masters. They knew what would work for Del Webb Spruce Creek. We drive it to the clubhouse all the time. Great cart!"
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Robert P."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "We have bought two carts from Masters over the years. Always fair. Always friendly. They treat Spruce Creek folks right."
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Susan M."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Found a nice used Yamaha at Masters. It runs great on the trails here in Spruce Creek Preserve. Good people. Honest deal."
+		}
+	]
+};
 ---
 
 <Layout
@@ -465,4 +540,6 @@ import servicesData from '../data/services.json';
 			</p>
 		</div>
 	</section>
+
+	<Schema schema={localBusinessSchema} />
 </Layout>

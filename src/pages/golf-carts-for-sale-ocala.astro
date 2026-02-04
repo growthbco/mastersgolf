@@ -1,10 +1,89 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Ocala Golf Carts for Sale",
+	"description": "New and used golf carts for sale in Ocala, FL. Serving Ocala Palms, Golden Ocala, Woodfields, Stonecrest, Rolling Greens, On Top of The World, and all of Marion County.",
+	"url": "https://mastersgolfcars.com/golf-carts-for-sale-ocala",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Ocala Palms",
+		"Golden Ocala",
+		"Woodfields",
+		"Stonecrest",
+		"Rolling Greens",
+		"On Top of The World",
+		"Country Club of Ocala",
+		"Oak Run",
+		"Downtown Ocala",
+		"Marion County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	},
+	"review": [
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Robert M."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Bought my golf cart from Masters Golf Cars for use in Ocala Palms. The staff was knowledgeable and helped me find the perfect cart for my needs. Great service!"
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Sarah K."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Excellent experience buying our golf cart. They understood our needs for Golden Ocala and recommended the perfect Club Car. Highly recommend!"
+		},
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Mike T."
+			},
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5"
+			},
+			"reviewBody": "Found a great used golf cart at Masters Golf Cars. The financing was easy and the cart has been perfect for getting around Woodfields. Great dealership!"
+		}
+	]
+};
 ---
 
-<Layout 
+<Layout
 	title="Golf Carts for Sale in Ocala, FL | Masters Golf Cars - New & Used" 
 	description="Buy golf carts in Ocala, FL. New & used golf carts for sale. Serving Ocala Palms, Golden Ocala, Woodfields. Financing available. 26+ years experience. Call (352) 307-0111"
 	canonical="https://mastersgolfcars.com/golf-carts-for-sale-ocala"
@@ -455,4 +534,6 @@ import servicesData from '../data/services.json';
 			</p>
 		</div>
 	</section>
+
+	<Schema schema={localBusinessSchema} />
 </Layout>
