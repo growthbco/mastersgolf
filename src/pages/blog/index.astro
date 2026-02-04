@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import companyData from '../../data/company.json';
+
+// Blog posts data
+const blogPosts = [
+	{
+		slug: 'golf-cart-guide-the-villages',
+		title: 'Complete Golf Cart Guide for The Villages Residents',
+		excerpt: 'Everything you need to know about golf cart ownership in The Villages, including cart paths, local rules, and the best carts for the active lifestyle.',
+		date: '2025-01-15',
+		image: '/images/home page carts/electric-golf-cart_img_v58.webp',
+		category: 'Guides',
+	},
+	{
+		slug: 'lithium-battery-conversion-guide',
+		title: 'Lithium Battery Conversion: Everything You Need to Know',
+		excerpt: 'Discover the benefits of upgrading your golf cart to lithium batteries, including cost savings, performance improvements, and why Masters Golf Cars is your best choice.',
+		date: '2025-01-10',
+		image: '/images/home page carts/05-13-2025-12-38-40_58.webp',
+		category: 'Technology',
+	},
+	{
+		slug: 'golf-cart-maintenance-checklist',
+		title: 'Seasonal Golf Cart Maintenance Checklist',
+		excerpt: 'Keep your golf cart running smoothly year-round with our comprehensive seasonal maintenance guide covering spring, summer, fall, and winter care.',
+		date: '2025-01-08',
+		image: '/images/golf cart repair page/05-08-2025-14-31-52_55.webp',
+		category: 'Maintenance',
+	},
+	{
+		slug: 'best-neighborhoods-golf-carts-ocala',
+		title: 'Top Neighborhoods for Golf Cart Living in Ocala',
+		excerpt: 'Explore the best golf cart-friendly communities in Ocala, including Ocala Palms, Golden Ocala, On Top of the World, Oak Run, and more.',
+		date: '2025-01-05',
+		image: '/images/home page carts/gas-golf-cart_img_v62.webp',
+		category: 'Lifestyle',
+	},
+	{
+		slug: 'electric-vs-gas-golf-carts',
+		title: 'Electric vs Gas Golf Carts: Which Is Right for You?',
+		excerpt: 'A comprehensive comparison of electric and gas-powered golf carts covering performance, maintenance, costs, and environmental impact.',
+		date: '2025-01-02',
+		image: '/images/home page carts/05-13-2025-12-38-41_59.webp',
+		category: 'Buying Guide',
+	},
+];
+
+function formatDate(dateString: string) {
+	const date = new Date(dateString);
+	return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout
+	title="Golf Cart Blog - Tips, Guides & News | Masters Golf Cars"
+	description="Expert golf cart tips, buying guides, maintenance advice, and local insights from Masters Golf Cars. Serving The Villages, Ocala, and Central Florida since 1999."
+>
+	<!-- Hero Section -->
+	<section class="bg-gray-900 text-white py-16">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<h1 class="text-4xl md:text-5xl font-bold mb-6">Golf Cart Blog</h1>
+				<p class="text-xl text-gray-300">
+					Expert tips, buying guides, and local insights from the golf cart professionals at Masters Golf Cars.
+					Serving Central Florida for over 25 years.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Blog Posts Grid -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+					{blogPosts.map((post) => (
+						<article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+							<a href={`/blog/${post.slug}`} class="block">
+								<div class="aspect-video overflow-hidden">
+									<img
+										src={post.image}
+										alt={post.title}
+										class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+										loading="lazy"
+									/>
+								</div>
+							</a>
+							<div class="p-6">
+								<div class="flex items-center gap-3 mb-3">
+									<span class="text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-brand-green text-white">
+										{post.category}
+									</span>
+									<time class="text-sm text-gray-500" datetime={post.date}>
+										{formatDate(post.date)}
+									</time>
+								</div>
+								<a href={`/blog/${post.slug}`} class="block group">
+									<h2 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-green transition-colors">
+										{post.title}
+									</h2>
+								</a>
+								<p class="text-gray-600 mb-4 line-clamp-3">
+									{post.excerpt}
+								</p>
+								<a
+									href={`/blog/${post.slug}`}
+									class="inline-flex items-center gap-2 font-semibold text-brand-green hover:opacity-80 transition"
+								>
+									Read More
+									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+									</svg>
+								</a>
+							</div>
+						</article>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Newsletter / CTA Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Have Questions About Golf Carts?</h2>
+				<p class="text-lg text-gray-700 mb-8">
+					Our team of experts has been serving Central Florida for over 25 years. Whether you need sales,
+					service, or rentals, we're here to help.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a
+						href="/contact"
+						class="bg-brand-green text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition inline-flex items-center justify-center gap-2"
+					>
+						Contact Us
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+						</svg>
+					</a>
+					<a
+						href="/golf-cart-inventory"
+						class="bg-black text-white px-8 py-4 rounded-lg font-bold hover:opacity-90 transition inline-flex items-center justify-center gap-2"
+					>
+						View Inventory
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.line-clamp-3 {
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+	</style>
+</Layout>

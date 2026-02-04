@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Schema from '../components/Schema.astro';
 import '../styles/global.css';
 import companyData from '../data/company.json';
 
@@ -10,9 +11,72 @@ interface Props {
 	hideHeader?: boolean;
 	canonical?: string;
 	ogImage?: string;
+	breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
-const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false, canonical, ogImage } = Astro.props;
+const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false, canonical, ogImage, breadcrumbs } = Astro.props;
+
+// Organization Schema (site-wide)
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Masters Golf Cars, LLC",
+	"alternateName": "Masters Golf Cars",
+	"url": "https://mastersgolfcars.com",
+	"logo": "https://mastersgolfcars.com/images/logos/MastersGolfCarsLogo.png",
+	"image": "https://mastersgolfcars.com/images/logos/MastersGolfCarsLogo.png",
+	"description": companyData.description,
+	"foundingDate": "1999",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420",
+		"addressCountry": "US"
+	},
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"telephone": "+1-352-307-0111",
+		"contactType": "sales",
+		"email": "info@mastersgolfcars.com",
+		"availableLanguage": "English"
+	},
+	"sameAs": [
+		"https://www.facebook.com/mastersgolfcars",
+		"https://www.instagram.com/mastersgolfcars/"
+	],
+	"areaServed": [
+		{
+			"@type": "County",
+			"name": "Marion County, FL"
+		},
+		{
+			"@type": "County",
+			"name": "Sumter County, FL"
+		},
+		{
+			"@type": "County",
+			"name": "Lake County, FL"
+		},
+		{
+			"@type": "County",
+			"name": "Alachua County, FL"
+		}
+	]
+};
+
+// BreadcrumbList Schema (if breadcrumbs are provided)
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": breadcrumbs.map((crumb, index) => ({
+		"@type": "ListItem",
+		"position": index + 1,
+		"name": crumb.name,
+		"item": crumb.url
+	}))
+} : null;
 
 const siteUrl = 'https://mastersgolfcars.com';
 const currentUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
@@ -48,6 +112,11 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		<meta name="twitter:image" content={ogImageUrl} />
 		
 		<title>{title}</title>
+
+		<!-- JSON-LD Schema Markup -->
+		<Schema schema={organizationSchema} />
+		{breadcrumbSchema && <Schema schema={breadcrumbSchema} />}
+		<slot name="schema" />
 		<style>
 			:root {
 				--brand-green: #86CA26;

@@ -1,8 +1,134 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FAQSchema from '../components/FAQSchema.astro';
+import Schema from '../components/Schema.astro';
+
+// Service Schema for Golf Cart Rentals
+const rentalServiceSchema = {
+	"@context": "https://schema.org",
+	"@type": "Service",
+	"@id": "https://mastersgolfcars.com/golf-cart-rentals/#service",
+	"name": "Golf Cart Rental Services",
+	"description": "High-quality golf cart rentals for neighborhoods, events, and businesses across Central Florida. We offer 2, 4, and 6 passenger carts along with utility models. Minimum 3-day rental with weekly and monthly options available.",
+	"provider": {
+		"@type": "LocalBusiness",
+		"name": "Masters Golf Cars, LLC",
+		"url": "https://mastersgolfcars.com",
+		"telephone": "+1-352-307-0111",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "12885 S US Hwy 441",
+			"addressLocality": "Belleview",
+			"addressRegion": "FL",
+			"postalCode": "34420",
+			"addressCountry": "US"
+		}
+	},
+	"serviceType": "Golf Cart Rental",
+	"areaServed": [
+		{
+			"@type": "City",
+			"name": "The Villages",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Ocala",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Belleview",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Gainesville",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		}
+	],
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Golf Cart Rental Options",
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Product",
+					"name": "2-Seater Golf Cart Rental",
+					"description": "Compact 2-passenger golf cart perfect for couples or individuals"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Product",
+					"name": "4-Seater Golf Cart Rental",
+					"description": "Standard 4-passenger golf cart ideal for families and small groups"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Product",
+					"name": "6-Seater Golf Cart Rental",
+					"description": "Extended 6-passenger golf cart for larger groups"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Product",
+					"name": "Utility Golf Cart Rental",
+					"description": "Utility cart for hauling and work purposes"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Fleet Rentals for Events",
+					"description": "Large fleet rentals for weddings, festivals, concerts, and corporate events up to 150 miles"
+				}
+			}
+		]
+	},
+	"termsOfService": "Minimum 3-day rental. Renters must be 21 years or older. Valid credit card required. Delivery and pick-up included."
+};
+
+// Breadcrumbs for rentals page
+const rentalsBreadcrumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "Golf Cart Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals" }
+];
+
+const rentalFAQs = [
+	{
+		question: "What is the minimum age to rent a golf cart?",
+		answer: "You must be 21 years old or older to rent a golf cart from Masters Golf Cars. This is our rule for all rentals."
+	},
+	{
+		question: "Can I rent a golf cart for an event?",
+		answer: "Yes! Masters Golf Cars rents golf carts for big events like festivals, weddings, rodeos, and concerts. We bring the carts to you and pick them up when you're done. We deliver up to 150 miles from our Belleview shop on US-441. That covers most of Central Florida!"
+	},
+	{
+		question: "Do I need to pay a deposit?",
+		answer: "You need a credit card to hold your rental, but we don't charge a separate deposit. Masters Golf Cars only charges your card based on what you agreed to in your rental deal."
+	},
+	{
+		question: "Can I extend my rental period?",
+		answer: "Yes! If you want to keep your golf cart longer, just call Masters Golf Cars. We'll check if the cart is free and add more days to your rental. Call us at (352) 307-0111 as soon as you know you need more time."
+	},
+	{
+		question: "Do you offer delivery for golf cart rentals?",
+		answer: "Yes! Masters Golf Cars delivers every rental for free. We bring carts to homes within 50 miles of Belleview. For events, we go up to 150 miles. That includes The Villages, Ocala, Gainesville, and lots of other towns in Central Florida."
+	}
+];
 ---
 
-<Layout title="Golf Cart Rentals - Masters Golf Cars" description="Reserve high-quality golf cart rentals for neighborhoods, events, and businesses across Central Florida.">
+<Layout title="Golf Cart Rentals - Masters Golf Cars" description="Reserve high-quality golf cart rentals for neighborhoods, events, and businesses across Central Florida." breadcrumbs={rentalsBreadcrumbs}>
+	<Schema schema={rentalServiceSchema} slot="schema" />
+	<FAQSchema faqs={rentalFAQs} />
 	<!-- Hero -->
 	<section class="bg-white py-16">
 		<div class="container mx-auto px-4 max-w-7xl">
@@ -230,23 +356,23 @@ import Layout from '../layouts/Layout.astro';
 			<div class="max-w-4xl mx-auto space-y-3">
 				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
 					<summary class="font-black text-gray-900 cursor-pointer">What is the minimum age to rent a golf cart?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">You must be 21 years old or older in order to rent a golf cart.</p>
+					<p class="mt-3 text-gray-700 font-semibold">You must be 21 years old or older to rent a golf cart from Masters Golf Cars. This is our rule for all rentals.</p>
 				</details>
 				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
 					<summary class="font-black text-gray-900 cursor-pointer">Can I rent a golf cart for an event?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">Yes! We offer event and contact-fleet golf cart rentals for a wide range of occasions, including festivals, tournaments, rodeos, and more. Event rentals include delivery and pick-up, and we service locations up to 150 miles from our golf cart dealership.</p>
+					<p class="mt-3 text-gray-700 font-semibold">Yes! Masters Golf Cars rents golf carts for big events like festivals, weddings, rodeos, and concerts. We bring the carts to you and pick them up when you're done. We deliver up to 150 miles from our Belleview shop on US-441. That covers most of Central Florida!</p>
 				</details>
 				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
 					<summary class="font-black text-gray-900 cursor-pointer">Do I need to pay a deposit?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">A credit card is required to reserve your rental, but we do not require a separate deposit up front. Your card will only be charged according to your golf cart rental agreement.</p>
+					<p class="mt-3 text-gray-700 font-semibold">You need a credit card to hold your rental, but we don't charge a separate deposit. Masters Golf Cars only charges your card based on what you agreed to in your rental deal.</p>
 				</details>
 				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
 					<summary class="font-black text-gray-900 cursor-pointer">Can I extend my rental period?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">Yes, rental extensions are available based on availability. If you'd like to keep your golf cart longer, just contact us as soon as possible so we can adjust your reservation for extended days.</p>
+					<p class="mt-3 text-gray-700 font-semibold">Yes! If you want to keep your golf cart longer, just call Masters Golf Cars. We'll check if the cart is free and add more days to your rental. Call us at (352) 307-0111 as soon as you know you need more time.</p>
 				</details>
 				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
 					<summary class="font-black text-gray-900 cursor-pointer">Do you offer delivery for golf cart rentals?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">Yes, delivery and pick-up are included in every rental.</p>
+					<p class="mt-3 text-gray-700 font-semibold">Yes! Masters Golf Cars delivers every rental for free. We bring carts to homes within 50 miles of Belleview. For events, we go up to 150 miles. That includes The Villages, Ocala, Gainesville, and lots of other towns in Central Florida.</p>
 				</details>
 			</div>
 			<div class="text-center mt-12">

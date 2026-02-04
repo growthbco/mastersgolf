@@ -27,6 +27,18 @@ const staticPages = [
 	{ url: '/terms-conditions', changefreq: 'yearly', priority: '0.3' },
 	{ url: '/success', changefreq: 'monthly', priority: '0.5' },
 	{ url: '/ps-search-results', changefreq: 'weekly', priority: '0.6' },
+	// Location-specific pages
+	{ url: '/golf-cart-rentals-wec', changefreq: 'monthly', priority: '0.8' },
+	{ url: '/golf-cart-rentals-hits-ocala', changefreq: 'monthly', priority: '0.8' },
+	{ url: '/golf-carts-for-sale-otow', changefreq: 'monthly', priority: '0.8' },
+	{ url: '/golf-carts-for-sale-spruce-creek', changefreq: 'monthly', priority: '0.8' },
+	// Blog pages
+	{ url: '/blog', changefreq: 'weekly', priority: '0.8' },
+	{ url: '/blog/golf-cart-guide-the-villages', changefreq: 'monthly', priority: '0.7' },
+	{ url: '/blog/lithium-battery-conversion-guide', changefreq: 'monthly', priority: '0.7' },
+	{ url: '/blog/golf-cart-maintenance-checklist', changefreq: 'monthly', priority: '0.7' },
+	{ url: '/blog/best-neighborhoods-golf-carts-ocala', changefreq: 'monthly', priority: '0.7' },
+	{ url: '/blog/electric-vs-gas-golf-carts', changefreq: 'monthly', priority: '0.7' },
 ];
 
 export const GET: APIRoute = () => {

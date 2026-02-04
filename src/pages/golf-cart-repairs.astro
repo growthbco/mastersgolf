@@ -1,6 +1,112 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FAQSchema from '../components/FAQSchema.astro';
+import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
+
+// Service Schema for Golf Cart Repairs
+const repairServiceSchema = {
+	"@context": "https://schema.org",
+	"@type": "Service",
+	"@id": "https://mastersgolfcars.com/golf-cart-repairs/#service",
+	"name": "Golf Cart Repair Services",
+	"description": "Professional golf cart repair services including gas and electric cart maintenance, battery replacement, lithium-ion conversions, and 24-hour turnaround on most repairs in The Villages, Ocala, and Central Florida.",
+	"provider": {
+		"@type": "LocalBusiness",
+		"name": "Masters Golf Cars, LLC",
+		"url": "https://mastersgolfcars.com",
+		"telephone": "+1-352-307-0111",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "12885 S US Hwy 441",
+			"addressLocality": "Belleview",
+			"addressRegion": "FL",
+			"postalCode": "34420",
+			"addressCountry": "US"
+		}
+	},
+	"serviceType": "Golf Cart Repair",
+	"areaServed": [
+		{
+			"@type": "City",
+			"name": "The Villages",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Ocala",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Belleview",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		}
+	],
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Golf Cart Repair Services",
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Gas Golf Cart Repairs",
+					"description": "Engine maintenance, oil replacement, fuel system repairs, exhaust system repairs, and transmission maintenance"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Electric Golf Cart Repairs",
+					"description": "Battery maintenance and replacement, charging system service, motor and controller maintenance, electrical system troubleshooting"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Lithium-Ion Battery Conversions",
+					"description": "Upgrade to lithium power systems with Eco Battery and Trojan OnePack installations"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Golf Cart Pickup & Delivery",
+					"description": "Convenient pickup and delivery service for golf cart repairs"
+				}
+			}
+		]
+	}
+};
+
+// Breadcrumbs for repairs page
+const repairsBreadcrumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "Golf Cart Repairs", url: "https://mastersgolfcars.com/golf-cart-repairs" }
+];
+
+const repairFAQs = [
+	{
+		question: "When should I bring my golf cart in for repairs?",
+		answer: "Bring your golf cart to Masters Golf Cars if you hear strange sounds, if it runs slower than normal, if the battery dies fast, or if the brakes feel off. We also suggest regular check-ups to catch small problems before they get big. Our shop on US-441 in Belleview is easy to find, right across from the Market of Marion."
+	},
+	{
+		question: "What types of golf carts do you service?",
+		answer: "Masters Golf Cars fixes all kinds of golf carts. We work on gas carts and electric carts. We service all the big brands like Club Car, EZ-GO, Yamaha, and Advanced EV. If you have a golf cart, we can fix it!"
+	},
+	{
+		question: "What types of golf cart battery problems do you repair?",
+		answer: "We fix all battery problems at Masters Golf Cars. We can put in new batteries, fix chargers that don't work, and switch your cart to lithium-ion batteries. Lithium batteries last longer and charge faster. If your cart won't hold a charge, bring it to our Belleview shop."
+	},
+	{
+		question: "Can you install custom accessories on my golf cart?",
+		answer: "Yes! Masters Golf Cars can add cool extras to your cart. We put in new lights, lift kits, seat covers, dashboards, and more. Folks in The Villages, Ocala, and Gainesville love our custom work. Call us at (352) 307-0111 to talk about what you want."
+	}
+];
 
 const heroImages = [
 	{
@@ -59,7 +165,9 @@ const batterySlides = [
 ];
 ---
 
-<Layout title="Golf Cart Repairs - Masters Golf Cars" description="Fast, reliable golf cart repairs in The Villages and Ocala. 24-hour turnaround on most repairs.">
+<Layout title="Golf Cart Repairs - Masters Golf Cars" description="Fast, reliable golf cart repairs in The Villages and Ocala. 24-hour turnaround on most repairs." breadcrumbs={repairsBreadcrumbs}>
+	<Schema schema={repairServiceSchema} slot="schema" />
+	<FAQSchema faqs={repairFAQs} />
 	<!-- Hero Section -->
 	<section class="bg-white py-16">
 		<div class="container mx-auto px-4">
@@ -572,12 +680,10 @@ const batterySlides = [
 							</svg>
 						</summary>
 						<p class="mt-4 text-gray-700">
-							You should bring your golf cart in for repairs if you notice any unusual sounds, decreased performance, 
-							battery issues, brake problems, or any other signs of malfunction. Regular maintenance is also recommended 
-							to prevent major issues from developing.
+							Bring your golf cart to Masters Golf Cars if you hear strange sounds, if it runs slower than normal, if the battery dies fast, or if the brakes feel off. We also suggest regular check-ups to catch small problems before they get big. Our shop on US-441 in Belleview is easy to find, right across from the Market of Marion.
 						</p>
 					</details>
-					
+
 					<details class="bg-gray-50 rounded-lg p-4 shadow">
 						<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
 							<span>What types of golf carts do you service?</span>
@@ -586,11 +692,10 @@ const batterySlides = [
 							</svg>
 						</summary>
 						<p class="mt-4 text-gray-700">
-							We service all types of golf carts, including both gas-powered and electric models. We work with all major 
-							brands including Club Car, EZ-GO, Yamaha, and Advanced EV, among others.
+							Masters Golf Cars fixes all kinds of golf carts. We work on gas carts and electric carts. We service all the big brands like Club Car, EZ-GO, Yamaha, and Advanced EV. If you have a golf cart, we can fix it!
 						</p>
 					</details>
-					
+
 					<details class="bg-gray-50 rounded-lg p-4 shadow">
 						<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
 							<span>What types of golf cart battery problems do you repair?</span>
@@ -599,11 +704,10 @@ const batterySlides = [
 							</svg>
 						</summary>
 						<p class="mt-4 text-gray-700">
-							We handle all types of battery issues including battery replacement, charging system repairs, lithium-ion 
-							battery conversions, and troubleshooting electrical problems related to batteries.
+							We fix all battery problems at Masters Golf Cars. We can put in new batteries, fix chargers that don't work, and switch your cart to lithium-ion batteries. Lithium batteries last longer and charge faster. If your cart won't hold a charge, bring it to our Belleview shop.
 						</p>
 					</details>
-					
+
 					<details class="bg-gray-50 rounded-lg p-4 shadow">
 						<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
 							<span>Can you install custom accessories on my golf cart?</span>
@@ -612,8 +716,7 @@ const batterySlides = [
 							</svg>
 						</summary>
 						<p class="mt-4 text-gray-700">
-							Yes! We can install a wide variety of custom accessories including lighting upgrades, lift kits, 
-							seat covers, dashboards, and much more. Contact us to discuss your customization needs.
+							Yes! Masters Golf Cars can add cool extras to your cart. We put in new lights, lift kits, seat covers, dashboards, and more. Folks in The Villages, Ocala, and Gainesville love our custom work. Call us at (352) 307-0111 to talk about what you want.
 						</p>
 					</details>
 				</div>

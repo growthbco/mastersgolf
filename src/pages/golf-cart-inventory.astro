@@ -1,10 +1,98 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CartCard from '../components/CartCard.astro';
+import Schema from '../components/Schema.astro';
 import inventoryData from '../data/inventory.json';
+
+// Service Schema for Golf Cart Inventory/Sales
+const inventoryServiceSchema = {
+	"@context": "https://schema.org",
+	"@type": "Service",
+	"@id": "https://mastersgolfcars.com/golf-cart-inventory/#service",
+	"name": "Golf Cart Sales",
+	"description": "Browse our selection of new and used golf carts for sale in Central Florida. We are an authorized Advanced EV dealer and also carry Club Car, EZ-GO, and Yamaha golf carts. Financing available.",
+	"provider": {
+		"@type": "LocalBusiness",
+		"name": "Masters Golf Cars, LLC",
+		"url": "https://mastersgolfcars.com",
+		"telephone": "+1-352-307-0111",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "12885 S US Hwy 441",
+			"addressLocality": "Belleview",
+			"addressRegion": "FL",
+			"postalCode": "34420",
+			"addressCountry": "US"
+		}
+	},
+	"serviceType": "Golf Cart Sales",
+	"areaServed": [
+		{
+			"@type": "City",
+			"name": "The Villages",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Ocala",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Belleview",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		},
+		{
+			"@type": "City",
+			"name": "Gainesville",
+			"containedInPlace": { "@type": "State", "name": "Florida" }
+		}
+	],
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Golf Carts for Sale",
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Product",
+					"name": "New Golf Carts",
+					"description": "Brand new golf carts from Advanced EV, Club Car, EZ-GO, and Yamaha",
+					"brand": {
+						"@type": "Brand",
+						"name": "Advanced EV"
+					}
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Product",
+					"name": "Used Golf Carts",
+					"description": "Quality pre-owned and refurbished golf carts at competitive prices"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Product",
+					"name": "Custom Golf Carts",
+					"description": "Custom-built golf carts with personalized features and upgrades"
+				}
+			}
+		]
+	}
+};
+
+// Breadcrumbs for inventory page
+const inventoryBreadcrumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "Golf Cart Inventory", url: "https://mastersgolfcars.com/golf-cart-inventory" }
+];
 ---
 
-<Layout title="Golf Cart Inventory - Masters Golf Cars" description="Browse our selection of new and used golf carts for sale in Central Florida">
+<Layout title="Golf Cart Inventory - Masters Golf Cars" description="Browse our selection of new and used golf carts for sale in Central Florida" breadcrumbs={inventoryBreadcrumbs}>
+	<Schema schema={inventoryServiceSchema} slot="schema" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">

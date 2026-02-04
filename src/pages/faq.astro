@@ -1,0 +1,323 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQSchema from '../components/FAQSchema.astro';
+import companyData from '../data/company.json';
+
+const repairFAQs = [
+	{
+		question: "When should I bring my golf cart in for repairs?",
+		answer: "Bring your golf cart to Masters Golf Cars if you hear strange sounds, if it runs slower than normal, if the battery dies fast, or if the brakes feel off. We also suggest regular check-ups to catch small problems before they get big. Our shop on US-441 in Belleview is easy to find, right across from the Market of Marion."
+	},
+	{
+		question: "What types of golf carts do you service?",
+		answer: "Masters Golf Cars fixes all kinds of golf carts. We work on gas carts and electric carts. We service all the big brands like Club Car, EZ-GO, Yamaha, and Advanced EV. If you have a golf cart, we can fix it!"
+	},
+	{
+		question: "What types of golf cart battery problems do you repair?",
+		answer: "We fix all battery problems at Masters Golf Cars. We can put in new batteries, fix chargers that don't work, and switch your cart to lithium-ion batteries. Lithium batteries last longer and charge faster. If your cart won't hold a charge, bring it to our Belleview shop."
+	},
+	{
+		question: "Can you install custom accessories on my golf cart?",
+		answer: "Yes! Masters Golf Cars can add cool extras to your cart. We put in new lights, lift kits, seat covers, dashboards, and more. Folks in The Villages, Ocala, and Gainesville love our custom work. Call us at (352) 307-0111 to talk about what you want."
+	},
+	{
+		question: "How long do golf cart repairs typically take?",
+		answer: "Most repairs at Masters Golf Cars are done in just 24 hours. That means you drop off your cart one day and get it back the next! If we need to order parts, we'll tell you right away how long it will take."
+	},
+	{
+		question: "Do you offer pickup and delivery for repairs?",
+		answer: "Yes! Masters Golf Cars picks up and drops off golf carts. We serve The Villages, Ocala, Belleview, Gainesville, and all of Marion County, Sumter County, Lake County, and Alachua County. You don't even have to leave your home!"
+	}
+];
+
+const rentalFAQs = [
+	{
+		question: "What is the minimum age to rent a golf cart?",
+		answer: "You must be 21 years old or older to rent a golf cart from Masters Golf Cars. This is our rule for all rentals."
+	},
+	{
+		question: "Can I rent a golf cart for an event?",
+		answer: "Yes! Masters Golf Cars rents golf carts for big events like festivals, weddings, rodeos, and concerts. We bring the carts to you and pick them up when you're done. We deliver up to 150 miles from our Belleview shop on US-441. That covers most of Central Florida!"
+	},
+	{
+		question: "Do I need to pay a deposit?",
+		answer: "You need a credit card to hold your rental, but we don't charge a separate deposit. Masters Golf Cars only charges your card based on what you agreed to in your rental deal."
+	},
+	{
+		question: "Can I extend my rental period?",
+		answer: "Yes! If you want to keep your golf cart longer, just call Masters Golf Cars. We'll check if the cart is free and add more days to your rental. Call us at (352) 307-0111 as soon as you know you need more time."
+	},
+	{
+		question: "Do you offer delivery for golf cart rentals?",
+		answer: "Yes! Masters Golf Cars delivers every rental for free. We bring carts to homes within 50 miles of Belleview. For events, we go up to 150 miles. That includes The Villages, Ocala, Gainesville, and lots of other towns in Central Florida."
+	},
+	{
+		question: "What is the minimum rental period?",
+		answer: "The shortest rental at Masters Golf Cars is 3 days. We also rent by the week or month, and those longer rentals cost less per day. Great for snowbirds visiting The Villages or folks who need a cart while theirs is being fixed!"
+	}
+];
+
+const salesFAQs = [
+	{
+		question: "What brands of golf carts do you sell?",
+		answer: "Masters Golf Cars is an official dealer for Advanced EV. We also sell new and used Club Car, Yamaha, and EZ-GO golf carts. Stop by our shop on US-441 in Belleview to see what we have. We're just 15 minutes from Ocala and about 20 minutes from The Villages."
+	},
+	{
+		question: "Do you offer financing for golf cart purchases?",
+		answer: "Yes! Masters Golf Cars helps you pay for your golf cart over time. We have financing plans to fit your budget. Call us at (352) 307-0111 or visit our Belleview store to learn more about payment options."
+	},
+	{
+		question: "Can I trade in my old golf cart?",
+		answer: "Yes! Bring your old golf cart to Masters Golf Cars. We'll give you money off your new cart for the trade-in. We also buy golf carts if you just want to sell. We buy Club Car, Yamaha, EZ-GO, and most other brands."
+	},
+	{
+		question: "Do you sell street-legal golf carts?",
+		answer: "Yes! Masters Golf Cars sells street-legal golf carts called LSVs (Low Speed Vehicles). These carts have headlights, taillights, turn signals, and mirrors. You can drive them on roads in The Villages, Ocala, Belleview, and other Florida towns where golf carts are allowed."
+	}
+];
+
+const sellCartFAQs = [
+	{
+		question: "What information do you need about my cart?",
+		answer: "Tell Masters Golf Cars the brand (like Club Car, Yamaha, or EZ-GO), the model, the year it was made, and how it looks and runs. Also tell us how many miles it has and if you added any extras. Photos really help us give you a fair price fast!"
+	},
+	{
+		question: "How fast can I receive an offer?",
+		answer: "Masters Golf Cars usually gets back to you within one day. If we need more info or pictures, we'll call or email you right away."
+	},
+	{
+		question: "Do you pick up the golf cart?",
+		answer: "Yes! Once you and Masters Golf Cars agree on a price, we can pick up the cart from your home. Or you can drop it off at our shop on US-441 in Belleview, across from the Market of Marion. Whatever works best for you!"
+	},
+	{
+		question: "Can I sell multiple carts or a fleet?",
+		answer: "Yes! Masters Golf Cars buys one cart or many carts. We buy from homes, businesses, resorts, and communities. Folks in The Villages, Ocala, and Marion County sell us fleets all the time. Fill out our form to get started."
+	}
+];
+
+const generalFAQs = [
+	{
+		question: "Where is Masters Golf Cars located?",
+		answer: "Masters Golf Cars is at 12885 S US Highway 441 in Belleview, Florida 34420. We're on US-441, right across from the Market of Marion. Our shop is about 15 minutes south of Ocala and 20 minutes from The Villages. Easy to find!"
+	},
+	{
+		question: "What are your business hours?",
+		answer: "Masters Golf Cars is open Monday through Friday from 8:00 AM to 5:00 PM. On Saturday, we're open from 9:00 AM to 2:00 PM. We are closed on Sundays."
+	},
+	{
+		question: "What areas do you serve?",
+		answer: "Masters Golf Cars serves The Villages, Ocala, Belleview, Gainesville, and many other towns in Central Florida. We cover Marion County, Sumter County, Lake County, and Alachua County. If you live nearby, we can help you!"
+	},
+	{
+		question: "How long has Masters Golf Cars been in business?",
+		answer: "Masters Golf Cars has been fixing, selling, and renting golf carts since 1999. That's over 25 years! Families in Marion County and The Villages have trusted us for a long time. We know golf carts inside and out."
+	}
+];
+
+// Combine all FAQs for the schema
+const allFAQs = [...generalFAQs, ...repairFAQs, ...rentalFAQs, ...salesFAQs, ...sellCartFAQs];
+---
+
+<Layout
+	title="Frequently Asked Questions | Masters Golf Cars"
+	description="Find answers to common questions about golf cart repairs, rentals, sales, and services at Masters Golf Cars in Belleview, FL. Serving The Villages, Ocala, and Central Florida since 1999."
+	canonical="https://mastersgolfcars.com/faq"
+>
+	<FAQSchema faqs={allFAQs} />
+
+	<!-- Hero Section -->
+	<section class="bg-white py-16">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto text-center">
+				<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h1>
+				<p class="text-xl text-gray-700 font-semibold">
+					Find answers to common questions about our golf cart repairs, rentals, sales, and services. Can't find what you're looking for? <a href="/contact" class="text-brand-green hover:underline">Contact us</a> or call <a href="tel:3523070111" class="text-brand-green hover:underline">(352) 307-0111</a>.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Navigation -->
+	<section class="py-8 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<div class="flex flex-wrap justify-center gap-4">
+					<a href="#general" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">General</a>
+					<a href="#repairs" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Repairs</a>
+					<a href="#rentals" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Rentals</a>
+					<a href="#sales" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Sales</a>
+					<a href="#sell-cart" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Sell Your Cart</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- General FAQs -->
+	<section id="general" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">General Questions</h2>
+				<div class="space-y-3">
+					{generalFAQs.map((faq) => (
+						<details class="bg-gray-50 rounded-lg p-5 shadow">
+							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
+								<span>{faq.question}</span>
+								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</summary>
+							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
+						</details>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Repair FAQs -->
+	<section id="repairs" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Golf Cart Repair Questions</h2>
+				<div class="space-y-3">
+					{repairFAQs.map((faq) => (
+						<details class="bg-white rounded-lg p-5 shadow">
+							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
+								<span>{faq.question}</span>
+								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</summary>
+							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
+						</details>
+					))}
+				</div>
+				<div class="text-center mt-8">
+					<a href="/golf-cart-repairs" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
+						Learn more about our repair services
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Rental FAQs -->
+	<section id="rentals" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Golf Cart Rental Questions</h2>
+				<div class="space-y-3">
+					{rentalFAQs.map((faq) => (
+						<details class="bg-gray-50 rounded-lg p-5 shadow">
+							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
+								<span>{faq.question}</span>
+								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</summary>
+							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
+						</details>
+					))}
+				</div>
+				<div class="text-center mt-8">
+					<a href="/golf-cart-rentals" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
+						Learn more about our rental options
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sales FAQs -->
+	<section id="sales" class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Golf Cart Sales Questions</h2>
+				<div class="space-y-3">
+					{salesFAQs.map((faq) => (
+						<details class="bg-white rounded-lg p-5 shadow">
+							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
+								<span>{faq.question}</span>
+								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</summary>
+							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
+						</details>
+					))}
+				</div>
+				<div class="text-center mt-8">
+					<a href="/golf-cart-inventory" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
+						Browse our golf cart inventory
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sell Your Cart FAQs -->
+	<section id="sell-cart" class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Selling Your Golf Cart</h2>
+				<div class="space-y-3">
+					{sellCartFAQs.map((faq) => (
+						<details class="bg-gray-50 rounded-lg p-5 shadow">
+							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
+								<span>{faq.question}</span>
+								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</summary>
+							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
+						</details>
+					))}
+				</div>
+				<div class="text-center mt-8">
+					<a href="/sell-your-cart" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
+						Get a quote for your golf cart
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 text-center">
+			<h2 class="text-3xl md:text-4xl font-bold mb-6">Still Have Questions?</h2>
+			<p class="text-xl mb-8 text-gray-300 font-semibold max-w-2xl mx-auto">
+				Our team is here to help! Contact us today and we'll be happy to answer any questions about our golf cart services.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/contact" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Contact Us
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold mt-8">
+				{companyData.location.full}
+			</p>
+		</div>
+	</section>
+
+	<style>
+		details[open] summary svg {
+			transform: rotate(90deg);
+		}
+	</style>
+</Layout>
