@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
 import inventoryData from '../data/inventory.json';
 
 export async function getStaticPaths() {
@@ -13,12 +14,60 @@ export async function getStaticPaths() {
 
 const { cart, slug } = Astro.props;
 const cartImages = cart.images && cart.images.length > 0 ? cart.images : [cart.image];
-const currentUrl = `https://mastersgolf.netlify.app/${slug}`;
+const currentUrl = `https://mastersgolfcars.com/${slug}`;
 // Get similar units (exclude current cart, show all inventory items)
 const similarUnits = inventoryData.filter(c => c.id !== cart.id).slice(0, 5);
+
+// Product Schema for individual cart pages
+const productSchema = {
+	"@context": "https://schema.org",
+	"@type": "Product",
+	"name": cart.name,
+	"description": `${cart.year} ${cart.brand} ${cart.model} golf cart for sale at Masters Golf Cars. Features include Deluxe Sunbrella Enclosure, Luxury Bench Seat, 12" Wheels, 4 Wheel Disc Brakes, 160AH Lithium Battery Pack, LED Light Kit, and more.`,
+	"image": cartImages,
+	"url": currentUrl,
+	"sku": cart.stock,
+	"brand": {
+		"@type": "Brand",
+		"name": cart.brand
+	},
+	"model": cart.model,
+	"productionDate": cart.year.toString(),
+	"category": "Golf Carts",
+	"offers": {
+		"@type": "Offer",
+		"url": currentUrl,
+		"priceCurrency": "USD",
+		"price": cart.salePrice || cart.price,
+		"priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+		"availability": "https://schema.org/InStock",
+		"itemCondition": "https://schema.org/NewCondition",
+		"seller": {
+			"@type": "LocalBusiness",
+			"name": "Masters Golf Cars",
+			"telephone": "+1-352-307-0111",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "12885 S US Hwy 441",
+				"addressLocality": "Belleview",
+				"addressRegion": "FL",
+				"postalCode": "34420",
+				"addressCountry": "US"
+			}
+		}
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	}
+};
 ---
 
 <Layout title={`${cart.name} - Stock #${cart.stock} - Masters Golf Cars`} description={`${cart.name} for sale at Masters Golf Cars. Stock #${cart.stock}. Sale Price: $${(cart.salePrice || cart.price).toLocaleString()}`}>
+	<Schema schema={productSchema} slot="schema" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
