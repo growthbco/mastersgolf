@@ -1,0 +1,302 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
+import companyData from '../data/company.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - RV Park Golf Cart Rentals",
+	"description": "Golf cart rentals for RV parks and campgrounds in Central Florida. Serving Citra Royal Palm RV Park, Sun RV Resorts, and campgrounds throughout Marion, Sumter, and Lake counties.",
+	"url": "https://mastersgolfcars.com/golf-cart-rentals-rv-parks",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Citra Royal Palm RV Park",
+		"Sun RV Resorts",
+		"Marion County RV Parks",
+		"Sumter County Campgrounds",
+		"Lake County RV Parks"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	}
+};
+---
+
+<Layout
+	title="Golf Cart Rentals for RV Parks & Campgrounds | Central Florida"
+	description="Golf cart rentals for RV parks and campgrounds. Serving Citra Royal Palm, Sun RV Resorts & Central Florida campgrounds. Delivery available. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-rentals-rv-parks"
+	breadcrumbs={[
+		{ name: "Home", url: "https://mastersgolfcars.com" },
+		{ name: "Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals" },
+		{ name: "RV Park Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals-rv-parks" }
+	]}
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div>
+					<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Golf Cart Rentals for RV Parks & Campgrounds</h1>
+					<p class="text-xl text-gray-700 font-semibold mb-4">
+						Make the most of your RV park or campground stay with a golf cart rental from Masters Golf Cars. Since 1999, we've been delivering golf carts to RV resorts throughout Central Florida, including <strong>Citra Royal Palm RV Park</strong>, <strong>Sun RV Resorts</strong>, and campgrounds in Marion, Sumter, and Lake counties.
+					</p>
+					<p class="text-lg text-gray-700 font-semibold mb-6">
+						Golf carts are the preferred way to explore RV resort amenities, visit neighbors, and travel to nearby attractions. We deliver directly to your RV site and pick up when your stay ends.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-center">
+							Request a Rental
+						</a>
+						<a href="tel:3523070111" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition text-center">
+							Call (352) 307-0111
+						</a>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp" alt="Golf cart rental for RV parks" class="w-full h-auto rounded-lg shadow-lg" loading="eager" fetchpriority="high" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Rent for RV Parks -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why RV Travelers Love Golf Cart Rentals</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Explore the Resort</h3>
+					<p class="text-gray-700 font-semibold">
+						Central Florida RV parks often span hundreds of acres. A golf cart makes accessing amenities effortless and fun.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Visit Neighbors</h3>
+					<p class="text-gray-700 font-semibold">
+						RV parks are social communities. A golf cart is perfect for meeting fellow travelers and attending park events.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">No Towing Required</h3>
+					<p class="text-gray-700 font-semibold">
+						Leave your tow dolly at home! We deliver the golf cart to your RV site.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Explore Nearby Attractions</h3>
+					<p class="text-gray-700 font-semibold">
+						Easy access to <strong>Silver Springs</strong>, <strong>The Villages</strong>, and local shopping from your RV park.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Pet-Friendly Transportation</h3>
+					<p class="text-gray-700 font-semibold">
+						Golf carts make it easy to take pets to dog parks and walking trails around the campground.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Flexible Rental Terms</h3>
+					<p class="text-gray-700 font-semibold">
+						Daily, weekly, and monthly rental options available for any length stay.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- RV Parks We Serve -->
+	<section class="py-16 bg-brand-green text-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">RV Parks & Campgrounds We Serve</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div>
+					<h3 class="text-xl font-bold mb-3">Citra Royal Palm RV Park</h3>
+					<p class="text-gray-100 font-semibold mb-2">Citra, FL</p>
+					<p class="text-gray-200 text-sm">Beautiful RV resort north of Ocala. Popular for weddings, rallies, and seasonal visitors.</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Sun RV Resorts</h3>
+					<p class="text-gray-100 font-semibold mb-2">Various Locations</p>
+					<p class="text-gray-200 text-sm">Multiple Sun RV locations with resort-style amenities throughout Central Florida.</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Ocala Sun RV Resort</h3>
+					<p class="text-gray-100 font-semibold mb-2">Ocala, FL</p>
+					<p class="text-gray-200 text-sm">Active RV community with pools, activities, and social events.</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Grand Oaks RV Resort</h3>
+					<p class="text-gray-100 font-semibold mb-2">Weirsdale, FL</p>
+					<p class="text-gray-200 text-sm">Lakefront resort connected to Grand Oaks Resort with beautiful grounds.</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Lake Weir Campgrounds</h3>
+					<p class="text-gray-100 font-semibold mb-2">Lake Weir Area</p>
+					<p class="text-gray-200 text-sm">Various campgrounds around Lake Weir with lake access.</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Silver Springs Campgrounds</h3>
+					<p class="text-gray-100 font-semibold mb-2">Silver Springs, FL</p>
+					<p class="text-gray-200 text-sm">Campgrounds near Silver Springs State Park.</p>
+				</div>
+			</div>
+			<p class="text-center mt-8 text-gray-200 font-semibold">
+				Don't see your RV park? We deliver to campgrounds throughout Marion, Sumter, Lake, and Alachua counties.
+			</p>
+		</div>
+	</section>
+
+	<!-- Cart Options -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Golf Cart Options for RV Parks</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp" alt="2-passenger golf cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">2-Passenger</h3>
+					<p class="font-semibold text-sm text-gray-700">Perfect for couples exploring the RV resort.</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp" alt="4-passenger golf cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">4-Passenger</h3>
+					<p class="font-semibold text-sm text-gray-700">Our most popular RV park option for families.</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="6-passenger golf cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">6-Passenger</h3>
+					<p class="font-semibold text-sm text-gray-700">Great for large families or when friends visit.</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp" alt="Utility golf cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">Utility Cart</h3>
+					<p class="font-semibold text-sm text-gray-700">Cargo bed for supplies and camping gear.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Rental Terms -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Flexible Rental Options</h2>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="bg-white rounded-lg p-8 shadow-lg text-center">
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Weekend Rentals</h3>
+					<p class="text-gray-700 font-semibold mb-4">Perfect for short RV trips. Minimum 3-day rental.</p>
+					<a href="/rent-a-golf-cart" class="text-brand-green font-bold hover:underline">Request Quote</a>
+				</div>
+				<div class="bg-white rounded-lg p-8 shadow-lg text-center">
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Weekly Rentals</h3>
+					<p class="text-gray-700 font-semibold mb-4">Great for vacation stays. Discounted weekly rates.</p>
+					<a href="/rent-a-golf-cart" class="text-brand-green font-bold hover:underline">Request Quote</a>
+				</div>
+				<div class="bg-white rounded-lg p-8 shadow-lg text-center">
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Monthly/Seasonal</h3>
+					<p class="text-gray-700 font-semibold mb-4">Best value for snowbirds and extended stays.</p>
+					<a href="/rent-a-golf-cart" class="text-brand-green font-bold hover:underline">Request Quote</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- How It Works -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">How RV Park Delivery Works</h2>
+			<div class="grid md:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">1</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Reserve Your Cart</h3>
+					<p class="text-gray-700 font-semibold text-sm">Tell us your RV park, site number, and dates.</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">2</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Confirm Details</h3>
+					<p class="text-gray-700 font-semibold text-sm">We arrange delivery to match your arrival.</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">3</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Cart Delivered</h3>
+					<p class="text-gray-700 font-semibold text-sm">Clean, charged cart delivered to your site.</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">4</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">We Pick Up</h3>
+					<p class="text-gray-700 font-semibold text-sm">We pick up when your stay ends. No hassle.</p>
+				</div>
+			</div>
+			<div class="mt-12 text-center">
+				<a href="/rent-a-golf-cart" class="inline-block bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition">Request RV Park Rental</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Related Services -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Other Rental Options</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Ocala Rentals</h3>
+						<p class="text-gray-700 font-semibold mb-4">Serving all Ocala communities.</p>
+						<a href="/golf-cart-rentals-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">The Villages</h3>
+						<p class="text-gray-700 font-semibold mb-4">Rentals for The Villages visitors.</p>
+						<a href="/the-villages-golf-cart-rentals" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Event Rentals</h3>
+						<p class="text-gray-700 font-semibold mb-4">Fleet rentals for RV rallies.</p>
+						<a href="/fleet-rentals-quote" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Planning an RV Trip to Central Florida?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Reserve your golf cart rental now! We deliver to <strong>Citra Royal Palm</strong>, <strong>Sun RV Resorts</strong>, and campgrounds throughout Marion, Sumter, and Lake counties.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">Request RV Park Rental</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">Call (352) 307-0111</a>
+			</div>
+			<p class="text-gray-400 font-semibold">{companyData.location.full} | Serving Central Florida RV Parks Since 1999</p>
+		</div>
+	</section>
+
+	<Schema schema={localBusinessSchema} />
+</Layout>

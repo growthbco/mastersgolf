@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
+import companyData from '../data/company.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Florida Horse Park Golf Cart Rentals",
+	"description": "Golf cart rentals for Florida Horse Park events in Ocala, FL. Fleet rentals for equestrian competitions, festivals, and outdoor events.",
+	"url": "https://mastersgolfcars.com/golf-cart-rentals-florida-horse-park",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Florida Horse Park",
+		"Ocala",
+		"Marion County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	}
+};
+---
+
+<Layout
+	title="Golf Cart Rentals for Florida Horse Park | Ocala, FL Events"
+	description="Golf cart rentals for Florida Horse Park events in Ocala. Fleet rentals for equestrian competitions, festivals, and outdoor events. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-rentals-florida-horse-park"
+	breadcrumbs={[
+		{ name: "Home", url: "https://mastersgolfcars.com" },
+		{ name: "Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals" },
+		{ name: "Florida Horse Park", url: "https://mastersgolfcars.com/golf-cart-rentals-florida-horse-park" }
+	]}
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div>
+					<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Golf Cart Rentals for Florida Horse Park</h1>
+					<p class="text-xl text-gray-700 font-semibold mb-4">
+						Masters Golf Cars is the trusted provider for golf cart rentals at <strong>Florida Horse Park</strong> events. Located at <strong>11008 S County Road 475 in Ocala</strong>, this premier multi-purpose equestrian facility hosts major competitions, festivals, and outdoor events throughout the year.
+					</p>
+					<p class="text-lg text-gray-700 font-semibold mb-6">
+						Since 1999, we've provided fleet rentals for event organizers, exhibitors, and attendees at Florida Horse Park. Whether you need a single cart for navigating the grounds or a fleet for your organization, we deliver reliable golf carts directly to the venue.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a href="/fleet-rentals-quote" class="bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-center">
+							Request Fleet Quote
+						</a>
+						<a href="tel:3523070111" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition text-center">
+							Call (352) 307-0111
+						</a>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="Golf cart rental at Florida Horse Park" class="w-full h-auto rounded-lg shadow-lg" loading="eager" fetchpriority="high" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- About Florida Horse Park -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">About Florida Horse Park</h2>
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<div>
+					<p class="text-gray-700 font-semibold mb-4">
+						<strong>Florida Horse Park</strong> is a 500-acre multi-discipline equestrian facility located in the heart of Ocala's horse country. As part of the <strong>"Horse Capital of the World,"</strong> the park hosts prestigious competitions, festivals, and events that draw visitors from across the country.
+					</p>
+					<p class="text-gray-700 font-semibold mb-4">
+						The park's extensive grounds include cross-country courses, show rings, vendor areas, and parking facilities. Golf carts are essential for navigating between areas, especially during large events that can attract thousands of attendees.
+					</p>
+					<div class="bg-white rounded-lg p-6 shadow-lg">
+						<h3 class="text-xl font-bold text-gray-900 mb-4">Florida Horse Park Events</h3>
+						<ul class="space-y-2 text-gray-700 font-semibold">
+							<li>• Eventing competitions</li>
+							<li>• Dressage shows</li>
+							<li>• Hunter/Jumper events</li>
+							<li>• Driving competitions</li>
+							<li>• Special festivals & expos</li>
+							<li>• Private events & weddings</li>
+						</ul>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/golf-cart-rentals-in-the-villages_img_v69_250813_160043497.webp" alt="Florida Horse Park grounds" class="w-full h-auto rounded-lg shadow-lg" loading="lazy" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Who Rents from Us -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Who Rents Carts for Florida Horse Park?</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Event Organizers</h3>
+					<p class="text-gray-700 font-semibold">
+						Fleet rentals for event staff, officials, and volunteers navigating the park during competitions and festivals.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Competitors & Trainers</h3>
+					<p class="text-gray-700 font-semibold">
+						Transportation between stabling, warm-up areas, and competition rings. Essential for multi-day events.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Vendors & Exhibitors</h3>
+					<p class="text-gray-700 font-semibold">
+						Utility carts for setting up booths and transporting merchandise. Easy access between vendor area and parking.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Spectators & Families</h3>
+					<p class="text-gray-700 font-semibold">
+						Navigate the extensive grounds comfortably. Perfect for families with children or those with mobility needs.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Medical & Security</h3>
+					<p class="text-gray-700 font-semibold">
+						Rapid response carts for medical teams and security personnel to quickly reach any location on the grounds.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Wedding Parties</h3>
+					<p class="text-gray-700 font-semibold">
+						Florida Horse Park hosts beautiful outdoor weddings. Golf carts provide elegant guest transportation.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cart Options -->
+	<section class="py-16 bg-brand-green text-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Cart Options for Florida Horse Park</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<h3 class="text-xl font-bold mb-3">2-Passenger</h3>
+					<p class="text-gray-200 text-sm">
+						Compact carts for individuals and couples. Easy to maneuver around competition areas.
+					</p>
+				</div>
+				<div class="text-center">
+					<h3 class="text-xl font-bold mb-3">4-Passenger</h3>
+					<p class="text-gray-200 text-sm">
+						Perfect for small groups and families attending events together.
+					</p>
+				</div>
+				<div class="text-center">
+					<h3 class="text-xl font-bold mb-3">6-Passenger</h3>
+					<p class="text-gray-200 text-sm">
+						Shuttle carts for event staff, VIPs, and group transportation needs.
+					</p>
+				</div>
+				<div class="text-center">
+					<h3 class="text-xl font-bold mb-3">Utility Carts</h3>
+					<p class="text-gray-200 text-sm">
+						Cargo beds for vendors, event setup, and transporting equipment and supplies.
+					</p>
+				</div>
+			</div>
+			<div class="mt-12 text-center">
+				<p class="text-gray-200 font-semibold mb-4">
+					Need a custom fleet for your Florida Horse Park event? We can provide any mix of cart types.
+				</p>
+				<a href="/fleet-rentals-quote" class="inline-block bg-white text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition">
+					Request Fleet Quote
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Choose Us -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Choose Masters Golf Cars</h2>
+			<div class="grid md:grid-cols-2 gap-12">
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">Event Experience</h3>
+					<ul class="space-y-3 text-gray-700 font-semibold">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>26+ years serving Ocala equestrian events</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Experience with Florida Horse Park logistics</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Delivery directly to the venue</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Flexible multi-day rental terms</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">Reliable Service</h3>
+					<ul class="space-y-3 text-gray-700 font-semibold">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>All carts cleaned and fully charged</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>On-call support during events</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Backup carts available</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Convenient pickup after event ends</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Other Equestrian Venues -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Other Equestrian Venues We Serve</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">World Equestrian Center</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Fleet rentals for WEC Ocala events.
+						</p>
+						<a href="/golf-cart-rentals-wec" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">HITS Ocala</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Rentals for HITS show series.
+						</p>
+						<a href="/golf-cart-rentals-hits-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">All Ocala Events</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Rentals for any Ocala venue.
+						</p>
+						<a href="/golf-cart-rentals-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Attending or Organizing a Florida Horse Park Event?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars for golf cart rentals at <strong>Florida Horse Park</strong>. We provide single carts for attendees and fleet rentals for event organizers and exhibitors.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/fleet-rentals-quote" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Request Fleet Quote
+				</a>
+				<a href="/rent-a-golf-cart" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Request Single Cart
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Call (352) 307-0111
+			</p>
+		</div>
+	</section>
+
+	<Schema schema={localBusinessSchema} />
+</Layout>

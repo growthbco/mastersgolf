@@ -1,0 +1,429 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
+import companyData from '../data/company.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Spruce Creek Golf Cart Rentals",
+	"description": "Golf cart rentals for Spruce Creek South and Spruce Creek Preserve in Summerfield, FL. Convenient delivery to all Spruce Creek neighborhoods.",
+	"url": "https://mastersgolfcars.com/golf-cart-rentals-spruce-creek",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Spruce Creek South",
+		"Spruce Creek Preserve",
+		"Spruce Creek North",
+		"Summerfield",
+		"Marion County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	},
+	"review": [
+		{
+			"@type": "Review",
+			"author": {
+				"@type": "Person",
+				"name": "Robert K."
+			},
+			"datePublished": "2024-08-22",
+			"reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "5",
+				"bestRating": "5"
+			},
+			"reviewBody": "Great rental experience for Spruce Creek. Cart was delivered to our home and we enjoyed exploring the community with our visiting family. Will rent again!"
+		}
+	]
+};
+---
+
+<Layout
+	title="Golf Cart Rentals for Spruce Creek | Summerfield, FL"
+	description="Golf cart rentals for Spruce Creek South and Spruce Creek Preserve. Delivery to all Spruce Creek neighborhoods in Summerfield. Since 1999. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-rentals-spruce-creek"
+	breadcrumbs={[
+		{ name: "Home", url: "https://mastersgolfcars.com" },
+		{ name: "Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals" },
+		{ name: "Spruce Creek Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals-spruce-creek" }
+	]}
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div>
+					<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Golf Cart Rentals for Spruce Creek</h1>
+					<p class="text-xl text-gray-700 font-semibold mb-4">
+						Masters Golf Cars provides premium golf cart rentals for <strong>Spruce Creek South</strong> and <strong>Spruce Creek Preserve</strong> residents in Summerfield. Since 1999, we've been the trusted source for golf cart rentals just minutes from the Spruce Creek communities at <strong>12885 S US Highway 441 in Belleview</strong>.
+					</p>
+					<p class="text-lg text-gray-700 font-semibold mb-6">
+						Whether you need a temporary cart while yours is being serviced, want extra carts for visiting family, or are exploring the benefits of golf cart ownership, we deliver clean, reliable carts directly to your Spruce Creek home. Our carts are perfect for accessing the <strong>Spruce Creek South Country Club</strong>, community pools, and all neighborhood amenities.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-center">
+							Request a Rental
+						</a>
+						<a href="tel:3523070111" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition text-center">
+							Call (352) 307-0111
+						</a>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/club-car_img_v68_250813_154125925.webp" alt="Golf cart rental for Spruce Creek community" class="w-full h-auto rounded-lg shadow-lg" loading="eager" fetchpriority="high" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Rent in Spruce Creek -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Spruce Creek Residents Choose Us</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Your Cart Being Serviced?</h3>
+					<p class="text-gray-700 font-semibold">
+						Keep your Spruce Creek lifestyle uninterrupted with a rental while your cart is in the shop. Visit the <strong>Spruce Creek South Country Club</strong>, play golf, or meet friends at the clubhouse without missing a beat.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Family Visiting?</h3>
+					<p class="text-gray-700 font-semibold">
+						Show your guests why Spruce Creek living is special. Rent extra carts so everyone can explore the community, take in the scenery, and join you for activities at the recreation center.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Considering Ownership?</h3>
+					<p class="text-gray-700 font-semibold">
+						New to Spruce Creek? Rent a cart first to experience how essential they are for community life. Test different sizes before purchasing your own.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Seasonal Residents</h3>
+					<p class="text-gray-700 font-semibold">
+						Snowbirds returning to Spruce Creek? Rent a cart while your stored cart is being serviced, or enjoy the season without owning.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Community Events</h3>
+					<p class="text-gray-700 font-semibold">
+						Planning a neighborhood gathering, block party, or club event? We provide multi-cart rentals for Spruce Creek clubs and organizations.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Convenient Location</h3>
+					<p class="text-gray-700 font-semibold">
+						Located just minutes from Spruce Creek on US 441, we deliver directly to your home and pick up when your rental ends. Easy and hassle-free.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Spruce Creek Communities -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Spruce Creek Communities We Serve</h2>
+			<div class="grid md:grid-cols-2 gap-8">
+				<div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Spruce Creek South</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Active adult 55+ community with extensive amenities including the <strong>Spruce Creek South Country Club</strong>, championship golf course, tennis courts, pools, and recreation facilities. Golf carts are essential for daily life here.
+					</p>
+					<ul class="space-y-2 text-gray-700 font-semibold text-sm">
+						<li>• Access to 18-hole golf course</li>
+						<li>• Community pools and fitness center</li>
+						<li>• Multiple recreation centers</li>
+						<li>• Tennis and pickleball courts</li>
+						<li>• Convenient to SR 441 shopping</li>
+					</ul>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-8 border border-gray-200">
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Spruce Creek Preserve</h3>
+					<p class="text-gray-700 font-semibold mb-4">
+						Beautiful gated community with nature preserve views, walking trails, and resort-style amenities. Golf cart-friendly streets connect homes to the community center and outdoor spaces.
+					</p>
+					<ul class="space-y-2 text-gray-700 font-semibold text-sm">
+						<li>• Nature preserve and trails</li>
+						<li>• Community clubhouse</li>
+						<li>• Pool and fitness facilities</li>
+						<li>• Gated security</li>
+						<li>• Close to Spruce Creek South</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Local Destinations -->
+	<section class="py-16 bg-brand-green text-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Popular Destinations Near Spruce Creek</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div>
+					<h3 class="text-xl font-bold mb-3">Spruce Creek South Country Club</h3>
+					<p class="text-gray-100 font-semibold mb-2">Summerfield, FL</p>
+					<p class="text-gray-200 text-sm">
+						18-hole championship golf course with pro shop, restaurant, and social events. A golf cart makes daily access convenient.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Lake Weir</h3>
+					<p class="text-gray-100 font-semibold mb-2">Nearby Recreation</p>
+					<p class="text-gray-200 text-sm">
+						Beautiful lake just minutes from Spruce Creek. Popular for fishing, boating, and waterfront dining at <strong>Gator Joe's Beach Bar</strong>.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">The Villages</h3>
+					<p class="text-gray-100 font-semibold mb-2">15 Minutes North</p>
+					<p class="text-gray-200 text-sm">
+						Shopping, dining, and entertainment at <strong>Lake Sumter Landing</strong>, <strong>Spanish Springs</strong>, and <strong>Brownwood Paddock Square</strong>.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Belleview</h3>
+					<p class="text-gray-100 font-semibold mb-2">Minutes Away</p>
+					<p class="text-gray-200 text-sm">
+						Shopping and services along <strong>US Highway 441</strong> including grocery stores, restaurants, and <strong>Market of Marion</strong>.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Ocala</h3>
+					<p class="text-gray-100 font-semibold mb-2">15 Minutes North</p>
+					<p class="text-gray-200 text-sm">
+						Downtown shopping, dining, and entertainment. Access to <strong>Paddock Mall</strong>, <strong>Market Street at Heath Brook</strong>, and major retailers.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Silver Springs State Park</h3>
+					<p class="text-gray-100 font-semibold mb-2">Silver Springs, FL</p>
+					<p class="text-gray-200 text-sm">
+						Historic state park with glass-bottom boat tours, kayaking, and nature trails. A popular day trip destination.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cart Options -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Golf Cart Options for Spruce Creek</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp" alt="2-passenger golf cart for Spruce Creek" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">2-Passenger</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Perfect for couples. Great for golf, running errands, and daily community activities in Spruce Creek.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp" alt="4-passenger golf cart for Spruce Creek" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">4-Passenger</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Ideal for when guests visit. Room for everyone plus shopping bags and golf clubs.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="6-passenger golf cart for Spruce Creek" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">6-Passenger</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Maximum capacity for family visits, club outings, or neighborhood gatherings.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp" alt="Utility golf cart for Spruce Creek" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">Utility Cart</h3>
+					<p class="mb-4 font-semibold leading-relaxed text-sm text-gray-700">
+						Cargo space for larger shopping trips, moving items, or community activities.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Choose Us -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Choose Masters Golf Cars</h2>
+			<div class="grid md:grid-cols-2 gap-12">
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">Convenient for Spruce Creek</h3>
+					<ul class="space-y-3 text-gray-700 font-semibold">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Located just minutes from Spruce Creek</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Direct delivery to your Spruce Creek home</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Convenient pickup when rental ends</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Clean, well-maintained carts</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>26+ years serving the area</span>
+						</li>
+					</ul>
+				</div>
+				<div class="bg-white rounded-lg p-8 shadow-lg">
+					<h3 class="text-2xl font-bold text-gray-900 mb-6">Full Service Dealer</h3>
+					<ul class="space-y-3 text-gray-700 font-semibold">
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Rentals for any need</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Expert repairs and service</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>New and used carts for sale</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Parts and accessories</span>
+						</li>
+						<li class="flex items-start">
+							<span class="text-brand-green text-xl mr-3">✓</span>
+							<span>Custom cart builds</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonial -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="bg-gray-50 rounded-3xl shadow-lg p-8 md:p-12 max-w-3xl mx-auto text-center">
+				<div class="flex justify-center gap-1 mb-6">
+					{Array.from({ length: 5 }).map((_star, index) => (
+						<svg class="w-6 h-6" fill="#FFD700" viewBox="0 0 20 20">
+							<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+						</svg>
+					))}
+				</div>
+				<p class="text-gray-700 leading-relaxed mb-6 font-semibold text-lg">
+					"Great rental experience for Spruce Creek. Cart was delivered to our home and we enjoyed exploring the community with our visiting family. Will definitely rent again when we have guests!"
+				</p>
+				<p class="font-black text-gray-900">-Robert K., Spruce Creek South Resident</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Related Services -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Other Services</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="bg-white rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Cart Repairs</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Expert service for your personal golf cart. All makes and models.
+						</p>
+						<a href="/golf-cart-repairs" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Carts for Sale</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							New and used golf carts for Spruce Creek living.
+						</p>
+						<a href="/golf-carts-for-sale-spruce-creek" class="text-brand-green font-bold hover:underline">View Inventory</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Other Communities -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Rentals in Other Communities</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">OTOW</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							On Top of The World golf cart rentals.
+						</p>
+						<a href="/golf-cart-rentals-otow" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">The Villages</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Rentals throughout The Villages.
+						</p>
+						<a href="/the-villages-golf-cart-rentals" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Ocala</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Rentals for all Ocala communities.
+						</p>
+						<a href="/golf-cart-rentals-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Need a Golf Cart in Spruce Creek?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars today. We deliver to all <strong>Spruce Creek South</strong> and <strong>Spruce Creek Preserve</strong> neighborhoods in Summerfield.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Request Spruce Creek Rental
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Just Minutes from Spruce Creek
+			</p>
+		</div>
+	</section>
+
+	<Schema schema={localBusinessSchema} />
+</Layout>

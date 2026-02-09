@@ -1,0 +1,359 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
+import companyData from '../data/company.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Festival & Concert Golf Cart Rentals",
+	"description": "Golf cart fleet rentals for festivals, concerts, and large outdoor events in Central Florida. Serving Ocala, Marion County, and surrounding areas.",
+	"url": "https://mastersgolfcars.com/golf-cart-rentals-festivals",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Marion County",
+		"Sumter County",
+		"Lake County",
+		"Alachua County",
+		"Ocala",
+		"Gainesville"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	}
+};
+---
+
+<Layout
+	title="Festival & Concert Golf Cart Rentals | Fleet Rentals Central Florida"
+	description="Golf cart fleet rentals for festivals, concerts, fairs, and outdoor events. VIP transport, staff mobility, vendor access. Ocala, Marion County. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-rentals-festivals"
+	breadcrumbs={[
+		{ name: "Home", url: "https://mastersgolfcars.com" },
+		{ name: "Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals" },
+		{ name: "Festival Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals-festivals" }
+	]}
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div>
+					<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Festival & Concert Golf Cart Rentals</h1>
+					<p class="text-xl text-gray-700 font-semibold mb-4">
+						Keep your festival, concert, or large outdoor event running smoothly with fleet golf cart rentals from Masters Golf Cars. Since 1999, we've provided VIP transportation, staff mobility, and logistics support for events at <strong>World Equestrian Center</strong>, <strong>Southeastern Livestock Pavilion</strong>, <strong>Florida Horse Park</strong>, and venues throughout Central Florida.
+					</p>
+					<p class="text-lg text-gray-700 font-semibold mb-6">
+						From county fairs to music festivals, equestrian competitions to community events, our fleet keeps artists, VIPs, staff, and vendors moving efficiently across large event grounds.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a href="/fleet-rentals-quote" class="bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-center">
+							Request Fleet Quote
+						</a>
+						<a href="tel:3523070111" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition text-center">
+							Call (352) 307-0111
+						</a>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="Festival golf cart fleet rental" class="w-full h-auto rounded-lg shadow-lg" loading="eager" fetchpriority="high" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Event Types -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Events We Support</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Music Festivals & Concerts</h3>
+					<p class="text-gray-700 font-semibold">
+						VIP artist transport, production crew mobility, security patrols, and medical response carts for outdoor music events and amphitheater concerts throughout Central Florida.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">County Fairs & Expos</h3>
+					<p class="text-gray-700 font-semibold">
+						Fleet support for events like the <strong>Marion County Fair</strong>, <strong>Southeastern Livestock Pavilion</strong> expos, and agricultural shows. Staff, vendor, and guest transportation.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Equestrian Competitions</h3>
+					<p class="text-gray-700 font-semibold">
+						Large fleet rentals for horse shows at <strong>World Equestrian Center</strong>, <strong>HITS Ocala</strong>, and <strong>Florida Horse Park</strong>. Competitor, spectator, and vendor transportation.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Community Festivals</h3>
+					<p class="text-gray-700 font-semibold">
+						Support for local events like <strong>Light Up Ocala</strong>, <strong>Ocala Downtown Market</strong>, <strong>The Villages town square events</strong>, and seasonal festivals throughout Marion and Sumter counties.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Sporting Events</h3>
+					<p class="text-gray-700 font-semibold">
+						Golf cart fleets for marathons, triathlons, golf tournaments, and multi-field sports tournaments. Course marshals, medical support, and event operations.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Trade Shows & Markets</h3>
+					<p class="text-gray-700 font-semibold">
+						Vendor transport and logistics for flea markets, antique shows, and trade expositions. Perfect for events at the <strong>Market of Marion</strong> and similar large venues.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Fleet Uses -->
+	<section class="py-16 bg-brand-green text-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Festival Fleet Applications</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">VIP Transport</h3>
+					<p class="text-gray-200 text-sm font-semibold">
+						Transport artists, performers, sponsors, and VIP guests between green rooms, stages, and hospitality areas.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">Staff Mobility</h3>
+					<p class="text-gray-200 text-sm font-semibold">
+						Keep event staff, coordinators, and production crews mobile across large festival grounds.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm2.5 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm6.207.293a1 1 0 00-1.414 0l-6 6a1 1 0 101.414 1.414l6-6a1 1 0 000-1.414zM12.5 10a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" clip-rule="evenodd" />
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">Vendor Support</h3>
+					<p class="text-gray-200 text-sm font-semibold">
+						Help vendors load in and out with utility carts. Transport supplies and merchandise between areas.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">Medical & Security</h3>
+					<p class="text-gray-200 text-sm font-semibold">
+						Rapid response carts for medical teams and security patrols to quickly reach any location.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Popular Venues -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Festival Venues We Serve</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">World Equestrian Center</h3>
+					<p class="text-gray-600 font-semibold mb-2">Ocala, FL</p>
+					<p class="text-gray-700 text-sm">
+						Massive venue for equestrian events, trade shows, and festivals. One of our most-served locations with fleet sizes up to 50+ carts.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Southeastern Livestock Pavilion</h3>
+					<p class="text-gray-600 font-semibold mb-2">Ocala, FL</p>
+					<p class="text-gray-700 text-sm">
+						Home to the Marion County Fair, livestock shows, and large community events. We regularly provide fleet support for major events.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Florida Horse Park</h3>
+					<p class="text-gray-600 font-semibold mb-2">Ocala, FL</p>
+					<p class="text-gray-700 text-sm">
+						Multi-discipline equestrian venue hosting competitions, festivals, and outdoor events year-round.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">HITS Ocala</h3>
+					<p class="text-gray-600 font-semibold mb-2">Ocala, FL</p>
+					<p class="text-gray-700 text-sm">
+						Premier horse show venue with extensive grounds. We've provided fleet support for their largest events.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">The Villages Town Squares</h3>
+					<p class="text-gray-600 font-semibold mb-2">The Villages, FL</p>
+					<p class="text-gray-700 text-sm">
+						Nightly entertainment and community events. Golf cart-friendly venue with regular festival activities.
+					</p>
+				</div>
+				<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Silver Springs State Park</h3>
+					<p class="text-gray-600 font-semibold mb-2">Silver Springs, FL</p>
+					<p class="text-gray-700 text-sm">
+						Natural venue for outdoor festivals, concerts, and community gatherings.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Fleet Options -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Festival Fleet Options</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="bg-white rounded-lg p-6 shadow-lg text-center">
+					<img src="/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp" alt="2-passenger VIP cart" class="w-full h-auto object-contain max-h-48 mx-auto mb-4" loading="lazy" width="400" height="300" />
+					<h3 class="text-xl font-bold mb-2">VIP Carts</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						2-passenger carts for artists, VIPs, and executive transport.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg text-center">
+					<img src="/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp" alt="4-passenger staff cart" class="w-full h-auto object-contain max-h-48 mx-auto mb-4" loading="lazy" width="400" height="300" />
+					<h3 class="text-xl font-bold mb-2">Staff Carts</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						4-passenger carts for event coordinators and production teams.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg text-center">
+					<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="6-passenger shuttle" class="w-full h-auto object-contain max-h-48 mx-auto mb-4" loading="lazy" width="400" height="300" />
+					<h3 class="text-xl font-bold mb-2">Shuttle Carts</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						6-passenger carts for group transport and guest shuttles.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg text-center">
+					<img src="/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp" alt="Utility cart" class="w-full h-auto object-contain max-h-48 mx-auto mb-4" loading="lazy" width="400" height="300" />
+					<h3 class="text-xl font-bold mb-2">Utility Carts</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Cargo carts for vendors, medical teams, and logistics crews.
+					</p>
+				</div>
+			</div>
+			<div class="mt-12 text-center">
+				<p class="text-gray-700 font-semibold mb-4">
+					Need a custom fleet configuration? We can provide any mix of cart types for events requiring 5 to 50+ carts.
+				</p>
+				<a href="/fleet-rentals-quote" class="inline-block bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition">
+					Request Fleet Quote
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Choose Us -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Event Organizers Trust Us</h2>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">26+</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Years Experience</h3>
+					<p class="text-gray-700 font-semibold">
+						Since 1999, we've supported hundreds of festivals and large events throughout Central Florida.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">50+</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Cart Fleet Capacity</h3>
+					<p class="text-gray-700 font-semibold">
+						Large fleet available to support your event needs, from intimate gatherings to major festivals.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">24/7</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Event Support</h3>
+					<p class="text-gray-700 font-semibold">
+						On-site support available for multi-day festivals. Emergency cart replacement if needed.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Related Services -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Other Event Rental Services</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-white rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Corporate Events</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Fleet rentals for corporate retreats, conferences, and company events.
+						</p>
+						<a href="/golf-cart-rentals-corporate-events" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Wedding Rentals</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Golf cart rentals for weddings at Central Florida venues.
+						</p>
+						<a href="/golf-cart-rentals-weddings" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Tournaments</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Cart fleets for charity and corporate golf tournaments.
+						</p>
+						<a href="/golf-cart-rentals-golf-tournaments" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Planning a Festival or Large Event?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars today for a custom fleet quote. We provide golf cart rentals for events at <strong>World Equestrian Center</strong>, <strong>Florida Horse Park</strong>, <strong>Southeastern Livestock Pavilion</strong>, and venues throughout Central Florida.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/fleet-rentals-quote" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Request Fleet Quote
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Serving Central Florida Events Since 1999
+			</p>
+		</div>
+	</section>
+
+	<Schema schema={localBusinessSchema} />
+</Layout>

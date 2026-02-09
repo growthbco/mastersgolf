@@ -1,0 +1,330 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
+import companyData from '../data/company.json';
+
+const localBusinessSchema = {
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": "Masters Golf Cars - Oak Run Golf Cart Rentals",
+	"description": "Golf cart rentals for Oak Run residents in Ocala, FL. Delivery to all Oak Run neighborhoods including Royal Oaks and Eagle's Point.",
+	"url": "https://mastersgolfcars.com/golf-cart-rentals-oak-run",
+	"telephone": "+1-352-307-0111",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "12885 S US Hwy 441",
+		"addressLocality": "Belleview",
+		"addressRegion": "FL",
+		"postalCode": "34420"
+	},
+	"areaServed": [
+		"Oak Run",
+		"Royal Oaks",
+		"Eagle's Point",
+		"SW Ocala",
+		"Marion County"
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "29.034576",
+		"longitude": "-82.025011"
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "150"
+	}
+};
+---
+
+<Layout
+	title="Golf Cart Rentals for Oak Run | Ocala, FL"
+	description="Golf cart rentals for Oak Run residents in Ocala. Delivery to all Oak Run neighborhoods. Convenient service since 1999. Call (352) 307-0111"
+	canonical="https://mastersgolfcars.com/golf-cart-rentals-oak-run"
+	breadcrumbs={[
+		{ name: "Home", url: "https://mastersgolfcars.com" },
+		{ name: "Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals" },
+		{ name: "Oak Run Rentals", url: "https://mastersgolfcars.com/golf-cart-rentals-oak-run" }
+	]}
+>
+	<!-- Hero Section -->
+	<section class="bg-white py-12 md:py-16">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<div class="grid md:grid-cols-2 gap-8 items-center">
+				<div>
+					<h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-4">Golf Cart Rentals for Oak Run</h1>
+					<p class="text-xl text-gray-700 font-semibold mb-4">
+						Masters Golf Cars provides convenient golf cart rentals for <strong>Oak Run</strong> residents in Ocala. Whether your personal cart is being serviced, you have guests visiting, or you want to try before buying, we deliver premium rentals directly to your Oak Run home.
+					</p>
+					<p class="text-lg text-gray-700 font-semibold mb-6">
+						Located nearby at <strong>12885 S US Highway 441 in Belleview</strong>, we've served Oak Run residents since 1999. Our carts are perfect for accessing the <strong>Oak Run Country Club</strong>, <strong>Island Club</strong>, pools, and all community amenities.
+					</p>
+					<div class="flex flex-col sm:flex-row gap-4">
+						<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-center">
+							Request a Rental
+						</a>
+						<a href="tel:3523070111" class="bg-gray-900 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-800 transition text-center">
+							Call (352) 307-0111
+						</a>
+					</div>
+				</div>
+				<div>
+					<img src="/images/golf-cart-rentals-page/club-car_img_v68_250813_154125925.webp" alt="Golf cart rental for Oak Run community" class="w-full h-auto rounded-lg shadow-lg" loading="eager" fetchpriority="high" width="800" height="600" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Rent in Oak Run -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">Why Oak Run Residents Rent From Us</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Cart in for Repairs?</h3>
+					<p class="text-gray-700 font-semibold">
+						Don't miss your golf game or club activities while your cart is being serviced. Rent from us and stay active at the <strong>Oak Run Country Club</strong>, pools, and recreation centers.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Family Visiting?</h3>
+					<p class="text-gray-700 font-semibold">
+						Give your guests their own transportation to explore Oak Run's beautiful grounds, attend activities, and experience why you love living here.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">New to Oak Run?</h3>
+					<p class="text-gray-700 font-semibold">
+						Just moved in? Rent a cart while you shop for your own. Experience Oak Run's cart-friendly lifestyle firsthand before making a purchase.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Seasonal Residents</h3>
+					<p class="text-gray-700 font-semibold">
+						Snowbirds returning to Oak Run can rent while their stored cart is serviced, or enjoy the season without the maintenance of ownership.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Club Events</h3>
+					<p class="text-gray-700 font-semibold">
+						Need extra carts for Oak Run club activities, golf tournaments, or community events? We provide multi-cart rentals.
+					</p>
+				</div>
+				<div class="bg-white rounded-lg p-6 shadow-lg">
+					<h3 class="text-xl font-bold text-gray-900 mb-3">Easy Delivery</h3>
+					<p class="text-gray-700 font-semibold">
+						We deliver directly to your Oak Run address and pick up when your rental ends. No hassle, no trips outside the community.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Oak Run Amenities -->
+	<section class="py-16 bg-brand-green text-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Oak Run Destinations</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<div>
+					<h3 class="text-xl font-bold mb-3">Oak Run Country Club</h3>
+					<p class="text-gray-200 text-sm">
+						18-hole golf course with pro shop, driving range, and restaurant. Golf carts make accessing the course and clubhouse convenient.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Island Club</h3>
+					<p class="text-gray-200 text-sm">
+						Recreation center with pools, fitness center, and social activities. A popular golf cart destination for daily fitness and activities.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Orchid Club</h3>
+					<p class="text-gray-200 text-sm">
+						Additional recreation facility with amenities and meeting spaces. Golf cart access to community events and activities.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Royal Oaks</h3>
+					<p class="text-gray-200 text-sm">
+						Neighborhood within Oak Run with its own character and proximity to community amenities. Golf cart-friendly streets throughout.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Eagle's Point</h3>
+					<p class="text-gray-200 text-sm">
+						Active section of Oak Run with easy golf cart access to the country club and recreation centers.
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-3">Nearby Shopping</h3>
+					<p class="text-gray-200 text-sm">
+						While golf carts are mainly for community use, shopping on <strong>SR 200</strong> and <strong>College Road</strong> is just minutes away.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Cart Options -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black mb-12 text-center">Golf Cart Options for Oak Run</h2>
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp" alt="2-passenger golf cart for Oak Run" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">2-Passenger</h3>
+					<p class="font-semibold text-sm text-gray-700">
+						Perfect for couples. Ideal for golf, pool visits, and daily Oak Run activities.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp" alt="4-passenger golf cart for Oak Run" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">4-Passenger</h3>
+					<p class="font-semibold text-sm text-gray-700">
+						Great for when guests visit. Room for couples plus friends or family.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="6-passenger golf cart for Oak Run" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">6-Passenger</h3>
+					<p class="font-semibold text-sm text-gray-700">
+						Maximum capacity for family gatherings and group activities.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="mb-6 bg-gray-50 rounded-lg p-4">
+						<img src="/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp" alt="Utility golf cart for Oak Run" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+					</div>
+					<h3 class="text-2xl font-bold mb-3">Utility Cart</h3>
+					<p class="font-semibold text-sm text-gray-700">
+						Cargo space for moving items or club activities requiring storage.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- How It Works -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center">How to Rent for Oak Run</h2>
+			<div class="grid md:grid-cols-4 gap-8">
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">1</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Request Rental</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Fill out our form with your Oak Run address and dates needed.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">2</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Confirm Details</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						We'll call to confirm availability and arrange delivery time.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">3</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">We Deliver</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Clean, charged cart delivered to your Oak Run home.
+					</p>
+				</div>
+				<div class="text-center">
+					<div class="w-16 h-16 bg-brand-green text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-4">4</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-2">Enjoy & Return</h3>
+					<p class="text-gray-700 font-semibold text-sm">
+						Explore Oak Run! We pick up when your rental ends.
+					</p>
+				</div>
+			</div>
+			<div class="mt-12 text-center">
+				<a href="/rent-a-golf-cart" class="inline-block bg-brand-green text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition">
+					Request Oak Run Rental
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Related Services -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Other Services</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Cart Repairs</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							Expert repairs for your Oak Run golf cart.
+						</p>
+						<a href="/golf-cart-repairs" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Carts for Sale</h3>
+						<p class="text-gray-700 font-semibold mb-4">
+							New and used carts for Oak Run residents.
+						</p>
+						<a href="/golf-carts-for-sale" class="text-brand-green font-bold hover:underline">View Inventory</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Other Communities -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 text-center">Rentals in Other Communities</h2>
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">OTOW</h3>
+						<p class="text-gray-700 font-semibold mb-4">On Top of The World rentals.</p>
+						<a href="/golf-cart-rentals-otow" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Spruce Creek</h3>
+						<p class="text-gray-700 font-semibold mb-4">Spruce Creek community rentals.</p>
+						<a href="/golf-cart-rentals-spruce-creek" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
+						<h3 class="text-xl font-bold text-gray-900 mb-3">Ocala</h3>
+						<p class="text-gray-700 font-semibold mb-4">All Ocala community rentals.</p>
+						<a href="/golf-cart-rentals-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section class="py-16 bg-gray-900 text-white">
+		<div class="container mx-auto px-4 max-w-6xl text-center">
+			<h2 class="text-3xl md:text-4xl font-black mb-6">Need a Golf Cart in Oak Run?</h2>
+			<p class="text-xl mb-8 font-semibold text-gray-300">
+				Contact Masters Golf Cars today. We deliver to all <strong>Oak Run</strong> neighborhoods including <strong>Royal Oaks</strong> and <strong>Eagle's Point</strong>.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+				<a href="/rent-a-golf-cart" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
+					Request Oak Run Rental
+				</a>
+				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
+					Call (352) 307-0111
+				</a>
+			</div>
+			<p class="text-gray-400 font-semibold">
+				{companyData.location.full} | Serving Oak Run Since 1999
+			</p>
+		</div>
+	</section>
+
+	<Schema schema={localBusinessSchema} />
+</Layout>
