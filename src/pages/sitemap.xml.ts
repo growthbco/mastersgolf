@@ -25,12 +25,6 @@ const pageGroups = [
 		comment: 'Golf Carts For Sale',
 		pages: [
 			{ url: '/golf-cart-inventory/', changefreq: 'daily', priority: '0.9' },
-			{ url: '/advent-2/', changefreq: 'weekly', priority: '0.8' },
-			{ url: '/advent-4/', changefreq: 'weekly', priority: '0.8' },
-			{ url: '/advent-4f/', changefreq: 'weekly', priority: '0.8' },
-			{ url: '/advent-4l/', changefreq: 'weekly', priority: '0.8' },
-			{ url: '/advent-6/', changefreq: 'weekly', priority: '0.8' },
-			{ url: '/advent-6l/', changefreq: 'weekly', priority: '0.8' },
 			{ url: '/sell-your-cart/', changefreq: 'monthly', priority: '0.7' },
 		]
 	},

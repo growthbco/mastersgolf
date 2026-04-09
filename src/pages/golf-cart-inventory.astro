@@ -10,7 +10,7 @@ const inventoryServiceSchema = {
 	"@type": "Service",
 	"@id": "https://mastersgolfcars.com/golf-cart-inventory/#service",
 	"name": "Golf Cart Sales",
-	"description": "Browse our selection of new and used golf carts for sale in Central Florida. We are an authorized Advanced EV dealer and also carry Club Car, EZ-GO, and Yamaha golf carts. Financing available.",
+	"description": "Browse our selection of new and used golf carts for sale in Central Florida. We carry Club Car, EZ-GO, and Yamaha golf carts. Financing available.",
 	"provider": {
 		"@type": "LocalBusiness",
 		"name": "Masters Golf Cars, LLC",
@@ -57,10 +57,10 @@ const inventoryServiceSchema = {
 				"itemOffered": {
 					"@type": "Product",
 					"name": "New Golf Carts",
-					"description": "Brand new golf carts from Advanced EV, Club Car, EZ-GO, and Yamaha",
+					"description": "Brand new golf carts from Club Car, EZ-GO, and Yamaha",
 					"brand": {
 						"@type": "Brand",
-						"name": "Advanced EV"
+						"name": "Masters Golf Cars"
 					}
 				}
 			},
@@ -135,13 +135,6 @@ const inventoryBreadcrumbs = [
 						<div id="brand-content" class="mt-4 space-y-3">
 							<div class="flex justify-between items-center text-gray-600">
 								<a href="#" class="hover:text-brand-green">Any</a>
-								<span class="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">{inventoryData.length}</span>
-							</div>
-							<div class="flex justify-between items-center text-brand-green font-semibold">
-								<a href="#" class="flex items-center">
-									<i class="fa-solid fa-chevron-down mr-2 text-xs"></i>
-									Advanced EV
-								</a>
 								<span class="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full">{inventoryData.length}</span>
 							</div>
 						</div>

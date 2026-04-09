@@ -159,7 +159,7 @@ const localBusinessSchema = {
 						<img src="/images/home page carts/fleet-rental-ez-go-golf-cart_img_v40.webp" alt="EZ-GO Golf Cart" class="w-full h-auto max-h-24 sm:max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" loading="eager" fetchpriority="high" width="400" height="300" />
 					</div>
 					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/masters-golf-cars-advanced-ev-golf-cart_img_v41.webp" alt="Advanced EV Golf Cart" class="w-full h-auto max-h-24 sm:max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" loading="eager" fetchpriority="high" width="400" height="300" />
+						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Golf Cart for Sale" class="w-full h-auto max-h-24 sm:max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" loading="eager" fetchpriority="high" width="400" height="300" />
 					</div>
 				</div>
 			</div>
@@ -206,7 +206,6 @@ const localBusinessSchema = {
 							<label for="brand" class="block text-gray-800 font-semibold mb-2">Brand</label>
 							<select id="brand" name="brand" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2" style="--tw-ring-color: #86CA26;">
 								<option value="">Any</option>
-								<option value="advanced-ev">Advanced EV</option>
 								<option value="club-car">Club Car</option>
 								<option value="ez-go">EZ-GO</option>
 								<option value="yamaha">Yamaha</option>
@@ -234,82 +233,48 @@ const localBusinessSchema = {
 		</div>
 	</section>
 	
-	<!-- Advent Lineup Section -->
+	<!-- Our Brands Section -->
 	<section class="relative py-16" style="background-color: #F3F3F3;">
 		<!-- Green bar at top -->
 		<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #86CA26;"></div>
-		
+
 		<div class="container mx-auto px-4 pt-8">
-			<div class="flex flex-col md:flex-row items-center md:items-center gap-8 md:gap-12">
-				<!-- Title -->
-				<div class="mb-8 md:mb-12 lg:mb-0 flex-shrink-0 text-center md:text-left">
-					<h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-400 mb-2">
-						ADV<span style="color: #86CA26;">E</span>NT
-					</h2>
-					<p class="text-lg sm:text-xl text-gray-800 font-semibold">OUR LINEUPS</p>
+			<div class="text-center mb-12">
+				<h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-2">
+					Our <span style="color: #86CA26;">Brands</span>
+				</h2>
+				<p class="text-lg sm:text-xl text-gray-600 font-semibold">Authorized Dealer for the Top Golf Cart Brands</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+				<!-- Club Car -->
+				<div class="bg-white rounded-lg shadow-lg p-8 text-center">
+					<div class="mb-6 p-4">
+						<img src={servicesData.brands.find(b => b.name === 'Club Car')?.icon || '/images/logos/club-car-icon-0-0.webp'} alt="Club Car Golf Carts" class="h-16 mx-auto object-contain" loading="lazy" />
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-3">Club Car</h3>
+					<p class="text-gray-700 font-semibold text-sm mb-4">Premium golf carts known for durability and performance. A trusted choice for communities across Central Florida.</p>
+					<a href="/golf-cart-inventory" class="inline-block text-sm font-bold uppercase transition" style="color: #86CA26;">Browse Inventory →</a>
 				</div>
-				
-				<!-- Vehicle Grid -->
-				<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12 md:ml-auto">
-				<!-- Advent -->
-				<div class="text-center">
-					<div class="mb-4">
-						<img src="/images/Advent Section/advent-golf-cart_img_v43 (1).webp" alt="Advent Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+
+				<!-- Yamaha -->
+				<div class="bg-white rounded-lg shadow-lg p-8 text-center">
+					<div class="mb-6 p-4">
+						<img src={servicesData.brands.find(b => b.name === 'Yamaha')?.icon || '/images/logos/yamaha-icon-0-1.webp'} alt="Yamaha Golf Carts" class="h-16 mx-auto object-contain" loading="lazy" />
 					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advent-logo_img_v49.webp" alt="Advent" class="h-8" loading="lazy" width="120" height="32" />
-					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-3">Yamaha</h3>
+					<p class="text-gray-700 font-semibold text-sm mb-4">Reliable and efficient golf carts with excellent battery life. Great for daily use in The Villages and Ocala.</p>
+					<a href="/golf-cart-inventory" class="inline-block text-sm font-bold uppercase transition" style="color: #86CA26;">Browse Inventory →</a>
 				</div>
-				
-				<!-- Horizon -->
-				<div class="text-center">
-					<div class="mb-4">
-						<img src="/images/Advent Section/ae-horizon-golf-cart_img_v44.webp" alt="Horizon Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
+
+				<!-- EZ-GO -->
+				<div class="bg-white rounded-lg shadow-lg p-8 text-center">
+					<div class="mb-6 p-4">
+						<img src={servicesData.brands.find(b => b.name === 'EZ-GO')?.icon || '/images/logos/ez-go-icon-0-2.webp'} alt="EZ-GO Golf Carts" class="h-16 mx-auto object-contain" loading="lazy" />
 					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advanced-ev-horizon-logo_img_v50.webp" alt="Advanced EV Horizon" class="h-8" loading="lazy" width="120" height="32" />
-					</div>
-				</div>
-				
-				<!-- Advent Click / HD Click -->
-				<div class="text-center">
-					<div class="mb-4">
-						<img src="/images/Advent Section/ae-advent-click-golf-cart_img_v45.webp" alt="Advent Click Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
-					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advanced-ev-advent-click-logo_img_v51.webp" alt="Advent Click" class="h-8" loading="lazy" width="120" height="32" />
-					</div>
-				</div>
-				
-				<!-- Advent HD -->
-				<div class="text-center">
-					<div class="mb-4">
-						<img src="/images/Advent Section/ae-advent-hd-golf-cart_img_v46.webp" alt="Advent HD Golf Cart" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
-					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advanced-ev-advent-hd-logo_img_v52.webp" alt="Advent HD" class="h-8" loading="lazy" width="120" height="32" />
-					</div>
-				</div>
-				
-				<!-- Specialty Vehicles -->
-				<div class="text-center">
-					<div class="mb-4">
-						<img src="/images/Advent Section/ae-advent-specialty-golf-cart_img_v47.webp" alt="Advent Specialty Vehicle" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
-					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advanced-ev-advent-specialty-vehicles-logo_img_v53.webp" alt="Advent Specialty Vehicles" class="h-8" loading="lazy" width="120" height="32" />
-					</div>
-				</div>
-				
-				<!-- Stellar -->
-				<div class="text-center">
-					<div class="mb-4">
-						<img src="/images/Advent Section/ae-advent-stellar-golf-cart_img_v48.webp" alt="Stellar Vehicle" class="w-full h-auto object-contain max-h-64 mx-auto" loading="lazy" width="400" height="300" />
-					</div>
-					<div class="flex justify-center">
-						<img src="/images/Advent Section/advanced-ev-stellar-logo_img_v54.webp" alt="Stellar" class="h-8" loading="lazy" width="120" height="32" />
-					</div>
-				</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-3">EZ-GO</h3>
+					<p class="text-gray-700 font-semibold text-sm mb-4">Affordable and versatile golf carts perfect for any lifestyle. Popular choice for value and reliability.</p>
+					<a href="/golf-cart-inventory" class="inline-block text-sm font-bold uppercase transition" style="color: #86CA26;">Browse Inventory →</a>
 				</div>
 			</div>
 		</div>
@@ -433,179 +398,72 @@ const localBusinessSchema = {
 		</div>
 	</section>
 	
-	<!-- Advanced EV Advent Carousel Section -->
+	<!-- Why Choose Masters Golf Cars Section -->
 	<section class="bg-white py-16">
 		<div class="container mx-auto px-4">
-			<!-- Description Text -->
-			<div class="max-w-4xl mx-auto mb-12">
-				<p class="text-lg text-gray-700 text-center">
-					Elevate your lifestyle in the all-new Advanced EV Advent. The Advent boasts sleek style, a world class suspension, and an energy efficient AC powertrain. Its on-road finesse and higher ground clearance contribute towards an industry leading ride quality. All Advents come standard with an LED Drive Package, independent front suspension, Electromagnetic Brakes, and an Onboard Charger/Maintainer.
+			<div class="max-w-5xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
+					Why Choose <span style="color: #86CA26;">Masters Golf Cars</span>?
+				</h2>
+				<p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+					Central Florida's trusted golf cart dealer since 1999. Sales, service, and rentals — all under one roof.
 				</p>
-			</div>
-			
-			<!-- Carousel Container -->
-			<div class="relative max-w-7xl mx-auto">
-				<!-- Navigation Arrows -->
-				<button id="adventCarouselPrev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-gray-100 shadow-lg rounded-full p-2 md:p-3 transition flex items-center justify-center" aria-label="Previous cart">
-					<svg class="w-5 h-5 md:w-6 md:h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-					</svg>
-				</button>
-				<button id="adventCarouselNext" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white hover:bg-gray-100 shadow-lg rounded-full p-2 md:p-3 transition flex items-center justify-center" aria-label="Next cart">
-					<svg class="w-5 h-5 md:w-6 md:h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-					</svg>
-				</button>
-				
-				<!-- Scrollable Carousel -->
-				<div id="adventCarousel" class="overflow-x-auto scroll-smooth scrollbar-hide flex gap-4 md:gap-8 pb-4 snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;">
-					<!-- Product Card 1: Advent 2 -->
-					<div class="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden snap-center">
-						<!-- Image Container with Overlay -->
-						<div class="relative">
-							<img src="https://i31.dlrwebservice.com/52004/i/139811/wm650/3_52004_139811_8156808.jpg" alt="2025 Advanced EV Advent 2 Deluxe Golf Ready" class="w-full h-64 object-cover" loading="lazy" width="384" height="256" />
-							<!-- Overlay with Logo -->
-							<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-								<div class="flex items-center gap-3 mb-2">
-									<img src={companyData.logo} alt="Masters Golf Cars" class="h-12" loading="lazy" width="150" height="48" />
-								</div>
-								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
-								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
-								<p class="text-sm font-semibold" style="color: #86CA26;">{companyData.contact.phone}</p>
-								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
-							</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+					<!-- Authorized Dealer -->
+					<div class="text-center p-6">
+						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
+							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+							</svg>
 						</div>
-						<!-- Product Info -->
-						<div class="p-6">
-							<h3 class="text-xl font-bold text-gray-800 mb-4">2025 Advanced EV Advent 2 Deluxe Golf Ready</h3>
-							<div class="space-y-2">
-								<p class="text-gray-600 line-through">Price: $14,595.00</p>
-								<p class="text-2xl font-bold text-gray-800">Sale Price: $13,395.00</p>
-							</div>
-						</div>
-						<!-- Black Footer -->
-						<div class="bg-black h-2"></div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Authorized Dealer</h3>
+						<p class="text-gray-600 text-sm font-semibold">Trusted dealer for Club Car, Yamaha & EZ-GO since 1999.</p>
 					</div>
-					
-					<!-- Product Card 2: Advent 4F -->
-					<div class="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden snap-center">
-						<!-- Image Container with Overlay -->
-						<div class="relative">
-							<img src="https://i31.dlrwebservice.com/52004/i/139819/wm650/3_52004_139819_8156859.jpg" alt="2025 Advanced EV Advent 4F Deluxe Golf Ready" class="w-full h-64 object-cover" loading="lazy" width="384" height="256" />
-							<!-- Overlay with Logo -->
-							<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-								<div class="flex items-center gap-3 mb-2">
-									<img src={companyData.logo} alt="Masters Golf Cars" class="h-12" loading="lazy" width="150" height="48" />
-								</div>
-								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
-								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
-								<p class="text-sm font-semibold" style="color: #86CA26;">{companyData.contact.phone}</p>
-								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
-							</div>
+
+					<!-- Full Service -->
+					<div class="text-center p-6">
+						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
+							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+							</svg>
 						</div>
-						<!-- Product Info -->
-						<div class="p-6">
-							<h3 class="text-xl font-bold text-gray-800 mb-4">2025 Advanced EV Advent 4F Deluxe Golf Ready</h3>
-							<div class="space-y-2">
-								<p class="text-gray-600 line-through">Price: $17,595.00</p>
-								<p class="text-2xl font-bold text-gray-800">Sale Price: $16,195.00</p>
-							</div>
-						</div>
-						<!-- Black Footer -->
-						<div class="bg-black h-2"></div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Full Service & Repairs</h3>
+						<p class="text-gray-600 text-sm font-semibold">Expert technicians for all makes and models. Maintenance, repairs & custom upgrades.</p>
 					</div>
-					
-					<!-- Product Card 3: Advent 2 (Second one) -->
-					<div class="flex-shrink-0 w-[85vw] sm:w-80 md:w-96 bg-white shadow-lg rounded-lg overflow-hidden snap-center">
-						<!-- Image Container with Overlay -->
-						<div class="relative">
-							<img src="/images/carts for sale/3_52004_139815_8156841.jpg" alt="2025 Advanced EV Advent 2 Deluxe Golf Ready" class="w-full h-64 object-cover" loading="lazy" width="384" height="256" />
-							<!-- Overlay with Logo -->
-							<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-								<div class="flex items-center gap-3 mb-2">
-									<img src={companyData.logo} alt="Masters Golf Cars" class="h-12" loading="lazy" width="150" height="48" />
-								</div>
-								<p class="text-white text-xs mb-1">GOLF CARS, LLC.</p>
-								<p class="text-white text-xs mb-1">SALES • SERVICE • RENTALS</p>
-								<p class="text-sm font-semibold" style="color: #86CA26;">{companyData.contact.phone}</p>
-								<p class="text-white text-xs mt-2">©2025 Masters Golf Cars</p>
-							</div>
+
+					<!-- Financing -->
+					<div class="text-center p-6">
+						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
+							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+							</svg>
 						</div>
-						<!-- Product Info -->
-						<div class="p-6">
-							<h3 class="text-xl font-bold text-gray-800 mb-4">2025 Advanced EV Advent 2 Deluxe Golf Ready</h3>
-							<div class="space-y-2">
-								<p class="text-gray-600 line-through">Price: $14,595.00</p>
-								<p class="text-2xl font-bold text-gray-800">Sale Price: $13,395.00</p>
-							</div>
-						</div>
-						<!-- Black Footer -->
-						<div class="bg-black h-2"></div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Financing Available</h3>
+						<p class="text-gray-600 text-sm font-semibold">Flexible financing options through Sheffield Financial. Get approved today.</p>
 					</div>
+
+					<!-- Rental Fleet -->
+					<div class="text-center p-6">
+						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
+							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+							</svg>
+						</div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Rental Fleet</h3>
+						<p class="text-gray-600 text-sm font-semibold">Daily, weekly & monthly rentals. Fleet rentals for events, communities & businesses.</p>
+					</div>
+				</div>
+
+				<div class="text-center">
+					<a href="/golf-cart-inventory" class="inline-block bg-black hover:bg-gray-900 text-white px-10 py-4 rounded-lg font-bold uppercase text-base transition">
+						Browse Our Inventory
+					</a>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	<script is:inline>
-		// Carousel navigation
-		document.addEventListener('DOMContentLoaded', () => {
-			const carousel = document.getElementById('adventCarousel');
-			const prevBtn = document.getElementById('adventCarouselPrev');
-			const nextBtn = document.getElementById('adventCarouselNext');
-			
-			if (prevBtn && nextBtn && carousel) {
-				const getScrollAmount = () => {
-					// Get card width based on screen size
-					const firstCard = carousel.querySelector('.flex-shrink-0');
-					if (firstCard) {
-						const cardWidth = firstCard.offsetWidth;
-						const style = window.getComputedStyle(carousel);
-						const gap = parseFloat(style.gap) || 16; // Get gap from CSS, default to 16px
-						return cardWidth + gap;
-					}
-					return 384; // fallback
-				};
-				
-				const updateButtonVisibility = () => {
-					const isAtStart = carousel.scrollLeft <= 10;
-					const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10;
-					
-					prevBtn.style.opacity = isAtStart ? '0.5' : '1';
-					prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
-					nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
-					nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
-				};
-				
-				prevBtn.addEventListener('click', () => {
-					const scrollAmount = getScrollAmount();
-					carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-				});
-				
-				nextBtn.addEventListener('click', () => {
-					const scrollAmount = getScrollAmount();
-					carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-				});
-				
-				// Update button visibility on scroll
-				carousel.addEventListener('scroll', updateButtonVisibility);
-				
-				// Update on window resize
-				window.addEventListener('resize', () => {
-					setTimeout(updateButtonVisibility, 100);
-				});
-				
-				// Initial check
-				updateButtonVisibility();
-			}
-		});
-	</script>
-	
-	<style>
-		.scrollbar-hide::-webkit-scrollbar {
-			display: none;
-		}
-	</style>
 	
 	<!-- About Section with Grass Background -->
 	<section class="relative py-16 overflow-hidden">
@@ -626,12 +484,12 @@ const localBusinessSchema = {
 					
 					<!-- Company Introduction -->
 					<p class="text-lg text-gray-800 mb-6">
-						<strong class="uppercase">MASTERS GOLF CARS</strong> is Ocala, The Villages & Central Florida's premier authorized golf car dealer for <strong>ADVANCED EV</strong>, as well as other leading golf cart brands, and specializes in Rentals, Golf Car Sales, Service, Parts and Accessories. Since 1999 <strong>MASTERS GOLF CARS</strong> is locally owned and operated and has proudly been serving their community.
+						<strong class="uppercase">MASTERS GOLF CARS</strong> is Ocala, The Villages & Central Florida's premier authorized golf car dealer, specializing in Rentals, Golf Car Sales, Service, Parts and Accessories. Since 1999 <strong>MASTERS GOLF CARS</strong> is locally owned and operated and has proudly been serving their community.
 					</p>
 					
 					<!-- Brands and Types -->
 					<p class="text-lg text-gray-800 mb-6">
-						If you are looking for Low Speed Vehicle golf carts, Neighborhood electric vehicles or standard golf cars for sale, we offer <strong>ADVANCED EV</strong>, <strong>YAMAHA</strong>, <strong>CLUB CAR</strong> & <strong>EZ-GO</strong> solutions for both commercial and residential use.
+						If you are looking for Low Speed Vehicle golf carts, Neighborhood electric vehicles or standard golf cars for sale, we offer <strong>YAMAHA</strong>, <strong>CLUB CAR</strong> & <strong>EZ-GO</strong> solutions for both commercial and residential use.
 					</p>
 					
 					<!-- Custom Upgrades -->

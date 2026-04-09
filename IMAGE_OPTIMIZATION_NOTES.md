@@ -19,9 +19,6 @@ The following JPG images should be converted to WebP format for better performan
 - `/public/images/carts for sale/3_52004_139819_8156859.jpg`
 - `/public/images/carts for sale/3_52004_139862_8158399.jpg`
 
-### Inventory Gallery Images
-- `/public/images/gallery/Inventory/Advanced EV Advent 2 Deluxe Golf Ready/*.jpg` (7 files)
-
 ## Conversion Instructions
 
 To convert JPG images to WebP:

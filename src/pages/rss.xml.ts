@@ -30,20 +30,6 @@ function getCartDescription(cart: typeof inventoryData[0]): string {
 
 	let features = [...baseFeatures];
 
-	// Model-specific features
-	if (cart.model === 'Advent 2') {
-		features.unshift('<p><strong>Luxury Bench Seat w/ 3 Arm Rests</strong></p>');
-		features.splice(4, 0, '<p><strong>160AH Lithium Battery Pack w/ Onboard Charger</strong></p>');
-		features.splice(9, 0, '<p><strong>2 Sand Bottles</strong></p>', '<p><strong>Cooler</strong></p>', '<p><strong>Ball Washer</strong></p>');
-	} else if (cart.model === 'Advent 4') {
-		features.unshift('<p><strong>Luxury Bench Seat w/ 3 Arm Rests</strong></p>');
-		features.splice(4, 0, '<p><strong>105AH Trojan Lithium Battery Pack w/ Onboard Charger</strong></p>');
-	} else if (cart.model === 'Advent 4F') {
-		features.unshift('<p><strong>Luxury Bench Seats</strong></p>');
-		features.splice(4, 0, '<p><strong>200AH Lithium Battery Pack w/ Onboard Charger</strong></p>');
-		features.splice(9, 0, '<p><strong>2 Sand Bottles</strong></p>', '<p><strong>Cooler</strong></p>', '<p><strong>Ball Washer</strong></p>');
-	}
-
 	return `Stock #${cart.stock} - ${features.join('\n')}`;
 }
 
