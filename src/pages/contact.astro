@@ -304,24 +304,71 @@ const localBusinessSchema = {
 
 					<div class="space-y-4">
 						<h3 class="text-xl md:text-2xl font-bold text-gray-900 uppercase tracking-wide text-center">Contact Form</h3>
-						<iframe
-							src="https://links.roadsidelaunch.com/widget/form/7iSRGxDk8yZftjB1Roo7"
-							style="width:100%;height:500px;border:none;border-radius:0;box-shadow:none"
-							id="inline-7iSRGxDk8yZftjB1Roo7"
-							data-layout="{'id':'INLINE'}"
-							data-trigger-type="alwaysShow"
-							data-trigger-value=""
-							data-activation-type="alwaysActivated"
-							data-activation-value=""
-							data-deactivation-type="neverDeactivate"
-							data-deactivation-value=""
-							data-form-name="Masters Golf Cart Contact"
-							data-height="500"
-							data-layout-iframe-id="inline-7iSRGxDk8yZftjB1Roo7"
-							data-form-id="7iSRGxDk8yZftjB1Roo7"
-							title="Masters Golf Cart Contact"
-							loading="lazy"
-						></iframe>
+						<div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+							<form
+								name="contact"
+								method="POST"
+								data-netlify="true"
+								netlify-honeypot="bot-field"
+								action="/success"
+								class="space-y-5"
+							>
+								<input type="hidden" name="form-name" value="contact" />
+								<p class="hidden">
+									<label>Don't fill this out if you're human: <input name="bot-field" /></label>
+								</p>
+
+								<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+									<div>
+										<label for="contact-name" class="block text-sm font-bold text-gray-900 mb-1">Full Name <span class="text-red-600">*</span></label>
+										<input type="text" id="contact-name" name="name" required placeholder="Your name" autocomplete="name" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+									</div>
+									<div>
+										<label for="contact-phone" class="block text-sm font-bold text-gray-900 mb-1">Phone <span class="text-red-600">*</span></label>
+										<input type="tel" id="contact-phone" name="phone" required placeholder="(352) 555-1234" autocomplete="tel" inputmode="tel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+									</div>
+								</div>
+
+								<div>
+									<label for="contact-email" class="block text-sm font-bold text-gray-900 mb-1">Email <span class="text-red-600">*</span></label>
+									<input type="email" id="contact-email" name="email" required placeholder="you@email.com" autocomplete="email" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+								</div>
+
+								<div>
+									<label for="contact-subject" class="block text-sm font-bold text-gray-900 mb-1">Subject</label>
+									<select id="contact-subject" name="subject" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
+										<option value="General question">General question</option>
+										<option value="Sales inquiry">Sales inquiry</option>
+										<option value="Rental inquiry">Rental inquiry</option>
+										<option value="Service / Repair">Service / Repair</option>
+										<option value="Parts & Accessories">Parts &amp; Accessories</option>
+										<option value="Fleet / Event Rentals">Fleet / Event Rentals</option>
+										<option value="Other">Other</option>
+									</select>
+								</div>
+
+								<div>
+									<label for="contact-message" class="block text-sm font-bold text-gray-900 mb-1">Message <span class="text-red-600">*</span></label>
+									<textarea id="contact-message" name="message" rows="5" required placeholder="How can we help?" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
+								</div>
+
+								<div class="flex items-start gap-3 pt-1">
+									<input type="checkbox" id="contact-sms-consent" name="sms_consent" value="yes" class="mt-1 h-4 w-4 rounded border-gray-400 text-brand-green focus:ring-brand-green" />
+									<label for="contact-sms-consent" class="text-sm text-gray-700 leading-relaxed">
+										I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry, including appointment reminders, service updates, quotes, and follow-up communications. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green font-bold underline hover:opacity-80">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green font-bold underline hover:opacity-80">Terms and Conditions</a>.
+									</label>
+								</div>
+
+								<button type="submit" class="w-full bg-brand-green text-white font-bold uppercase tracking-wide py-3 px-4 rounded-md hover:opacity-90 transition-colors">
+									Send Message
+								</button>
+
+								<p class="text-center text-xs text-gray-500 flex items-center justify-center gap-1">
+									<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M10 1a4 4 0 00-4 4v3H5a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2v-7a2 2 0 00-2-2h-1V5a4 4 0 00-4-4zm2 7V5a2 2 0 10-4 0v3h4z" clip-rule="evenodd"/></svg>
+									Your information is secure and will never be shared.
+								</p>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
