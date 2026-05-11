@@ -246,6 +246,10 @@ const inventoryBreadcrumbs = [
 					<label for="modal-message" class="block text-sm font-semibold text-gray-700 mb-1">Message *</label>
 					<textarea id="modal-message" name="message" rows="4" required class="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
 				</div>
+				<label class="flex items-start gap-2 text-xs leading-snug text-gray-700">
+					<input type="checkbox" name="sms_consent" value="yes" class="mt-0.5 h-3.5 w-3.5 rounded border-gray-400 text-brand-green focus:ring-brand-green">
+					<span>I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green underline">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green underline">Terms</a>.</span>
+				</label>
 				<div class="flex gap-3">
 					<button type="submit" class="flex-1 bg-brand-green text-white font-semibold py-3 px-4 rounded-md hover:opacity-90 transition-colors">
 						SEND EMAIL
