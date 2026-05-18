@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import FAQSchema from '../components/FAQSchema.astro';
 import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
+import ServiceRequestForm from '../components/forms/ServiceRequestForm.astro';
 
 // Service Schema for Golf Cart Repairs
 const repairServiceSchema = {
@@ -799,6 +800,8 @@ const batterySlides = [
 			</div>
 		</div>
 	</section>
+
+	<ServiceRequestForm pageSource="Repairs Hub" idPrefix="repair-hub" bgClass="bg-white" />
 
 	<!-- Visit Our Location -->
 	<section class="py-16 bg-gray-50">

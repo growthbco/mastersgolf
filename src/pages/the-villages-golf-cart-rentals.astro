@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import RentalInquiryForm from '../components/forms/RentalInquiryForm.astro';
 import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 
@@ -303,6 +304,8 @@ const localBusinessSchema = {
 			</div>
 		</div>
 	</section>
+
+	<RentalInquiryForm pageSource="The Villages Rentals" idPrefix="rental-villages" defaultLocation="The Villages, FL" />
 
 	<!-- CTA Section -->
 	<section class="py-16 bg-gray-900 text-white">

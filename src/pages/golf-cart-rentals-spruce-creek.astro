@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import RentalInquiryForm from '../components/forms/RentalInquiryForm.astro';
 import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 
@@ -403,6 +404,8 @@ const localBusinessSchema = {
 			</div>
 		</div>
 	</section>
+
+	<RentalInquiryForm pageSource="Spruce Creek Rentals" idPrefix="rental-sprucecreek" defaultLocation="Spruce Creek, FL" />
 
 	<!-- CTA Section -->
 	<section class="py-16 bg-gray-900 text-white">

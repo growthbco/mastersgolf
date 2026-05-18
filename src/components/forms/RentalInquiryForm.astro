@@ -1,0 +1,114 @@
+---
+interface Props {
+	pageSource: string;
+	idPrefix: string;
+	heading?: string;
+	subheading?: string;
+	defaultLocation?: string;
+	bgClass?: string;
+}
+
+const {
+	pageSource,
+	idPrefix,
+	heading = 'Request a Rental Quote',
+	subheading = 'Fill out the form below and our rental manager will check availability and contact you promptly.',
+	defaultLocation = '',
+	bgClass = 'bg-gray-50',
+} = Astro.props;
+---
+
+<section class={`py-16 ${bgClass}`}>
+	<div class="container mx-auto px-4 max-w-3xl">
+		<div class="text-center mb-8">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-3">{heading}</h2>
+			<p class="text-lg text-gray-700">{subheading}</p>
+		</div>
+		<div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+			<form
+				name="rental-inquiry"
+				method="POST"
+				data-netlify="true"
+				netlify-honeypot="bot-field"
+				action="/success"
+				class="space-y-5"
+			>
+				<input type="hidden" name="form-name" value="rental-inquiry" />
+				<input type="hidden" name="page_source" value={pageSource} />
+				<p class="hidden">
+					<label>Don't fill this out if you're human: <input name="bot-field" /></label>
+				</p>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+					<div>
+						<label for={`${idPrefix}-name`} class="block text-sm font-bold text-gray-900 mb-1">Full Name <span class="text-red-600">*</span></label>
+						<input type="text" id={`${idPrefix}-name`} name="name" required placeholder="Your name" autocomplete="name" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+					</div>
+					<div>
+						<label for={`${idPrefix}-phone`} class="block text-sm font-bold text-gray-900 mb-1">Phone <span class="text-red-600">*</span></label>
+						<input type="tel" id={`${idPrefix}-phone`} name="phone" required placeholder="(352) 555-1234" autocomplete="tel" inputmode="tel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+					</div>
+				</div>
+
+				<div>
+					<label for={`${idPrefix}-email`} class="block text-sm font-bold text-gray-900 mb-1">Email <span class="text-red-600">*</span></label>
+					<input type="email" id={`${idPrefix}-email`} name="email" required placeholder="you@email.com" autocomplete="email" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+					<div>
+						<label for={`${idPrefix}-cart-type`} class="block text-sm font-bold text-gray-900 mb-1">Cart Type <span class="text-red-600">*</span></label>
+						<select id={`${idPrefix}-cart-type`} name="cart_type" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
+							<option value="">Select cart...</option>
+							<option value="2-Seater">2-Seater</option>
+							<option value="4-Seater">4-Seater</option>
+							<option value="6-Seater">6-Seater</option>
+							<option value="Utility Cart">Utility Cart</option>
+							<option value="Not sure">Not sure</option>
+						</select>
+					</div>
+					<div>
+						<label for={`${idPrefix}-cart-qty`} class="block text-sm font-bold text-gray-900 mb-1"># of Carts</label>
+						<input type="number" id={`${idPrefix}-cart-qty`} name="cart_quantity" min="1" placeholder="1" inputmode="numeric" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+					<div>
+						<label for={`${idPrefix}-start`} class="block text-sm font-bold text-gray-900 mb-1">Start Date <span class="text-red-600">*</span></label>
+						<input type="date" id={`${idPrefix}-start`} name="start_date" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+					</div>
+					<div>
+						<label for={`${idPrefix}-end`} class="block text-sm font-bold text-gray-900 mb-1">End Date <span class="text-red-600">*</span></label>
+						<input type="date" id={`${idPrefix}-end`} name="end_date" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+					</div>
+				</div>
+
+				<div>
+					<label for={`${idPrefix}-delivery`} class="block text-sm font-bold text-gray-900 mb-1">Delivery Address / Location <span class="text-red-600">*</span></label>
+					<input type="text" id={`${idPrefix}-delivery`} name="delivery_address" required value={defaultLocation} placeholder="Street, city, community, or venue" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+				</div>
+
+				<div>
+					<label for={`${idPrefix}-notes`} class="block text-sm font-bold text-gray-900 mb-1">Additional Notes</label>
+					<textarea id={`${idPrefix}-notes`} name="notes" rows="4" placeholder="Anything else we should know about your rental." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
+				</div>
+
+				<div class="flex items-start gap-3 pt-1">
+					<input type="checkbox" id={`${idPrefix}-sms-consent`} name="sms_consent" value="yes" class="mt-1 h-4 w-4 rounded border-gray-400 text-brand-green focus:ring-brand-green" />
+					<label for={`${idPrefix}-sms-consent`} class="text-sm text-gray-700 leading-relaxed">
+						I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry, including appointment reminders, service updates, quotes, and follow-up communications. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green font-bold underline hover:opacity-80">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green font-bold underline hover:opacity-80">Terms and Conditions</a>.
+					</label>
+				</div>
+
+				<button type="submit" class="w-full bg-brand-green text-white font-bold uppercase tracking-wide py-3 px-4 rounded-md hover:opacity-90 transition-colors">
+					Check Availability
+				</button>
+
+				<p class="text-center text-xs text-gray-500">
+					Your information is secure and will never be shared.
+				</p>
+			</form>
+		</div>
+	</div>
+</section>

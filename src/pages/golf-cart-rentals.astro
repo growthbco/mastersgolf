@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import FAQSchema from '../components/FAQSchema.astro';
 import Schema from '../components/Schema.astro';
+import RentalInquiryForm from '../components/forms/RentalInquiryForm.astro';
 
 // Service Schema for Golf Cart Rentals
 const rentalServiceSchema = {
@@ -607,6 +608,8 @@ const rentalFAQs = [
 			</div>
 		</div>
 	</section>
+
+	<RentalInquiryForm pageSource="Rentals Hub" idPrefix="rental-hub" />
 
 	<!-- Related Articles -->
 	<section class="py-16 bg-white">

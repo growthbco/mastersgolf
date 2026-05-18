@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CartInquiryForm from '../components/forms/CartInquiryForm.astro';
 import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
@@ -508,6 +509,8 @@ const localBusinessSchema = {
 			</div>
 		</div>
 	</section>
+
+	<CartInquiryForm pageSource="OTOW Sales" idPrefix="sales-otow" />
 
 	<!-- CTA Section -->
 	<section class="py-16 bg-gray-900 text-white">
