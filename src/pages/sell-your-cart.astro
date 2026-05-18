@@ -299,25 +299,101 @@ const sellCartSchema = {
 				Please fill out the form below. Our team will review the details, follow up for photos if needed, and deliver a fair market quote quickly.
 			</p>
 		</div>
-		<div class="container mx-auto px-4 max-w-5xl">
-			<iframe
-				src="https://links.roadsidelaunch.com/widget/form/CcrESm0x8XAjhRTIx2KQ"
-				style="width:100%;height:900px;border:none;"
-				id="inline-CcrESm0x8XAjhRTIx2KQ"
-				data-layout="{'id':'INLINE'}"
-				data-trigger-type="alwaysShow"
-				data-trigger-value=""
-				data-activation-type="alwaysActivated"
-				data-activation-value=""
-				data-deactivation-type="neverDeactivate"
-				data-deactivation-value=""
-				data-form-name="Masters Golf Cart Sell Cart Form"
-				data-height="900"
-				data-layout-iframe-id="inline-CcrESm0x8XAjhRTIx2KQ"
-				data-form-id="CcrESm0x8XAjhRTIx2KQ"
-				title="Masters Golf Cart Sell Cart Form"
-				loading="lazy"
-			></iframe>
+		<div class="container mx-auto px-4 max-w-3xl">
+			<div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+				<form
+					name="sell-cart"
+					method="POST"
+					data-netlify="true"
+					netlify-honeypot="bot-field"
+					action="/success"
+					class="space-y-5"
+				>
+					<input type="hidden" name="form-name" value="sell-cart" />
+					<p class="hidden">
+						<label>Don't fill this out if you're human: <input name="bot-field" /></label>
+					</p>
+
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						<div>
+							<label for="sell-name" class="block text-sm font-bold text-gray-900 mb-1">Full Name <span class="text-red-600">*</span></label>
+							<input type="text" id="sell-name" name="name" required placeholder="Your name" autocomplete="name" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+						</div>
+						<div>
+							<label for="sell-phone" class="block text-sm font-bold text-gray-900 mb-1">Phone <span class="text-red-600">*</span></label>
+							<input type="tel" id="sell-phone" name="phone" required placeholder="(352) 555-1234" autocomplete="tel" inputmode="tel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+						</div>
+					</div>
+
+					<div>
+						<label for="sell-email" class="block text-sm font-bold text-gray-900 mb-1">Email <span class="text-red-600">*</span></label>
+						<input type="email" id="sell-email" name="email" required placeholder="you@email.com" autocomplete="email" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+					</div>
+
+					<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+						<div>
+							<label for="sell-make" class="block text-sm font-bold text-gray-900 mb-1">Make / Brand</label>
+							<input type="text" id="sell-make" name="cart_make" placeholder="Club Car, EZGO, Yamaha, etc." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+						</div>
+						<div>
+							<label for="sell-model" class="block text-sm font-bold text-gray-900 mb-1">Model</label>
+							<input type="text" id="sell-model" name="cart_model" placeholder="Precedent, RXV, Drive 2, etc." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+						</div>
+						<div>
+							<label for="sell-year" class="block text-sm font-bold text-gray-900 mb-1">Year</label>
+							<input type="text" id="sell-year" name="cart_year" placeholder="e.g. 2019" inputmode="numeric" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+						</div>
+					</div>
+
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						<div>
+							<label for="sell-fuel" class="block text-sm font-bold text-gray-900 mb-1">Gas or Electric</label>
+							<select id="sell-fuel" name="cart_fuel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
+								<option value="">Select...</option>
+								<option value="Electric">Electric</option>
+								<option value="Gas">Gas</option>
+								<option value="Lithium">Lithium</option>
+								<option value="Not sure">Not sure</option>
+							</select>
+						</div>
+						<div>
+							<label for="sell-condition" class="block text-sm font-bold text-gray-900 mb-1">Condition</label>
+							<select id="sell-condition" name="cart_condition" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
+								<option value="">Select...</option>
+								<option value="Excellent">Excellent</option>
+								<option value="Good">Good</option>
+								<option value="Fair">Fair</option>
+								<option value="Needs repair">Needs repair</option>
+							</select>
+						</div>
+					</div>
+
+					<div>
+						<label for="sell-asking" class="block text-sm font-bold text-gray-900 mb-1">Asking Price (optional)</label>
+						<input type="text" id="sell-asking" name="asking_price" placeholder="$" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+					</div>
+
+					<div>
+						<label for="sell-details" class="block text-sm font-bold text-gray-900 mb-1">Cart Details <span class="text-red-600">*</span></label>
+						<textarea id="sell-details" name="details" rows="5" required placeholder="Tell us about your cart — accessories, batteries, lift kit, body color, recent service, anything else we should know." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
+					</div>
+
+					<div class="flex items-start gap-3 pt-1">
+						<input type="checkbox" id="sell-sms-consent" name="sms_consent" value="yes" class="mt-1 h-4 w-4 rounded border-gray-400 text-brand-green focus:ring-brand-green" />
+						<label for="sell-sms-consent" class="text-sm text-gray-700 leading-relaxed">
+							I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry, including appointment reminders, service updates, quotes, and follow-up communications. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green font-bold underline hover:opacity-80">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green font-bold underline hover:opacity-80">Terms and Conditions</a>.
+						</label>
+					</div>
+
+					<button type="submit" class="w-full bg-brand-green text-white font-bold uppercase tracking-wide py-3 px-4 rounded-md hover:opacity-90 transition-colors">
+						Request My Quote
+					</button>
+
+					<p class="text-center text-xs text-gray-500">
+						Your information is secure and will never be shared.
+					</p>
+				</form>
+			</div>
 		</div>
 	</section>
 
@@ -409,7 +485,6 @@ const sellCartSchema = {
 		</div>
 	</section>
 
-	<script src="https://links.roadsidelaunch.com/js/form_embed.js" defer></script>
 </Layout>
 
 

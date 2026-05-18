@@ -127,27 +127,91 @@ import companyData from '../data/company.json';
 					Fill out our rental form below and our rental manager will check availability 
 					and contact you promptly.
 				</p>
-				<div class="bg-white rounded-lg p-4 md:p-6 shadow-lg" style="min-height: 951px;">
-					<iframe
-						src="https://links.roadsidelaunch.com/widget/form/mZQ0bdm8b4nKRZtU0VoD"
-						style="width:100%;height:100%;border:none;border-radius:6px;min-height:951px;"
-						id="inline-mZQ0bdm8b4nKRZtU0VoD" 
-						data-layout="{'id':'INLINE'}"
-						data-trigger-type="alwaysShow"
-						data-trigger-value=""
-						data-activation-type="alwaysActivated"
-						data-activation-value=""
-						data-deactivation-type="neverDeactivate"
-						data-deactivation-value=""
-						data-form-name="Masters Golf Cart Golf Cart Rental"
-						data-height="951"
-						data-layout-iframe-id="inline-mZQ0bdm8b4nKRZtU0VoD"
-						data-form-id="mZQ0bdm8b4nKRZtU0VoD"
-						title="Masters Golf Cart Golf Cart Rental"
+				<div class="bg-white rounded-lg p-6 md:p-8 shadow-lg">
+					<form
+						name="rental-inquiry"
+						method="POST"
+						data-netlify="true"
+						netlify-honeypot="bot-field"
+						action="/success"
+						class="space-y-5"
 					>
-					</iframe>
+						<input type="hidden" name="form-name" value="rental-inquiry" />
+						<p class="hidden">
+							<label>Don't fill this out if you're human: <input name="bot-field" /></label>
+						</p>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div>
+								<label for="rentals-name" class="block text-sm font-bold text-gray-900 mb-1">Full Name <span class="text-red-600">*</span></label>
+								<input type="text" id="rentals-name" name="name" required placeholder="Your name" autocomplete="name" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+							</div>
+							<div>
+								<label for="rentals-phone" class="block text-sm font-bold text-gray-900 mb-1">Phone <span class="text-red-600">*</span></label>
+								<input type="tel" id="rentals-phone" name="phone" required placeholder="(352) 555-1234" autocomplete="tel" inputmode="tel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+							</div>
+						</div>
+
+						<div>
+							<label for="rentals-email" class="block text-sm font-bold text-gray-900 mb-1">Email <span class="text-red-600">*</span></label>
+							<input type="email" id="rentals-email" name="email" required placeholder="you@email.com" autocomplete="email" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div>
+								<label for="rentals-cart-type" class="block text-sm font-bold text-gray-900 mb-1">Cart Type <span class="text-red-600">*</span></label>
+								<select id="rentals-cart-type" name="cart_type" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
+									<option value="">Select cart...</option>
+									<option value="2-Seater">2-Seater</option>
+									<option value="4-Seater">4-Seater</option>
+									<option value="6-Seater">6-Seater</option>
+									<option value="Utility Cart">Utility Cart</option>
+									<option value="Not sure">Not sure</option>
+								</select>
+							</div>
+							<div>
+								<label for="rentals-cart-qty" class="block text-sm font-bold text-gray-900 mb-1"># of Carts</label>
+								<input type="number" id="rentals-cart-qty" name="cart_quantity" min="1" placeholder="1" inputmode="numeric" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+							</div>
+						</div>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div>
+								<label for="rentals-start" class="block text-sm font-bold text-gray-900 mb-1">Start Date <span class="text-red-600">*</span></label>
+								<input type="date" id="rentals-start" name="start_date" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+							</div>
+							<div>
+								<label for="rentals-end" class="block text-sm font-bold text-gray-900 mb-1">End Date <span class="text-red-600">*</span></label>
+								<input type="date" id="rentals-end" name="end_date" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+							</div>
+						</div>
+
+						<div>
+							<label for="rentals-delivery" class="block text-sm font-bold text-gray-900 mb-1">Delivery Address / Location <span class="text-red-600">*</span></label>
+							<input type="text" id="rentals-delivery" name="delivery_address" required placeholder="Street, city, community, or venue" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
+						</div>
+
+						<div>
+							<label for="rentals-notes" class="block text-sm font-bold text-gray-900 mb-1">Additional Notes</label>
+							<textarea id="rentals-notes" name="notes" rows="4" placeholder="Anything else we should know about your rental." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
+						</div>
+
+						<div class="flex items-start gap-3 pt-1">
+							<input type="checkbox" id="rentals-sms-consent" name="sms_consent" value="yes" class="mt-1 h-4 w-4 rounded border-gray-400 text-brand-green focus:ring-brand-green" />
+							<label for="rentals-sms-consent" class="text-sm text-gray-700 leading-relaxed">
+								I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry, including appointment reminders, service updates, quotes, and follow-up communications. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green font-bold underline hover:opacity-80">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green font-bold underline hover:opacity-80">Terms and Conditions</a>.
+							</label>
+						</div>
+
+						<button type="submit" class="w-full bg-brand-green text-white font-bold uppercase tracking-wide py-3 px-4 rounded-md hover:opacity-90 transition-colors">
+							Check Availability
+						</button>
+
+						<p class="text-center text-xs text-gray-500">
+							Your information is secure and will never be shared.
+						</p>
+					</form>
 				</div>
-				<script src="https://links.roadsidelaunch.com/js/form_embed.js"></script>
 			</div>
 		</div>
 	</section>
