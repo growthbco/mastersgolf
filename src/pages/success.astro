@@ -1,28 +1,121 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import companyData from '../data/company.json';
 ---
 
-<Layout title="Thank You - Masters Golf Cars" description="Thank you for contacting Masters Golf Cars">
-	<section class="py-20 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-4xl">
-			<div class="bg-white rounded-lg shadow-lg p-12 text-center">
-				<div class="mb-6">
-					<span style="color: #86CA26;" class="text-8xl  font-bold">✓</span>
+<Layout
+	title="Thank You - Masters Golf Cars"
+	description="Thank you for contacting Masters Golf Cars. We've received your inquiry and will follow up shortly."
+>
+	<!-- Confirmation Hero -->
+	<section class="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
+		<div class="container mx-auto px-4 max-w-3xl">
+			<div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 md:p-12 text-center">
+				<div class="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-brand-green/15">
+					<svg class="h-12 w-12 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+					</svg>
 				</div>
-				<h1 class="text-4xl font-bold mb-6 text-gray-900">Thank You!</h1>
-				<p class="text-xl text-gray-700 mb-8">
-					We've received your message and will get back to you as soon as possible.
+				<h1 class="text-4xl md:text-5xl font-black mb-4 text-gray-900">Thanks — we got your request.</h1>
+				<p class="text-lg md:text-xl text-gray-700 mb-2">
+					A member of our team will follow up by phone or email <strong>by the next business day</strong>.
 				</p>
-				<div class="flex flex-wrap justify-center gap-4">
-					<a href="/" style="background-color: #86CA26;" class=" text-white px-8 py-3 rounded-lg font-bold  transition" style="--hover-bg: #6fa020;">
-						Return Home
+				<p class="text-sm text-gray-500 mb-8">
+					Business hours: Monday – Friday, 8:00 AM – 5:00 PM. Saturday by appointment.
+				</p>
+
+				<!-- Urgent? Call Now -->
+				<div class="bg-gray-900 text-white rounded-xl p-6 md:p-8 mb-6">
+					<p class="text-sm uppercase tracking-wider text-gray-400 mb-2">Need an answer sooner?</p>
+					<p class="text-2xl md:text-3xl font-black mb-4">Call us now</p>
+					<a
+						href={companyData.contact.phoneLink}
+						class="inline-flex items-center justify-center gap-3 bg-brand-green text-white font-bold uppercase tracking-wide py-4 px-8 rounded-lg hover:opacity-90 transition text-lg"
+					>
+						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+							<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+						</svg>
+						{companyData.contact.phone}
 					</a>
-					<a href="/inventory" class="bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-bold hover:bg-gray-300 transition">
-						Browse Inventory
-					</a>
+				</div>
+
+				<p class="text-sm text-gray-600">
+					<strong>What happens next?</strong> We review every request personally, confirm availability or pricing,
+					and reach out with answers — no auto-replies, no chatbots.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- While You Wait — Cross-sell -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4 max-w-6xl">
+			<h2 class="text-3xl font-black text-gray-900 text-center mb-3">While you're here</h2>
+			<p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+				Explore what else we offer — many customers rent first, then buy, or come back for service down the road.
+			</p>
+			<div class="grid gap-6 md:grid-cols-3">
+				<a href="/golf-cart-inventory" class="block bg-gray-50 hover:bg-white rounded-2xl p-8 border border-gray-200 hover:border-brand-green hover:shadow-lg transition group">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green group-hover:bg-brand-green group-hover:text-white transition">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+					</div>
+					<h3 class="text-xl font-black text-gray-900 mb-2">Browse Inventory</h3>
+					<p class="text-gray-600 mb-4">See every new and used golf cart we have in stock right now — photos, specs, and pricing.</p>
+					<span class="text-brand-green font-bold inline-flex items-center gap-1">View carts <span aria-hidden="true">→</span></span>
+				</a>
+
+				<a href="/golf-cart-rentals" class="block bg-gray-50 hover:bg-white rounded-2xl p-8 border border-gray-200 hover:border-brand-green hover:shadow-lg transition group">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green group-hover:bg-brand-green group-hover:text-white transition">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+					</div>
+					<h3 class="text-xl font-black text-gray-900 mb-2">Rent a Cart</h3>
+					<p class="text-gray-600 mb-4">Daily, weekly, or monthly rentals — including fleet rentals for events, tournaments, and weddings.</p>
+					<span class="text-brand-green font-bold inline-flex items-center gap-1">See rental options <span aria-hidden="true">→</span></span>
+				</a>
+
+				<a href="/golf-cart-repairs" class="block bg-gray-50 hover:bg-white rounded-2xl p-8 border border-gray-200 hover:border-brand-green hover:shadow-lg transition group">
+					<div class="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green group-hover:bg-brand-green group-hover:text-white transition">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+					</div>
+					<h3 class="text-xl font-black text-gray-900 mb-2">Service & Repairs</h3>
+					<p class="text-gray-600 mb-4">Local pickup and on-site service throughout Central Florida. 24-hour turnaround on most repairs.</p>
+					<span class="text-brand-green font-bold inline-flex items-center gap-1">Learn more <span aria-hidden="true">→</span></span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Trust + Review CTA -->
+	<section class="py-16 bg-gray-50">
+		<div class="container mx-auto px-4 max-w-4xl">
+			<div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 md:p-10">
+				<div class="grid gap-8 md:grid-cols-2 items-center">
+					<div>
+						<div class="flex items-center gap-1 mb-3" aria-label="5 out of 5 stars">
+							{[0,1,2,3,4].map(() => (
+								<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.447a1 1 0 00-.364 1.118l1.287 3.957c.3.922-.755 1.688-1.54 1.118l-3.37-2.447a1 1 0 00-1.175 0l-3.37 2.447c-.784.57-1.838-.196-1.539-1.118l1.287-3.957a1 1 0 00-.363-1.118L2.05 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"/></svg>
+							))}
+						</div>
+						<h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-3">Trusted in Central Florida since 1999</h2>
+						<p class="text-gray-700">
+							26+ years serving Ocala, The Villages, Belleview, Gainesville, and surrounding communities.
+							Family-owned, locally operated, and the highest-rated golf cart dealer in the area.
+						</p>
+					</div>
+					<div class="text-center md:text-right">
+						<a href="https://g.page/r/Ce6p7W6HMgpTEBM/review" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-6 py-3 font-bold uppercase text-sm transition rounded-lg">
+							<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+								<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+								<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+								<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+							</svg>
+							Leave us a Google Review
+						</a>
+						<p class="text-xs text-gray-500 mt-3">Happy with a past experience? Reviews help our small business.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 </Layout>
-
