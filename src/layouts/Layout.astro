@@ -191,6 +191,52 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 			}
 		</style>
 
+
+		<!-- Lead source attribution: remembers how the visitor first arrived
+		     (Google ad click, search, Facebook, referral) and sends a copy of
+		     every form submission — with that attribution — to the Masters
+		     system, so new customers are created with their source already
+		     stamped. First touch wins; fails silently if unreachable. -->
+		<script is:inline>
+		(function () {
+			var KEY = 'mgc_attr';
+			try {
+				if (!localStorage.getItem(KEY)) {
+					var p = new URLSearchParams(location.search);
+					localStorage.setItem(KEY, JSON.stringify({
+						utm_source: p.get('utm_source') || '',
+						utm_medium: p.get('utm_medium') || '',
+						utm_campaign: p.get('utm_campaign') || '',
+						gclid: p.get('gclid') || '',
+						referrer: document.referrer || '',
+						landing_page: location.href
+					}));
+				}
+			} catch (e) {}
+			document.addEventListener('submit', function (ev) {
+				var form = ev.target;
+				if (!form || !form.querySelector) return;
+				if (!form.hasAttribute('data-netlify') && !form.querySelector('input[name="form-name"]')) return;
+				try {
+					var data = {};
+					new FormData(form).forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
+					var attr = {};
+					try { attr = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+					for (var k in attr) if (attr[k] && !data[k]) data[k] = attr[k];
+					data.site = location.hostname;
+					data.key = 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv';
+					var payload = JSON.stringify(data);
+					var url = 'https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound';
+					if (navigator.sendBeacon) {
+						navigator.sendBeacon(url, new Blob([payload], { type: 'text/plain' }));
+					} else {
+						fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: payload, keepalive: true }).catch(function () {});
+					}
+				} catch (e) {}
+			}, true);
+		})();
+		</script>
+
 	</body>
 </html>
 
