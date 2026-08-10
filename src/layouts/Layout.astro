@@ -79,7 +79,16 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
 } : null;
 
 const siteUrl = 'https://mastersgolfcars.com';
-const currentUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+// Canonicals must be the FINAL url. Netlify serves trailing-slash URLs
+// and 301s the bare form — 14 pages canonicalized to a redirect.
+const canonicalPath = Astro.url.pathname.endsWith('/') || /\.[a-z]+$/.test(Astro.url.pathname)
+	? Astro.url.pathname
+	: Astro.url.pathname + '/';
+// 23 pages pass hardcoded canonicals without the slash — normalize those too.
+const rawCanonical = canonical || new URL(canonicalPath, siteUrl).toString();
+const currentUrl = /\.[a-z]+$/.test(rawCanonical) || rawCanonical.endsWith('/')
+	? rawCanonical
+	: rawCanonical + '/';
 const defaultOgImage = companyData.logo.startsWith('http') ? companyData.logo : `${siteUrl}${companyData.logo}`;
 const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`) : defaultOgImage;
 ---
