@@ -242,7 +242,7 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 			form.addEventListener('submit', function (ev) {
 				ev.preventDefault();
 				ev.stopPropagation();
-				var data = { chat: 'true', site: location.hostname, page: location.pathname, key: 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv' };
+				var data = { chat: 'true', brand: 'Masters Golf Cars', site: location.hostname, page: location.pathname, key: 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv' };
 				new FormData(form).forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
 				try {
 					var attr = JSON.parse(localStorage.getItem('mgc_attr') || '{}');
