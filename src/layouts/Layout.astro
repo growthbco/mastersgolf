@@ -144,11 +144,6 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 				--tw-ring-color: #86CA26;
 			}
 		</style>
-		<script
-			src="https://beta.leadconnectorhq.com/loader.js"
-			data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-			data-widget-id="695a85adb1df7983a02e82da">
-		</script>
 	</head>
 	<body class="min-h-screen bg-gray-50">
 		{!hideHeader && <Header />}
@@ -185,12 +180,66 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 					padding-bottom: 80px;
 				}
 			}
-			/* Ensure chat widget stays on top */
-			[data-widget-id] {
-				z-index: 50 !important;
-			}
 		</style>
 
+
+		<!-- Text-us chat widget. Replaces the GoHighLevel embed: messages go
+		     straight into the Masters system's Conversations as a text thread,
+		     staff replies arrive on the visitor's phone as real SMS. -->
+		<div id="mgc-chat" style="position:fixed;bottom:24px;right:24px;z-index:50;font-family:inherit;">
+			<button id="mgc-chat-btn" aria-label="Text us" style="display:flex;align-items:center;gap:10px;background:#86CA26;color:#fff;border:none;border-radius:9999px;padding:14px 22px;font-weight:700;font-size:16px;box-shadow:0 10px 25px rgba(0,0,0,.25);cursor:pointer;">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+				<span>Text us</span>
+			</button>
+			<div id="mgc-chat-panel" style="display:none;position:absolute;bottom:64px;right:0;width:320px;max-width:calc(100vw - 32px);background:#fff;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden;">
+				<div style="background:#1a1a1a;color:#fff;padding:14px 18px;">
+					<p style="margin:0;font-weight:700;">Masters Golf Cars</p>
+					<p style="margin:2px 0 0;font-size:12px;color:#bbb;">Send us a message — we text you right back.</p>
+				</div>
+				<form id="mgc-chat-form" style="padding:14px 18px;display:flex;flex-direction:column;gap:10px;">
+					<input name="name" required placeholder="Your name" style="border:1px solid #d1d5db;border-radius:8px;padding:9px 12px;font-size:14px;" />
+					<input name="phone" required type="tel" inputmode="tel" placeholder="Cell number" style="border:1px solid #d1d5db;border-radius:8px;padding:9px 12px;font-size:14px;" />
+					<textarea name="message" required rows="3" placeholder="How can we help?" style="border:1px solid #d1d5db;border-radius:8px;padding:9px 12px;font-size:14px;resize:none;"></textarea>
+					<button type="submit" style="background:#86CA26;color:#fff;border:none;border-radius:8px;padding:11px;font-weight:700;font-size:14px;cursor:pointer;">Send — text me back</button>
+					<p style="margin:0;font-size:10px;color:#9ca3af;text-align:center;">By sending, you agree we may text you back at this number. Reply STOP anytime.</p>
+				</form>
+				<div id="mgc-chat-done" style="display:none;padding:26px 18px;text-align:center;">
+					<p style="margin:0 0 6px;font-size:28px;">✅</p>
+					<p style="margin:0;font-weight:700;color:#111;">Got it!</p>
+					<p style="margin:4px 0 0;font-size:13px;color:#555;">Watch your texts — we reply fast during business hours.</p>
+				</div>
+			</div>
+		</div>
+		<script is:inline>
+		(function () {
+			var btn = document.getElementById('mgc-chat-btn');
+			var panel = document.getElementById('mgc-chat-panel');
+			var form = document.getElementById('mgc-chat-form');
+			var doneBox = document.getElementById('mgc-chat-done');
+			if (!btn || !panel || !form) return;
+			btn.addEventListener('click', function () {
+				panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+			});
+			form.addEventListener('submit', function (ev) {
+				ev.preventDefault();
+				ev.stopPropagation();
+				var data = { chat: 'true', site: location.hostname, key: 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv' };
+				new FormData(form).forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
+				try {
+					var attr = JSON.parse(localStorage.getItem('mgc_attr') || '{}');
+					for (var k in attr) if (attr[k] && !data[k]) data[k] = attr[k];
+				} catch (e) {}
+				fetch('https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound', {
+					method: 'POST',
+					headers: { 'Content-Type': 'text/plain' },
+					body: JSON.stringify(data),
+					keepalive: true
+				}).catch(function () {});
+				form.style.display = 'none';
+				doneBox.style.display = 'block';
+			}, true);
+		})();
+		</script>
 
 		<!-- Lead source attribution: remembers how the visitor first arrived
 		     (Google ad click, search, Facebook, referral) and sends a copy of
