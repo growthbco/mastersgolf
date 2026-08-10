@@ -2,7 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import CartCard from '../components/CartCard.astro';
 import Schema from '../components/Schema.astro';
-import inventoryData from '../data/inventory.json';
+import { loadInventory } from '../data/loadInventory';
+
+const inventoryData = await loadInventory();
 
 // Service Schema for Golf Cart Inventory/Sales
 const inventoryServiceSchema = {

@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
-import inventoryData from '../data/inventory.json';
+import { loadInventory } from '../data/loadInventory';
 
 export async function getStaticPaths() {
+	const inventoryData = await loadInventory();
 	return inventoryData
 		.filter(cart => cart.slug)
 		.map((cart) => ({
@@ -16,6 +17,7 @@ const { cart, slug } = Astro.props;
 const cartImages = cart.images && cart.images.length > 0 ? cart.images : [cart.image];
 const currentUrl = `https://mastersgolfcars.com/${slug}`;
 // Get similar units (exclude current cart, show all inventory items)
+const inventoryData = await loadInventory();
 const similarUnits = inventoryData.filter(c => c.id !== cart.id).slice(0, 5);
 
 // Product Schema for individual cart pages
@@ -163,7 +165,7 @@ const productSchema = {
 					</div>
 					<div class="flex justify-between items-center">
 						<p class="text-lg font-bold text-gray-900 uppercase">SALE PRICE</p>
-						<p class="text-3xl font-black text-brand-green">${cart.salePrice.toLocaleString()}</p>
+						<p class="text-3xl font-black text-brand-green">${(cart.salePrice || cart.price).toLocaleString()}</p>
 					</div>
 				</div>
 
