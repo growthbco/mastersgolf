@@ -217,22 +217,28 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 				var form = ev.target;
 				if (!form || !form.querySelector) return;
 				if (!form.hasAttribute('data-netlify') && !form.querySelector('input[name="form-name"]')) return;
+				// Take over the submit: Netlify's endpoint was silently rejecting
+				// real visitors (reCAPTCHA 400s) and losing leads. We post to the
+				// Masters system AND to Netlify, then always land the visitor on
+				// the thank-you page. Honeypot: bots that fill bot-field get the
+				// thank-you page too, but nothing is sent anywhere.
+				ev.preventDefault();
+				var done = form.getAttribute('action') || '/thank-you';
 				try {
+					var fd = new FormData(form);
+					if ((fd.get('bot-field') || '').toString().trim()) { window.location.href = done; return; }
 					var data = {};
-					new FormData(form).forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
+					fd.forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
 					var attr = {};
 					try { attr = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
 					for (var k in attr) if (attr[k] && !data[k]) data[k] = attr[k];
 					data.site = location.hostname;
 					data.key = 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv';
 					var payload = JSON.stringify(data);
-					var url = 'https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound';
-					if (navigator.sendBeacon) {
-						navigator.sendBeacon(url, new Blob([payload], { type: 'text/plain' }));
-					} else {
-						fetch(url, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: payload, keepalive: true }).catch(function () {});
-					}
+					fetch('https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: payload, keepalive: true }).catch(function () {});
+					fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(fd).toString(), keepalive: true }).catch(function () {});
 				} catch (e) {}
+				window.location.href = done;
 			}, true);
 		})();
 		</script>
