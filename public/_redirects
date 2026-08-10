@@ -38,6 +38,33 @@ http://mastersgolfcars.com/* https://mastersgolfcars.com/:splat 301!
 # RSS feed redirect (for compatibility)
 /rss.xml /rss 301
 
+# ── Backlink recovery (Aug 2026 audit) ──────────────────────────
+# ~50 external links point at old WordPress-era cart photos. Send them
+# to the gallery instead of a 404 so the link equity flows somewhere.
+/wp-content/uploads/* /gallery/ 301
+
+# Old used-carts page with live external links
+/used-golf-carts-for-sale-in-the-villages-and-ocala /golf-carts-for-sale-the-villages 301
+/used-golf-carts-for-sale-in-the-villages-and-ocala/ /golf-carts-for-sale-the-villages 301
+
+# ── Hacked-era spam pages: GONE, not redirected ─────────────────
+# The old WordPress site was compromised; spammers injected casino/adult
+# pages and built links to them. Redirecting these would funnel toxic
+# link equity into the real site — 410 tells Google they're gone for good.
+/situs-slot-* / 410
+/luchshie-onlajn-kazino-* / 410
+/oficialnyj-sajt-* / 410
+/japanese-submissive-* / 410
+/novye-igry-* / 410
+/horny-* / 410
+/baddiehub-* / 410
+/free-random-video-chat-* / 410
+/sweet-bonanza-* / 410
+/genshin-impact-* / 410
+/top-8-casino-* / 410
+/game-online-la-gi-* / 410
+/how-online-game-* / 410
+
 # Fallback - catch any remaining query params on main pages
 /*?* /:splat 301
 
