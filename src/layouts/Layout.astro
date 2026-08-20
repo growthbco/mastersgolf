@@ -16,10 +16,11 @@ interface Props {
 
 const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false, canonical, ogImage, breadcrumbs } = Astro.props;
 
-// Organization Schema (site-wide)
+// LocalBusiness Schema (site-wide) - carries local dealer signals on every page
 const organizationSchema = {
 	"@context": "https://schema.org",
-	"@type": "Organization",
+	"@type": "LocalBusiness",
+	"@id": "https://mastersgolfcars.com/#localbusiness",
 	"name": "Masters Golf Cars, LLC",
 	"alternateName": "Masters Golf Cars",
 	"url": "https://mastersgolfcars.com",
@@ -27,6 +28,9 @@ const organizationSchema = {
 	"image": "https://mastersgolfcars.com/images/logos/MastersGolfCarsLogo.png",
 	"description": companyData.description,
 	"foundingDate": "1999",
+	"priceRange": "$$",
+	"telephone": "+1-352-307-0111",
+	"email": "sales@mastersgolfcars.com",
 	"address": {
 		"@type": "PostalAddress",
 		"streetAddress": "12885 S US Hwy 441",
@@ -35,6 +39,25 @@ const organizationSchema = {
 		"postalCode": "34420",
 		"addressCountry": "US"
 	},
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": 29.034576,
+		"longitude": -82.025011
+	},
+	"openingHoursSpecification": [
+		{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+			"opens": "08:30",
+			"closes": "17:00"
+		},
+		{
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": "Saturday",
+			"opens": "09:00",
+			"closes": "14:00"
+		}
+	],
 	"contactPoint": {
 		"@type": "ContactPoint",
 		"telephone": "+1-352-307-0111",
@@ -46,6 +69,40 @@ const organizationSchema = {
 		"https://www.facebook.com/mastersgolfcars",
 		"https://www.instagram.com/mastersgolfcars/"
 	],
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Golf Cart Services",
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Golf Cart Rentals"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Golf Cart Sales"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Golf Cart Repairs"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Golf Cart Customization"
+				}
+			}
+		]
+	},
 	"areaServed": [
 		{
 			"@type": "County",

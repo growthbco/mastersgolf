@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import CartInquiryForm from '../components/forms/CartInquiryForm.astro';
 import Schema from '../components/Schema.astro';
+import FAQSchema from '../components/FAQSchema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
 
@@ -88,6 +89,33 @@ const localBusinessSchema = {
 		}
 	]
 };
+
+const salesOcalaFAQs = [
+	{
+		question: "Does Masters Golf Cars sell new and used golf carts?",
+		answer: "Yes. Masters Golf Cars sells both new and pre-owned golf carts, and we also build custom carts. Visit us at 12885 S US Hwy 441, Belleview, FL 34420 or call (352) 307-0111."
+	},
+	{
+		question: "Where can I buy a golf cart near Ocala?",
+		answer: "Masters Golf Cars is a family-run golf cart dealer just south of Ocala at 12885 S US Hwy 441 in Belleview, FL 34420. We have sold new and pre-owned carts to the Ocala area since 1999."
+	},
+	{
+		question: "Is Masters Golf Cars a reputable golf cart dealer near Ocala?",
+		answer: "Masters Golf Cars is one of the area's longest-running golf cart dealers, family-run since 1999 and serving Marion, Sumter, Lake, and Alachua counties."
+	},
+	{
+		question: "What golf cart brands does Masters Golf Cars sell?",
+		answer: "We sell and service Club Car, Yamaha, and EZ-GO golf carts, along with Trojan batteries."
+	},
+	{
+		question: "What areas do you serve?",
+		answer: "We serve Ocala, The Villages, Belleview, Gainesville, and surrounding Central Florida communities across Marion, Sumter, Lake, and Alachua counties."
+	},
+	{
+		question: "What are your hours?",
+		answer: "We are open Monday through Friday 8:30am to 5:00pm and Saturday 9:00am to 2:00pm. Call (352) 307-0111 or email sales@mastersgolfcars.com."
+	}
+];
 ---
 
 <Layout
@@ -535,5 +563,28 @@ const localBusinessSchema = {
 		</div>
 	</section>
 
+	<!-- FAQ Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Ocala Golf Cart Sales FAQs</h2>
+				<div class="space-y-2">
+					{salesOcalaFAQs.map((faq) => (
+						<details class="bg-gray-50 rounded-lg p-4 shadow">
+							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
+								<span>{faq.question}</span>
+								<svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</summary>
+							<p class="mt-4 text-gray-700">{faq.answer}</p>
+						</details>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<Schema schema={localBusinessSchema} />
+	<FAQSchema faqs={salesOcalaFAQs} />
 </Layout>

@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ServiceRequestForm from '../components/forms/ServiceRequestForm.astro';
 import Schema from '../components/Schema.astro';
+import FAQSchema from '../components/FAQSchema.astro';
 import companyData from '../data/company.json';
 
 const localBusinessSchema = {
@@ -31,6 +32,29 @@ const localBusinessSchema = {
 		"longitude": "-82.025011"
 	}
 };
+
+const repairsBelleviewFAQs = [
+	{
+		question: "Where can I get golf cart repair in Belleview, FL?",
+		answer: "Masters Golf Cars provides golf cart service and repairs at 12885 S US Hwy 441, Belleview, FL 34420, across from the Market of Marion. Call (352) 307-0111 to schedule service."
+	},
+	{
+		question: "Is Masters Golf Cars a reputable golf cart repair shop in Belleview?",
+		answer: "Masters Golf Cars is a family-run, established Central Florida service shop that has operated in Belleview since 1999, handling repairs for carts across Marion, Sumter, Lake, and Alachua counties."
+	},
+	{
+		question: "What golf cart brands does Masters Golf Cars service?",
+		answer: "We service Club Car, Yamaha, and EZ-GO golf carts and install Trojan batteries."
+	},
+	{
+		question: "What areas do you serve for golf cart repairs?",
+		answer: "We serve Belleview, Ocala, The Villages, Gainesville, and surrounding Central Florida communities across Marion, Sumter, Lake, and Alachua counties."
+	},
+	{
+		question: "What are your service hours?",
+		answer: "We are open Monday through Friday 8:30am to 5:00pm and Saturday 9:00am to 2:00pm. Call (352) 307-0111 or email sales@mastersgolfcars.com."
+	}
+];
 ---
 
 <Layout 
@@ -241,5 +265,28 @@ const localBusinessSchema = {
 		</div>
 	</section>
 
+	<!-- FAQ Section -->
+	<section class="py-16 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Belleview Golf Cart Repair FAQs</h2>
+				<div class="space-y-2">
+					{repairsBelleviewFAQs.map((faq) => (
+						<details class="bg-gray-50 rounded-lg p-4 shadow">
+							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
+								<span>{faq.question}</span>
+								<svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</summary>
+							<p class="mt-4 text-gray-700">{faq.answer}</p>
+						</details>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<Schema schema={localBusinessSchema} />
+	<FAQSchema faqs={repairsBelleviewFAQs} />
 </Layout>
