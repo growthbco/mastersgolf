@@ -84,6 +84,7 @@ const pageGroups = [
 	{
 		comment: 'Golf Cart Repairs',
 		pages: [
+			{ url: '/lithium-golf-cart-batteries/', changefreq: 'monthly', priority: '0.8' },
 			{ url: '/golf-cart-repairs/', changefreq: 'monthly', priority: '0.9' },
 			{ url: '/schedule-golf-cart-service/', changefreq: 'monthly', priority: '0.8' },
 			{ url: '/golf-cart-repairs-ocala/', changefreq: 'monthly', priority: '0.7' },
