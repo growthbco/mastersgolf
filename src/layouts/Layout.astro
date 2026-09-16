@@ -153,8 +153,24 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
+    <meta charset="UTF-8" />
+    <!-- Google Analytics: website traffic and contact intent -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-B3RLS7RLLK"></script>
+    <script is:inline>
+      window['ga-disable-G-B3RLS7RLLK'] = navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true;
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B3RLS7RLLK', {allow_google_signals: false, allow_ad_personalization_signals: false});
+      document.addEventListener('click', function(event) {
+        const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+        if (!link) return;
+        const href = link.getAttribute('href') || '';
+        const method = href.startsWith('tel:') ? 'phone' : href.startsWith('mailto:') ? 'email' : href.startsWith('sms:') ? 'sms' : null;
+        if (method) gtag('event', 'contact_click', {contact_method: method});
+      });
+    </script>
+    <meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="google-site-verification" content="wdMl3wVlXoJKzGvAVZjAJ4mAYgoG7XoMZ1MUmWNsVLw" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
