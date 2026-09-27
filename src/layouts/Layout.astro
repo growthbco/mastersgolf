@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Schema from '../components/Schema.astro';
 import CallBar from '../components/CallBar.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 import '../styles/global.css';
 import '../styles/design.css';
 import companyData from '../data/company.json';
@@ -218,6 +219,7 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		<Footer />
 		
 		<CallBar quoteHref={quoteHref} />
+		<ChatWidget />
 	</body>
 </html>
 

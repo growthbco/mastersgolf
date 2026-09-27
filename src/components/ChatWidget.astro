@@ -1,0 +1,193 @@
+---
+/*
+ * Text-us chat widget → Masters CRM (websiteLeadInbound).
+ * A visitor leaves their phone + message; it lands in Conversations as an
+ * inbound SMS thread and staff reply goes back to them as a real text.
+ * The shared key is intentionally client-side (server throttles SMS).
+ */
+import companyData from '../data/company.json';
+---
+
+<div class="mgc-chat" data-mgc-chat>
+	<!-- Launcher -->
+	<button type="button" class="mgc-launch" data-mgc-open aria-expanded="false" aria-controls="mgc-panel" aria-label="Text us">
+		<svg class="mgc-ic-chat" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3 20.5l1.45-5.6A8.5 8.5 0 1 1 21 11.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+		<span class="mgc-launch-label">Text&nbsp;us</span>
+	</button>
+
+	<!-- Panel -->
+	<div class="mgc-panel" id="mgc-panel" role="dialog" aria-modal="false" aria-label="Text Masters Golf Cars" hidden>
+		<div class="mgc-head">
+			<div>
+				<p class="mgc-title">Text us</p>
+				<p class="mgc-sub">We reply by text, usually fast.</p>
+			</div>
+			<button type="button" class="mgc-x" data-mgc-close aria-label="Close">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+			</button>
+		</div>
+
+		<form class="mgc-body" data-mgc-form novalidate>
+			<div class="mgc-chips" role="group" aria-label="What is this about?">
+				<button type="button" class="mgc-chip" data-mgc-topic="Rental">Rental</button>
+				<button type="button" class="mgc-chip" data-mgc-topic="Service">Service</button>
+				<button type="button" class="mgc-chip" data-mgc-topic="Buying">Buying</button>
+			</div>
+			<label class="mgc-field"><span>Name</span><input type="text" name="name" autocomplete="name" placeholder="Your name" /></label>
+			<label class="mgc-field"><span>Mobile number <em>*</em></span><input type="tel" name="phone" inputmode="tel" autocomplete="tel" required placeholder="(352) 555-1234" /></label>
+			<label class="mgc-field"><span>Message</span><textarea name="message" rows="3" placeholder="How can we help?"></textarea></label>
+			<!-- honeypot: humans never see it -->
+			<input type="text" name="bot_field" class="mgc-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+			<button type="submit" class="mgc-send" data-mgc-send>Send text</button>
+			<p class="mgc-fine">By texting you agree to receive texts from Masters Golf Cars. Msg &amp; data rates may apply.</p>
+		</form>
+
+		<div class="mgc-done" data-mgc-done hidden>
+			<div class="mgc-check" aria-hidden="true">
+				<svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+			</div>
+			<p class="mgc-done-t">Got it — we'll text you right back.</p>
+			<p class="mgc-done-s" data-mgc-done-sub></p>
+		</div>
+	</div>
+</div>
+
+<script is:inline define:vars={{ phoneLink: companyData.contact.phoneLink }}>
+	(function () {
+		var ENDPOINT = 'https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound';
+		var KEY = 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv';
+		var root = document.querySelector('[data-mgc-chat]');
+		if (!root) return;
+		var panel = root.querySelector('#mgc-panel');
+		var openBtn = root.querySelector('[data-mgc-open]');
+		var closeBtn = root.querySelector('[data-mgc-close]');
+		var form = root.querySelector('[data-mgc-form]');
+		var doneEl = root.querySelector('[data-mgc-done]');
+		var doneSub = root.querySelector('[data-mgc-done-sub]');
+		var sendBtn = root.querySelector('[data-mgc-send]');
+		var topic = '';
+
+		function setOpen(open) {
+			panel.hidden = !open;
+			openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+			root.classList.toggle('is-open', open);
+			if (open) { var f = form.querySelector('input[name="phone"]'); if (f) setTimeout(function () { f.focus(); }, 60); }
+		}
+		openBtn.addEventListener('click', function () { setOpen(panel.hidden); });
+		closeBtn.addEventListener('click', function () { setOpen(false); });
+		document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) setOpen(false); });
+
+		root.querySelectorAll('[data-mgc-topic]').forEach(function (chip) {
+			chip.addEventListener('click', function () {
+				var t = chip.getAttribute('data-mgc-topic');
+				if (topic === t) { topic = ''; chip.classList.remove('on'); return; }
+				topic = t;
+				root.querySelectorAll('[data-mgc-topic]').forEach(function (c) { c.classList.toggle('on', c === chip); });
+			});
+		});
+
+		function attribution() {
+			var p = {};
+			try {
+				var q = new URLSearchParams(location.search);
+				['utm_source', 'utm_medium', 'utm_campaign', 'gclid'].forEach(function (k) { var v = q.get(k); if (v) p[k] = v; });
+			} catch (e) {}
+			p.referrer = document.referrer || '';
+			p.landing_page = location.pathname;
+			p.site = 'mastersgolfcars.com';
+			p.page = location.pathname;
+			return p;
+		}
+
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			var data = Object.assign({ key: KEY, chat: 'true' }, attribution());
+			var fd = new FormData(form);
+			var phone = (fd.get('phone') || '').toString().trim();
+			if (fd.get('bot_field')) return; // bot
+			if (phone.replace(/\D/g, '').length < 10) {
+				var pin = form.querySelector('input[name="phone"]');
+				pin.setCustomValidity('Please enter a valid mobile number');
+				pin.reportValidity();
+				setTimeout(function () { pin.setCustomValidity(''); }, 2000);
+				return;
+			}
+			data.name = (fd.get('name') || '').toString().trim();
+			data.phone = phone;
+			data.message = (fd.get('message') || '').toString().trim();
+			if (topic) data.topic = topic;
+
+			sendBtn.disabled = true;
+			sendBtn.textContent = 'Sending…';
+			fetch(ENDPOINT, {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(data),
+			})
+				.then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
+				.then(function (res) {
+					if (res && res.ok) {
+						form.hidden = true;
+						doneEl.hidden = false;
+						doneSub.textContent = 'We’ll reply to ' + phone + '.';
+					} else {
+						throw new Error((res && res.error) || 'failed');
+					}
+				})
+				.catch(function () {
+					sendBtn.disabled = false;
+					sendBtn.textContent = 'Send text';
+					var fine = form.querySelector('.mgc-fine');
+					fine.textContent = 'Something went wrong — please call us at ' + '';
+					fine.classList.add('mgc-err');
+					var a = document.createElement('a');
+					a.href = phoneLink; a.textContent = 'call us';
+					fine.textContent = 'Could not send — please ';
+					fine.appendChild(a);
+					fine.appendChild(document.createTextNode(' instead.'));
+				});
+		});
+	})();
+</script>
+
+<style>
+	.mgc-chat { position: fixed; right: 20px; bottom: 20px; z-index: 60; font-family: var(--fs, system-ui, sans-serif); }
+	.mgc-launch { display: inline-flex; align-items: center; gap: 9px; height: 52px; padding: 0 20px 0 18px; border: 0; border-radius: 999px; background: var(--green, #76c82f); color: #0e2b00; font-weight: 700; font-size: 15px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,.22); transition: transform .15s ease, box-shadow .15s ease; }
+	.mgc-launch:hover { transform: translateY(-1px); box-shadow: 0 14px 36px rgba(0,0,0,.28); }
+	.mgc-chat.is-open .mgc-launch { display: none; }
+	.mgc-launch-label { white-space: nowrap; }
+
+	.mgc-panel { position: absolute; right: 0; bottom: 0; width: 340px; max-width: calc(100vw - 32px); background: #fff; border: 1px solid var(--line, #d9d9d3); border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.28); }
+	.mgc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 16px 16px 14px; background: var(--ink, #121211); color: #fff; }
+	.mgc-title { margin: 0; font-weight: 800; font-size: 17px; }
+	.mgc-sub { margin: 2px 0 0; font-size: 13px; color: rgba(255,255,255,.7); }
+	.mgc-x { background: transparent; border: 0; color: rgba(255,255,255,.8); cursor: pointer; padding: 2px; line-height: 0; }
+	.mgc-x:hover { color: #fff; }
+
+	.mgc-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; }
+	.mgc-chips { display: flex; gap: 8px; }
+	.mgc-chip { flex: 1; padding: 7px 0; border: 1px solid var(--line, #d9d9d3); background: #fff; border-radius: 9px; font-size: 13px; font-weight: 600; color: var(--muted, #5c5c57); cursor: pointer; }
+	.mgc-chip.on { border-color: var(--green, #76c82f); background: #f2fbe9; color: var(--green-ink, #2f6b0c); }
+	.mgc-field { display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 600; color: var(--muted, #5c5c57); }
+	.mgc-field em { color: var(--green-ink, #2f6b0c); font-style: normal; }
+	.mgc-field input, .mgc-field textarea { font: inherit; font-size: 15px; font-weight: 400; color: var(--ink, #121211); padding: 10px 12px; border: 1px solid var(--line, #d9d9d3); border-radius: 10px; outline: none; background: #fff; resize: vertical; }
+	.mgc-field input:focus, .mgc-field textarea:focus { border-color: var(--green, #76c82f); box-shadow: 0 0 0 3px rgba(118,200,47,.2); }
+	.mgc-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+	.mgc-send { margin-top: 2px; padding: 12px; border: 0; border-radius: 10px; background: var(--green, #76c82f); color: #0e2b00; font-weight: 800; font-size: 15px; cursor: pointer; }
+	.mgc-send:disabled { opacity: .7; cursor: default; }
+	.mgc-fine { margin: 0; font-size: 11px; line-height: 15px; color: var(--muted, #5c5c57); }
+	.mgc-fine.mgc-err { color: #b42318; }
+	.mgc-fine a { color: var(--green-ink, #2f6b0c); font-weight: 600; }
+
+	.mgc-done { padding: 28px 20px 30px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+	.mgc-check { width: 48px; height: 48px; border-radius: 999px; background: #f2fbe9; color: var(--green-ink, #2f6b0c); display: flex; align-items: center; justify-content: center; }
+	.mgc-done-t { margin: 4px 0 0; font-weight: 800; font-size: 16px; color: var(--ink, #121211); }
+	.mgc-done-s { margin: 0; font-size: 14px; color: var(--muted, #5c5c57); }
+
+	/* Clear the mobile CallBar */
+	@media (max-width: 760px) {
+		.mgc-chat { right: 14px; bottom: 84px; }
+		.mgc-panel { width: calc(100vw - 28px); }
+	}
+	@media (prefers-reduced-motion: reduce) { .mgc-launch { transition: none; } }
+</style>
