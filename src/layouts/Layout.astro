@@ -2,7 +2,9 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Schema from '../components/Schema.astro';
+import CallBar from '../components/CallBar.astro';
 import '../styles/global.css';
+import '../styles/design.css';
 import companyData from '../data/company.json';
 
 interface Props {
@@ -12,9 +14,10 @@ interface Props {
 	canonical?: string;
 	ogImage?: string;
 	breadcrumbs?: Array<{ name: string; url: string }>;
+	quoteHref?: string;
 }
 
-const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false, canonical, ogImage, breadcrumbs } = Astro.props;
+const { title, description = "Masters Golf Cars offers golf carts for sale and rent in Belleview, FL near the Villages and Ocala.", hideHeader = false, canonical, ogImage, breadcrumbs, quoteHref = '#quote' } = Astro.props;
 
 // LocalBusiness Schema (site-wide) - carries local dealer signals on every page
 const organizationSchema = {
@@ -206,193 +209,24 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		<Schema schema={organizationSchema} />
 		{breadcrumbSchema && <Schema schema={breadcrumbSchema} />}
 		<slot name="schema" />
-		<style>
-			:root {
-				--brand-green: #86CA26;
-			}
-			.hover-green:hover {
-				color: #86CA26 !important;
-			}
-			.bg-brand-green {
-				background-color: #86CA26 !important;
-			}
-			.text-brand-green {
-				color: #86CA26 !important;
-			}
-			.border-brand-green {
-				border-color: #86CA26 !important;
-			}
-			.focus-brand-green:focus {
-				--tw-ring-color: #86CA26;
-			}
-		</style>
+		<script
+			src="https://beta.leadconnectorhq.com/loader.js"
+			data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+			data-widget-id="695a85adb1df7983a02e82da">
+		</script>
 	</head>
-	<body class="min-h-screen bg-gray-50">
-		{!hideHeader && <Header />}
+	<body class="ds min-h-screen">
+		{!hideHeader && <Header quoteHref={quoteHref} />}
 		<main>
 			<slot />
 		</main>
 		<Footer />
 		
-		<!-- Sticky Phone Number - Left side to avoid chat widget -->
-		<a 
-			href={companyData.contact.phoneLink}
-			class="fixed bottom-6 left-6 z-40 bg-brand-green text-white px-6 py-4 rounded-full shadow-2xl hover:bg-opacity-90 transition-all duration-300 flex items-center gap-3 group hover:scale-105"
-			aria-label="Call {companyData.contact.phone}"
-			style="z-index: 40;"
-		>
-			<!-- Phone Icon -->
-			<svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-			</svg>
-			<!-- Phone Number Text -->
-			<span class="font-bold text-lg whitespace-nowrap hidden sm:inline-block">
-				{companyData.contact.phone}
-			</span>
-			<!-- Mobile: Show just icon with number on hover/tap -->
-			<span class="font-bold text-lg whitespace-nowrap sm:hidden">
-				Call
-			</span>
-		</a>
-		
-		<style>
-			/* Ensure sticky phone doesn't interfere with chat widget or other elements */
-			@media (max-width: 640px) {
-				body {
-					padding-bottom: 80px;
-				}
-			}
+		<CallBar quoteHref={quoteHref} />
+		<style is:global>
+			[data-widget-id] { z-index: 49 !important; }
+			@media (max-width: 760px) { .lc_text-widget, [data-widget-id] { bottom: 84px !important; } }
 		</style>
-
-
-		<!-- Text-us chat widget: messages land in the Masters system's
-		     Conversations as a text thread; replies arrive as real SMS. -->
-		<div id="mgc-chat" style="position:fixed;bottom:24px;right:24px;z-index:50;font-family:inherit;">
-			<button id="mgc-chat-btn" aria-label="Text us" style="display:flex;align-items:center;gap:10px;background:#86CA26;color:#fff;border:none;border-radius:9999px;padding:14px 22px;font-weight:700;font-size:16px;box-shadow:0 10px 25px rgba(0,0,0,.25);cursor:pointer;">
-				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-				<span>Text us</span>
-			</button>
-			<div id="mgc-chat-panel" style="display:none;position:absolute;bottom:64px;right:0;width:320px;max-width:calc(100vw - 32px);max-height:calc(100vh - 110px);overflow-y:auto;background:#fff;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.3);overflow:hidden;">
-				<div style="background:#1a1a1a;color:#fff;padding:14px 18px;">
-					<p style="margin:0;font-weight:700;">Masters Golf Cars</p>
-					<p style="margin:2px 0 0;font-size:12px;color:#bbb;">Send us a message — we text you right back.</p>
-				</div>
-				<form id="mgc-chat-form" style="padding:14px 18px;display:flex;flex-direction:column;gap:10px;">
-					<input name="name" required placeholder="Your name" style="border:1px solid #d1d5db;border-radius:8px;padding:9px 12px;font-size:14px;" />
-					<input name="phone" required type="tel" inputmode="tel" placeholder="Cell number" style="border:1px solid #d1d5db;border-radius:8px;padding:9px 12px;font-size:14px;" />
-					<div style="display:flex;gap:6px;">
-						<button type="button" data-topic="Rental" style="flex:1;border:1px solid #d1d5db;background:#fff;color:#374151;border-radius:8px;padding:7px 0;font-size:13px;font-weight:600;cursor:pointer;">Rental</button>
-						<button type="button" data-topic="Service" style="flex:1;border:1px solid #d1d5db;background:#fff;color:#374151;border-radius:8px;padding:7px 0;font-size:13px;font-weight:600;cursor:pointer;">Service</button>
-						<button type="button" data-topic="Buying" style="flex:1;border:1px solid #d1d5db;background:#fff;color:#374151;border-radius:8px;padding:7px 0;font-size:13px;font-weight:600;cursor:pointer;">Buying</button>
-					</div>
-					<input type="hidden" name="topic" value="" />
-					<textarea name="message" required rows="3" placeholder="How can we help?" style="border:1px solid #d1d5db;border-radius:8px;padding:9px 12px;font-size:14px;resize:none;"></textarea>
-					<button type="submit" style="background:#86CA26;color:#fff;border:none;border-radius:8px;padding:11px;font-weight:700;font-size:14px;cursor:pointer;">Send — text me back</button>
-					<p style="margin:0;font-size:10px;color:#9ca3af;text-align:center;">By sending, you agree we may text you back at this number. Reply STOP anytime.</p>
-				</form>
-				<div id="mgc-chat-done" style="display:none;padding:26px 18px;text-align:center;">
-					<p style="margin:0 0 6px;font-size:28px;">✅</p>
-					<p style="margin:0;font-weight:700;color:#111;">Got it!</p>
-					<p style="margin:4px 0 0;font-size:13px;color:#555;">Watch your texts — we reply fast during business hours.</p>
-				</div>
-			</div>
-		</div>
-		<script is:inline>
-		(function () {
-			var btn = document.getElementById('mgc-chat-btn');
-			var panel = document.getElementById('mgc-chat-panel');
-			var form = document.getElementById('mgc-chat-form');
-			var doneBox = document.getElementById('mgc-chat-done');
-			if (!btn || !panel || !form) return;
-			// One-tap topic chips — optional, tells staff which hat to wear.
-			var topicInput = form.querySelector('input[name="topic"]');
-			var chips = form.querySelectorAll('[data-topic]');
-			for (var ci = 0; ci < chips.length; ci++) {
-				chips[ci].addEventListener('click', function () {
-					var already = topicInput.value === this.getAttribute('data-topic');
-					topicInput.value = already ? '' : this.getAttribute('data-topic');
-					for (var cj = 0; cj < chips.length; cj++) {
-						var on = chips[cj].getAttribute('data-topic') === topicInput.value;
-						chips[cj].style.background = on ? '#1a1a1a' : '#fff';
-						chips[cj].style.color = on ? '#fff' : '#374151';
-					}
-				});
-			}
-			btn.addEventListener('click', function () {
-				panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-			});
-			form.addEventListener('submit', function (ev) {
-				ev.preventDefault();
-				ev.stopPropagation();
-				var data = { chat: 'true', brand: 'Masters Golf Cars', site: location.hostname, page: location.pathname, key: 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv' };
-				new FormData(form).forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
-				try {
-					var attr = JSON.parse(localStorage.getItem('mgc_attr') || '{}');
-					for (var k in attr) if (attr[k] && !data[k]) data[k] = attr[k];
-				} catch (e) {}
-				fetch('https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound', {
-					method: 'POST',
-					headers: { 'Content-Type': 'text/plain' },
-					body: JSON.stringify(data),
-					keepalive: true
-				}).catch(function () {});
-				form.style.display = 'none';
-				doneBox.style.display = 'block';
-			}, true);
-		})();
-		</script>
-
-		<!-- Lead source attribution: remembers how the visitor first arrived
-		     (Google ad click, search, Facebook, referral) and sends a copy of
-		     every form submission — with that attribution — to the Masters
-		     system, so new customers are created with their source already
-		     stamped. First touch wins; fails silently if unreachable. -->
-		<script is:inline>
-		(function () {
-			var KEY = 'mgc_attr';
-			try {
-				if (!localStorage.getItem(KEY)) {
-					var p = new URLSearchParams(location.search);
-					localStorage.setItem(KEY, JSON.stringify({
-						utm_source: p.get('utm_source') || '',
-						utm_medium: p.get('utm_medium') || '',
-						utm_campaign: p.get('utm_campaign') || '',
-						gclid: p.get('gclid') || '',
-						referrer: document.referrer || '',
-						landing_page: location.href
-					}));
-				}
-			} catch (e) {}
-			document.addEventListener('submit', function (ev) {
-				var form = ev.target;
-				if (!form || !form.querySelector) return;
-				if (!form.hasAttribute('data-netlify') && !form.querySelector('input[name="form-name"]')) return;
-				// Take over the submit: Netlify's endpoint was silently rejecting
-				// real visitors (reCAPTCHA 400s) and losing leads. We post to the
-				// Masters system AND to Netlify, then always land the visitor on
-				// the thank-you page. Honeypot: bots that fill bot-field get the
-				// thank-you page too, but nothing is sent anywhere.
-				ev.preventDefault();
-				var done = form.getAttribute('action') || '/thank-you';
-				try {
-					var fd = new FormData(form);
-					if ((fd.get('bot-field') || '').toString().trim()) { window.location.href = done; return; }
-					var data = {};
-					fd.forEach(function (v, k) { if (typeof v === 'string') data[k] = v; });
-					var attr = {};
-					try { attr = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
-					for (var k in attr) if (attr[k] && !data[k]) data[k] = attr[k];
-					data.site = location.hostname;
-					data.key = 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv';
-					var payload = JSON.stringify(data);
-					fetch('https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound', { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: payload, keepalive: true }).catch(function () {});
-					fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(fd).toString(), keepalive: true }).catch(function () {});
-				} catch (e) {}
-				window.location.href = done;
-			}, true);
-		})();
-		</script>
-
 	</body>
 </html>
 

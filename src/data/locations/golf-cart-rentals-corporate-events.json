@@ -1,0 +1,189 @@
+{
+ "h1": "Corporate Event Golf Cart Rentals",
+ "lead": [
+  "Elevate your corporate event with professional golf cart rentals from Masters Golf Cars. Since 1999, we've provided fleet rentals for company retreats at Mission Inn Resort, conferences at World Equestrian Center, golf tournaments at Golden Ocala, and corporate gatherings throughout Central Florida.",
+  "From small executive outings to large-scale corporate events requiring 20+ carts, we have the fleet and expertise to ensure your event runs smoothly. Our team coordinates delivery, setup, and pickup around your event schedule."
+ ],
+ "sections": [
+  {
+   "h2": "Corporate Events We Serve",
+   "cards": [
+    {
+     "h": "Company Retreats",
+     "p": [
+      "Golf cart transportation for corporate retreats at resorts like Mission Inn Resort, The Grand Oaks Resort, and World Equestrian Center's Equestrian Hotel. Perfect for team-building activities and executive gatherings."
+     ]
+    },
+    {
+     "h": "Golf Tournaments",
+     "p": [
+      "Fleet rentals for corporate golf tournaments at courses including Golden Ocala Golf Club, Juliette Falls, Stone Creek Golf Club, and The Villages Executive Golf Courses."
+     ]
+    },
+    {
+     "h": "Trade Shows & Conferences",
+     "p": [
+      "VIP transportation and staff mobility at World Equestrian Center trade shows, Southeastern Livestock Pavilion events, and conferences at Ocala's hotels and convention facilities."
+     ]
+    },
+    {
+     "h": "Product Launches",
+     "p": [
+      "Golf carts for outdoor product launches and demonstrations. Perfect for automotive reveals, equipment demos, and experiential marketing events at venues throughout Marion and Sumter counties."
+     ]
+    },
+    {
+     "h": "Employee Appreciation Events",
+     "p": [
+      "Team outings and company picnics at Silver Springs State Park, Carney Island Recreation Area, and other Central Florida outdoor venues."
+     ]
+    },
+    {
+     "h": "Hospitality & Entertainment",
+     "p": [
+      "Client entertainment and hospitality events. Transport guests at equestrian competitions, wine tastings at Lakeridge Winery, or exclusive gatherings at private estates."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Corporate Fleet Options",
+   "cards": [
+    {
+     "h": "Executive Carts",
+     "p": [
+      "2-passenger carts for executives and VIP guests. Perfect for golf outings and personal transportation."
+     ]
+    },
+    {
+     "h": "Team Carts",
+     "p": [
+      "4-passenger carts ideal for team activities, golf tournaments, and small group transportation."
+     ]
+    },
+    {
+     "h": "Shuttle Carts",
+     "p": [
+      "6-passenger carts for group shuttle service, venue navigation, and large event transportation."
+     ]
+    },
+    {
+     "h": "Operations Carts",
+     "p": [
+      "Utility carts with cargo beds for event staff, setup crews, catering, and logistics support."
+     ]
+    },
+    {
+     "h": "Custom Fleet Configurations",
+     "p": [
+      "Need a specific mix of cart types? We'll work with you to create the perfect fleet configuration for your corporate event. From 5 carts to 50+, we have the inventory and expertise to deliver."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Popular Corporate Event Venues",
+   "cards": [
+    {
+     "h": "World Equestrian Center",
+     "p": [
+      "Ocala, FL",
+      "Premier venue for large corporate events, trade shows, and conferences. Our carts help attendees navigate this expansive, world-class facility."
+     ]
+    },
+    {
+     "h": "Mission Inn Resort & Club",
+     "p": [
+      "Howey-in-the-Hills, FL",
+      "Historic resort with two championship golf courses. Ideal for corporate retreats, golf tournaments, and executive meetings."
+     ]
+    },
+    {
+     "h": "Golden Ocala Golf & Equestrian",
+     "p": [
+      "Ocala, FL",
+      "Exclusive private club offering world-class golf and meeting facilities. Perfect for high-end corporate events and client entertainment."
+     ]
+    },
+    {
+     "h": "The Grand Oaks Resort",
+     "p": [
+      "Weirsdale, FL",
+      "Lakefront resort with meeting facilities and outdoor spaces. Excellent for corporate retreats and team-building events."
+     ]
+    },
+    {
+     "h": "Southeastern Livestock Pavilion",
+     "p": [
+      "Ocala, FL",
+      "Large venue hosting trade shows, expos, and agricultural events. Golf carts essential for navigating exhibit areas and vendor spaces."
+     ]
+    },
+    {
+     "h": "The Villages Event Centers",
+     "p": [
+      "The Villages, FL",
+      "Multiple recreation centers and event facilities perfect for regional corporate events and conferences."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Why Companies Choose Masters Golf Cars",
+   "cards": [
+    {
+     "h": "Professional Fleet Service",
+     "p": [],
+     "items": [
+      "Large fleet available for events up to 50+ carts",
+      "All carts cleaned and inspected before delivery",
+      "Coordinated delivery and pickup around your schedule",
+      "On-site support available for multi-day events",
+      "Backup carts available for peace of mind"
+     ]
+    },
+    {
+     "h": "26+ Years Event Experience",
+     "p": [],
+     "items": [
+      "Trusted by WEC, HITS, and major venues",
+      "Experienced with corporate event logistics",
+      "Flexible rental terms for your event timeline",
+      "Single point of contact for all logistics",
+      "Volume discounts for large fleet orders"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "How Corporate Fleet Rental Works",
+   "cards": [
+    {
+     "h": "Submit Request",
+     "p": [
+      "Complete our fleet rental form with event details, venue, dates, and number of carts needed."
+     ]
+    },
+    {
+     "h": "Custom Quote",
+     "p": [
+      "Our corporate events team will provide a custom quote with fleet configuration options."
+     ]
+    },
+    {
+     "h": "Delivery & Setup",
+     "p": [
+      "We deliver and set up your fleet at the venue before your event begins."
+     ]
+    },
+    {
+     "h": "Event Success",
+     "p": [
+      "Run your event seamlessly. We handle pickup after your event concludes."
+     ]
+    }
+   ]
+  }
+ ],
+ "faqConst": null
+}

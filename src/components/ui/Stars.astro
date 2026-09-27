@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props { size?: number }
+const { size = 18 } = Astro.props;
+---
+<div class="stars" role="img" aria-label="5 out of 5 stars">{[0,1,2,3,4].map(() => <Icon name="star" size={size} color="#f5b51b" fill />)}</div>

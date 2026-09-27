@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props { name: string; dark?: boolean; green?: boolean; fill?: boolean; size?: number }
+const { name, dark = false, green = false, fill = false, size = 26 } = Astro.props;
+---
+<div class:list={['ring', { dark, green, fill }]}><Icon name={name} size={size} /></div>

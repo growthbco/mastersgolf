@@ -3,11 +3,11 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Privacy Policy - Masters Golf Cars" description="Masters Golf Cars privacy policy and data protection information">
-	<section class="py-20 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-4xl">
-			<h1 class="text-4xl font-bold mb-8 text-gray-900">Privacy Policy</h1>
+	<section class="legal white">
+		<div class="wrap">
+			<h1 class="h1" style="font-size:48px;margin-bottom:32px">Privacy Policy</h1>
 			
-			<div class="bg-white rounded-lg shadow-lg p-8 md:p-10 space-y-8">
+			<div class="article legal-body">
 				<div>
 					<p class="text-gray-700 mb-6 leading-relaxed">
 						<a href="https://www.mastersgolfcars.com/" class="text-brand-green hover:underline">https://www.mastersgolfcars.com/</a>
@@ -241,3 +241,12 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 </Layout>
+<style>
+	.legal { padding: 72px var(--gx) 80px; background: #fff; }
+	.wrap { max-width: 860px; }
+	.legal-body :global(h2), .legal-body :global(h3) { font-family: var(--fd); font-stretch: 125%; font-variation-settings: 'wdth' 125; font-weight: 800; text-transform: uppercase; color: var(--ink); }
+	.legal-body :global(h2) { font-size: 24px; margin: 24px 0 8px; }
+	.legal-body :global(h3) { font-size: 18px; margin: 16px 0 6px; }
+	.legal-body :global(p), .legal-body :global(li) { font-size: 16px; line-height: 27px; color: var(--ink); }
+	@media (max-width: 760px) { .legal { padding: 40px var(--gx) 56px; } .legal .h1 { font-size: 34px !important; } }
+</style>

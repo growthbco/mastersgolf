@@ -1,0 +1,5 @@
+---
+interface Props { green?: boolean }
+const { green = false } = Astro.props;
+---
+<div class:list={['eyebrow', { green }]}><span><slot /></span></div>

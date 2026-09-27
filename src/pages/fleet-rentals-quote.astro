@@ -2,89 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
-import servicesData from '../data/services.json';
+import FleetQuoteForm from '../components/forms/FleetQuoteForm.astro';
+import FormShell from '../components/forms/FormShell.astro';
+import HeroDark from '../components/sections/HeroDark.astro';
+import ProofBar from '../components/sections/ProofBar.astro';
+import Steps from '../components/sections/Steps.astro';
+import Reviews from '../components/sections/Reviews.astro';
+import CartCard from '../components/sections/CartCard.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Check from '../components/ui/Check.astro';
+import Icon from '../components/ui/Icon.astro';
+import { EVENTS, R } from '../lib/areas';
 
-const fleetOptions = [
-	{
-		title: '2-Passenger Cart',
-		description:
-			'Compact and maneuverable—ideal for resorts, security routes, and intimate venues where tight turns matter.',
-		image: '/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp',
-		alt: '2-passenger golf cart ready for events',
-	},
-	{
-		title: '4-Passenger Cart',
-		description:
-			'Comfortable seating for small groups with dependable range and storage capacity for day-long events.',
-		image: '/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp',
-		alt: '4-passenger golf cart rental option',
-	},
-	{
-		title: '6-Passenger Cart',
-		description:
-			'Move guests efficiently across festivals, campuses, and corporate grounds with cushioned seating for six.',
-		image: '/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp',
-		alt: '6-passenger golf cart for large events',
-	},
-	{
-		title: 'Utility Cart',
-		description:
-			'Heavy-duty utility beds built for hauling gear, staging equipment, maintenance support, and grounds crews.',
-		image: '/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp',
-		alt: 'Utility golf cart with cargo bed',
-	},
-];
-
-const testimonials = [
-	{
-		name: 'Megan O’Brien',
-		quote: '“If anyone is looking for a cart or a rental, Masters Golf Cars is the place to go.”',
-	},
-	{
-		name: 'Scott Lenhart',
-		quote: '“Fantastic people to work with. Delivered my rental cart on time as promised. Highly recommended!”',
-	},
-	{
-		name: 'Samantha Blanton',
-		quote: '“Great company to work with. They get the job done right!”',
-	},
-];
-
-const faqs = [
-	{
-		question: 'What is the minimum age to rent a golf cart fleet?',
-		answer: 'Drivers must be at least 21 years old with a valid driver’s license. Some venues may request additional insurance documentation.',
-	},
-	{
-		question: 'Do I need to pay a deposit?',
-		answer: 'Yes. A refundable security deposit secures your reservation and covers incidental damage. Deposits vary based on fleet size.',
-	},
-	{
-		question: 'Can I extend my rental period?',
-		answer: 'Absolutely. Contact us before your scheduled return date and we will adjust the reservation if carts are available.',
-	},
-	{
-		question: 'Do you offer delivery for golf cart rentals?',
-		answer: 'Yes. We deliver throughout Central Florida and coordinate pickup after your event. On-site orientation is included.',
-	},
-];
-
-const areasServed = [
-	'The Villages',
-	'Ocala',
-	'Belleview',
-	'Summerfield',
-	'Leesburg',
-	'Marion County',
-	'Lake County',
-	'Alachua County',
-	'Sumter County',
-	'College & University Campuses',
-	'Equestrian Venues',
-	'Resorts & Conference Centers',
-];
-
-// Service Schema for Fleet Rentals
 const fleetRentalsSchema = {
 	"@context": "https://schema.org",
 	"@type": "Service",
@@ -113,295 +42,71 @@ const fleetRentalsSchema = {
 		}
 	]
 };
+const crumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "Fleet Rentals Quote", url: "https://mastersgolfcars.com/fleet-rentals-quote" }
+];
+const GAL = [
+	{ img: 'fleet-aerial-sky.jpg', alt: 'Aerial view of the rental fleet', pos: '50% 60%', tall: true },
+	{ img: 'clubcar-row.jpg', alt: 'Row of white Club Car carts', pos: '50% 50%' },
+	{ img: 'yamaha-aisle.jpg', alt: 'Aisle between rows of Yamaha carts', pos: '50% 50%' },
+	{ img: 'clubcar-utility-row.jpg', alt: 'Row of utility carts', pos: '50% 60%' },
+	{ img: 'delivery.jpg', alt: 'Masters trucks hauling trailers of carts', pos: '50% 88%' },
+];
 ---
 
-<Layout
-	title="Fleet Rentals Quote - Masters Golf Cars"
-	description="Request a customized quote for Masters Golf Cars fleet rentals. Choose from 2, 4, 6 passenger, and utility carts for events across Central Florida."
->
+<Layout title="Fleet Rentals Quote - Masters Golf Cars" description="Request a customized quote for Masters Golf Cars fleet rentals. Choose from 2, 4, 6 passenger, and utility carts for events across Central Florida." breadcrumbs={crumbs} quoteHref="#fleetquote">
 	<Schema schema={fleetRentalsSchema} slot="schema" />
-	<section class="bg-white py-16 md:py-20">
-		<div class="container mx-auto px-4 max-w-5xl text-center">
-			<p class="text-sm font-semibold uppercase tracking-[0.32em] text-brand-green mb-3">Fleet Rentals</p>
-			<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Golf Cart Fleet Rental</h1>
-			<p class="text-lg text-gray-600 mb-8">
-				Masters Golf Cars makes it easy to rent a fleet of reliable golf carts for your event, resort, or special occasion.
-				With over 25 years of experience and a fleet of more than 300 late-model, gas-powered carts, we deliver dependable transportation for gatherings of any size.
-			</p>
-			<a href="#fleet-quote" class="inline-flex items-center justify-center bg-brand-green text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-[#1f6612] transition">
-				Request Your Fleet Quote Today
-			</a>
+
+	<HeroDark eyebrow="Fleet and event rentals, throughout Florida" heading="Big events require" accent="big fleets." lead="Over 300 carts, delivered, staged and picked up by a team that has done it for 25 years. From a few carts to a full-scale event fleet, we are ready." cta="Request a fleet quote" ctaHref="#fleetquote" img={R + 'fleet-aerial-road.jpg'} alt="Aerial view of the Masters rental fleet" video={R + 'sweep.mp4'} />
+	<ProofBar items={[['key', '300+ carts', 'Late model gas carts'], ['truck', 'Delivered and staged', 'Anywhere in Florida'], ['award', 'Since 1999', 'Experienced event management'], ['calendar', 'Daily, weekly, monthly', 'Event and seasonal rates']]} />
+
+	<section class="sec white diff">
+		<div class="head"><Eyebrow>The Masters difference</Eyebrow><h2 class="h2">Experience matters. Trust Masters to drive your event <span class="g">forward.</span></h2><p class="lead" style="max-width:520px">Reliable carts. Professional delivery. Experienced event management.</p></div>
+		<div class="stack" style="gap:28px">
+			<p class="body" style="font-size:17px;line-height:28px">Masters Golf Cars is the source in Ocala, The Villages, Central Florida and the Southeast for golf cart fleet rentals. We keep a rental fleet of over 300 carts for large events and can supply carts anywhere in the Southeast.</p>
+			<p class="body" style="font-size:17px;line-height:28px">All fleet rentals are late model, gas powered carts in 2 passenger, 4 passenger, 6 passenger and utility. Daily, weekly and monthly rates, with discounted large event and seasonal lease rates. 3 day minimum.</p>
+			<div class="check-list" style="gap:14px 24px">{['Delivered on time, every time', 'Staged where you need them', 'Fuel, keys and a contact number', 'Picked up when the event ends'].map((t) => <Check>{t}</Check>)}</div>
 		</div>
 	</section>
 
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="text-center max-w-3xl mx-auto mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-3">Our Golf Cart Fleet Options</h2>
-				<p class="text-gray-600">
-					Choose the combination of carts that fits your guest capacity, terrain, and schedule. Every rental includes chargers, safety checks, and on-call support.
-				</p>
-			</div>
-			<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-				{fleetOptions.map((option) => (
-					<article class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
-						<img src={option.image} alt={option.alt} class="h-40 w-full object-contain" loading="lazy" />
-						<div class="p-6 flex flex-col gap-3">
-							<h3 class="text-lg font-semibold text-gray-900">{option.title}</h3>
-							<p class="text-sm text-gray-600 leading-relaxed">{option.description}</p>
-						</div>
-					</article>
-				))}
-			</div>
+	<section class="sec paper stack" style="gap:48px">
+		<div class="head"><Eyebrow>Events we roll with</Eyebrow><h2 class="h2">If it happens in Florida, we have carts there.</h2><p class="lead">Equestrian events, tournaments, festivals, corporate events, gun clubs, dog shows, air shows, sporting events, holidays and special events.</p></div>
+		<div class="ev-list">{EVENTS.map((e) => <div class="ev"><Icon name="check" size={18} sw={2} color="#2f6b0c" /><span>{e}</span></div>)}</div>
+	</section>
+
+	<section class="sec white stack" style="gap:48px">
+		<div class="head"><Eyebrow>The fleet</Eyebrow><h2 class="h2">Four types. Any quantity.</h2></div>
+		<div class="grid4 cards">
+			<CartCard href="#fleetquote" img={R + 'cart-2p.jpg'} alt="Two passenger rental golf cart" title="2 passenger" sub="Staff, vendors and quick runs." price="Quoted per event" />
+			<CartCard href="#fleetquote" img={R + 'cart-4p.jpg'} alt="Four passenger rental golf cart" title="4 passenger" sub="Our most requested event cart." price="Quoted per event" badge="Most requested" />
+			<CartCard href="#fleetquote" img={R + 'cart-6p.jpg'} alt="Six passenger rental golf cart" title="6 passenger shuttle" sub="Guest shuttles and VIP groups." price="Quoted per event" />
+			<CartCard href="#fleetquote" img={R + 'carryall.jpg'} alt="Club Car Carryall utility cart" title="Utility cart" sub="Hauls gear, feed and supplies." price="Quoted per event" contain />
 		</div>
 	</section>
 
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-10 lg:grid-cols-2 items-start">
-				<div>
-					<h2 class="text-3xl font-black text-gray-900 mb-6">Popular Golf Cart Fleet Rental Use Cases</h2>
-					<ul class="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 text-sm text-gray-700 font-semibold">
-						{servicesData.fleetUseCases.map((useCase) => (
-							<li class="flex items-start gap-2 leading-relaxed">
-								<span class="mt-1 text-brand-green">•</span>
-								<span>{useCase}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div class="grid gap-4">
-					<img src="/images/logos/masters-golf-cars-fleet-rentals_img_v36.webp" alt="Fleet lineup ready for delivery" class="w-full h-auto object-contain" loading="lazy" width="800" height="600" />
-					<img src="/images/logos/golf-cart-fleet-rental-delivery_img_v18.webp" alt="Masters Golf Cars delivery truck" class="w-full h-auto object-contain" loading="lazy" width="800" height="600" />
-				</div>
-			</div>
-		</div>
+	<Steps eyebrow="How it works" heading="From quote to pickup." lead="One contact from the first call to the last cart on the trailer." items={[['1', 'tag', 'Tell us about the event', 'Dates, venue, how many carts and what they are for.'], ['2', 'calendar', 'We confirm and schedule', 'A written quote, then delivery and pickup windows that fit your setup.'], ['3', 'truck', 'Delivered and staged', 'Fueled, keyed and parked where you want them.'], ['4', 'check', 'We pick them up', 'When the event ends, our trucks come get them.']]} cta="Request a fleet quote" ctaHref="#fleetquote" />
+
+	<section class="sec paper stack" style="gap:48px">
+		<div class="head"><Eyebrow>On the ground</Eyebrow><h2 class="h2 md">The fleet, ready to roll.</h2></div>
+		<div class="gal">{GAL.map((g) => <div class:list={['gph', { tall: g.tall }]}><img src={R + g.img} alt={g.alt} loading="lazy" width="640" height="300" style={`object-position:${g.pos}`} /></div>)}</div>
 	</section>
 
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Testimonials</h2>
-			<div class="grid gap-6 md:grid-cols-3">
-				{testimonials.map((item) => (
-					<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col">
-						<p class="text-gray-700 italic mb-4">{item.quote}</p>
-						<p class="text-sm font-semibold text-gray-900">— {item.name}</p>
-					</div>
-				))}
-			</div>
-			<div class="text-center mt-8">
-				<a href="https://g.page/r/Ce6p7W6HMgpTEBM/review" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition">
-					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-						<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-						<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-						<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-					</svg>
-					See More Reviews on Google
-				</a>
-			</div>
-		</div>
-	</section>
+	<Reviews heading="Trusted at Florida's biggest events." />
 
-	<section class="py-16 bg-white" id="fleet-quote">
-		<div class="container mx-auto px-4 max-w-3xl">
-			<div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
-				<form
-					name="fleet-rentals-quote"
-					method="POST"
-					data-netlify="true"
-					netlify-honeypot="bot-field"
-					action="/success"
-					class="space-y-5"
-				>
-					<input type="hidden" name="form-name" value="fleet-rentals-quote" />
-					<p class="hidden">
-						<label>Don't fill this out if you're human: <input name="bot-field" /></label>
-					</p>
-
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-						<div>
-							<label for="fleet-name" class="block text-sm font-bold text-gray-900 mb-1">Full Name <span class="text-red-600">*</span></label>
-							<input type="text" id="fleet-name" name="name" required placeholder="Your name" autocomplete="name" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-						<div>
-							<label for="fleet-company" class="block text-sm font-bold text-gray-900 mb-1">Company / Organization</label>
-							<input type="text" id="fleet-company" name="company" placeholder="Optional" autocomplete="organization" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-					</div>
-
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-						<div>
-							<label for="fleet-phone" class="block text-sm font-bold text-gray-900 mb-1">Phone <span class="text-red-600">*</span></label>
-							<input type="tel" id="fleet-phone" name="phone" required placeholder="(352) 555-1234" autocomplete="tel" inputmode="tel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-						<div>
-							<label for="fleet-email" class="block text-sm font-bold text-gray-900 mb-1">Email <span class="text-red-600">*</span></label>
-							<input type="email" id="fleet-email" name="email" required placeholder="you@email.com" autocomplete="email" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-					</div>
-
-					<div>
-						<label for="fleet-event-type" class="block text-sm font-bold text-gray-900 mb-1">Event Type <span class="text-red-600">*</span></label>
-						<select id="fleet-event-type" name="event_type" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
-							<option value="">Select event type...</option>
-							<option value="Golf tournament">Golf tournament</option>
-							<option value="Wedding">Wedding</option>
-							<option value="Festival / Concert">Festival / Concert</option>
-							<option value="Corporate event">Corporate event</option>
-							<option value="Equestrian / HITS / Florida Horse Park">Equestrian / HITS / Florida Horse Park</option>
-							<option value="World Equestrian Center (WEC)">World Equestrian Center (WEC)</option>
-							<option value="RV park / Campground">RV park / Campground</option>
-							<option value="Other">Other</option>
-						</select>
-					</div>
-
-					<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-						<div>
-							<label for="fleet-start" class="block text-sm font-bold text-gray-900 mb-1">Start Date <span class="text-red-600">*</span></label>
-							<input type="date" id="fleet-start" name="start_date" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-						<div>
-							<label for="fleet-end" class="block text-sm font-bold text-gray-900 mb-1">End Date <span class="text-red-600">*</span></label>
-							<input type="date" id="fleet-end" name="end_date" required class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-						<div>
-							<label for="fleet-count" class="block text-sm font-bold text-gray-900 mb-1"># of Carts <span class="text-red-600">*</span></label>
-							<input type="number" id="fleet-count" name="cart_count" required min="1" placeholder="e.g. 10" inputmode="numeric" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-					</div>
-
-					<div>
-						<label for="fleet-venue" class="block text-sm font-bold text-gray-900 mb-1">Venue / Delivery Address <span class="text-red-600">*</span></label>
-						<input type="text" id="fleet-venue" name="venue" required placeholder="Venue name, street, city" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-					</div>
-
-					<div>
-						<label for="fleet-cart-mix" class="block text-sm font-bold text-gray-900 mb-1">Cart Mix Requested</label>
-						<input type="text" id="fleet-cart-mix" name="cart_mix" placeholder="e.g. 6 four-seaters, 4 two-seaters, 1 utility" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-					</div>
-
-					<div>
-						<label for="fleet-notes" class="block text-sm font-bold text-gray-900 mb-1">Additional Details</label>
-						<textarea id="fleet-notes" name="notes" rows="4" placeholder="Delivery window, on-site restrictions, branding, anything else we should know." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
-					</div>
-
-					<div class="flex items-start gap-3 pt-1">
-						<input type="checkbox" id="fleet-sms-consent" name="sms_consent" value="yes" class="mt-1 h-4 w-4 rounded border-gray-400 text-brand-green focus:ring-brand-green" />
-						<label for="fleet-sms-consent" class="text-sm text-gray-700 leading-relaxed">
-							I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry, including appointment reminders, service updates, quotes, and follow-up communications. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green font-bold underline hover:opacity-80">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green font-bold underline hover:opacity-80">Terms and Conditions</a>.
-						</label>
-					</div>
-
-					<button type="submit" class="w-full bg-brand-green text-white font-bold uppercase tracking-wide py-3 px-4 rounded-md hover:opacity-90 transition-colors">
-						Request Fleet Quote
-					</button>
-
-					<p class="text-center text-xs text-gray-500">
-						Your information is secure and will never be shared.
-					</p>
-				</form>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-10 lg:grid-cols-[0.9fr,1.1fr] items-start">
-				<div>
-					<img
-						src="/images/gallery/02-04-2025-14-23-09_23.webp"
-						alt="Masters Golf Cars delivering rental fleet"
-						class="object-contain w-full h-auto max-h-[420px]"
-						loading="lazy"
-					/>
-				</div>
-				<div>
-					<h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-					<p class="text-gray-600 mb-6">
-						If you have additional questions about fleet rentals, give us a call—we’re glad to help customize a package for your event.
-					</p>
-					<p class="text-lg font-semibold text-brand-green mb-6">{companyData.contact.phone}</p>
-					<div class="space-y-4">
-						{faqs.map((item) => (
-							<details class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5 group">
-								<summary class="flex items-center justify-between cursor-pointer text-left">
-									<span class="text-sm font-semibold text-gray-900">{item.question}</span>
-									<span class="text-brand-green text-lg transition group-open:rotate-45">+</span>
-								</summary>
-								<p class="mt-3 text-sm text-gray-600 leading-relaxed">{item.answer}</p>
-							</details>
-						))}
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-start">
-				<div>
-					<h2 class="text-3xl font-bold text-gray-900 mb-4">Areas We Serve</h2>
-					<p class="text-gray-700 leading-relaxed mb-4">
-						We deliver throughout Central Florida, including metro hubs, equestrian venues, and private communities. Whether you need a few carts or an entire fleet, our logistics team
-						ensures on-time drop-off, setup, and pickup.
-					</p>
-					<p class="text-gray-700 leading-relaxed">
-						Share your venue, desired delivery window, and any on-site restrictions—we’ll handle the rest.
-					</p>
-				</div>
-				<div>
-					<ul class="grid grid-cols-2 gap-3 text-sm text-gray-700">
-						{areasServed.map((area) => (
-							<li class="flex items-center gap-2">
-								<span class="text-brand-green">•</span>
-								<span>{area}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-10 lg:grid-cols-[1fr,1fr] items-start">
-				<div class="space-y-4">
-					<h2 class="text-3xl font-bold text-gray-900">Visit Our Location</h2>
-					<p class="text-gray-600">
-						We are located between Ocala and The Villages on US 441 across from the Market of Marion. Call ahead and we can arrange a showroom visit or coordinate pickup after your rental.
-					</p>
-					<ul class="text-sm text-gray-700 space-y-2">
-						<li><strong>Address:</strong> {companyData.location.full}</li>
-						<li>
-							<strong>Phone:</strong>{' '}
-							<a href={companyData.contact.phoneLink} class="text-brand-green hover:underline">
-								{companyData.contact.phone}
-							</a>
-						</li>
-						<li>
-							<strong>Email:</strong>{' '}
-							<a href={companyData.contact.email} class="text-brand-green hover:underline">
-								Contact Us
-							</a>
-						</li>
-					</ul>
-				</div>
-				<div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200">
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
-						width="100%"
-						height="400"
-						style="border:0;"
-						allowfullscreen=""
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"
-					></iframe>
-				</div>
-			</div>
-		</div>
-	</section>
+	<FormShell id="fleetquote" eyebrow="Fleet quote" heading="Let us get your event" accent="moving." lead="Tell us about the event and our rental manager will check availability and get back to you with a quote as soon as possible during business hours.">
+		<FleetQuoteForm pageSource="fleet-rentals-quote" idPrefix="fleet" />
+	</FormShell>
 </Layout>
 
+<style>
+	.diff { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+	.ev-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; border-top: 1px solid var(--line); }
+	.ev { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15px; font-weight: 500; color: var(--ink); }
+	.gal { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 16px; }
+	.gph { overflow: hidden; background: var(--black); }
+	.gph.tall { grid-row: 1 / 3; }
+	.gph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	@media (max-width: 1100px) { .diff { grid-template-columns: 1fr; gap: 40px; } .ev-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .gal { grid-template-columns: 1fr 1fr; grid-template-rows: 240px 240px 240px; } .gph.tall { grid-row: auto; grid-column: 1 / -1; } }
+	@media (max-width: 760px) { .ev-list { grid-template-columns: 1fr; } .cards { grid-template-columns: 1fr; } .gal { grid-template-columns: 1fr; grid-template-rows: none; } .gph { height: 200px; } }
+</style>

@@ -1,0 +1,26 @@
+---
+/* Dark quote section: copy on the left, white form card on the right. The form itself comes in through the slot so each form keeps its own Netlify name and field names. */
+import Eyebrow from '../ui/Eyebrow.astro';
+import Ring from '../ui/Ring.astro';
+import Icon from '../ui/Icon.astro';
+import companyData from '../../data/company.json';
+interface Props { id: string; eyebrow: string; heading: string; accent?: string; lead: string; note?: string }
+const { id, eyebrow, heading, accent = '', lead, note } = Astro.props;
+---
+<section id={id} class="sec dark on-dark form-sec">
+	<div class="stack" style="gap:32px">
+		<div class="head"><Eyebrow>{eyebrow}</Eyebrow><h2 class="h2 xl">{heading} {accent && <span class="g">{accent}</span>}</h2><p class="lead" style="max-width:470px">{lead}</p></div>
+		<a href={companyData.contact.phoneLink} class="row" style="gap:16px"><Ring name="phone" dark green /><span class="fd" style="font-size:34px;line-height:1">{companyData.contact.phone}</span></a>
+		<div class="stack meta" style="gap:10px">
+			<span class="row" style="gap:10px"><Icon name="pin" size={18} color="#f9b406" /><span>{companyData.location.full}</span></span>
+			<span class="row" style="gap:10px"><Icon name="clock" size={18} color="#f9b406" /><span>Mon to Fri 8:30 to 5, Sat 9 to 2</span></span>
+			{note && <span style="padding-left:28px">{note}</span>}
+		</div>
+	</div>
+	<slot />
+</section>
+<style>
+	.form-sec { display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: center; }
+	.meta { font-size: 15px; line-height: 22px; color: var(--muted-d); }
+	@media (max-width: 1100px) { .form-sec { grid-template-columns: 1fr; gap: 48px; } }
+</style>

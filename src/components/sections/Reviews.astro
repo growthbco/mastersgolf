@@ -1,0 +1,29 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+import Stars from '../ui/Stars.astro';
+import Icon from '../ui/Icon.astro';
+interface Props { heading: string; bg?: 'paper' | 'white' }
+const { heading, bg = 'white' } = Astro.props;
+const R = [
+	{ q: 'They have been repairing our fleet of carts for over 15 years. Nothing but professional and extremely speedy service at an affordable price. Not to mention they will pick up your cart and bring it all the way back to you.', who: 'Jay DeFalco', where: 'Fleet customer, Google review' },
+	{ q: 'Excellent company, fast service, prices fair. I had the annual service and also replaced worn out bearings and hubs. Picked the cart up yesterday and returned it today. Very pleased with the communications about the estimate.', who: 'Robert McIntyre', where: 'Service customer, Google review' },
+	{ q: 'They will bend over backwards to earn your business and the service side of things is nothing less than professional and timely.', who: 'West Shore Outfitters', where: 'Business customer, Google review' },
+];
+const GOOGLE = 'https://www.google.com/search?q=Masters+Golf+Cars+Belleview+FL+reviews';
+---
+<section class:list={['sec stack', bg]} style="gap:56px">
+	<div class="rev-head">
+		<div class="head"><Eyebrow>What customers say</Eyebrow><h2 class="h2 md">{heading}</h2></div>
+		<a href={GOOGLE} target="_blank" rel="noopener" class="rev-link"><span>Read all reviews on Google</span><Icon name="arrow" size={18} /></a>
+	</div>
+	<div class="rev-grid">{R.map((r) => <div class="review"><div class="stack" style="gap:18px"><Stars /><p class="quote">"{r.q}"</p></div><div class="who"><strong>{r.who}</strong><br /><span class="small">{r.where}</span></div></div>)}</div>
+</section>
+<style>
+	.rev-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+	.rev-link { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; padding-bottom: 8px; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+	.rev-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+	.review { min-height: 300px; padding-top: 32px; border-top: 2px solid var(--ink); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+	.quote { margin: 0; font-family: var(--fr); font-size: 23px; line-height: 31px; font-style: italic; color: var(--ink); }
+	.who { font-size: 14px; line-height: 22px; color: var(--ink); }
+	@media (max-width: 1100px) { .rev-grid { grid-template-columns: 1fr; gap: 32px; } .review { min-height: 0; } .rev-head { flex-direction: column; align-items: flex-start; } .quote { font-size: 20px; line-height: 28px; } }
+</style>

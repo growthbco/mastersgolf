@@ -1,0 +1,185 @@
+{
+ "h1": "Golf Cart Rentals for Spruce Creek",
+ "lead": [
+  "Masters Golf Cars provides premium golf cart rentals for Spruce Creek South and Spruce Creek Preserve residents in Summerfield. Since 1999, we've been the trusted source for golf cart rentals just minutes from the Spruce Creek communities at 12885 S US Highway 441 in Belleview.",
+  "Whether you need a temporary cart while yours is being serviced, want extra carts for visiting family, or are exploring the benefits of golf cart ownership, we deliver clean, reliable carts directly to your Spruce Creek home. Our carts are perfect for accessing the Spruce Creek South Country Club, community pools, and all neighborhood amenities."
+ ],
+ "sections": [
+  {
+   "h2": "Why Spruce Creek Residents Choose Us",
+   "cards": [
+    {
+     "h": "Your Cart Being Serviced?",
+     "p": [
+      "Keep your Spruce Creek lifestyle uninterrupted with a rental while your cart is in the shop. Visit the Spruce Creek South Country Club, play golf, or meet friends at the clubhouse without missing a beat."
+     ]
+    },
+    {
+     "h": "Family Visiting?",
+     "p": [
+      "Show your guests why Spruce Creek living is special. Rent extra carts so everyone can explore the community, take in the scenery, and join you for activities at the recreation center."
+     ]
+    },
+    {
+     "h": "Considering Ownership?",
+     "p": [
+      "New to Spruce Creek? Rent a cart first to experience how essential they are for community life. Test different sizes before purchasing your own."
+     ]
+    },
+    {
+     "h": "Seasonal Residents",
+     "p": [
+      "Snowbirds returning to Spruce Creek? Rent a cart while your stored cart is being serviced, or enjoy the season without owning."
+     ]
+    },
+    {
+     "h": "Community Events",
+     "p": [
+      "Planning a neighborhood gathering, block party, or club event? We provide multi-cart rentals for Spruce Creek clubs and organizations."
+     ]
+    },
+    {
+     "h": "Convenient Location",
+     "p": [
+      "Located just minutes from Spruce Creek on US 441, we deliver directly to your home and pick up when your rental ends. Easy and hassle-free."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Spruce Creek Communities We Serve",
+   "cards": [
+    {
+     "h": "Spruce Creek South",
+     "p": [
+      "Active adult 55+ community with extensive amenities including the Spruce Creek South Country Club, championship golf course, tennis courts, pools, and recreation facilities. Golf carts are essential for daily life here."
+     ],
+     "items": [
+      "Access to 18-hole golf course",
+      "Community pools and fitness center",
+      "Multiple recreation centers",
+      "Tennis and pickleball courts",
+      "Convenient to SR 441 shopping"
+     ]
+    },
+    {
+     "h": "Spruce Creek Preserve",
+     "p": [
+      "Beautiful gated community with nature preserve views, walking trails, and resort-style amenities. Golf cart-friendly streets connect homes to the community center and outdoor spaces."
+     ],
+     "items": [
+      "Nature preserve and trails",
+      "Community clubhouse",
+      "Pool and fitness facilities",
+      "Gated security",
+      "Close to Spruce Creek South"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Popular Destinations Near Spruce Creek",
+   "cards": [
+    {
+     "h": "Spruce Creek South Country Club",
+     "p": [
+      "Summerfield, FL",
+      "18-hole championship golf course with pro shop, restaurant, and social events. A golf cart makes daily access convenient."
+     ]
+    },
+    {
+     "h": "Lake Weir",
+     "p": [
+      "Nearby Recreation",
+      "Beautiful lake just minutes from Spruce Creek. Popular for fishing, boating, and waterfront dining at Gator Joe's Beach Bar."
+     ]
+    },
+    {
+     "h": "The Villages",
+     "p": [
+      "15 Minutes North",
+      "Shopping, dining, and entertainment at Lake Sumter Landing, Spanish Springs, and Brownwood Paddock Square."
+     ]
+    },
+    {
+     "h": "Belleview",
+     "p": [
+      "Minutes Away",
+      "Shopping and services along US Highway 441 including grocery stores, restaurants, and Market of Marion."
+     ]
+    },
+    {
+     "h": "Ocala",
+     "p": [
+      "15 Minutes North",
+      "Downtown shopping, dining, and entertainment. Access to Paddock Mall, Market Street at Heath Brook, and major retailers."
+     ]
+    },
+    {
+     "h": "Silver Springs State Park",
+     "p": [
+      "Silver Springs, FL",
+      "Historic state park with glass-bottom boat tours, kayaking, and nature trails. A popular day trip destination."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Golf Cart Options for Spruce Creek",
+   "cards": [
+    {
+     "h": "2-Passenger",
+     "p": [
+      "Perfect for couples. Great for golf, running errands, and daily community activities in Spruce Creek."
+     ]
+    },
+    {
+     "h": "4-Passenger",
+     "p": [
+      "Ideal for when guests visit. Room for everyone plus shopping bags and golf clubs."
+     ]
+    },
+    {
+     "h": "6-Passenger",
+     "p": [
+      "Maximum capacity for family visits, club outings, or neighborhood gatherings."
+     ]
+    },
+    {
+     "h": "Utility Cart",
+     "p": [
+      "Cargo space for larger shopping trips, moving items, or community activities."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Why Choose Masters Golf Cars",
+   "cards": [
+    {
+     "h": "Convenient for Spruce Creek",
+     "p": [],
+     "items": [
+      "Located just minutes from Spruce Creek",
+      "Direct delivery to your Spruce Creek home",
+      "Convenient pickup when rental ends",
+      "Clean, well-maintained carts",
+      "26+ years serving the area"
+     ]
+    },
+    {
+     "h": "Full Service Dealer",
+     "p": [],
+     "items": [
+      "Rentals for any need",
+      "Expert repairs and service",
+      "New and used carts for sale",
+      "Parts and accessories",
+      "Custom cart builds"
+     ]
+    }
+   ]
+  }
+ ],
+ "faqConst": null
+}

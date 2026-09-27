@@ -1,10 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Schema from '../components/Schema.astro';
-import { loadInventory } from '../data/loadInventory';
+import inventoryData from '../data/inventory.json';
+import CartCard from '../components/CartCard.astro';
+import FormShell from '../components/forms/FormShell.astro';
+import CartInquiryForm from '../components/forms/CartInquiryForm.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Btn from '../components/ui/Btn.astro';
+import Check from '../components/ui/Check.astro';
+import companyData from '../data/company.json';
 
 export async function getStaticPaths() {
-	const inventoryData = await loadInventory();
 	return inventoryData
 		.filter(cart => cart.slug)
 		.map((cart) => ({
@@ -17,7 +23,6 @@ const { cart, slug } = Astro.props;
 const cartImages = cart.images && cart.images.length > 0 ? cart.images : [cart.image];
 const currentUrl = `https://mastersgolfcars.com/${slug}`;
 // Get similar units (exclude current cart, show all inventory items)
-const inventoryData = await loadInventory();
 const similarUnits = inventoryData.filter(c => c.id !== cart.id).slice(0, 5);
 
 // Product Schema for individual cart pages
@@ -45,7 +50,7 @@ const productSchema = {
 		"availability": "https://schema.org/InStock",
 		"itemCondition": "https://schema.org/NewCondition",
 		"seller": {
-			"@type": "AutoDealer",
+			"@type": "LocalBusiness",
 			"name": "Masters Golf Cars",
 			"telephone": "+1-352-307-0111",
 			"address": {
@@ -57,412 +62,76 @@ const productSchema = {
 				"addressCountry": "US"
 			}
 		}
+	},
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "93"
 	}
 };
+const price = cart.salePrice || cart.price;
+const specs: [string, string][] = [['Year', String(cart.year ?? '')], ['Make', cart.brand ?? ''], ['Model', cart.model ?? ''], ['Type', cart.type ?? ''], ['Seats', String(cart.seats ?? '')], ['Power', cart.power ?? ''], ['Color', cart.color ?? ''], ['Stock #', cart.stock ?? '']].filter(([, v]) => v);
+const features: string[] = cart.features ?? [];
+const crumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "Golf Cart Inventory", url: "https://mastersgolfcars.com/golf-cart-inventory" },
+	{ name: cart.name, url: currentUrl }
+];
 ---
 
-<Layout title={`${cart.name} - Stock #${cart.stock} - Masters Golf Cars`} description={`${cart.name} for sale at Masters Golf Cars. Stock #${cart.stock}. Sale Price: $${(cart.salePrice || cart.price).toLocaleString()}`}>
+<Layout title={`${cart.name} - Stock #${cart.stock} - Masters Golf Cars`} description={`${cart.name} for sale at Masters Golf Cars. Stock #${cart.stock}. Sale Price: $${price.toLocaleString()}`} breadcrumbs={crumbs} ogImage={cartImages[0]} quoteHref="#askcart">
 	<Schema schema={productSchema} slot="schema" />
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-	<script> window.FontAwesomeConfig = { autoReplaceSvg: 'nest'};</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-2">
-		<!-- Product Header -->
-		<div class="mb-2">
-			<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-2">
-				<div class="flex-1">
-					<h1 class="text-xl md:text-2xl font-black text-gray-900 mb-0.5 uppercase">NEW {cart.name}</h1>
-					<p class="text-gray-600 mb-1 text-sm">{cart.year} {cart.brand} {cart.model} Passenger Deluxe Golf Ready</p>
-					<div class="flex flex-wrap gap-2">
-						<span class="bg-brand-green text-white px-3 py-1 rounded-full text-xs font-bold">SALE!</span>
-						<span class="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">✔ IN STOCK</span>
-					</div>
-				</div>
-				<div class="flex flex-col items-start lg:items-end gap-1.5">
-					<a href="tel:3523070111" class="bg-brand-green text-white px-5 py-2 rounded-md text-sm font-semibold hover:opacity-90 transition flex items-center gap-2">
-						<i class="fa-solid fa-phone"></i>
-						352-307-0111
-					</a>
-					<div class="flex items-center gap-2">
-						<span class="text-gray-600 text-sm">Share:</span>
-						<a href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`} target="_blank" class="text-blue-600 hover:text-blue-700 transition">
-							<i class="fa-brands fa-facebook text-lg"></i>
-						</a>
-						<a href={`https://pinterest.com/pin/create/button/?url=${currentUrl}`} target="_blank" class="text-red-600 hover:text-red-700 transition">
-							<i class="fa-brands fa-pinterest text-lg"></i>
-						</a>
-						<a href={`https://twitter.com/intent/tweet?url=${currentUrl}`} target="_blank" class="text-black hover:text-gray-800 transition">
-							<i class="fa-brands fa-x-twitter text-lg"></i>
-						</a>
-					</div>
-				</div>
+	<section class="top white">
+		<div class="crumbs small"><a href="/golf-cart-inventory">Carts for sale</a><span>/</span><span style="color:var(--ink)">{cart.name}</span></div>
+		<div class="top-grid">
+			<div class="stack" style="gap:16px">
+				<div class="main-ph"><img src={cartImages[0]} alt={cart.name} width="820" height="520" fetchpriority="high" id="mainimg" /></div>
+				{cartImages.length > 1 && <div class="thumbs">{cartImages.map((src: string, i: number) => <button type="button" class:list={['thumb', { on: i === 0 }]} data-src={src}><img src={src} alt={`${cart.name} photo ${i + 1}`} loading="lazy" width="200" height="132" /></button>)}</div>}
+			</div>
+			<div class="stack" style="gap:28px">
+				<Eyebrow>{cart.condition ?? 'New'}{cart.seats ? `, ${cart.seats} passenger` : ''}</Eyebrow>
+				<h1 class="h1" style="font-size:44px;line-height:1.04">{cart.name}</h1>
+				<div class="row" style="gap:16px;align-items:baseline"><span class="fd" style="font-size:48px;line-height:1">${price.toLocaleString()}</span>{cart.salePrice && cart.salePrice < cart.price && <span class="small" style="text-decoration:line-through">${cart.price.toLocaleString()}</span>}</div>
+				{cart.description && <p class="body" style="font-size:17px;line-height:28px">{cart.description}</p>}
+				<div class="stack" style="gap:12px"><Btn href="#askcart">Ask about this cart</Btn><div class="row btn-row" style="gap:12px"><Btn href="https://www.sheffieldfinancial.com/" kind="ghost">Apply for financing</Btn><Btn href={companyData.contact.phoneLink} kind="ghost">Call {companyData.contact.phone}</Btn></div></div>
+				{specs.length > 0 && <div class="specs">{specs.map(([k, v]) => <div class="spec"><span class="small">{k}</span><span style="font-weight:600">{v}</span></div>)}</div>}
+				<div class="check-list" style="gap:12px 24px">{['Inspected and serviced', 'Free year of 24hr Cart Club with new carts', 'Lithium upgrade available', 'Delivery available'].map((t) => <Check>{t}</Check>)}</div>
 			</div>
 		</div>
+	</section>
 
-		<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-			<!-- Left Column - Image Gallery -->
-			<div class="lg:col-span-2">
-				<div class="mb-1">
-					<p class="text-xs font-semibold text-gray-700">PHOTOS ({cartImages.length})</p>
-				</div>
-				<div class="relative mb-3">
-					<div class="border border-gray-200 rounded-lg overflow-hidden relative flex justify-center bg-gray-50">
-						<img id="main-image" src={cartImages[0]} alt={cart.name} class="max-w-full max-h-[500px] h-auto object-contain" loading="eager" fetchpriority="high" width="800" height="600" />
-						<button id="show-all-photos" class="absolute bottom-3 left-3 bg-black bg-opacity-70 text-white px-3 py-1.5 rounded-md hover:bg-opacity-90 transition flex items-center gap-2 text-sm">
-							<i class="fa-solid fa-th"></i>
-							<span>Show All {cartImages.length} Photos</span>
-						</button>
-					</div>
-				</div>
-				<!-- Thumbnail Gallery - Show All 7 Photos -->
-				<div class="grid grid-cols-7 gap-2 mb-6">
-					{cartImages.map((img, index) => (
-						<button 
-							class="thumbnail-btn border-2 border-transparent hover:border-brand-green rounded-lg overflow-hidden transition"
-							data-image={img}
-							data-index={index}
-						>
-							<img src={img} alt={`${cart.name} - Image ${index + 1}`} class="w-full h-20 object-cover" loading="lazy" width="100" height="80" />
-						</button>
-					))}
-				</div>
+	{features.length > 0 && <section class="sec paper stack" style="gap:40px"><div class="head"><Eyebrow>What is on it</Eyebrow><h2 class="h2 md">Features and options.</h2></div><div class="check-list" style="grid-template-columns:repeat(3,minmax(0,1fr))">{features.map((f: string) => <Check>{f}</Check>)}</div></section>}
 
-				<!-- Description Section -->
-				<div class="mt-4">
-					<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase text-left">DESCRIPTION</h2>
-					<div class="border-t-2 border-brand-green mb-4"></div>
-					<ul class="space-y-2">
-						<li class="text-gray-700 font-semibold">• Deluxe Sunbrella Enclosure w/ Loxx Snaps</li>
-						<li class="text-gray-700 font-semibold">• Luxury Bench Seat w/ 3 Arm Rests</li>
-						<li class="text-gray-700 font-semibold">• 12" Wheels on Radial Tires</li>
-						<li class="text-gray-700 font-semibold">• 4 Wheel Disc Brakes</li>
-						<li class="text-gray-700 font-semibold">• 160AH Lithium Battery Pack w/ Onboard Charger</li>
-						<li class="text-gray-700 font-semibold">• Speedometer/Odometer</li>
-						<li class="text-gray-700 font-semibold">• Deluxe LED Light Kit</li>
-						<li class="text-gray-700 font-semibold">• LED Turn Signal Mirrors</li>
-						<li class="text-gray-700 font-semibold">• Seat Belts</li>
-						<li class="text-gray-700 font-semibold">• Floormat</li>
-						<li class="text-gray-700 font-semibold">• Dual USB Charge Port</li>
-						<li class="text-gray-700 font-semibold">• 2 Sand Bottles</li>
-						<li class="text-gray-700 font-semibold">• Cooler</li>
-						<li class="text-gray-700 font-semibold">• Ball Washer</li>
-						<li class="text-gray-700 font-semibold">• Lockable Drivers & Passenger Dash</li>
-						<li class="text-gray-700 font-semibold">• 5 Yr Warranty on Cart and 8Yr Warranty on Battery</li>
-					</ul>
-				</div>
-			</div>
+	{similarUnits.length > 0 && <section class="sec white stack" style="gap:48px"><div class="head"><Eyebrow>You might also like</Eyebrow><h2 class="h2 md">More carts in stock.</h2></div><div class="grid3">{similarUnits.slice(0, 3).map((c: any) => <CartCard {...c} />)}</div></section>}
 
-			<!-- Right Column - Pricing First, Then Form -->
-			<div class="space-y-4">
-				<!-- Pricing -->
-				<div class="bg-gray-50 rounded-lg p-4">
-					<div class="flex justify-between items-center mb-3">
-						<p class="text-lg font-bold text-gray-900 uppercase">PRICE</p>
-						<p class="text-xl font-bold text-brand-green line-through">${cart.price.toLocaleString()}</p>
-					</div>
-					<div class="flex justify-between items-center">
-						<p class="text-lg font-bold text-gray-900 uppercase">SALE PRICE</p>
-						<p class="text-3xl font-black text-brand-green">${(cart.salePrice || cart.price).toLocaleString()}</p>
-					</div>
-				</div>
-
-				<!-- Request More Info Form -->
-				<div class="bg-gray-900 text-white rounded-lg p-4">
-					<h2 class="text-lg font-bold mb-3">REQUEST MORE INFO</h2>
-					<form name="cart-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success" class="space-y-3">
-						<input type="hidden" name="form-name" value="cart-inquiry" />
-						<input type="hidden" name="stock-number" value={cart.stock} />
-						<input type="hidden" name="cart-name" value={cart.name} />
-						<p class="hidden">
-							<label>Don't fill this out: <input name="bot-field" /></label>
-						</p>
-						<div>
-							<label for="first-name" class="block text-xs font-semibold mb-1">First Name *</label>
-							<input type="text" id="first-name" name="first-name" required class="w-full border border-gray-600 rounded-md px-3 py-2 text-sm bg-gray-800 text-white focus:ring-brand-green focus:border-brand-green outline-none">
-						</div>
-						<div>
-							<label for="last-name" class="block text-xs font-semibold mb-1">Last Name *</label>
-							<input type="text" id="last-name" name="last-name" required class="w-full border border-gray-600 rounded-md px-3 py-2 text-sm bg-gray-800 text-white focus:ring-brand-green focus:border-brand-green outline-none">
-						</div>
-						<div>
-							<label for="email" class="block text-xs font-semibold mb-1">Email *</label>
-							<input type="email" id="email" name="email" required class="w-full border border-gray-600 rounded-md px-3 py-2 text-sm bg-gray-800 text-white focus:ring-brand-green focus:border-brand-green outline-none">
-						</div>
-						<div>
-							<label for="phone" class="block text-xs font-semibold mb-1">Phone Number</label>
-							<input type="tel" id="phone" name="phone" class="w-full border border-gray-600 rounded-md px-3 py-2 text-sm bg-gray-800 text-white focus:ring-brand-green focus:border-brand-green outline-none">
-						</div>
-						<div>
-							<label for="comments" class="block text-xs font-semibold mb-1">Comments</label>
-							<textarea id="comments" name="comments" rows="3" class="w-full border border-gray-600 rounded-md px-3 py-2 text-sm bg-gray-800 text-white focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
-						</div>
-						<label class="flex items-center gap-2 text-xs">
-							<input type="checkbox" name="email-list" class="h-3 w-3 rounded border-gray-600 text-brand-green focus:ring-brand-green bg-gray-800">
-							<span>Please add me to your email list!</span>
-						</label>
-						<label class="flex items-start gap-2 text-xs leading-snug">
-							<input type="checkbox" name="sms_consent" value="yes" class="mt-0.5 h-3 w-3 rounded border-gray-600 text-brand-green focus:ring-brand-green bg-gray-800">
-							<span class="text-gray-300">I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green underline">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green underline">Terms</a>.</span>
-						</label>
-						<button type="submit" class="w-full bg-brand-green text-white font-bold py-2.5 px-4 rounded-md hover:opacity-90 transition-colors text-sm">
-							SEND
-						</button>
-						<p class="text-xs text-gray-400 text-center mt-2">
-							This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" class="underline">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" class="underline">Terms of Service</a> apply.
-						</p>
-					</form>
-				</div>
-
-				<!-- Action Buttons -->
-				<div class="space-y-2">
-					<a href="/contact" class="block w-full bg-brand-green text-white font-semibold py-2.5 px-4 rounded-md hover:opacity-90 transition text-center text-sm">
-						<i class="fa-solid fa-dollar-sign mr-2"></i>
-						CREDIT APPLICATION
-					</a>
-					<a href="/contact" class="block w-full bg-brand-green text-white font-semibold py-2.5 px-4 rounded-md hover:opacity-90 transition text-center text-sm">
-						<i class="fa-solid fa-map-marker-alt mr-2"></i>
-						FIND US
-					</a>
-					<a href="/contact" class="block w-full bg-brand-green text-white font-semibold py-2.5 px-4 rounded-md hover:opacity-90 transition text-center text-sm">
-						<i class="fa-solid fa-calculator mr-2"></i>
-						CALCULATE PAYMENT
-					</a>
-					<a href={`mailto:?subject=${encodeURIComponent(cart.name)}&body=${encodeURIComponent(`Check out this golf cart: ${currentUrl}`)}`} class="block w-full bg-brand-green text-white font-semibold py-2.5 px-4 rounded-md hover:opacity-90 transition text-center text-sm">
-						<i class="fa-regular fa-envelope mr-2"></i>
-						EMAIL TO FRIEND
-					</a>
-					<button onclick="window.print()" class="w-full bg-brand-green text-white font-semibold py-2.5 px-4 rounded-md hover:opacity-90 transition text-sm">
-						<i class="fa-solid fa-print mr-2"></i>
-						PRINT UNIT INFO
-					</button>
-				</div>
-			</div>
-		</div>
-
-		<!-- Specifications and Unit Information Section -->
-		<div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-			<!-- Specifications -->
-			<div>
-				<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase">SPECIFICATIONS</h2>
-				<div class="border-t-2 border-brand-green mb-4"></div>
-				<div class="space-y-0">
-					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
-						<span class="text-gray-700 font-semibold">Condition</span>
-						<span class="text-gray-900 font-semibold">New</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-white">
-						<span class="text-gray-700 font-semibold">Lot Status</span>
-						<span class="text-gray-900 font-semibold">On lot</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
-						<span class="text-gray-700 font-semibold">Quantity</span>
-						<span class="text-gray-900 font-semibold">1</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-white">
-						<span class="text-gray-700 font-semibold">Golf Cart Type</span>
-						<span class="text-gray-900 font-semibold">Electric</span>
-					</div>
-				</div>
-			</div>
-
-			<!-- Unit Information -->
-			<div>
-				<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase">UNIT INFORMATION</h2>
-				<div class="border-t-2 border-brand-green mb-4"></div>
-				<div class="space-y-0">
-					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
-						<span class="text-gray-700 font-semibold">Stock #</span>
-						<span class="text-gray-900 font-semibold">{cart.stock}</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-white">
-						<span class="text-gray-700 font-semibold">Location</span>
-						<span class="text-gray-900 font-semibold">Belleview, FL</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
-						<span class="text-gray-700 font-semibold">Year</span>
-						<span class="text-gray-900 font-semibold">{cart.year}</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-white">
-						<span class="text-gray-700 font-semibold">Brand</span>
-						<span class="text-brand-green font-semibold">{cart.brand}</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
-						<span class="text-gray-700 font-semibold">Model</span>
-						<span class="text-brand-green font-semibold">{cart.model}</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-white">
-						<span class="text-gray-700 font-semibold">Trim</span>
-						<span class="text-gray-900 font-semibold">Deluxe Golf Ready</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-gray-50">
-						<span class="text-gray-700 font-semibold">Type</span>
-						<span class="text-brand-green font-semibold">{cart.type || "Golf Cart"}</span>
-					</div>
-					<div class="flex justify-between items-center py-3 px-4 bg-white">
-						<span class="text-gray-700 font-semibold">Sub-Category</span>
-						<span class="text-gray-900 font-semibold">Golf</span>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Similar Units For Sale Section -->
-		<div class="mt-8">
-			<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase text-left">SIMILAR UNITS FOR SALE</h2>
-			<div class="border-t-2 border-brand-green mb-6"></div>
-			<div class="relative">
-				<button id="similar-prev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full p-2 hover:bg-gray-50 transition">
-					<i class="fa-solid fa-chevron-left text-gray-600"></i>
-				</button>
-				<div id="similar-carousel" class="flex gap-4 overflow-x-auto scrollbar-hide pb-4" style="scroll-behavior: smooth;">
-					{similarUnits.map((unit) => (
-						<div class="flex-shrink-0 w-64 bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-							<a href={unit.slug ? `/${unit.slug}` : `/cart/${unit.id}`}>
-								<img src={unit.image} alt={unit.name} class="w-full h-48 object-cover" loading="lazy" width="256" height="192" />
-								<div class="p-4">
-									<h3 class="font-bold text-gray-900 mb-2 text-sm">{unit.name}</h3>
-									<div class="space-y-1 mb-3">
-										<p class="text-xs text-gray-600">Price: <span class="line-through">${unit.price.toLocaleString()}</span></p>
-										<p class="text-sm font-bold text-brand-green">Sale Price: ${(unit.salePrice || unit.price).toLocaleString()}</p>
-									</div>
-									<button class="w-full bg-gray-900 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-800 transition text-sm">
-										VIEW DETAILS
-									</button>
-								</div>
-							</a>
-						</div>
-					))}
-				</div>
-				<button id="similar-next" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-300 rounded-full p-2 hover:bg-gray-50 transition">
-					<i class="fa-solid fa-chevron-right text-gray-600"></i>
-				</button>
-			</div>
-		</div>
-
-		<!-- Dealer Information Section -->
-		<div class="mt-8">
-			<h2 class="text-2xl font-black text-gray-900 mb-4 uppercase text-left">DEALER INFORMATION</h2>
-			<div class="border-t-2 border-brand-green mb-6"></div>
-			<div class="bg-gray-50 rounded-lg p-6">
-				<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-					<div>
-						<h3 class="text-xl font-bold text-gray-900 mb-2">Masters Golf Cars</h3>
-						<p class="text-gray-700 font-semibold">12885 US-441</p>
-						<p class="text-gray-700 font-semibold">Belleview, FL 34420</p>
-					</div>
-					<div class="flex flex-col md:flex-row md:items-center gap-4">
-						<a href="tel:3523070111" class="flex items-center gap-2 text-brand-green font-bold hover:opacity-80 transition">
-							<i class="fa-solid fa-phone"></i>
-							<span>352-307-0111</span>
-						</a>
-						<a href="/contact" class="inline-flex items-center gap-2 bg-brand-green text-white font-semibold py-3 px-6 rounded-md hover:opacity-90 transition">
-							<i class="fa-regular fa-envelope"></i>
-							<span>CONTACT US</span>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Photo Gallery Modal -->
-	<div id="photo-modal" class="fixed inset-0 bg-black bg-opacity-90 hidden z-50 flex items-center justify-center p-4">
-		<div class="max-w-6xl w-full relative">
-			<button id="close-photo-modal" class="absolute top-4 right-4 text-white hover:text-gray-300 z-10">
-				<i class="fa-solid fa-times text-3xl"></i>
-			</button>
-			<div class="mb-4">
-				<img id="modal-main-image" src={cartImages[0]} alt={cart.name} class="w-full h-auto max-h-[80vh] object-contain mx-auto" loading="lazy" width="1200" height="900" />
-			</div>
-			<div class="grid grid-cols-7 gap-2 max-w-4xl mx-auto">
-				{cartImages.map((img, index) => (
-					<button 
-						class="modal-thumbnail border-2 border-transparent hover:border-brand-green rounded-lg overflow-hidden transition"
-						data-image={img}
-					>
-						<img src={img} alt={`${cart.name} - Image ${index + 1}`} class="w-full h-20 object-cover" loading="lazy" width="100" height="80" />
-					</button>
-				))}
-			</div>
-		</div>
-	</div>
-
-	<script>
-		// Image gallery functionality
-		document.addEventListener('DOMContentLoaded', function() {
-			const mainImage = document.getElementById('main-image');
-			const modalMainImage = document.getElementById('modal-main-image');
-			const photoModal = document.getElementById('photo-modal');
-			const showAllPhotosBtn = document.getElementById('show-all-photos');
-			const closePhotoModal = document.getElementById('close-photo-modal');
-			
-			// Thumbnail click handlers
-			document.querySelectorAll('.thumbnail-btn').forEach(btn => {
-				btn.addEventListener('click', function() {
-					const imageSrc = this.getAttribute('data-image');
-					mainImage.src = imageSrc;
-					// Update active thumbnail
-					document.querySelectorAll('.thumbnail-btn').forEach(b => b.classList.remove('border-brand-green'));
-					this.classList.add('border-brand-green');
-				});
-			});
-
-			// Show all photos modal
-			showAllPhotosBtn.addEventListener('click', function() {
-				photoModal.classList.remove('hidden');
-				document.body.style.overflow = 'hidden';
-			});
-
-			closePhotoModal.addEventListener('click', function() {
-				photoModal.classList.add('hidden');
-				document.body.style.overflow = '';
-			});
-
-			// Modal thumbnail click handlers
-			document.querySelectorAll('.modal-thumbnail').forEach(btn => {
-				btn.addEventListener('click', function() {
-					const imageSrc = this.getAttribute('data-image');
-					modalMainImage.src = imageSrc;
-					// Update active thumbnail
-					document.querySelectorAll('.modal-thumbnail').forEach(b => b.classList.remove('border-brand-green'));
-					this.classList.add('border-brand-green');
-				});
-			});
-
-			// Close modal when clicking outside
-			photoModal.addEventListener('click', function(e) {
-				if (e.target === this) {
-					photoModal.classList.add('hidden');
-					document.body.style.overflow = '';
-				}
-			});
-
-			// Similar units carousel navigation
-			const similarCarousel = document.getElementById('similar-carousel');
-			const similarPrev = document.getElementById('similar-prev');
-			const similarNext = document.getElementById('similar-next');
-			
-			if (similarCarousel && similarPrev && similarNext) {
-				similarPrev.addEventListener('click', function() {
-					similarCarousel.scrollBy({ left: -300, behavior: 'smooth' });
-				});
-				
-				similarNext.addEventListener('click', function() {
-					similarCarousel.scrollBy({ left: 300, behavior: 'smooth' });
-				});
-			}
-		});
-	</script>
-	<style>
-		.scrollbar-hide {
-			-ms-overflow-style: none;
-			scrollbar-width: none;
-		}
-		.scrollbar-hide::-webkit-scrollbar {
-			display: none;
-		}
-	</style>
+	<FormShell id="askcart" eyebrow="Ask about this cart" heading="Want to see it" accent="in person?" lead="Tell us when works for you and our sales team will get back to you as soon as possible during business hours.">
+		<CartInquiryForm pageSource={`cart-${slug}`} idPrefix="cart" stockNumber={cart.stock} cartName={cart.name} placeholder="Best time to visit, trade-in details, financing questions." />
+	</FormShell>
 </Layout>
+
+<style>
+	.top { padding: 40px var(--gx) 72px; background: #fff; display: flex; flex-direction: column; gap: 32px; }
+	.crumbs { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+	.crumbs a { color: var(--muted); }
+	.top-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: start; }
+	.main-ph { height: 520px; overflow: hidden; background: var(--paper); }
+	.main-ph img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+	.thumbs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+	.thumb { height: 132px; overflow: hidden; background: var(--paper); border: 1px solid var(--line); padding: 0; cursor: pointer; }
+	.thumb.on { border: 2px solid var(--ink); }
+	.thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	.specs { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+	.spec { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+	@media (max-width: 1100px) { .top-grid { grid-template-columns: 1fr; gap: 40px; } .main-ph { height: 400px; } }
+	@media (max-width: 760px) { .main-ph { height: 260px; } .thumb { height: 80px; } .thumbs { gap: 8px; } }
+</style>
+<script>
+	const main = document.getElementById('mainimg') as HTMLImageElement | null;
+	document.querySelectorAll<HTMLButtonElement>('.thumb').forEach((b) => b.addEventListener('click', () => {
+		if (main) main.src = b.dataset.src || main.src;
+		document.querySelectorAll('.thumb').forEach((t) => t.classList.remove('on')); b.classList.add('on');
+	}));
+</script>

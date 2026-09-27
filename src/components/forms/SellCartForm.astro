@@ -1,0 +1,23 @@
+---
+import Icon from '../ui/Icon.astro';
+interface Props { idPrefix?: string }
+const { idPrefix = 'sell' } = Astro.props;
+const p = idPrefix;
+---
+<form class="form-card" name="sell-cart" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success">
+	<input type="hidden" name="form-name" value="sell-cart" />
+	<p class="hidden"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+	<div class="field"><label for={`${p}-name`}>Name</label><input type="text" id={`${p}-name`} name="name" required autocomplete="name" /></div>
+	<div class="field"><label for={`${p}-phone`}>Mobile phone</label><input type="tel" id={`${p}-phone`} name="phone" required autocomplete="tel" inputmode="tel" /></div>
+	<div class="field span2"><label for={`${p}-email`}>Email</label><input type="email" id={`${p}-email`} name="email" required autocomplete="email" /></div>
+	<div class="field"><label for={`${p}-make`}>Make</label><input type="text" id={`${p}-make`} name="cart_make" required placeholder="Club Car, Yamaha, E-Z-GO" /></div>
+	<div class="field"><label for={`${p}-model`}>Model</label><input type="text" id={`${p}-model`} name="cart_model" placeholder="Precedent, Drive2, RXV" /></div>
+	<div class="field"><label for={`${p}-year`}>Year</label><input type="text" id={`${p}-year`} name="cart_year" inputmode="numeric" placeholder="2019" /></div>
+	<div class="field"><label for={`${p}-fuel`}>Gas or electric</label><select id={`${p}-fuel`} name="cart_fuel"><option value="">Select</option><option>Gas</option><option>Electric</option><option>Lithium</option><option>Not sure</option></select></div>
+	<div class="field"><label for={`${p}-cond`}>Condition</label><select id={`${p}-cond`} name="cart_condition"><option value="">Select</option><option>Excellent</option><option>Good</option><option>Fair</option><option>Needs repair</option></select></div>
+	<div class="field"><label for={`${p}-price`}>Asking price (optional)</label><input type="text" id={`${p}-price`} name="asking_price" inputmode="numeric" placeholder="$" /></div>
+	<div class="field span2"><label for={`${p}-details`}>Additional information</label><textarea id={`${p}-details`} name="details" placeholder="Accessories, tires and wheels, enclosures, batteries, anything else."></textarea></div>
+	<label class="consent span2"><input type="checkbox" id={`${p}-sms-consent`} name="sms_consent" value="yes" /><span>You can text me about this request. Message and data rates may apply. Reply STOP to opt out.</span></label>
+	<button type="submit" class="btn span2 block"><span>Get my offer</span><Icon name="arrow" size={18} /></button>
+	<div class="span2 small" style="text-align:center;font-size:13px">We respect your privacy. No spam, ever.</div>
+</form>

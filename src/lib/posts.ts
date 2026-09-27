@@ -1,0 +1,42 @@
+export const blogPosts = [
+	{
+		slug: 'golf-cart-guide-the-villages',
+		title: 'Complete Golf Cart Guide for The Villages Residents',
+		excerpt: 'Everything you need to know about golf cart ownership in The Villages, including cart paths, local rules, and the best carts for the active lifestyle.',
+		date: '2025-01-15',
+		image: '/images/home page carts/electric-golf-cart_img_v58.webp',
+		category: 'Guides',
+	},
+	{
+		slug: 'lithium-battery-conversion-guide',
+		title: 'Lithium Battery Conversion: Everything You Need to Know',
+		excerpt: 'Discover the benefits of upgrading your golf cart to lithium batteries, including cost savings, performance improvements, and why Masters Golf Cars is your best choice.',
+		date: '2025-01-10',
+		image: '/images/home page carts/05-13-2025-12-38-40_58.webp',
+		category: 'Technology',
+	},
+	{
+		slug: 'golf-cart-maintenance-checklist',
+		title: 'Seasonal Golf Cart Maintenance Checklist',
+		excerpt: 'Keep your golf cart running smoothly year-round with our comprehensive seasonal maintenance guide covering spring, summer, fall, and winter care.',
+		date: '2025-01-08',
+		image: '/images/golf cart repair page/05-08-2025-14-31-52_55.webp',
+		category: 'Maintenance',
+	},
+	{
+		slug: 'best-neighborhoods-golf-carts-ocala',
+		title: 'Top Neighborhoods for Golf Cart Living in Ocala',
+		excerpt: 'Explore the best golf cart-friendly communities in Ocala, including Ocala Palms, Golden Ocala, On Top of the World, Oak Run, and more.',
+		date: '2025-01-05',
+		image: '/images/home page carts/gas-golf-cart_img_v62.webp',
+		category: 'Lifestyle',
+	},
+	{
+		slug: 'electric-vs-gas-golf-carts',
+		title: 'Electric vs Gas Golf Carts: Which Is Right for You?',
+		excerpt: 'A comprehensive comparison of electric and gas-powered golf carts covering performance, maintenance, costs, and environmental impact.',
+		date: '2025-01-02',
+		image: '/images/home page carts/05-13-2025-12-38-41_59.webp',
+		category: 'Buying Guide',
+	},
+];

@@ -1,0 +1,147 @@
+{
+ "home": {
+  "desktop": "pages/home.desktop.html",
+  "mobile": "pages/home.mobile.html",
+  "boards": [
+   "Premium.dc.html",
+   "Premium2.dc.html",
+   "Mobile.dc.html",
+   "Mobile2.dc.html"
+  ]
+ },
+ "service": {
+  "desktop": "pages/service.desktop.html",
+  "mobile": "pages/service.mobile.html",
+  "boards": [
+   "Service.dc.html",
+   "Service2.dc.html",
+   "ServiceMobile.dc.html",
+   "ServiceMobile2.dc.html"
+  ]
+ },
+ "rentals": {
+  "desktop": "pages/rentals.desktop.html",
+  "mobile": "pages/rentals.mobile.html",
+  "boards": [
+   "Rentals.dc.html",
+   "RentalsMobile.dc.html",
+   "RentalsMobile2.dc.html"
+  ]
+ },
+ "fleet": {
+  "desktop": "pages/fleet.desktop.html",
+  "mobile": "pages/fleet.mobile.html",
+  "boards": [
+   "Fleet.dc.html",
+   "FleetMobile.dc.html",
+   "FleetMobile2.dc.html"
+  ]
+ },
+ "lithium": {
+  "desktop": "pages/lithium.desktop.html",
+  "mobile": "pages/lithium.mobile.html",
+  "boards": [
+   "Lithium.dc.html",
+   "LithiumMobile.dc.html",
+   "LithiumMobile2.dc.html"
+  ]
+ },
+ "customize": {
+  "desktop": "pages/customize.desktop.html",
+  "mobile": "pages/customize.mobile.html",
+  "boards": [
+   "Customize.dc.html",
+   "CustomizeMobile.dc.html"
+  ]
+ },
+ "sales": {
+  "desktop": "pages/sales.desktop.html",
+  "mobile": "pages/sales.mobile.html",
+  "boards": [
+   "Sales.dc.html",
+   "SalesMobile.dc.html",
+   "SalesMobile2.dc.html"
+  ]
+ },
+ "cart": {
+  "desktop": "pages/cart.desktop.html",
+  "mobile": "pages/cart.mobile.html",
+  "boards": [
+   "Cart.dc.html",
+   "CartMobile.dc.html"
+  ]
+ },
+ "sell": {
+  "desktop": "pages/sell.desktop.html",
+  "mobile": "pages/sell.mobile.html",
+  "boards": [
+   "Sell.dc.html",
+   "SellMobile.dc.html"
+  ]
+ },
+ "gallery": {
+  "desktop": "pages/gallery.desktop.html",
+  "mobile": "pages/gallery.mobile.html",
+  "boards": [
+   "Gallery.dc.html",
+   "GalleryMobile.dc.html"
+  ]
+ },
+ "contact": {
+  "desktop": "pages/contact.desktop.html",
+  "mobile": "pages/contact.mobile.html",
+  "boards": [
+   "Contact.dc.html",
+   "ContactMobile.dc.html"
+  ]
+ },
+ "locations": {
+  "desktop": "pages/locations.desktop.html",
+  "mobile": "pages/locations.mobile.html",
+  "boards": [
+   "Locations.dc.html",
+   "LocationsMobile.dc.html"
+  ]
+ },
+ "location": {
+  "desktop": "pages/location.desktop.html",
+  "mobile": "pages/location.mobile.html",
+  "boards": [
+   "Location.dc.html",
+   "LocationMobile.dc.html",
+   "LocationMobile2.dc.html"
+  ]
+ },
+ "faq": {
+  "desktop": "pages/faq.desktop.html",
+  "mobile": "pages/faq.mobile.html",
+  "boards": [
+   "FAQ.dc.html",
+   "FAQMobile.dc.html"
+  ]
+ },
+ "blog": {
+  "desktop": "pages/blog.desktop.html",
+  "mobile": "pages/blog.mobile.html",
+  "boards": [
+   "Blog.dc.html",
+   "BlogMobile.dc.html"
+  ]
+ },
+ "post": {
+  "desktop": "pages/post.desktop.html",
+  "mobile": "pages/post.mobile.html",
+  "boards": [
+   "Post.dc.html",
+   "PostMobile.dc.html"
+  ]
+ },
+ "about": {
+  "desktop": "pages/about.desktop.html",
+  "mobile": "pages/about.mobile.html",
+  "boards": [
+   "About.dc.html",
+   "AboutMobile.dc.html"
+  ]
+ }
+}

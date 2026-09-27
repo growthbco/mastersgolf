@@ -1,0 +1,25 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+interface Props { items: { question: string; answer: string }[]; eyebrow?: string; heading?: string; lead?: string; bg?: 'paper' | 'white' }
+const { items, eyebrow = 'FAQ', heading = 'Good questions.', lead = 'Do not see yours? Call (352) 307-0111.', bg = 'paper' } = Astro.props;
+---
+<section class:list={['sec faq', bg]}>
+	<div class="head"><Eyebrow>{eyebrow}</Eyebrow><h2 class="h2 md">{heading}</h2><p class="lead" style="max-width:400px">{lead}</p></div>
+	<div class="faq-list">
+		{items.map((f) => <details class="faq-item"><summary><h3 class="h3 q">{f.question}</h3><span class="plus" aria-hidden="true"></span></summary><p class="body">{f.answer}</p></details>)}
+	</div>
+</section>
+<style>
+	.faq { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: start; }
+	.faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+	.faq-item { border-bottom: 1px solid var(--line); }
+	.faq-item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; }
+	.faq-item summary::-webkit-details-marker { display: none; }
+	.q { font-size: 18px; line-height: 26px; }
+	.plus { position: relative; flex-shrink: 0; width: 20px; height: 20px; }
+	.plus::before, .plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 16px; height: 1.5px; background: var(--ink); transform: translate(-50%, -50%); transition: transform .2s; }
+	.plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+	.faq-item[open] .plus::after { transform: translate(-50%, -50%) rotate(0); }
+	.faq-item p { padding: 0 44px 24px 0; margin-top: -8px; }
+	@media (max-width: 1100px) { .faq { grid-template-columns: 1fr; gap: 40px; } }
+</style>

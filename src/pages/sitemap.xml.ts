@@ -17,6 +17,10 @@ const pageGroups = [
 			{ url: '/contact/', changefreq: 'monthly', priority: '0.8' },
 			{ url: '/gallery/', changefreq: 'monthly', priority: '0.7' },
 			{ url: '/faq/', changefreq: 'monthly', priority: '0.7' },
+			{ url: '/about/', changefreq: 'monthly', priority: '0.7' },
+			{ url: '/locations/', changefreq: 'monthly', priority: '0.8' },
+			{ url: '/bolt-lithium/', changefreq: 'monthly', priority: '0.9' },
+			{ url: '/customize/', changefreq: 'monthly', priority: '0.8' },
 			{ url: '/privacy-policy/', changefreq: 'yearly', priority: '0.3' },
 			{ url: '/terms-conditions/', changefreq: 'yearly', priority: '0.3' },
 		]

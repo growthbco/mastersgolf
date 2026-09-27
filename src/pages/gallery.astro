@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import companyData from '../data/company.json';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Btn from '../components/ui/Btn.astro';
+import Icon from '../components/ui/Icon.astro';
+import { R } from '../lib/areas';
 
 const fleetPrimary = '/images/gallery/golf-cart-fleet-rental-delivery_img_v35.webp';
 const fleetGallery = [
@@ -70,179 +73,53 @@ const gallerySections = [
 	},
 ];
 
-const modalImages = [
-	{ src: fleetPrimary, title: 'Golf Cart Fleets' },
-	...fleetGallery.map((src) => ({ src, title: 'Golf Cart Fleets' })),
-	{ src: fleetPanorama, title: 'Golf Cart Fleets' },
-	...gallerySections.flatMap((section) => section.images.map((src) => ({ src, title: section.title }))),
+const fleetImages = [fleetPrimary, ...fleetGallery, fleetPanorama];
+const newFleet = [R + 'fleet-aerial-sky.jpg', R + 'fleet-aerial-road.jpg', R + 'fleet-poster.jpg', R + 'yamaha-aisle.jpg', R + 'clubcar-row.jpg', R + 'delivery.jpg'];
+const rentals = [R + 'cart-2p.jpg', R + 'cart-4p-deluxe.jpg', R + 'cart-6p.jpg', R + 'y4-front.jpg', R + 'y2d-front.jpg', R + 'clubcar-utility-row.jpg'];
+const bands = [
+	{ eb: 'Golf cart fleets', title: 'The fleet.', images: [...newFleet, ...fleetImages] },
+	{ eb: 'Rental carts', title: '2, 4 and 6 passenger.', images: rentals },
+	...gallerySections.map((s) => ({ eb: s.title, title: s.title + '.', images: s.images })),
 ];
-
-const imageIndexMap = new Map(modalImages.map((item, index) => [item.src, index]));
+const crumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "Gallery", url: "https://mastersgolfcars.com/gallery" }
+];
 ---
 
-<Layout title="Golf Cart Gallery - Masters Golf Cars" description="Explore Masters Golf Cars gallery featuring fleets, custom builds, lifted carts, and more.">
-	<section class="bg-white py-12">
-		<div class="container mx-auto px-4">
-			<h1 class="text-4xl md:text-5xl font-bold text-center text-gray-900">Golf Cart Gallery</h1>
-		</div>
+<Layout title="Golf Cart Gallery - Masters Golf Cars" description="Explore Masters Golf Cars gallery featuring fleets, custom builds, lifted carts, and more." breadcrumbs={crumbs}>
+	<section class="sec dark on-dark" style="padding-top:72px;padding-bottom:56px">
+		<div class="head"><Eyebrow>Gallery</Eyebrow><h2 class="h2 xl" style="font-size:56px">Fleets, rentals and custom builds.</h2><p class="lead">Real carts, real events, real customers. Tap any photo to enlarge.</p></div>
 	</section>
-
-	<section class="bg-white pb-16">
-		<div class="container mx-auto px-4">
-			<div class="bg-white border border-gray-200 rounded-[32px] shadow-xl p-6 md:p-10">
-				<h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-wide">Golf Cart Fleets</h2>
-
-				<div class="overflow-hidden shadow-lg mb-10">
-					<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(fleetPrimary)}>
-						<img src={fleetPrimary} alt="Masters Golf Cars fleet delivery truck" class="w-full aspect-[16/6] md:aspect-[16/5] object-cover" loading="lazy" />
-					</button>
-				</div>
-
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-					{fleetGallery.map((image) => (
-						<div class="overflow-hidden shadow-md">
-							<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(image)}>
-								<img src={image} alt="Masters Golf Cars fleet" class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
-							</button>
-						</div>
-					))}
-				</div>
-
-				<div class="overflow-hidden shadow-lg mt-10">
-					<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(fleetPanorama)}>
-						<img src={fleetPanorama} alt="Large golf cart fleet lineup" class="w-full aspect-[16/6] md:aspect-[16/5] object-cover" loading="lazy" />
-					</button>
-				</div>
-			</div>
-		</div>
+	{bands.map((b, i) => (
+		<section class:list={['sec stack', i % 2 === 0 ? 'white' : 'paper']} style="gap:32px;padding-top:64px;padding-bottom:64px">
+			<div class="head"><Eyebrow>{b.eb}</Eyebrow><h2 class="h2 md">{b.title}</h2></div>
+			<div class="gal">{b.images.map((src, j) => <button type="button" class="gph" data-src={src} aria-label={`Open photo ${j + 1} of ${b.title}`}><img src={src} alt={`${b.eb} at Masters Golf Cars`} loading="lazy" width="440" height="300" /></button>)}</div>
+		</section>
+	))}
+	<section class="sec dark on-dark cta">
+		<div class="head"><Eyebrow>Like what you see?</Eyebrow><h2 class="h2" style="font-size:44px">Rent it. Buy it. <span class="g">Build it.</span></h2></div>
+		<div class="row btn-row" style="gap:16px;flex-shrink:0"><Btn href="/golf-cart-rentals" kind="solid">Rent a cart</Btn><Btn href="/golf-cart-inventory" kind="ghost-d">Carts for sale</Btn><Btn href="/customize" kind="ghost-d">Customize</Btn></div>
 	</section>
-
-	<section class="bg-white pb-16">
-		<div class="container mx-auto px-4 space-y-16">
-			{gallerySections.map((section) => (
-				<div class="bg-white border border-gray-200 rounded-[32px] shadow-xl p-6 md:p-10">
-					<h3 class="text-2xl font-bold text-center text-gray-900 mb-8 uppercase tracking-wide">{section.title}</h3>
-					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-						{section.images.map((image) => (
-							<div class="overflow-hidden shadow-md">
-								<button type="button" class="w-full block cursor-pointer" data-gallery-index={imageIndexMap.get(image)}>
-									<img src={image} alt={section.title} class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300" loading="lazy" />
-								</button>
-							</div>
-						))}
-					</div>
-				</div>
-			))}
-		</div>
-	</section>
-
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Visit Our Location</h2>
-			<p class="text-center text-gray-700 max-w-2xl mx-auto mb-10">
-				We are located between Ocala and The Villages, right on 441 across from the Market of Marion. Stop by to see these carts in person!
-			</p>
-			<div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-				<iframe
-					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
-					width="100%"
-					height="450"
-					style="border:0;"
-					allowfullscreen=""
-					loading="lazy"
-					referrerpolicy="no-referrer-when-downgrade"
-				></iframe>
-			</div>
-		</div>
-	</section>
-
-	<div id="gallery-modal" class="fixed inset-0 hidden items-center justify-center bg-black bg-opacity-90 z-50 px-6 py-6" style="display: none;">
-		<div class="relative w-full max-w-5xl">
-			<button type="button" class="absolute -top-12 right-0 text-white text-4xl font-bold hover:opacity-80 transition z-10" data-gallery-close aria-label="Close gallery">
-				&times;
-			</button>
-			<div class="relative">
-				<button type="button" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 hover:bg-opacity-70 transition px-4 py-2 rounded-full z-10" data-gallery-prev aria-label="Previous image">
-					&#8592;
-				</button>
-				<button type="button" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 hover:bg-opacity-70 transition px-4 py-2 rounded-full z-10" data-gallery-next aria-label="Next image">
-					&#8594;
-				</button>
-				<img src="" alt="" class="w-full max-h-[80vh] object-contain rounded-lg mx-auto" data-gallery-modal-image />
-			</div>
-			<p class="text-white text-center text-lg mt-4" data-gallery-modal-title></p>
-		</div>
-	</div>
-
-	<script type="application/json" id="gallery-data">{JSON.stringify(modalImages)}</script>
-	<script>
-		document.addEventListener('DOMContentLoaded', function() {
-			const galleryDataEl = document.getElementById('gallery-data');
-			const galleryData = galleryDataEl ? JSON.parse(galleryDataEl.textContent || '[]') : [];
-			const modalEl = document.getElementById('gallery-modal');
-			const modalImg = modalEl?.querySelector('[data-gallery-modal-image]');
-			const modalTitle = modalEl?.querySelector('[data-gallery-modal-title]');
-			const closeBtn = modalEl?.querySelector('[data-gallery-close]');
-			const prevBtn = modalEl?.querySelector('[data-gallery-prev]');
-			const nextBtn = modalEl?.querySelector('[data-gallery-next]');
-			let currentIndex = 0;
-
-			const showModal = (index) => {
-				if (!modalEl || !modalImg || !modalTitle) return;
-				currentIndex = (index + galleryData.length) % galleryData.length;
-				const item = galleryData[currentIndex];
-				if (!item) return;
-				modalImg.src = item.src;
-				modalImg.alt = item.title;
-				modalTitle.textContent = item.title;
-				modalEl.classList.remove('hidden');
-				modalEl.classList.add('flex');
-				document.body.style.overflow = 'hidden';
-			};
-
-			const closeModal = () => {
-				if (!modalEl) return;
-				modalEl.classList.add('hidden');
-				modalEl.classList.remove('flex');
-				document.body.style.overflow = '';
-			};
-
-			document.querySelectorAll('[data-gallery-index]').forEach((btn) => {
-				btn.addEventListener('click', (e) => {
-					e.preventDefault();
-					const index = Number(btn.getAttribute('data-gallery-index') || '0');
-					if (!Number.isNaN(index)) {
-						showModal(index);
-					}
-				});
-			});
-
-			closeBtn?.addEventListener('click', closeModal);
-			modalEl?.addEventListener('click', (event) => {
-				if (event.target === modalEl) {
-					closeModal();
-				}
-			});
-			prevBtn?.addEventListener('click', (event) => {
-				event.stopPropagation();
-				showModal(currentIndex - 1);
-			});
-			nextBtn?.addEventListener('click', (event) => {
-				event.stopPropagation();
-				showModal(currentIndex + 1);
-			});
-
-			window.addEventListener('keydown', (event) => {
-				if (!modalEl || modalEl.classList.contains('hidden')) return;
-				if (event.key === 'Escape') {
-					closeModal();
-				} else if (event.key === 'ArrowLeft') {
-					showModal(currentIndex - 1);
-				} else if (event.key === 'ArrowRight') {
-					showModal(currentIndex + 1);
-				}
-			});
-		});
-	</script>
+	<div class="lightbox" id="lightbox" hidden><button type="button" class="lb-close" aria-label="Close"><Icon name="close" size={28} /></button><img src="" alt="" id="lb-img" /></div>
 </Layout>
 
+<style>
+	.gal { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+	.gph { height: 300px; overflow: hidden; background: var(--black); padding: 0; border: 0; cursor: zoom-in; }
+	.gph img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+	.gph:hover img { transform: scale(1.03); }
+	.cta { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+	.lightbox { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,.92); display: flex; align-items: center; justify-content: center; padding: 24px; }
+	.lightbox[hidden] { display: none; }
+	.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+	.lb-close { position: absolute; top: 20px; right: 20px; width: 48px; height: 48px; border: 1px solid var(--line-d); background: transparent; color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+	@media (max-width: 1100px) { .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cta { flex-direction: column; align-items: flex-start; } }
+	@media (max-width: 760px) { .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; } .gph { height: 140px; } .cta .h2 { font-size: 32px !important; } }
+</style>
+<script>
+	const lb = document.getElementById('lightbox') as HTMLElement; const img = document.getElementById('lb-img') as HTMLImageElement;
+	document.querySelectorAll<HTMLButtonElement>('.gph').forEach((b) => b.addEventListener('click', () => { img.src = b.dataset.src || ''; lb.hidden = false; document.body.style.overflow = 'hidden'; }));
+	const close = () => { lb.hidden = true; document.body.style.overflow = ''; };
+	lb.addEventListener('click', close); document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+</script>

@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Btn from '../components/ui/Btn.astro';
+import Icon from '../components/ui/Icon.astro';
+import companyData from '../data/company.json';
+const LINKS = [['Golf cart rentals', '/golf-cart-rentals'], ['Fleet and event rentals', '/fleet-rentals-quote'], ['Service and repair', '/golf-cart-repairs'], ['Carts for sale', '/golf-cart-inventory'], ['Bolt lithium', '/bolt-lithium'], ['Contact', '/contact']];
+---
+
+<Layout title="Page Not Found - Masters Golf Cars" description="That page has moved or never existed. Find rentals, service, sales and contact information for Masters Golf Cars." quoteHref="/contact">
+	<section class="sec paper nf">
+		<div class="stack" style="gap:24px">
+			<Eyebrow>404</Eyebrow>
+			<h1 class="h1" style="font-size:64px">Wrong turn.</h1>
+			<p class="lead">That page has moved or never existed. Here is where most people are headed, or call {companyData.contact.phone} and we will point you the right way.</p>
+			<div class="row btn-row" style="gap:16px"><Btn href="/">Home page</Btn><Btn href={companyData.contact.phoneLink} kind="ghost">Call {companyData.contact.phone}</Btn></div>
+		</div>
+		<div class="links">{LINKS.map(([n, h]) => <a href={h}><span>{n}</span><Icon name="arrow" size={20} /></a>)}</div>
+	</section>
+</Layout>
+<style>
+	.nf { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; min-height: 60vh; }
+	.links { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+	.links a { display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 500; color: var(--ink); }
+	@media (max-width: 1100px) { .nf { grid-template-columns: 1fr; gap: 40px; } .h1 { font-size: 44px !important; } }
+</style>

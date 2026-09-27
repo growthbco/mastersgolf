@@ -1,0 +1,28 @@
+---
+import CartCard from '../CartCard.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Btn from '../ui/Btn.astro';
+import Ring from '../ui/Ring.astro';
+import inventoryData from '../../data/inventory.json';
+import companyData from '../../data/company.json';
+interface Props { heading?: string; lead?: string; id?: string; bg?: 'paper' | 'white'; limit?: number }
+const { heading = 'In stock now.', lead = 'Live from our inventory system. Prices and stock update as carts come and go.', id = 'inventory', bg = 'paper', limit } = Astro.props;
+const carts = (inventoryData as any[]).slice(0, limit ?? 999);
+---
+<section id={id} class:list={['sec stack', bg]} style="gap:48px">
+	<div class="inv-head"><div class="head"><Eyebrow>Inventory</Eyebrow><h2 class="h2">{heading}</h2><p class="lead">{lead}</p></div>{carts.length > 0 && <span class="small">Showing {carts.length} {carts.length === 1 ? 'cart' : 'carts'}</span>}</div>
+	{carts.length > 0 ? (
+		<div class="grid3">{carts.map((c) => <CartCard {...c} />)}</div>
+	) : (
+		<div class="empty">
+			<Ring name="tag" fill />
+			<div class="stack" style="gap:8px"><h3 class="h3">New carts arrive every week.</h3><p class="body" style="max-width:560px">Our online inventory is being updated. Call {companyData.contact.phone} or send a note below and we will tell you exactly what is on the lot today, including new Advanced EV, Club Car, Yamaha and E-Z-GO carts and pre-owned trade-ins.</p></div>
+			<div class="row btn-row" style="gap:12px"><Btn href={companyData.contact.phoneLink}>Call {companyData.contact.phone}</Btn><Btn href="#askcart" kind="ghost">Ask what is in stock</Btn></div>
+		</div>
+	)}
+</section>
+<style>
+	.inv-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+	.empty { display: flex; flex-direction: column; gap: 24px; padding: 48px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--green); }
+	@media (max-width: 760px) { .inv-head { flex-direction: column; align-items: flex-start; } .empty { padding: 28px 20px; } }
+</style>

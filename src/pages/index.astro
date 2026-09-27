@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
+import Icon from '../components/ui/Icon.astro';
+import Ring from '../components/ui/Ring.astro';
+import Btn from '../components/ui/Btn.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Stars from '../components/ui/Stars.astro';
+import Check from '../components/ui/Check.astro';
 import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import servicesData from '../data/services.json';
@@ -8,7 +13,7 @@ import servicesData from '../data/services.json';
 // LocalBusiness Schema for homepage
 const localBusinessSchema = {
 	"@context": "https://schema.org",
-	"@type": "AutoDealer",
+	"@type": "LocalBusiness",
 	"@id": "https://mastersgolfcars.com/#localbusiness",
 	"name": "Masters Golf Cars, LLC",
 	"alternateName": "Masters Golf Cars",
@@ -20,7 +25,7 @@ const localBusinessSchema = {
 	"priceRange": "$$",
 	"image": [
 		"https://mastersgolfcars.com/images/logos/MastersGolfCarsLogo.png",
-		"https://mastersgolfcars.com/images/landing-pg-hero-3.jpg"
+		"https://mastersgolfcars.com/images/redesign/fleet-poster.jpg"
 	],
 	"logo": "https://mastersgolfcars.com/images/logos/MastersGolfCarsLogo.png",
 	"address": {
@@ -54,6 +59,13 @@ const localBusinessSchema = {
 		"https://www.facebook.com/mastersgolfcars",
 		"https://www.instagram.com/mastersgolfcars/"
 	],
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "4.9",
+		"bestRating": "5",
+		"worstRating": "1",
+		"reviewCount": "93"
+	},
 	"hasOfferCatalog": {
 		"@type": "OfferCatalog",
 		"name": "Golf Cart Services",
@@ -123,505 +135,409 @@ const localBusinessSchema = {
 		}
 	]
 };
+
+const R = '/images/redesign/';
+const BOLT = '<svg width="0.62em" height="0.9em" viewBox="0 0 16 24" fill="#76c82f" aria-hidden="true" style="display:inline-block;vertical-align:-0.06em;margin-left:0.08em"><path d="M10.5 0L0 13.5h6L4.5 24 16 9.5H9.5z"></path></svg>';
+const NEEDS = ['A golf cart rental', 'A fleet or event rental', 'A lithium conversion', 'Service or repair', 'To buy a cart', 'To sell my cart', 'A custom build'];
+const EVENTS = ['Equestrian events', 'Tournaments', 'Festivals', 'Corporate events', 'Gun clubs', 'Dog shows', 'Air shows', 'Sporting events', 'Holidays', 'Special events'];
+const CARTS = [
+	{ img: 'cart-2p.jpg', alt: 'Two passenger rental golf cart', title: '2 passenger', sub: 'Staff, vendors and quick runs' },
+	{ img: 'cart-4p.jpg', alt: 'Four passenger rental golf cart', title: '4 passenger', sub: 'Our most requested event cart' },
+	{ img: 'cart-6p.jpg', alt: 'Six passenger rental golf cart', title: '6 passenger', sub: 'Guest shuttles and VIP groups' },
+	{ img: 'carryall.jpg', alt: 'Club Car Carryall utility cart with aluminum cargo bed', title: 'Utility cart', sub: 'Hauls gear, feed and supplies', contain: true, pos: '50% 50%' },
+];
+const REVIEWS = [
+	{ q: 'They have been repairing our fleet of carts for over 15 years. Nothing but professional and extremely speedy service at an affordable price. Not to mention they will pick up your cart and bring it all the way back to you.', who: 'Jay DeFalco', where: 'Fleet customer, Google review' },
+	{ q: 'Excellent company, fast service, prices fair. I had the annual service and also replaced worn out bearings and hubs. Picked the cart up yesterday and returned it today. Very pleased with the communications about the estimate.', who: 'Robert McIntyre', where: 'Service customer, Google review' },
+];
+const AREAS = [['The Villages','/the-villages-golf-cart-rentals'],['Ocala','/golf-cart-rentals-ocala'],['Belleview','/golf-cart-rentals-belleview'],['Gainesville','/golf-cart-rentals-gainesville'],['World Equestrian Center','/golf-cart-rentals-wec'],['On Top of the World','/golf-cart-rentals-otow'],['Spruce Creek','/golf-cart-rentals-spruce-creek'],['Oak Run','/golf-cart-rentals-oak-run']];
+const GOOGLE_REVIEWS = 'https://www.google.com/search?q=Masters+Golf+Cars+Belleview+FL+reviews';
 ---
 
-<Layout title="Golf Carts Ocala & The Villages | Masters Golf Cars" hideHeader={true}>
+<Layout title={`${companyData.name} - ${companyData.tagline}`} description="Golf cart rentals, sales, service, Bolt Energy lithium conversions and custom builds in Belleview, FL. Serving The Villages, Ocala and Central Florida since 1999.">
 	<Schema schema={localBusinessSchema} slot="schema" />
-	<!-- Hero Section with Golf Course Background -->
-	<section class="relative min-h-screen flex flex-col">
-		<!-- Full-screen golf course background -->
-		<div class="absolute inset-0 z-0" style="background-image: url('/images/landing-pg-hero-3.jpg'); background-size: cover; background-position: center;"></div>
-		
-		<!-- Transparent Header Overlay -->
-		<Header transparent={true} />
-		
-		<!-- Spacer to push carts to bottom -->
-		<div class="flex-grow min-h-[30vh]"></div>
-		
-		<!-- Golf Carts Row - Transparent Overlay -->
-		<div class="relative z-10 py-8 md:py-16">
-			<div class="container mx-auto px-2 sm:px-4">
-				<div class="grid grid-cols-4 gap-2 sm:gap-4 md:gap-8 max-w-7xl mx-auto">
-					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/rental-club-car-golf-cart_img_v38.webp" alt="Club Car Golf Cart" class="w-full h-auto max-h-24 sm:max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" loading="eager" fetchpriority="high" width="400" height="300" />
-					</div>
-					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Fleet Club Car Golf Cart" class="w-full h-auto max-h-24 sm:max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" loading="eager" fetchpriority="high" width="400" height="300" />
-					</div>
-					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/fleet-rental-ez-go-golf-cart_img_v40.webp" alt="EZ-GO Golf Cart" class="w-full h-auto max-h-24 sm:max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" loading="eager" fetchpriority="high" width="400" height="300" />
-					</div>
-					<div class="flex justify-center items-end">
-						<img src="/images/home page carts/fleet-rental-club-car-golf-cart_img_v39.webp" alt="Golf Cart for Sale" class="w-full h-auto max-h-24 sm:max-h-32 md:max-h-64 object-contain" style="filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)) drop-shadow(0 5px 10px rgba(0,0,0,0.3));" loading="eager" fetchpriority="high" width="400" height="300" />
-					</div>
-				</div>
+
+	<!-- HERO -->
+	<section class="hero on-dark">
+		<video autoplay muted loop playsinline preload="metadata" poster={R + 'fleet-poster.jpg'} aria-label="Drone flyover of the Masters rental fleet, hundreds of golf carts parked in rows">
+			<source src={R + 'hero-loop.webm'} type="video/webm" />
+			<source src={R + 'hero-loop.mp4'} type="video/mp4" />
+		</video>
+		<div class="shade"></div>
+		<div class="hero-copy">
+			<Eyebrow>A whole different drive</Eyebrow>
+			<h1 class="h1"><span class="kicker">Masters Golf Cars doesn&#39;t follow the golf cart industry.</span><span class="big">We drive it.</span></h1>
+			<p class="lead hero-lead">Central Florida&#39;s premier destination for Golf Cart Rentals, Sales, Service, Lithium Battery Conversions and Customization.</p>
+			<div class="row btn-row" style="gap:16px"><Btn href="#choices" kind="solid">Explore the possibilities</Btn><Btn href="#events" kind="ghost-d">Plan an event fleet</Btn></div>
+		</div>
+		<div class="serving">Proudly serving The Villages, Ocala, Marion County and Central Florida since 1999.</div>
+		<div class="quickquote">
+			<div class="flame-line"></div>
+			<form class="qq" data-quickquote action="#quote" method="get">
+				<div class="field dark"><label for="q-need">I need</label><select id="q-need" name="need">{NEEDS.map((n) => <option>{n}</option>)}</select></div>
+				<div class="field dark"><label for="q-start">Start date</label><input id="q-start" name="start" type="date" /></div>
+				<div class="field dark"><label for="q-end">End date</label><input id="q-end" name="end" type="date" /></div>
+				<div class="field dark"><label for="q-zip">Delivery zip</label><input id="q-zip" name="zip" type="text" inputmode="numeric" placeholder="34420" /></div>
+				<button type="submit" class="btn solid" style="height:50px"><span>Get my quote</span><Icon name="arrow" size={18} /></button>
+			</form>
+		</div>
+	</section>
+
+	<!-- PROOF STRIP -->
+	<section class="proof">
+		{[['star','4.9 on Google','From 93 customer reviews'],['award','Since 1999','Family run in Belleview'],['key','300+ carts','In the rental fleet'],['shield','Authorized dealer','Club Car, Yamaha, E-Z-GO']].map(([i,b,s]) => (
+			<div class="row" style="gap:18px"><Ring name={i} /><div class="stack" style="gap:4px"><div class="fd pbig">{b}</div><div class="small">{s}</div></div></div>
+		))}
+	</section>
+
+	<!-- CHOICES -->
+	<section id="choices" class="sec white stack" style="gap:56px">
+		<div class="stack" style="gap:32px">
+			<div class="head"><Eyebrow>One name. Every possibility.</Eyebrow><h2 class="h2 xl">Masters does <span class="g">it all.</span></h2></div>
+			<div class="verbs">
+				{[['key','Rent it.'],['tag','Buy it.'],['sliders','Build it.'],['battery','Power it.'],['wrench','Service it.']].map(([i,t]) => (
+					<div class="row" style="gap:14px"><Ring name={i} fill /><span class="fd verb">{t}</span></div>
+				))}
 			</div>
 		</div>
-		
-		<!-- CTA Boxes -->
-		<div class="relative z-10 bg-white py-6 md:py-8">
-			<div class="container mx-auto px-4">
-				<div class="flex flex-col sm:flex-row flex-wrap justify-center items-stretch sm:items-center gap-3 sm:gap-4 max-w-6xl mx-auto">
-					<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-6 py-3 sm:py-4 text-center font-bold uppercase text-sm sm:text-base transition flex-1 sm:flex-initial min-w-[140px]">
-						Cart Rentals
-					</a>
-					<a href="/fleet-rentals-quote" class="bg-black hover:bg-gray-900 text-white px-6 py-3 sm:py-4 text-center font-bold uppercase text-sm sm:text-base transition flex-1 sm:flex-initial min-w-[140px]">
-						Fleet Rentals
-					</a>
-					<a href="/golf-cart-inventory" class="bg-black hover:bg-gray-900 text-white px-6 py-3 sm:py-4 text-center font-bold uppercase text-sm sm:text-base transition flex-1 sm:flex-initial min-w-[140px]">
-						Golf Carts For Sale
-					</a>
+		<div class="choice-grid">
+			{[
+				{ href: '/customize', icon: 'sliders', label: 'Make it yours', title: 'Customize your cart', body: 'Seats, wheels, lift kits, lighting and paint. Built around you.', link: 'Plan your build' },
+				{ href: '/bolt-lithium', icon: 'battery', label: 'Power your next chapter', title: 'Bolt Energy lithium', body: 'More range, faster charging and zero maintenance. Installed in our shop.', link: 'Make the switch', dark: true },
+				{ href: '/golf-cart-rentals', icon: 'key', label: 'Keep everyone moving', title: 'Golf cart rentals', body: 'One cart for the week or a whole fleet for your event. Delivered and picked up.', link: 'See rentals' },
+			].map((c) => (
+				<a href={c.href} class:list={['choice', { 'on-dark': c.dark }]}>
+					<div class="top"></div>
+					<div class="inner">
+						<div class="row" style="justify-content:space-between"><div class="ring fill" style="width:68px;height:68px"><Icon name={c.icon} size={30} /></div><span class="sq"><Icon name="arrow" size={22} /></span></div>
+						<div class="stack" style="gap:10px"><span class="clabel">{c.label}</span><h3 class="h3 ctitle">{c.title}</h3></div>
+						<p class="body">{c.body}</p>
+						<span class="clink">{c.link}</span>
+					</div>
+				</a>
+			))}
+		</div>
+	</section>
+
+	<!-- FLEET AND EVENTS -->
+	<section id="events" class="fleet paper">
+		<div class="sweep">
+			<video autoplay muted loop playsinline preload="none" poster={R + 'fleet-aerial-road.jpg'} aria-label="Low drone pass over rows of rental golf carts">
+				<source src={R + 'sweep.webm'} type="video/webm" />
+				<source src={R + 'sweep.mp4'} type="video/mp4" />
+			</video>
+			<div class="sweep-tag">Fleet and event rentals, throughout Florida</div>
+		</div>
+		<div class="fleet-body">
+			<div class="fleet-top">
+				<div class="stack" style="gap:24px">
+					<h2 class="h2 xl">Big events require<br /><span class="g">big fleets.</span></h2>
+					<p class="fd fleet-sub">Experience matters. Trust Masters Golf Cars to drive your event forward.</p>
 				</div>
+				<div class="stack" style="gap:24px">
+					<div class="check-list">{EVENTS.map((e) => <Check>{e}</Check>)}</div>
+					<p class="fd fleet-ready">From a few carts to a full-scale event fleet. We&#39;re ready.</p>
+					<p class="body"><strong style="color:var(--ink)">Reliable carts. Professional delivery. Experienced event management.</strong><br />Serving events throughout Florida.</p>
+					<div class="row"><Btn href="/fleet-rentals-quote">Request a fleet quote</Btn></div>
+				</div>
+			</div>
+			<div class="grid4 carts">
+				{CARTS.map((c) => (
+					<a href="/fleet-rentals-quote" class="cart">
+						<div class="ph" style={c.contain ? 'padding:14px;background:#fff' : ''}><img src={R + c.img} alt={c.alt} loading="lazy" width="640" height="420" style={`object-fit:${c.contain ? 'contain' : 'cover'};object-position:${c.pos || '50% 55%'}`} /></div>
+						<div class="row" style="justify-content:space-between;gap:12px;padding:18px 20px"><div class="stack" style="gap:3px"><h3 class="h3 ct">{c.title}</h3><span class="small">{c.sub}</span></div><Icon name="arrow" size={20} /></div>
+					</a>
+				))}
+			</div>
+			<div class="stats">
+				{[['25+ yrs','Moving fleets since 1999'],['300+ carts','In the rental fleet'],['4 types','2, 4, 6 passenger and utility']].map(([b,s]) => (
+					<div class="stat"><div class="fd sbig">{b}</div><div class="small">{s}</div></div>
+				))}
 			</div>
 		</div>
 	</section>
-	
-	<!-- Search Inventory Section -->
-	<section class="bg-brand-green py-12">
-		<div class="container mx-auto px-4">
-			<div class="bg-white rounded-3xl shadow-2xl px-6 py-10 md:px-10 md:py-12">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8">Search Our Golf Cart Inventory</h2>
-				
-				<form action="/golf-cart-inventory" method="GET" class="max-w-5xl mx-auto">
-					<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-end">
-						<!-- Condition Dropdown -->
-						<div>
-							<label for="condition" class="block text-gray-800 font-semibold mb-2">Condition</label>
-							<select id="condition" name="condition" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2" style="--tw-ring-color: #86CA26;">
-								<option value="">Any</option>
-								<option value="new">New</option>
-								<option value="used">Used</option>
-							</select>
-						</div>
-						
-						<!-- Brand Dropdown -->
-						<div>
-							<label for="brand" class="block text-gray-800 font-semibold mb-2">Brand</label>
-							<select id="brand" name="brand" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2" style="--tw-ring-color: #86CA26;">
-								<option value="">Any</option>
-								<option value="club-car">Club Car</option>
-								<option value="ez-go">EZ-GO</option>
-								<option value="yamaha">Yamaha</option>
-							</select>
-						</div>
-						
-						<!-- Keyword/Stock # Input -->
-						<div>
-							<label for="keyword" class="block text-gray-800 font-semibold mb-2">Keyword Or Stock #</label>
-							<input type="text" id="keyword" name="keyword" placeholder="Any" class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg text-gray-800 focus:outline-none focus:ring-2" style="--tw-ring-color: #86CA26;" />
-						</div>
-						
-						<!-- Search Button -->
-						<div>
-							<button type="submit" class="w-full bg-black hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-bold uppercase transition flex items-center justify-center gap-2">
-								<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-								</svg>
-								SEARCH
-							</button>
-						</div>
-					</div>
-				</form>
-			</div>
+
+	<!-- BOLT LITHIUM -->
+	<section class="sec dark on-dark stack bolt" style="gap:48px">
+		<div class="stack" style="gap:22px">
+			<Eyebrow green>Bolt Energy lithium batteries</Eyebrow>
+			<div class="fd" style="font-size:22px;line-height:1.2">Ready to ditch lead-acid?</div>
+			<h2 class="h2 bolt-h">Go lithium<Fragment set:html={BOLT} /><br />Go further<Fragment set:html={BOLT} /><br /><span class="g">Go Bolt Energy</span><Fragment set:html={BOLT} /></h2>
 		</div>
-	</section>
-	
-	<!-- Our Brands Section -->
-	<section class="relative py-16" style="background-color: #F3F3F3;">
-		<!-- Green bar at top -->
-		<div class="absolute top-0 left-0 right-0 h-1" style="background-color: #86CA26;"></div>
-
-		<div class="container mx-auto px-4 pt-8">
-			<div class="text-center mb-12">
-				<h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-2">
-					Our <span style="color: #86CA26;">Brands</span>
-				</h2>
-				<p class="text-lg sm:text-xl text-gray-600 font-semibold">Authorized Dealer for the Top Golf Cart Brands</p>
-			</div>
-
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-				<!-- Club Car -->
-				<div class="bg-white rounded-lg shadow-lg p-8 text-center">
-					<div class="mb-6 p-4">
-						<img src={servicesData.brands.find(b => b.name === 'Club Car')?.icon || '/images/logos/club-car-icon-0-0.webp'} alt="Club Car Golf Carts" class="h-16 mx-auto object-contain" loading="lazy" />
-					</div>
-					<h3 class="text-2xl font-bold text-gray-900 mb-3">Club Car</h3>
-					<p class="text-gray-700 font-semibold text-sm mb-4">Premium golf carts known for durability and performance. A trusted choice for communities across Central Florida.</p>
-					<a href="/golf-cart-inventory" class="inline-block text-sm font-bold uppercase transition" style="color: #86CA26;">Browse Inventory →</a>
-				</div>
-
-				<!-- Yamaha -->
-				<div class="bg-white rounded-lg shadow-lg p-8 text-center">
-					<div class="mb-6 p-4">
-						<img src={servicesData.brands.find(b => b.name === 'Yamaha')?.icon || '/images/logos/yamaha-icon-0-1.webp'} alt="Yamaha Golf Carts" class="h-16 mx-auto object-contain" loading="lazy" />
-					</div>
-					<h3 class="text-2xl font-bold text-gray-900 mb-3">Yamaha</h3>
-					<p class="text-gray-700 font-semibold text-sm mb-4">Reliable and efficient golf carts with excellent battery life. Great for daily use in The Villages and Ocala.</p>
-					<a href="/golf-cart-inventory" class="inline-block text-sm font-bold uppercase transition" style="color: #86CA26;">Browse Inventory →</a>
-				</div>
-
-				<!-- EZ-GO -->
-				<div class="bg-white rounded-lg shadow-lg p-8 text-center">
-					<div class="mb-6 p-4">
-						<img src={servicesData.brands.find(b => b.name === 'EZ-GO')?.icon || '/images/logos/ez-go-icon-0-2.webp'} alt="EZ-GO Golf Carts" class="h-16 mx-auto object-contain" loading="lazy" />
-					</div>
-					<h3 class="text-2xl font-bold text-gray-900 mb-3">EZ-GO</h3>
-					<p class="text-gray-700 font-semibold text-sm mb-4">Affordable and versatile golf carts perfect for any lifestyle. Popular choice for value and reliability.</p>
-					<a href="/golf-cart-inventory" class="inline-block text-sm font-bold uppercase transition" style="color: #86CA26;">Browse Inventory →</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- Welcome Section -->
-	<section class="bg-white py-16">
-		<div class="container mx-auto px-4">
-			<!-- Heading -->
-			<h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 text-center">
-				Welcome to {companyData.name}
-			</h2>
-			<p class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
-				{companyData.tagline}
-			</p>
-			
-			<!-- Description Paragraphs -->
-			<div class="max-w-4xl mx-auto mb-12">
-				<p class="text-lg text-gray-700 mb-6">
-					{companyData.description}
-				</p>
-				
-				<p class="text-lg text-gray-700 mb-4">
-					<strong>Comprehensive Services Tailored to Your Needs</strong>
-				</p>
-				<ul class="text-lg text-gray-700 space-y-3 mb-6">
-					<li>
-						<strong>Golf Cart Rentals:</strong> Whether you need a single cart or an entire fleet, we offer flexible rental options ideal for events like concerts, equestrian, parades, festivals, and more!
-					</li>
-					<li>
-						<strong>Sales of New and Pre-Owned Carts:</strong> Explore an extensive selection of new and used golf carts, including custom-built units, fleet units, trade-ins, and wholesale options.
-					</li>
-					<li>
-						<strong>Customization:</strong> Bring your vision to life with personalized golf carts tailored to your specific preferences and needs.
-					</li>
-					<li>
-						<strong>Maintenance and Repairs:</strong> Ensure your cart remains in peak condition with their expert maintenance and repair services.
-					</li>
-				</ul>
-			</div>
-			
-			<!-- CTA Buttons -->
-			<div class="flex flex-wrap justify-center gap-4 mb-16 max-w-4xl mx-auto">
-				<a href="/sell-your-cart" class="bg-black hover:bg-gray-900 text-white px-8 py-4 text-center font-bold uppercase text-base transition">
-					SELL YOUR CART
-				</a>
-				<a href="/schedule-golf-cart-service" class="bg-black hover:bg-gray-900 text-white px-8 py-4 text-center font-bold uppercase text-base transition">
-					SCHEDULE A REPAIR
-				</a>
-				<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-8 py-4 text-center font-bold uppercase text-base transition">
-					RENT A CART
-				</a>
-				<a href="/fleet-rentals-quote" class="bg-black hover:bg-gray-900 text-white px-8 py-4 text-center font-bold uppercase text-base transition">
-					FLEET RENTALS
-				</a>
-			</div>
-			
-			<!-- Brands Section -->
-			<div class="max-w-6xl mx-auto">
-				<h3 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12">
-					Brands We Work With
-				</h3>
-				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-					{servicesData.brands.map((brand) => (
-						<div class="flex items-center justify-center p-4 group cursor-pointer">
-							<img src={brand.icon} alt={brand.name} class="max-h-16 w-full object-contain transition-transform duration-300 group-hover:scale-110 group-hover:opacity-80" loading="lazy" width="100" height="100" />
-						</div>
+		<div class="bolt-grid">
+			<img src={R + 'bolt-trio.jpg'} alt="Three Bolt lithium golf cart batteries in 38.4 volt and 51.2 volt sizes stacked in front of a golf cart" loading="lazy" width="620" height="560" class="bolt-img" />
+			<div class="stack" style="gap:30px">
+				<p class="fd" style="margin:0;font-size:26px;line-height:34px">Make the switch today to Bolt Energy lithium.</p>
+				<div class="bens">
+					{[['gauge','More range','Up to 70 miles on a charge.'],['zap','More power','Steady power, even on hills.'],['clock','Faster charging','2 to 4 hours, not 8 to 12.'],['feather','Less weight','Hundreds of pounds lighter.'],['drop','Zero maintenance','No watering. No cleaning.'],['shield','12 year warranty','Industry leading, backed by Bolt.']].map(([i,t,s]) => (
+						<div class="ben"><Ring name={i} dark green /><div class="stack" style="gap:4px"><div class="fd" style="font-size:16px;line-height:22px">{t}</div><div class="small">{s}</div></div></div>
 					))}
 				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- Customer Reviews CTA Section -->
-	<section class="bg-brand-green py-12">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
-					Love Our Service? Share Your Experience!
-				</h2>
-				<p class="text-white text-lg mb-6 opacity-90">
-					Your feedback helps us serve you better and helps others find quality golf cart services.
-				</p>
-				<a href="https://g.page/r/Ce6p7W6HMgpTEBM/review" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 font-bold uppercase text-base transition rounded-lg shadow-lg">
-					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-						<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-						<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-						<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-					</svg>
-					Leave Us a Google Review
-				</a>
+				<div class="stack" style="gap:14px">
+					<span class="label">How far do you want to go?</span>
+					<div class="rng-grid">
+						{[['24 mi','60Ah','Everyday power',false],['50 mi','105Ah','Extended range',true],['70 mi','160Ah','Maximum freedom',false]].map(([mi,ah,lab,hot]) => (
+							<div class:list={['rng', { hot }]}><span class="fd mi">{mi}</span><span class="ah">{ah}{hot ? ' · Most popular' : ''}</span><span class="small">{lab}</span></div>
+						))}
+					</div>
+					<span class="small" style="font-size:12px;line-height:18px">Published Bolt estimates for 48 volt carts. Actual range varies with cart, passengers, speed and terrain.</span>
+				</div>
+				<div class="row btn-row" style="gap:24px"><Btn href="/bolt-lithium" kind="green">Get my conversion price</Btn><span class="small" style="font-size:15px;line-height:22px">Professional installation by Masters Golf Cars.</span></div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Financing Section -->
-	<section class="bg-gray-100 py-16">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<!-- Title -->
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-					Easy Financing is Available on all new and used carts!
-				</h2>
-
-				<!-- Description -->
-				<p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-					What's the best path for you? We have many tools to share. Please stop by our office and share what would be a good fit for you. We use a number of best-in-class sources to help your dreams come true. We look forward to helping you.
-				</p>
-
-				<!-- Sheffield Financial Logo -->
-				<div class="mb-8 flex justify-center">
-					<img src="/images/logos/sheffield-financial_img_v25.webp" alt="Sheffield Financial" class="h-16 md:h-20 object-contain" loading="lazy" width="200" height="80" />
-				</div>
-
-				<!-- Apply Button -->
-				<a href="https://prequalify.sheffieldfinancial.com/Apply/Landing?source=web&dealer=57070" target="_blank" rel="noopener noreferrer" class="inline-block bg-black hover:bg-gray-900 text-white px-8 py-4 font-bold uppercase text-base transition">
-					APPLY FOR FINANCING
-				</a>
-			</div>
-		</div>
-	</section>
-	
-	<!-- Why Choose Masters Golf Cars Section -->
-	<section class="bg-white py-16">
-		<div class="container mx-auto px-4">
-			<div class="max-w-5xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-					Why Choose <span style="color: #86CA26;">Masters Golf Cars</span>?
-				</h2>
-				<p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-					Central Florida's trusted golf cart dealer since 1999. Sales, service, and rentals — all under one roof.
-				</p>
-
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-					<!-- Authorized Dealer -->
-					<div class="text-center p-6">
-						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
-							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-							</svg>
-						</div>
-						<h3 class="text-lg font-bold text-gray-900 mb-2">Authorized Dealer</h3>
-						<p class="text-gray-600 text-sm font-semibold">Trusted dealer for Club Car, Yamaha & EZ-GO since 1999.</p>
-					</div>
-
-					<!-- Full Service -->
-					<div class="text-center p-6">
-						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
-							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-							</svg>
-						</div>
-						<h3 class="text-lg font-bold text-gray-900 mb-2">Full Service & Repairs</h3>
-						<p class="text-gray-600 text-sm font-semibold">Expert technicians for all makes and models. Maintenance, repairs & custom upgrades.</p>
-					</div>
-
-					<!-- Financing -->
-					<div class="text-center p-6">
-						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
-							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-							</svg>
-						</div>
-						<h3 class="text-lg font-bold text-gray-900 mb-2">Financing Available</h3>
-						<p class="text-gray-600 text-sm font-semibold">Flexible financing options through Sheffield Financial. Get approved today.</p>
-					</div>
-
-					<!-- Rental Fleet -->
-					<div class="text-center p-6">
-						<div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style="background-color: rgba(134, 202, 38, 0.15);">
-							<svg class="w-8 h-8" style="color: #86CA26;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-							</svg>
-						</div>
-						<h3 class="text-lg font-bold text-gray-900 mb-2">Rental Fleet</h3>
-						<p class="text-gray-600 text-sm font-semibold">Daily, weekly & monthly rentals. Fleet rentals for events, communities & businesses.</p>
-					</div>
-				</div>
-
-				<div class="text-center">
-					<a href="/golf-cart-inventory" class="inline-block bg-black hover:bg-gray-900 text-white px-10 py-4 rounded-lg font-bold uppercase text-base transition">
-						Browse Our Inventory
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- About Section with Grass Background -->
-	<section class="relative py-16 overflow-hidden">
-		<!-- Grass Background -->
-		<div class="absolute inset-0 z-0">
-			<img src="/images/logos/bg_1_16.webp" alt="Golf Course Background" class="w-full h-full object-cover" loading="lazy" width="1920" height="600" />
-		</div>
-		
-		<!-- Content Container -->
-		<div class="relative z-10 container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<!-- White Text Box -->
-				<div class="bg-white rounded-lg shadow-xl p-8 md:p-12">
-					<!-- Heading -->
-					<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
-						Your #1 Source for Golf Carts in Ocala, The Villages and Central Florida
-					</h2>
-					
-					<!-- Company Introduction -->
-					<p class="text-lg text-gray-800 mb-6">
-						<strong class="uppercase">MASTERS GOLF CARS</strong> is Ocala, The Villages & Central Florida's premier authorized golf car dealer, specializing in Rentals, Golf Car Sales, Service, Parts and Accessories. Since 1999 <strong>MASTERS GOLF CARS</strong> is locally owned and operated and has proudly been serving their community.
-					</p>
-					
-					<!-- Brands and Types -->
-					<p class="text-lg text-gray-800 mb-6">
-						If you are looking for Low Speed Vehicle golf carts, Neighborhood electric vehicles or standard golf cars for sale, we offer <strong>YAMAHA</strong>, <strong>CLUB CAR</strong> & <strong>EZ-GO</strong> solutions for both commercial and residential use.
-					</p>
-					
-					<!-- Custom Upgrades -->
-					<p class="text-lg text-gray-800">
-						Our commitment goes beyond just selling golf carts and rentals, we offer a full range of custom upgrades, from custom upholstery and high back seats with armrests, LED lighting upgrades and custom enclosures to fit any make and model carts. Whether you're looking for a dependable golf cart for everyday use or a fully customized cart for special occasions <strong>MASTERS GOLF CARS</strong> has you covered!
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- Local Neighborhood / Individual Rentals Section -->
-	<section class="bg-white py-16">
-		<div class="container mx-auto px-4">
-			<div class="w-24 h-1 bg-brand-green mx-auto mb-10"></div>
-			<!-- Heading -->
-			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-6">
-				Local Neighborhood / Individual Rentals
-			</h2>
-			
-			<!-- CTA Button -->
-			<div class="flex justify-center mb-12 px-4">
-				<a href="/rentals" class="bg-black hover:bg-gray-900 text-white px-4 sm:px-8 py-3 sm:py-4 font-bold uppercase text-xs sm:text-base text-center transition">
-					LEARN MORE ABOUT OUR LOCATIONS SERVED
-				</a>
-			</div>
-			
-			<!-- Service Blocks Grid -->
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-				<!-- Golf Cart Rentals -->
-				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Golf Cart Rentals</h3>
-					<p class="text-white text-sm leading-relaxed">
-						Golf carts aren't just for the golf courses anymore! Whether you're exploring The Villages, navigating through the local neighborhoods of downtown Ocala or getting around a large event, renting a golf cart can add convenience and fun to your experience. Learn more about our golf cart rentals.
-					</p>
-				</div>
-				
-				<!-- Fleet Rentals -->
-				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Fleet Rentals</h3>
-					<p class="text-white text-sm leading-relaxed">
-						Planning an event in Florida and need a fleet of golf carts? We are one of the most experienced golf cart fleet rental companies in all of Florida. Learn more about our Fleet Rentals or get a quote now.
-					</p>
-				</div>
-				
-				<!-- Golf Cart Repair -->
-				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Golf Cart Repair</h3>
-					<p class="text-white text-sm leading-relaxed">
-						Does your golf cart need repair or general maintenance, but you are not sure how you would transport it to a garage? No worries! Masters Golf Cars has a pickup and delivery service, run by the most knowledgeable technicians in the area.
-					</p>
-				</div>
-				
-				<!-- Golf Cart Accessories and Parts -->
-				<div class="bg-black text-white p-6 rounded-lg">
-					<h3 class="text-xl font-bold mb-4" style="color: #86CA26;">Golf Cart Accessories and Parts</h3>
-					<p class="text-white text-sm leading-relaxed">
-						Tires and wheels, lift kits, custom packages, 4-seat conversion kits, Sunbrella seat covers and all-weather enclosures, dashboards, lights, and so much more. Learn more about how we can help you with all of your golf cart parts and accessories.
-					</p>
-				</div>
-			</div>
+	<!-- CUSTOMIZE -->
+	<section class="sec white grid2">
+		<img src={R + 'custom-detail.jpg'} alt="Lifted four passenger golf cart with custom striped seats" loading="lazy" width="640" height="440" class="custom-img" />
+		<div class="stack" style="gap:32px">
+			<div class="head"><Eyebrow>Customization</Eyebrow><h2 class="h2">Your cart.<br />Your way.</h2><p class="lead">From seating and wheels to lighting and finishes, tell us what you want and we will build it.</p></div>
+			<div class="check-list" style="gap:14px 24px">{['Custom seats and upholstery','Wheels and tires','Lift kits','LED lighting','Enclosures','Paint and finishes'].map((t) => <Check>{t}</Check>)}</div>
+			<div class="row"><Btn href="/customize">Plan your custom cart</Btn></div>
 		</div>
 	</section>
 
-	<!-- Latest from Our Blog Section -->
-	<section class="bg-gray-100 py-16">
-		<div class="container mx-auto px-4">
-			<div class="w-24 h-1 bg-brand-green mx-auto mb-10"></div>
-			<!-- Heading -->
-			<h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-6">
-				Golf Cart Tips & Guides
-			</h2>
-			<p class="text-lg text-gray-700 text-center mb-12 max-w-2xl mx-auto">
-				Expert advice and helpful information for golf cart owners in Central Florida.
-			</p>
-
-			<!-- Blog Post Cards Grid -->
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-				<!-- Blog Post 1 -->
-				<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-					<div class="p-6">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">
-							Complete Golf Cart Guide for The Villages Residents
-						</h3>
-						<p class="text-gray-700 mb-4">
-							Everything you need to know about owning and operating a golf cart in The Villages, from registration to recommended routes.
-						</p>
-						<a href="/blog/golf-cart-guide-the-villages" class="inline-flex items-center font-semibold transition hover:opacity-80" style="color: #86CA26;">
-							Read More
-							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-							</svg>
-						</a>
-					</div>
-				</div>
-
-				<!-- Blog Post 2 -->
-				<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-					<div class="p-6">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">
-							Top Neighborhoods for Golf Cart Living in Ocala
-						</h3>
-						<p class="text-gray-700 mb-4">
-							Discover the best golf cart-friendly neighborhoods in Ocala, featuring dedicated paths, amenities, and community highlights.
-						</p>
-						<a href="/blog/best-neighborhoods-golf-carts-ocala" class="inline-flex items-center font-semibold transition hover:opacity-80" style="color: #86CA26;">
-							Read More
-							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-							</svg>
-						</a>
-					</div>
-				</div>
-
-				<!-- Blog Post 3 -->
-				<div class="bg-white rounded-lg shadow-lg overflow-hidden">
-					<div class="p-6">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">
-							Electric vs Gas Golf Carts: Which Is Right for You?
-						</h3>
-						<p class="text-gray-700 mb-4">
-							Compare the pros and cons of electric and gas-powered golf carts to make the best choice for your lifestyle and budget.
-						</p>
-						<a href="/blog/electric-vs-gas-golf-carts" class="inline-flex items-center font-semibold transition hover:opacity-80" style="color: #86CA26;">
-							Read More
-							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-							</svg>
-						</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- View All Posts Button -->
-			<div class="flex justify-center">
-				<a href="/blog" class="bg-black hover:bg-gray-900 text-white px-8 py-4 font-bold uppercase text-base transition">
-					VIEW ALL POSTS
-				</a>
-			</div>
+	<!-- HOW RENTING WORKS -->
+	<section class="sec paper how">
+		<div class="stack" style="gap:32px">
+			<div class="head"><Eyebrow>Individual and Villages rentals</Eyebrow><h2 class="h2 md">Your stay.<br />Your needs.<br />Your cart.</h2><p class="lead" style="max-width:380px">Here for a holiday, a season or a little time away? Renting takes three steps.</p></div>
+			<div class="row"><Btn href="/golf-cart-rentals">Check availability</Btn></div>
 		</div>
+		<div class="how-grid">
+			{[['cart-2p.jpg','Two passenger Yamaha rental golf cart','2 passenger','Couples. Easy to park at the squares.'],['cart-4p-deluxe.jpg','Four passenger Yamaha rental golf cart with sun top','4 passenger','Most popular. Family and friends.'],['cart-6p.jpg','Six passenger rental golf cart','6 passenger','The whole crew when family visits.']].map(([img,alt,t,s]) => (
+				<div class="stack" style="gap:10px"><div class="vph"><img src={R + img} alt={alt} loading="lazy" width="420" height="200" /><span class="vtag">{t}</span></div><span class="small">{s}</span></div>
+			))}
+			{[['1','key','Pick your cart','2, 4 or 6 seats. Every cart is cleaned and checked before it goes out.'],['2','calendar','Pick your dates','A week, a month or the whole season. 3 day minimum.'],['3','truck','We deliver it and pick it up','Right to your driveway or venue. When you are done, we come get it.']].map(([n,i,t,b]) => (
+				<div class="step"><div class="row" style="justify-content:space-between"><Ring name={i} /><span class="fd stepn">{n}</span></div><h3 class="h3">{t}</h3><p class="body">{b}</p></div>
+			))}
+		</div>
+	</section>
+
+	<!-- SERVICE + SALES -->
+	<section class="sec white svcsales">
+		{[
+			{ eb: 'Service and repair', title: ['Keep your cart', 'moving.'], lead: 'Our Belleview shop works on gas and electric carts every day.', img: 'clubcar-utility-row.jpg', alt: 'Row of Club Car utility carts with aluminum cargo beds at the Masters lot', cta: 'Schedule service', href: '/golf-cart-repairs', ticks: [['clock','Most repairs done in 24 hours','You get a text when it is ready.'],['truck','Pickup and delivery','Or bring it to the shop in Belleview.'],['wrench','Parts and accessories','Club Car, E-Z-GO and Yamaha.']] },
+			{ eb: 'Golf cart sales', title: ['Find your', 'next ride.'], lead: 'Let us find a golf cart that fits your everyday.', img: 'clubcar-row.jpg', alt: 'Row of white Club Car golf carts lined up for sale', cta: 'View carts', href: '/golf-cart-inventory', ticks: [['tag','New and pre-owned carts','Club Car, Yamaha and E-Z-GO.'],['shield','Financing available','Apply online through Sheffield Financial.'],['key','Sell your cart','Get an offer on your current cart.']] },
+		].map((h) => (
+			<div class="stack" style="gap:32px">
+				<div class="hph"><img src={R + h.img} alt={h.alt} loading="lazy" width="640" height="300" /></div>
+				<div class="head"><Eyebrow>{h.eb}</Eyebrow><h2 class="h2 md">{h.title[0]}<br />{h.title[1]}</h2><p class="lead">{h.lead}</p></div>
+				<div class="ticks">{h.ticks.map(([i,t,s]) => <div class="tick"><Ring name={i} /><div class="stack" style="gap:2px"><div class="fd" style="font-size:17px;line-height:24px">{t}</div><div class="small" style="font-size:15px;line-height:22px">{s}</div></div></div>)}</div>
+				<div class="row"><Btn href={h.href}>{h.cta}</Btn></div>
+			</div>
+		))}
+	</section>
+
+	<!-- REVIEWS -->
+	<section class="sec paper stack" style="gap:56px">
+		<div class="rev-head">
+			<div class="head"><Eyebrow>What customers say</Eyebrow><h2 class="h2 md">25+ years of showing up on time.</h2></div>
+			<a href={GOOGLE_REVIEWS} rel="noopener" target="_blank" class="rev-link"><span>Read all reviews on Google</span><Icon name="arrow" size={18} /></a>
+		</div>
+		<div class="rev-grid">
+			<div class="rev-score on-dark"><div class="stack" style="gap:12px"><div class="fd" style="font-size:88px;line-height:.95">4.9</div><Stars /></div><div class="small">Average from 93 Google reviews</div></div>
+			{REVIEWS.map((r) => (
+				<div class="review"><div class="stack" style="gap:18px"><Stars /><p class="quote">"{r.q}"</p></div><div class="who"><strong>{r.who}</strong><br /><span class="small">{r.where}</span></div></div>
+			))}
+		</div>
+	</section>
+
+	<!-- WHERE WE DELIVER -->
+	<section class="sec white areas">
+		<div class="head"><Eyebrow>Where we deliver</Eyebrow><h2 class="h2 md">Big event or small getaway.<br />We bring the cart to you.</h2><p class="lead" style="max-width:460px">Local service. Statewide event capability.</p></div>
+		<div class="area-list">
+			{AREAS.map(([n,h]) => <a href={h} class="area"><span class="row" style="gap:14px"><Icon name="pin" size={20} /><span>{n}</span></span><Icon name="arrow" size={20} /></a>)}
+		</div>
+	</section>
+
+	<!-- QUOTE FORM -->
+	<section id="quote" class="sec dark on-dark quote-sec">
+		<div class="stack" style="gap:32px">
+			<div class="head"><Eyebrow>Get a quote</Eyebrow><h2 class="h2 xl">Let us get<br />you <span class="g">moving.</span></h2><p class="lead" style="max-width:470px">Tell us what you need and our team will get back to you as soon as possible during business hours.</p></div>
+			<a href={companyData.contact.phoneLink} class="row" style="gap:16px"><Ring name="phone" dark green /><span class="fd" style="font-size:34px;line-height:1">{companyData.contact.phone}</span></a>
+		</div>
+		<form class="form-card" name="rental-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success" data-mainquote>
+			<input type="hidden" name="form-name" value="rental-inquiry" />
+			<input type="hidden" name="page_source" value="home" />
+			<p class="hidden"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+			<div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name" /></div>
+			<div class="field"><label for="f-phone">Mobile phone</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" /></div>
+			<div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email" /></div>
+			<div class="field"><label for="f-need">I need</label><select id="f-need" name="cart_type">{NEEDS.map((n) => <option>{n}</option>)}</select></div>
+			<div class="field"><label for="f-start">Start date</label><input id="f-start" name="start_date" type="date" /></div>
+			<div class="field"><label for="f-end">End date</label><input id="f-end" name="end_date" type="date" /></div>
+			<div class="field span2"><label for="f-addr">Delivery address or venue</label><input id="f-addr" name="delivery_address" type="text" autocomplete="street-address" /></div>
+			<div class="field span2"><label for="f-msg">Anything else we should know?</label><textarea id="f-msg" name="notes" placeholder="How many carts, what kind, any questions"></textarea></div>
+			<label class="consent span2"><input type="checkbox" name="sms_consent" value="yes" /><span>You can text me about this request. Message and data rates may apply. Reply STOP to opt out.</span></label>
+			<button type="submit" class="btn span2 block"><span>Request my quote</span><Icon name="arrow" size={18} /></button>
+			<div class="span2 small" style="text-align:center;font-size:13px">No payment needed to get a quote.</div>
+		</form>
 	</section>
 </Layout>
+
+<style>
+	.hero { position: relative; min-height: 760px; padding: 80px var(--gx) 44px; display: flex; flex-direction: column; justify-content: space-between; gap: 48px; overflow: hidden; background: var(--black); }
+	.hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; filter: grayscale(1) contrast(1.08); }
+	.hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,8,8,.9) 0%, rgba(8,8,8,.62) 50%, rgba(8,8,8,.14) 100%); }
+	.hero-copy { position: relative; display: flex; flex-direction: column; gap: 24px; max-width: 1180px; }
+	.h1 { display: flex; flex-direction: column; gap: 14px; color: #fff; }
+	.h1 .kicker { font-size: 28px; line-height: 1.2; letter-spacing: -0.005em; max-width: 820px; }
+	.h1 .big { font-size: 112px; line-height: .95; letter-spacing: -0.02em; color: var(--green); }
+	.hero-lead { max-width: 680px; font-size: 19px; line-height: 30px; color: #e6e6e1; }
+	.quickquote { position: relative; }
+	.serving { display: none; }
+	.qq { margin: 0; padding: 22px 24px; background: rgba(13,13,12,.88); border: 1px solid var(--line-d); border-top: 0; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr 230px; gap: 16px; align-items: end; }
+	.proof { padding: 0 var(--gx); min-height: 150px; background: var(--paper); border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+	.pbig { font-size: 16px; line-height: 22px; white-space: nowrap; }
+	.verbs { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+	.verb { font-size: 20px; line-height: 1; }
+	.choice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); }
+	.choice { display: flex; flex-direction: column; background: #fff; color: var(--ink); border-right: 1px solid var(--line); transition: transform .15s ease; }
+	.choice:last-child { border-right: 0; }
+	.choice:hover { transform: translateY(-2px); }
+	.choice .top { height: 4px; background: var(--flame); }
+	.choice.on-dark { background: var(--black); border-right: 0; color: #fff; }
+	.choice.on-dark .top { background: var(--green); }
+	.choice .inner { display: flex; flex-direction: column; gap: 22px; flex-grow: 1; padding: 36px 40px; }
+	.choice .sq { flex-shrink: 0; width: 48px; height: 48px; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; }
+	.choice.on-dark .sq { background: var(--green); color: var(--ink); }
+	.clabel { font-size: 12px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--green-ink); }
+	.choice.on-dark .clabel { color: var(--green); }
+	.ctitle { font-size: 28px; line-height: 1.1; max-width: 9em; }
+	.clink { margin-top: auto; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+	.fleet { background: var(--paper); display: flex; flex-direction: column; }
+	.sweep { position: relative; height: 360px; overflow: hidden; background: var(--black); }
+	.sweep video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+	.sweep-tag { position: absolute; left: var(--gx); bottom: 0; padding: 16px 24px; background: var(--paper); font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
+	.fleet-body { padding: 64px var(--gx) 80px; display: flex; flex-direction: column; gap: 56px; }
+	.fleet-top { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+	.fleet-sub { margin: 0; max-width: 640px; font-size: 22px; line-height: 32px; font-weight: 700; }
+	.fleet-ready { margin: 0; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 20px; line-height: 28px; }
+	.cart { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); color: var(--ink); }
+	.cart .ph { height: 210px; overflow: hidden; background: var(--paper); }
+	.cart img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	.ct { font-size: 18px; line-height: 24px; }
+	.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+	.stat { display: flex; flex-direction: column; gap: 8px; padding-top: 20px; border-top: 1px solid var(--rule); }
+	.sbig { font-size: 40px; line-height: 1; }
+	.bolt-h { font-size: 84px; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; }
+	.bolt-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 72px; align-items: center; }
+	.bolt-img { display: block; width: 100%; height: 560px; object-fit: cover; object-position: 50% 45%; }
+	.bens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; border-bottom: 1px solid var(--line-d); }
+	.ben { display: flex; align-items: center; gap: 18px; padding: 22px 0; border-top: 1px solid var(--line-d); }
+	.ben .fd { white-space: nowrap; }
+	.rng-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+	.rng { padding: 16px 18px; border: 1px solid var(--line-d); display: flex; flex-direction: column; gap: 4px; }
+	.rng.hot { border-color: var(--green); background: rgba(118,200,47,.1); }
+	.rng .mi { font-size: 28px; line-height: 1; color: #fff; }
+	.rng.hot .mi { color: var(--green); }
+	.rng .ah { font-size: 13px; line-height: 18px; font-weight: 600; color: #fff; }
+	.custom-img { display: block; width: 100%; height: 440px; object-fit: cover; }
+	.how { display: grid; grid-template-columns: 1fr 2.2fr; gap: 64px; align-items: start; }
+	.how-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 40px; }
+	.vph { position: relative; height: 200px; overflow: hidden; background: var(--paper); }
+	.vph img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
+	.vtag { position: absolute; left: 0; bottom: 0; padding: 8px 14px; background: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
+	.step { display: flex; flex-direction: column; gap: 18px; padding-top: 28px; border-top: 1px solid var(--rule); }
+	.stepn { font-size: 44px; line-height: 1; background: var(--flame-v); -webkit-background-clip: text; background-clip: text; color: transparent; }
+	.svcsales { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
+	.hph { height: 300px; overflow: hidden; background: var(--paper); }
+	.hph img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+	.ticks { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+	.tick { display: grid; grid-template-columns: 56px 1fr; gap: 22px; align-items: center; min-height: 92px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+	.rev-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+	.rev-link { display: inline-flex; align-items: center; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+	.rev-grid { display: grid; grid-template-columns: 300px 1fr 1fr; gap: 48px; }
+	.rev-score { height: 300px; padding: 32px; background: var(--black); display: flex; flex-direction: column; justify-content: space-between; }
+	.review { min-height: 300px; padding-top: 32px; border-top: 2px solid var(--ink); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+	.quote { margin: 0; font-family: var(--fr); font-size: 23px; line-height: 31px; font-style: italic; color: var(--ink); }
+	.who { font-size: 14px; line-height: 22px; color: var(--ink); }
+	.areas { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+	.area-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; border-top: 1px solid var(--line); }
+	.area { display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 500; color: var(--ink); }
+	.area:hover { color: var(--green-ink); }
+	.quote-sec { display: grid; grid-template-columns: 1fr 1.15fr; gap: 80px; align-items: center; }
+
+	@media (max-width: 1100px) {
+		.h1 .big { font-size: 84px; }
+		.qq { grid-template-columns: 1fr 1fr; }
+		.qq .btn { grid-column: 1 / -1; }
+		.proof { flex-wrap: wrap; padding-top: 24px; padding-bottom: 24px; }
+		.verbs { flex-wrap: wrap; }
+		.choice-grid { grid-template-columns: 1fr; }
+		.choice { border-right: 0; border-bottom: 1px solid var(--line); }
+		.fleet-top, .bolt-grid, .how, .svcsales, .areas, .quote-sec { grid-template-columns: 1fr; gap: 48px; }
+		.bolt-h { font-size: 56px; white-space: normal; }
+		.rev-grid { grid-template-columns: 1fr; gap: 32px; }
+		.rev-score { height: auto; gap: 24px; }
+		.how-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	}
+	@media (max-width: 760px) {
+		.hero { min-height: 0; padding: 56px var(--gx) 0; gap: 32px; }
+		.hero video { filter: grayscale(1) contrast(1.08); }
+		.hero .shade { background: linear-gradient(180deg, rgba(8,8,8,.82) 0%, rgba(8,8,8,.72) 60%, rgba(8,8,8,.55) 100%); }
+		.h1 .kicker { font-size: 18px; line-height: 1.25; }
+		.h1 .big { font-size: 54px; line-height: .98; }
+		.hero-lead { font-size: 17px; line-height: 27px; }
+		.quickquote { display: none; }
+		.serving { display: block; position: relative; margin-top: 8px; padding: 18px 0 22px; border-top: 1px solid rgba(255,255,255,.28); font-size: 13px; line-height: 20px; color: #e6e6e1; }
+		.proof { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; padding: 28px var(--gx); }
+		.proof .ring { width: 44px; height: 44px; }
+		.pbig { font-size: 12px; line-height: 16px; white-space: normal; }
+		.proof .small { font-size: 12px; line-height: 16px; }
+		.verbs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+		.verb { font-size: 16px; }
+		.choice .inner { padding: 28px 20px; }
+		.ctitle { font-size: 24px; }
+		.sweep { height: 200px; }
+		.sweep-tag { font-size: 10px; padding: 12px 16px; }
+		.fleet-body { padding: 40px var(--gx) 60px; gap: 40px; }
+		.fleet-sub { font-size: 18px; line-height: 26px; }
+		.carts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+		.cart .ph { height: 140px; }
+		.cart .row { padding: 12px 14px; }
+		.ct { font-size: 14px; line-height: 18px; }
+		.cart .small { font-size: 12px; line-height: 16px; }
+		.cart .ic { display: none; }
+		.stats { grid-template-columns: 1fr; gap: 16px; }
+		.sbig { font-size: 30px; }
+		.bolt-h { font-size: 36px; }
+		.bolt-img { height: 280px; }
+		.bens { grid-template-columns: 1fr; }
+		.ben .fd { white-space: normal; }
+		.rng-grid { grid-template-columns: 1fr; }
+		.custom-img { height: 240px; }
+		.how-grid { grid-template-columns: 1fr; gap: 24px; }
+		.vph { height: 180px; }
+		.hph { height: 200px; }
+		.tick { grid-template-columns: 44px 1fr; gap: 14px; min-height: 0; }
+		.tick .ring { width: 44px; height: 44px; }
+		.rev-head { flex-direction: column; align-items: flex-start; }
+		.review { min-height: 0; }
+		.quote { font-size: 20px; line-height: 28px; }
+		.area-list { grid-template-columns: 1fr; }
+		.form-card .span2 { grid-column: auto; }
+	}
+</style>
+
+<script>
+	// Quick quote bar: carry the picks down into the main form, then scroll to it.
+	const qq = document.querySelector('[data-quickquote]') as HTMLFormElement | null;
+	const main = document.querySelector('[data-mainquote]') as HTMLFormElement | null;
+	if (qq && main) {
+		qq.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const need = (qq.elements.namedItem('need') as HTMLSelectElement).value;
+			const start = (qq.elements.namedItem('start') as HTMLInputElement).value;
+			const end = (qq.elements.namedItem('end') as HTMLInputElement).value;
+			const zip = (qq.elements.namedItem('zip') as HTMLInputElement).value;
+			(main.elements.namedItem('cart_type') as HTMLSelectElement).value = need;
+			if (start) (main.elements.namedItem('start_date') as HTMLInputElement).value = start;
+			if (end) (main.elements.namedItem('end_date') as HTMLInputElement).value = end;
+			const addr = main.elements.namedItem('delivery_address') as HTMLInputElement;
+			if (zip && !addr.value) addr.value = zip;
+			document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
+			setTimeout(() => (main.elements.namedItem('name') as HTMLInputElement).focus({ preventScroll: true }), 500);
+		});
+	}
+</script>

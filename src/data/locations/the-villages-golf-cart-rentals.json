@@ -1,0 +1,177 @@
+{
+ "h1": "Golf Cart Rentals in The Villages, FL",
+ "lead": [
+  "Explore The Villages with convenient, reliable golf cart rentals from Masters Golf Cars. We deliver directly to your location and offer flexible rental terms to fit your needs."
+ ],
+ "sections": [
+  {
+   "h2": "Golf Cart Rental Options",
+   "cards": [
+    {
+     "h": "2-Passenger",
+     "p": [
+      "Perfect for couples exploring The Villages. Ideal for navigating golf cart paths and visiting town squares."
+     ],
+     "items": [
+      "Compact and easy to maneuver",
+      "Perfect for daily errands",
+      "Great for golf course access"
+     ]
+    },
+    {
+     "h": "4-Passenger",
+     "p": [
+      "Spacious seating for small groups. Excellent for families visiting or residents hosting guests."
+     ],
+     "items": [
+      "Comfortable for groups",
+      "Extra storage space",
+      "Ideal for shopping trips"
+     ]
+    },
+    {
+     "h": "6-Passenger",
+     "p": [
+      "Maximum capacity for larger groups. Perfect for social gatherings and community events."
+     ],
+     "items": [
+      "Seats up to 6 passengers",
+      "Great for events",
+      "Social transportation"
+     ]
+    },
+    {
+     "h": "Utility Cart",
+     "p": [
+      "Versatile carts with cargo space. Ideal for moving items, groceries, or extra storage."
+     ],
+     "items": [
+      "Cargo bed for storage",
+      "Practical for errands",
+      "Versatile use"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Why Rent a Golf Cart in The Villages?",
+   "cards": [
+    {
+     "h": "100+ Miles of Golf Cart Paths",
+     "p": [
+      "The Villages is designed for golf cart travel. With over 100 miles of golf cart paths connecting neighborhoods, shopping centers, restaurants, and recreational facilities, a golf cart is the most convenient way to get around this active adult community."
+     ]
+    },
+    {
+     "h": "Explore Everything",
+     "p": [
+      "From the town squares to championship golf courses, from recreation centers to shopping districts, a golf cart rental gives you the freedom to explore all that The Villages has to offer at your own pace."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Popular Destinations",
+   "cards": [
+    {
+     "h": "Town Squares",
+     "p": [
+      "Spanish Springs, Lake Sumter Landing, and Brownwood",
+      "Enjoy live entertainment, shopping, dining, and community events at The Villages' three town squares, all easily accessible by golf cart."
+     ]
+    },
+    {
+     "h": "Golf Courses",
+     "p": [
+      "50+ Championship Courses",
+      "Access world-class golf courses throughout The Villages. Our golf carts are perfect for getting to and from your favorite courses."
+     ]
+    },
+    {
+     "h": "Recreation Centers",
+     "p": [
+      "Pools, Fitness, and Activities",
+      "Visit recreation centers featuring pools, fitness facilities, pickleball courts, and organized activities throughout The Villages."
+     ]
+    },
+    {
+     "h": "Shopping Centers",
+     "p": [
+      "Retail and Dining",
+      "Shop at Publix, Walmart, and specialty stores, or dine at restaurants throughout The Villages - all accessible via golf cart paths."
+     ]
+    },
+    {
+     "h": "Medical Facilities",
+     "p": [
+      "Healthcare Access",
+      "Conveniently access medical facilities, pharmacies, and healthcare services throughout The Villages using your golf cart rental."
+     ]
+    },
+    {
+     "h": "Entertainment Venues",
+     "p": [
+      "Shows and Events",
+      "Attend concerts, shows, and special events at The Sharon Performing Arts Center and other entertainment venues."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "How to Rent a Golf Cart",
+   "cards": [
+    {
+     "h": "Fill Out Our Rental Form",
+     "p": [
+      "Complete our online rental inquiry form with your preferred dates, cart type, and delivery address in The Villages."
+     ]
+    },
+    {
+     "h": "We Check Availability",
+     "p": [
+      "Our rental manager will review your request and contact you promptly to confirm availability and provide pricing."
+     ]
+    },
+    {
+     "h": "Delivery to Your Location",
+     "p": [
+      "We deliver your golf cart directly to your address in The Villages. All carts are cleaned, inspected, and fully charged."
+     ]
+    },
+    {
+     "h": "Enjoy Your Rental",
+     "p": [
+      "Explore The Villages at your leisure. We provide pick-up service when your rental period ends."
+     ]
+    },
+    {
+     "h": "Rental Requirements",
+     "p": [],
+     "items": [
+      "Minimum age: 21 years old",
+      "Valid driver's license required",
+      "Credit card for reservation",
+      "Minimum 3-day rental period",
+      "Delivery address in The Villages"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "About The Villages",
+   "intro": [
+    "The Villages is America's premier active adult retirement community, located in Central Florida. Spanning across Sumter, Marion, and Lake counties, The Villages is home to over 130,000 residents and features an extensive network of golf cart paths connecting neighborhoods, shopping centers, recreational facilities, and entertainment venues.",
+    "The community is renowned for its active lifestyle, with over 50 championship golf courses, numerous recreation centers, town squares with nightly entertainment, and a wide variety of clubs and activities. Golf carts are not just transportation here - they're an integral part of The Villages lifestyle.",
+    "130,000+",
+    "Residents",
+    "50+",
+    "Golf Courses",
+    "100+",
+    "Miles of Paths",
+    "3",
+    "Town Squares"
+   ]
+  }
+ ],
+ "faqConst": null
+}

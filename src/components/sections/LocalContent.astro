@@ -1,0 +1,37 @@
+---
+/* Renders the local SEO copy carried over from the old city pages, in the new style. */
+import Eyebrow from '../ui/Eyebrow.astro';
+import Icon from '../ui/Icon.astro';
+interface Card { h: string; p: string[]; items?: string[] }
+interface Sec { h2: string; intro?: string[]; cards?: Card[]; items?: string[] }
+interface Props { sections: Sec[]; eyebrow?: string }
+const { sections, eyebrow = 'Local guide' } = Astro.props;
+const clean = (t: string) => t.replace(/26\+ years?/g, '25+ years').replace(/\b26 years\b/g, '25 years');
+---
+{sections.map((s, i) => (
+	<section class:list={['sec stack', i % 2 === 0 ? 'white' : 'paper']} style="gap:40px">
+		<div class="head">{i === 0 && <Eyebrow>{eyebrow}</Eyebrow>}<h2 class="h2 md">{clean(s.h2)}</h2>{s.intro?.map((p) => <p class="lead" style="max-width:820px">{clean(p)}</p>)}</div>
+		{s.items && s.items.length > 0 && <div class="check-list cols3">{s.items.map((t) => <span class="check-item"><Icon name="check" size={18} sw={2} /><span>{clean(t)}</span></span>)}</div>}
+		{s.cards && s.cards.length > 0 && (
+			<div class:list={['lc-grid', { compact: s.cards.every((c) => c.p.length === 0 || (c.p.join('').length < 160 && !c.items)) }]}>
+				{s.cards.map((c) => (
+					<div class="lc-card">
+						<h3 class="h3" style="font-size:18px;line-height:24px">{clean(c.h)}</h3>
+						{c.p.map((p) => <p class="body" style="font-size:15px;line-height:24px">{clean(p)}</p>)}
+						{c.items && c.items.length > 0 && <div class="stack" style="gap:8px">{c.items.map((t) => <span class="check-item" style="font-size:15px"><Icon name="check" size={16} sw={2} /><span>{clean(t)}</span></span>)}</div>}
+					</div>
+				))}
+			</div>
+		)}
+	</section>
+))}
+<style>
+	.cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+	.lc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+	.lc-grid.compact { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+	.lc-card { display: flex; flex-direction: column; gap: 12px; padding: 26px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--green); }
+	.paper .lc-card { background: #fff; }
+	.white .lc-card { background: var(--paper); }
+	@media (max-width: 1100px) { .lc-grid, .lc-grid.compact { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cols3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+	@media (max-width: 760px) { .lc-grid, .lc-grid.compact, .cols3 { grid-template-columns: 1fr; } }
+</style>

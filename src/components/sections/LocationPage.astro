@@ -1,0 +1,107 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+import Btn from '../ui/Btn.astro';
+import Check from '../ui/Check.astro';
+import Ring from '../ui/Ring.astro';
+import Icon from '../ui/Icon.astro';
+import ProofBar from './ProofBar.astro';
+import Steps from './Steps.astro';
+import Reviews from './Reviews.astro';
+import Faq from './Faq.astro';
+import CartCard from './CartCard.astro';
+import LocalContent from './LocalContent.astro';
+import FormShell from '../forms/FormShell.astro';
+import RentalInquiryForm from '../forms/RentalInquiryForm.astro';
+import FleetQuoteForm from '../forms/FleetQuoteForm.astro';
+import companyData from '../../data/company.json';
+import { R } from '../../lib/areas';
+
+interface Props {
+	kind: 'city' | 'community' | 'venue' | 'event';
+	name: string;                 // "Ocala", "World Equestrian Center", "weddings"
+	slug: string;                 // page source for the form
+	eyebrow: string;
+	heading: string;              // black part of the H1
+	accent: string;               // green part of the H1
+	lead: string[];               // paragraphs carried over from the old page (first one shows in the hero)
+	img?: string; alt?: string; imgLabel?: string; pos?: string;
+	proof: [string, string, string][];
+	checks?: string[];
+	local: { sections: any[] };
+	faqs: { question: string; answer: string }[];
+	faqTitle?: string;
+	defaultLocation?: string;
+	defaultEventType?: string;
+	also?: [string, string, string, string, string][];   // icon, title, text, cta, href
+}
+const { kind, name, slug, eyebrow, heading, accent, lead, img = R + 'cart-4p-deluxe.jpg', alt = 'Four passenger Yamaha rental golf cart', imgLabel, pos = '50% 55%', proof, checks, local, faqs, faqTitle = `${name} questions.`, defaultLocation = '', defaultEventType = '', also } = Astro.props;
+const fleet = kind === 'venue' || kind === 'event';
+const anchor = fleet ? 'fleetquote' : 'reserve';
+const cta = fleet ? 'Request a fleet quote' : `Reserve a cart`;
+const defaultChecks = fleet
+	? ['2, 4, 6 passenger and utility', 'Delivered, staged and picked up', 'Daily, weekly and event rates', 'Over 300 carts in the fleet']
+	: [`Delivery across ${name}`, 'Same day when available', '2, 4 and 6 passenger, plus utility', '3 day minimum'];
+const steps: [string, string, string, string][] = fleet
+	? [['1', 'tag', 'Tell us about the event', 'Dates, venue, how many carts and what they are for.'], ['2', 'calendar', 'We confirm and schedule', 'A written quote, then delivery and pickup windows that fit your setup.'], ['3', 'truck', 'Delivered and staged', 'Fueled, keyed and parked where you want them.'], ['4', 'check', 'We pick them up', 'When the event ends, our trucks come get them.']]
+	: [['1', 'key', 'Pick your cart', '2, 4 or 6 seats, or a utility cart.'], ['2', 'calendar', 'Pick your dates', 'A week, a month or the season. 3 day minimum.'], ['3', 'truck', `We deliver to ${name} and pick it up`, 'Right to your driveway, barn or venue.']];
+const defaultAlso: [string, string, string, string, string][] = fleet
+	? [['key', 'Individual rentals', 'One cart for a week, a month or the season, delivered to your door.', 'See rentals', '/golf-cart-rentals'], ['wrench', 'Service and repair', 'Gas and electric, most repairs done in 24 hours, pickup available.', 'Schedule service', '/golf-cart-repairs'], ['battery', 'Lithium conversions', 'Bolt Energy packs with a 12 year warranty, installed in our shop.', 'Go lithium', '/bolt-lithium']]
+	: [['wrench', `Golf cart repairs`, `Pickup from your ${name} address, repaired in Belleview, back in about a day.`, 'Schedule service', '/golf-cart-repairs'], ['tag', `Golf carts for sale`, `New and pre-owned carts delivered to ${name}. Financing available.`, 'Carts for sale', '/golf-cart-inventory'], ['battery', 'Lithium conversions', 'Bolt Energy packs with a 12 year warranty, installed in our shop.', 'Go lithium', '/bolt-lithium']];
+---
+<section class="lhero paper">
+	<div class="crumbs small"><a href="/locations">Locations</a><span>/</span><span style="color:var(--ink)">{name}</span></div>
+	<div class="lhero-grid">
+		<div class="stack" style="gap:28px">
+			<Eyebrow>{eyebrow}</Eyebrow>
+			<h1 class="h1 lh">{heading} <span class="g">{accent}</span></h1>
+			<p class="lead" style="max-width:540px">{lead[0]}</p>
+			<div class="row btn-row" style="gap:16px"><Btn href={`#${anchor}`}>{cta}</Btn><Btn href={companyData.contact.phoneLink} kind="ghost">Call {companyData.contact.phone}</Btn></div>
+			<div class="check-list" style="gap:14px 24px">{(checks ?? defaultChecks).map((c) => <Check>{c}</Check>)}</div>
+		</div>
+		<div class="lph"><img src={img} alt={alt} width="640" height="560" fetchpriority="high" style={`object-position:${pos}`} />{imgLabel && <div class="lph-label fd">{imgLabel}</div>}</div>
+	</div>
+</section>
+<ProofBar items={proof} />
+
+{lead.length > 1 && <section class="sec white" style="padding-bottom:0"><div class="stack" style="gap:16px;max-width:820px">{lead.slice(1).map((p) => <p class="body" style="font-size:17px;line-height:28px">{p}</p>)}</div></section>}
+
+<section class="sec white stack" style="gap:48px">
+	<div class="head"><Eyebrow>{fleet ? `Carts for ${name}` : `Carts available in ${name}`}</Eyebrow><h2 class="h2 md">Pick your cart.</h2></div>
+	<div class="grid4 cards">
+		<CartCard href={`#${anchor}`} img={R + 'cart-2p.jpg'} alt="Two passenger rental golf cart" title="2 passenger" sub={fleet ? 'Staff, vendors and quick runs.' : 'Couples and solo stays.'} price={fleet ? 'Quoted per event' : 'Call for weekly rate'} />
+		<CartCard href={`#${anchor}`} img={R + 'cart-4p-deluxe.jpg'} alt="Four passenger rental golf cart" title="4 passenger" sub={fleet ? 'Our most requested event cart.' : `Our most popular in ${name}.`} price={fleet ? 'Quoted per event' : 'From <strong>$300</strong> a week'} badge="Most popular" />
+		<CartCard href={`#${anchor}`} img={R + 'cart-6p.jpg'} alt="Six passenger rental golf cart" title="6 passenger" sub={fleet ? 'Guest shuttles and VIP groups.' : 'Groups and family visits.'} price={fleet ? 'Quoted per event' : 'Call for weekly rate'} />
+		<CartCard href={`#${anchor}`} img={R + 'carryall.jpg'} alt="Club Car Carryall utility cart" title="Utility cart" sub={fleet ? 'Hauls gear, feed and supplies.' : 'Farms, barns and job sites.'} price={fleet ? 'Quoted per event' : 'Call for rates'} contain />
+	</div>
+</section>
+
+<LocalContent sections={local.sections} eyebrow={fleet ? `About ${name}` : `Why ${name} rents from Masters`} />
+
+<Steps eyebrow="How it works" heading={fleet ? 'From quote to pickup.' : 'Three steps. No hassle.'} lead={fleet ? 'One contact from the first call to the last cart on the trailer.' : 'Book online or call. We handle the rest.'} items={steps} cta={cta} ctaHref={`#${anchor}`} bg="paper" />
+<Reviews heading={kind === "event" ? "What event customers say." : `What ${name} customers say.`} />
+<Faq items={faqs} heading={faqTitle} />
+
+<section class="sec white stack" style="gap:48px">
+	<div class="head"><Eyebrow>{fleet ? 'More from Masters' : `Also in ${name}`}</Eyebrow><h2 class="h2 md">{fleet ? 'Rentals, service and lithium too.' : 'Service and sales too.'}</h2></div>
+	<div class="grid3 also">{(also ?? defaultAlso).map(([i, t, s, c, h]) => <a href={h} class="also-card"><Ring name={i} fill /><h3 class="h3" style="font-size:20px;line-height:26px">{t}</h3><p class="body" style="font-size:15px;line-height:24px">{s}</p><span class="alink">{c}<Icon name="arrow" size={16} /></span></a>)}</div>
+</section>
+
+<FormShell id={anchor} eyebrow={fleet ? 'Fleet quote' : `Reserve in ${name}`} heading={fleet ? 'Let us get your event' : 'Let us get you'} accent={fleet ? 'moving.' : 'rolling.'} lead={fleet ? 'Tell us about the event and our rental manager will check availability and get back to you with a quote as soon as possible during business hours.' : `Tell us your ${name} address and dates and our rental manager will check availability and get back to you as soon as possible during business hours.`}>
+	{fleet ? <FleetQuoteForm pageSource={slug} idPrefix="loc" defaultEventType={defaultEventType} /> : <RentalInquiryForm pageSource={slug} idPrefix="loc" defaultLocation={defaultLocation} />}
+</FormShell>
+
+<style>
+	.lhero { padding: 40px var(--gx) 64px; background: var(--paper); display: flex; flex-direction: column; gap: 32px; }
+	.crumbs { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+	.crumbs a { color: var(--muted); }
+	.lhero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 72px; align-items: center; }
+	.lh { font-size: 64px; line-height: 1.02; letter-spacing: -0.015em; }
+	.lph { position: relative; height: 560px; overflow: hidden; background: var(--black); }
+	.lph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+	.lph-label { position: absolute; left: 0; bottom: 0; padding: 14px 20px; background: var(--green); font-size: 14px; line-height: 20px; color: var(--ink); }
+	.also-card { display: flex; flex-direction: column; gap: 14px; padding: 28px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--green); color: var(--ink); transition: transform .15s; }
+	.also-card:hover { transform: translateY(-2px); }
+	.alink { margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+	@media (max-width: 1100px) { .lhero-grid { grid-template-columns: 1fr; gap: 40px; } .lh { font-size: 48px; } .lph { height: 420px; } }
+	@media (max-width: 760px) { .lhero { padding: 24px var(--gx) 40px; } .lh { font-size: 38px; } .lph { height: 280px; } .cards { grid-template-columns: 1fr; } }
+</style>
