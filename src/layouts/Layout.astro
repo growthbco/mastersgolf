@@ -209,11 +209,6 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		<Schema schema={organizationSchema} />
 		{breadcrumbSchema && <Schema schema={breadcrumbSchema} />}
 		<slot name="schema" />
-		<script
-			src="https://beta.leadconnectorhq.com/loader.js"
-			data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-			data-widget-id="695a85adb1df7983a02e82da">
-		</script>
 	</head>
 	<body class="ds min-h-screen">
 		{!hideHeader && <Header quoteHref={quoteHref} />}
@@ -223,10 +218,6 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		<Footer />
 		
 		<CallBar quoteHref={quoteHref} />
-		<style is:global>
-			[data-widget-id] { z-index: 49 !important; }
-			@media (max-width: 760px) { .lc_text-widget, [data-widget-id] { bottom: 84px !important; } }
-		</style>
 	</body>
 </html>
 
