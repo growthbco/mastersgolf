@@ -11,6 +11,8 @@ http://mastersgolfcars.com/* https://mastersgolfcars.com/:splat 301!
 /home / 301
 /fleet /fleet-rentals-quote 301
 /fleet/ /fleet-rentals-quote 301
+/lithium-golf-cart-batteries /bolt-lithium 301
+/lithium-golf-cart-batteries/ /bolt-lithium 301
 
 # Query parameter canonicalization - redirect to clean URLs
 # Golf cart inventory with query params
