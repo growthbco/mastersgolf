@@ -1,0 +1,224 @@
+{
+ "h1": "Golf Cart Rentals for On Top of The World",
+ "lead": [
+  "Masters Golf Cars has been the trusted golf cart rental provider for On Top of The World (OTOW) residents since 1999. Whether your personal cart is in for service, you have guests visiting, or you need an extra cart for community events, we deliver premium rentals directly to your OTOW home.",
+  "Located just minutes away at 12885 S US Highway 441 in Belleview, we serve all OTOW neighborhoods including Candler Hills, Indigo East, Friendship Colony, Avalon, and the original OTOW community. Our carts are perfect for accessing the Recreation Center, The Ranch Fitness Center, Candler Hills Golf Club, and all community amenities."
+ ],
+ "sections": [
+  {
+   "h2": "Why OTOW Residents Rent From Us",
+   "cards": [
+    {
+     "h": "Cart in for Repairs?",
+     "p": [
+      "Don't be stuck at home while your golf cart is being serviced. Rent a cart and maintain your OTOW lifestyle. Visit the Recreation Center, play at Candler Hills, or meet friends at The Club at Candler Hills without interruption."
+     ]
+    },
+    {
+     "h": "Guests Visiting?",
+     "p": [
+      "Show your visitors everything OTOW has to offer with an extra golf cart. Take them to Circle Square Commons for entertainment, explore the trails, or cruise to The Ranch for fitness activities."
+     ]
+    },
+    {
+     "h": "Trying Before Buying?",
+     "p": [
+      "New to OTOW and considering a golf cart purchase? Rent first to understand what features matter to you. Test different cart sizes and decide what works best for your lifestyle."
+     ]
+    },
+    {
+     "h": "Community Events",
+     "p": [
+      "Need extra carts for club activities, block parties, or special community events? We provide multi-cart rentals for OTOW clubs and resident organizations."
+     ]
+    },
+    {
+     "h": "Seasonal Residents",
+     "p": [
+      "Snowbirds returning for the season? Rent a cart while your stored cart is being serviced, or enjoy Florida without the commitment of cart ownership."
+     ]
+    },
+    {
+     "h": "Convenient Delivery",
+     "p": [
+      "We deliver directly to your OTOW home and pick up when your rental ends. No need to leave the community - we come to you."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "OTOW Neighborhoods We Serve",
+   "cards": [
+    {
+     "h": "Candler Hills",
+     "p": [
+      "Active neighborhood with Candler Hills Golf Club and The Club at Candler Hills. Our carts are perfect for accessing the golf course, clubhouse dining, and fitness facilities."
+     ]
+    },
+    {
+     "h": "Indigo East",
+     "p": [
+      "Community within OTOW with its own recreation center and amenities. Golf carts make it easy to access Indigo East Community Center and connect to the larger OTOW community."
+     ]
+    },
+    {
+     "h": "Original OTOW",
+     "p": [
+      "The heart of the community with the Recreation Center, pools, and extensive social activities. Golf carts are essential for daily life here."
+     ]
+    },
+    {
+     "h": "Friendship Colony",
+     "p": [
+      "Active community with easy access to OTOW amenities. Rent a cart to explore the trails and reach community facilities."
+     ]
+    },
+    {
+     "h": "Avalon",
+     "p": [
+      "Newer OTOW neighborhood with modern homes. Golf cart access to Circle Square Commons and community events."
+     ]
+    },
+    {
+     "h": "Stone Creek (Adjacent)",
+     "p": [
+      "Neighboring community with its own Stone Creek Golf Club. We serve Stone Creek residents with convenient golf cart rentals."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Popular OTOW Destinations",
+   "cards": [
+    {
+     "h": "Recreation Center",
+     "p": [
+      "SW 99th Street Road",
+      "The hub of OTOW social life with pools, fitness center, arts & crafts rooms, and endless activities. A golf cart is essential for regular visits."
+     ]
+    },
+    {
+     "h": "Circle Square Commons",
+     "p": [
+      "SW 80th Street",
+      "Entertainment venue with live music, restaurants, and shopping. Home to The Town Square with nightly entertainment during season."
+     ]
+    },
+    {
+     "h": "Candler Hills Golf Club",
+     "p": [
+      "Candler Hills neighborhood",
+      "Championship golf course open to OTOW residents. Our carts get you to your tee time in comfort."
+     ]
+    },
+    {
+     "h": "The Ranch Fitness Center",
+     "p": [
+      "SW 84th Street",
+      "Premier fitness facility with pools, gym, spa services, and wellness programs. Easy golf cart access from any OTOW neighborhood."
+     ]
+    },
+    {
+     "h": "Sholom Park",
+     "p": [
+      "Adjacent to OTOW",
+      "Beautiful 44-acre botanical park with walking trails, gardens, and peaceful spaces. A popular golf cart destination for OTOW residents."
+     ]
+    },
+    {
+     "h": "The Club at Candler Hills",
+     "p": [
+      "Candler Hills neighborhood",
+      "Fine dining, casual restaurant, and event venue. Perfect for dinner outings via golf cart."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Golf Cart Options for OTOW",
+   "cards": [
+    {
+     "h": "2-Passenger",
+     "p": [
+      "Perfect for couples exploring OTOW. Ideal for golf, errands, and daily community activities."
+     ]
+    },
+    {
+     "h": "4-Passenger",
+     "p": [
+      "Great when guests visit or for social outings with friends. Room for everyone plus shopping bags."
+     ]
+    },
+    {
+     "h": "6-Passenger",
+     "p": [
+      "Maximum capacity for family visits, club outings, or neighborhood social activities."
+     ]
+    },
+    {
+     "h": "Utility Cart",
+     "p": [
+      "Perfect for moving items, large shopping trips, or club activities requiring cargo space."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Why OTOW Residents Trust Masters Golf Cars",
+   "cards": [
+    {
+     "h": "26+ Years Serving OTOW",
+     "p": [],
+     "items": [
+      "Trusted by OTOW residents since 1999",
+      "Located just minutes from OTOW on US 441",
+      "Delivery directly to your OTOW home",
+      "Pickup when your rental ends",
+      "Clean, well-maintained carts"
+     ]
+    },
+    {
+     "h": "Full Service for OTOW",
+     "p": [],
+     "items": [
+      "Rentals while your cart is being repaired",
+      "Golf cart repairs and service",
+      "New and used carts for sale",
+      "Custom golf cart builds",
+      "Parts and accessories"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "How to Rent a Golf Cart for OTOW",
+   "cards": [
+    {
+     "h": "Request Rental",
+     "p": [
+      "Fill out our form with your OTOW address, dates needed, and cart preference."
+     ]
+    },
+    {
+     "h": "Confirm Details",
+     "p": [
+      "We'll call to confirm availability and arrange delivery to your OTOW home."
+     ]
+    },
+    {
+     "h": "We Deliver",
+     "p": [
+      "Your clean, charged cart is delivered directly to your driveway in OTOW."
+     ]
+    },
+    {
+     "h": "Enjoy & Return",
+     "p": [
+      "Explore OTOW! We pick up when your rental ends at your convenience."
+     ]
+    }
+   ]
+  }
+ ],
+ "faqConst": null
+}

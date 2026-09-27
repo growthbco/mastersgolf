@@ -1,368 +1,86 @@
 ---
+import Icon from './ui/Icon.astro';
 import companyData from '../data/company.json';
 
-const { transparent = false } = Astro.props;
+interface Props { quoteHref?: string }
+const { quoteHref = '#quote' } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const nav = [
+	{ label: 'Home', href: '/' },
+	{ label: 'Rentals', href: '/golf-cart-rentals' },
+	{ label: 'Fleet & Events', href: '/fleet-rentals-quote' },
+	{ label: 'Bolt Lithium', href: '/bolt-lithium' },
+	{ label: 'Customize', href: '/customize' },
+	{ label: 'Service', href: '/golf-cart-repairs' },
+	{ label: 'Carts for Sale', href: '/golf-cart-inventory' },
+];
+const more = [
+	{ label: 'Sell your cart', href: '/sell-your-cart' },
+	{ label: 'Locations we serve', href: '/locations' },
+	{ label: 'Gallery', href: '/gallery' },
+	{ label: 'About Masters', href: '/about' },
+	{ label: 'FAQ', href: '/faq' },
+	{ label: 'Blog', href: '/blog' },
+	{ label: 'Contact', href: '/contact' },
+];
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '-'));
 ---
 
-<header class={transparent ? "absolute top-0 left-0 w-full z-50" : "relative w-full z-50"}>
-	<!-- Top bar with contact info - only show when not transparent -->
-	{!transparent && (
-		<div class="bg-black w-full py-2 px-4">
-			<div class="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-sm" style="color: #86CA26;">
-				<div class="flex items-center gap-2">
-					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-						<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
-					</svg>
-					<a href={companyData.contact.phoneLink} class="hover:opacity-80 transition">{companyData.contact.phone}</a>
-				</div>
-				<div class="flex items-center gap-2">
-					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-						<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-					</svg>
-					<a href="https://maps.google.com/?q=12885+S+US+Hwy+441+Belleview,+FL+34420" target="_blank" class="hover:opacity-80 transition text-white text-center">
-						{companyData.location.full}
-					</a>
-				</div>
-			</div>
-		</div>
-	)}
-	
-	<!-- Main navigation -->
-	<nav class={transparent ? "bg-transparent" : "relative"}>
-		{!transparent && (
-			<!-- Golf Course Background for non-transparent headers -->
-			<div class="absolute inset-0 z-0" style="background-image: url('/images/landing-pg-hero-3.jpg'); background-size: cover; background-position: center;"></div>
-		)}
-		
-		<div class={transparent ? "container mx-auto px-4 py-6" : "container mx-auto px-4 py-6 relative z-10"}>
-			<!-- Logo and Mobile Menu Button -->
-			<div class="flex justify-between items-center mb-6">
-				<div class="flex-1"></div>
-				<div class="flex-1 flex justify-center">
-					<a href="/" class="inline-block max-w-[200px] sm:max-w-none">
-						<img src={companyData.logo} alt={companyData.name} class={transparent ? "h-24 sm:h-32 md:h-36 w-auto max-w-full" : "h-24 sm:h-32 md:h-40 w-auto max-w-full"} style="object-fit: contain;" loading="eager" fetchpriority="high" width="400" height="160" />
-					</a>
-				</div>
-				<div class="flex-1 flex justify-end">
-					<!-- Mobile Menu Button -->
-					<button id="mobile-menu-button" class={transparent ? "md:hidden text-white p-2 hover:opacity-80 transition" : "md:hidden text-white p-2 hover:opacity-80 transition"} aria-label="Toggle menu">
-						<svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-						<svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-						</svg>
-					</button>
-				</div>
-			</div>
-			
-			<!-- SEO H1 Heading - only show when transparent -->
-			{transparent && (
-				<div class="flex justify-center mb-6 px-4">
-					<div class="max-w-4xl">
-						<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5);">
-							{companyData.tagline}
-						</h1>
-					</div>
-				</div>
-			)}
-			
-			<!-- Desktop Navigation bar -->
-			<div class={transparent ? "hidden md:block bg-gray-900 bg-opacity-25 backdrop-blur-sm rounded-lg px-4 py-4 mx-auto" : "hidden md:block bg-gray-900 bg-opacity-95 rounded-lg px-4 py-3"}>
-				<div class="flex flex-nowrap justify-center items-center gap-3 lg:gap-5 text-white font-bold uppercase text-sm lg:text-base">
-					<a href="/" class="hover:opacity-80 transition">Home</a>
-					
-					<!-- Service Dropdown -->
-					<div class="relative group">
-						<a href="/golf-cart-repairs" class="hover:opacity-80 transition flex items-center">
-							Service ▼
-						</a>
-						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-							<div class="py-2">
-								<a href="/golf-cart-repairs" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Golf Cart Repairs
-								</a>
-								<a href="/golf-cart-repairs-ocala" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Ocala Repairs
-								</a>
-								<a href="/golf-cart-repairs-gainesville" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Gainesville Repairs
-								</a>
-								<a href="/golf-cart-repairs-belleview" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Belleview Repairs
-								</a>
-								<a href="/schedule-golf-cart-service" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Schedule Service
-								</a>
-							</div>
-						</div>
-					</div>
-					
-					<!-- Rentals Dropdown -->
-					<div class="relative group">
-						<a href="/golf-cart-rentals" class="hover:opacity-80 transition flex items-center">
-							Rentals ▼
-						</a>
-						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-							<div class="py-2">
-								<a href="/golf-cart-rentals" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Golf Cart Rentals
-								</a>
-								<a href="/the-villages-golf-cart-rentals" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									The Villages Rentals
-								</a>
-								<a href="/golf-cart-rentals-ocala" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Ocala Rentals
-								</a>
-								<a href="/golf-cart-rentals-gainesville" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Gainesville Rentals
-								</a>
-								<a href="/fleet-rentals-quote" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Fleet Rentals Quote
-								</a>
-								<a href="/golf-cart-rentals-wec" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									WEC Rentals
-								</a>
-								<a href="/golf-cart-rentals-hits-ocala" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									HITS Ocala Rentals
-								</a>
-								<a href="/golf-cart-rentals-otow" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									OTOW Rentals
-								</a>
-								<a href="/golf-cart-rentals-spruce-creek" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Spruce Creek Rentals
-								</a>
-								<a href="/golf-cart-rentals-weddings" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Wedding Rentals
-								</a>
-								<a href="/golf-cart-rentals-rv-parks" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									RV Park Rentals
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Locations Dropdown -->
-					<div class="relative group">
-						<a href="/the-villages-golf-cart-rentals" class="hover:opacity-80 transition flex items-center">
-							Locations ▼
-						</a>
-						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-							<div class="py-2">
-								<a href="/the-villages-golf-cart-rentals" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									The Villages
-								</a>
-								<a href="/golf-cart-rentals-ocala" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Ocala
-								</a>
-								<a href="/golf-cart-rentals-gainesville" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Gainesville
-								</a>
-								<a href="/golf-cart-rentals-belleview" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Belleview
-								</a>
-							</div>
-						</div>
-					</div>
-					
-					<a href="/gallery" class="hover:opacity-80 transition">Gallery</a>
-					<a href="/blog" class="hover:opacity-80 transition">Blog</a>
-
-					<!-- Golf Carts for Sale Dropdown -->
-					<div class="relative group">
-						<a href="/golf-cart-inventory" class="hover:opacity-80 transition flex items-center">
-							Golf Carts for Sale ▼
-						</a>
-						<div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-							<div class="py-2">
-								<a href="/golf-cart-inventory" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Golf Carts For Sale
-								</a>
-								<a href="/golf-carts-for-sale-the-villages" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Golf Carts For Sale in The Villages
-								</a>
-								<a href="/golf-carts-for-sale-ocala" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Golf Carts For Sale in Ocala
-								</a>
-								<a href="/golf-carts-for-sale-gainesville" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Golf Carts For Sale in Gainesville
-								</a>
-								<a href="/golf-carts-for-sale-otow" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									On Top of The World
-								</a>
-								<a href="/golf-carts-for-sale-spruce-creek" class="block px-4 py-2 text-gray-800 transition hover:bg-opacity-10 hover:text-brand-green" style="--hover-bg: rgba(134, 202, 38, 0.1);">
-									Spruce Creek
-								</a>
-							</div>
-						</div>
-					</div>
-
-					<a href="/sell-your-cart" class="hover:opacity-80 transition">Sell Your Cart</a>
-					<a href="/faq" class="hover:opacity-80 transition">FAQ</a>
-					<a href="/contact" class="hover:opacity-80 transition">Contact</a>
-				</div>
-			</div>
-			
-			<!-- Mobile Navigation Menu -->
-			<div id="mobile-menu" class="md:hidden hidden">
-				<div class={transparent ? "bg-gray-900 bg-opacity-90 backdrop-blur-sm rounded-lg px-4 py-4" : "bg-gray-900 bg-opacity-95 rounded-lg px-4 py-4"}>
-					<div class="flex flex-col gap-4 text-white font-bold uppercase text-base">
-						<a href="/" class="hover:opacity-80 transition py-2 border-b border-gray-700">Home</a>
-						
-						<!-- Service Mobile Menu -->
-						<div>
-							<a href="/golf-cart-repairs" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Service</a>
-							<div class="pl-4 pt-2 pb-2">
-								<a href="/golf-cart-repairs" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Golf Cart Repairs
-								</a>
-								<a href="/golf-cart-repairs-ocala" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Ocala Repairs
-								</a>
-								<a href="/golf-cart-repairs-gainesville" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Gainesville Repairs
-								</a>
-								<a href="/golf-cart-repairs-belleview" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Belleview Repairs
-								</a>
-								<a href="/schedule-golf-cart-service" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Schedule Service
-								</a>
-							</div>
-						</div>
-						
-						<!-- Rentals Mobile Menu -->
-						<div>
-							<a href="/golf-cart-rentals" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Rentals</a>
-							<div class="pl-4 pt-2 pb-2">
-								<a href="/golf-cart-rentals" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Golf Cart Rentals
-								</a>
-								<a href="/the-villages-golf-cart-rentals" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									The Villages Rentals
-								</a>
-								<a href="/golf-cart-rentals-ocala" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Ocala Rentals
-								</a>
-								<a href="/golf-cart-rentals-gainesville" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Gainesville Rentals
-								</a>
-								<a href="/golf-cart-rentals-belleview" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Belleview Rentals
-								</a>
-								<a href="/fleet-rentals-quote" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Fleet Rentals Quote
-								</a>
-								<a href="/golf-cart-rentals-wec" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									WEC Rentals
-								</a>
-								<a href="/golf-cart-rentals-hits-ocala" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									HITS Ocala Rentals
-								</a>
-								<a href="/golf-cart-rentals-otow" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									OTOW Rentals
-								</a>
-								<a href="/golf-cart-rentals-spruce-creek" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Spruce Creek Rentals
-								</a>
-								<a href="/golf-cart-rentals-weddings" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Wedding Rentals
-								</a>
-								<a href="/golf-cart-rentals-rv-parks" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									RV Park Rentals
-								</a>
-							</div>
-						</div>
-
-						<!-- Locations Mobile Menu -->
-						<div>
-							<a href="/the-villages-golf-cart-rentals" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Locations</a>
-							<div class="pl-4 pt-2 pb-2">
-								<a href="/the-villages-golf-cart-rentals" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									The Villages
-								</a>
-								<a href="/golf-cart-rentals-ocala" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Ocala
-								</a>
-								<a href="/golf-cart-rentals-gainesville" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Gainesville
-								</a>
-								<a href="/golf-cart-rentals-belleview" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Belleview
-								</a>
-							</div>
-						</div>
-						
-						<a href="/gallery" class="hover:opacity-80 transition py-2 border-b border-gray-700">Gallery</a>
-						<a href="/blog" class="hover:opacity-80 transition py-2 border-b border-gray-700">Blog</a>
-
-						<!-- Golf Carts for Sale Mobile Menu -->
-						<div>
-							<a href="/golf-cart-inventory" class="hover:opacity-80 transition py-2 block border-b border-gray-700">Golf Carts for Sale</a>
-							<div class="pl-4 pt-2 pb-2">
-								<a href="/golf-cart-inventory" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Golf Carts For Sale
-								</a>
-								<a href="/golf-carts-for-sale-the-villages" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Golf Carts For Sale in The Villages
-								</a>
-								<a href="/golf-carts-for-sale-ocala" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Golf Carts For Sale in Ocala
-								</a>
-								<a href="/golf-carts-for-sale-gainesville" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Golf Carts For Sale in Gainesville
-								</a>
-								<a href="/golf-carts-for-sale-otow" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									On Top of The World
-								</a>
-								<a href="/golf-carts-for-sale-spruce-creek" class="block text-sm font-normal py-2 text-gray-300 transition hover-brand-green">
-									Spruce Creek
-								</a>
-							</div>
-						</div>
-
-						<a href="/sell-your-cart" class="hover:opacity-80 transition py-2 border-b border-gray-700">Sell Your Cart</a>
-						<a href="/faq" class="hover:opacity-80 transition py-2 border-b border-gray-700">FAQ</a>
-						<a href="/contact" class="hover:opacity-80 transition py-2">Contact</a>
-					</div>
-				</div>
-			</div>
-		</div>
+<div class="util">
+	<span class="row tag"><Icon name="award" size={16} color="#f9b406" /><span>Proudly serving The Villages, Ocala, Marion County and Central Florida since 1999</span></span>
+	<span class="row" style="display:none" data-mobile-tag><Icon name="award" size={16} color="#f9b406" /><span>Since 1999</span></span>
+	<span class="right">
+		<span class="row"><Icon name="pin" size={16} color="#f9b406" /><span>12885 S US Hwy 441, Belleview</span></span>
+		<span class="row"><Icon name="clock" size={16} color="#f9b406" /><span>Mon to Fri 8:30 to 5, Sat 9 to 2</span></span>
+		<a class="row" href={companyData.contact.phoneLink}><Icon name="phone" size={16} color="#f9b406" /><span>{companyData.contact.phone}</span></a>
+	</span>
+</div>
+<header class="hdr">
+	<a class="logo" href="/" aria-label="Masters Golf Cars home"><img src="/images/redesign/masters-logo.png" alt="Masters Golf Cars, LLC" width="200" height="66" /></a>
+	<nav aria-label="Main">
+		{nav.map((n) => <a href={n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a>)}
 	</nav>
+	<div class="row" style="gap:10px">
+		<a class="btn solid sm cta" href={quoteHref}><span>Get a quote</span><Icon name="arrow" size={18} /></a>
+		<button type="button" class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="site-drawer" data-menu-toggle><Icon name="menu" size={24} sw={1.75} /></button>
+	</div>
 </header>
+<div class="flame-line"></div>
 
+<div class="drawer" id="site-drawer" aria-hidden="true">
+	{nav.map((n) => <a href={n.href}>{n.label}<Icon name="arrow" size={20} /></a>)}
+	<div class="label">More</div>
+	<div class="sub">{more.map((n) => <a href={n.href}>{n.label}</a>)}</div>
+	<div class="contact">
+		<a href={companyData.contact.phoneLink}><Icon name="phone" size={18} color="#f9b406" />{companyData.contact.phone}</a>
+		<span class="row" style="gap:10px"><Icon name="pin" size={18} color="#f9b406" />{companyData.location.full}</span>
+		<span class="row" style="gap:10px"><Icon name="clock" size={18} color="#f9b406" />Mon to Fri 8:30 to 5, Sat 9 to 2</span>
+	</div>
+</div>
+
+<style>
+	@media (max-width: 960px) {
+		.util .tag { display: none !important; }
+		.util [data-mobile-tag] { display: flex !important; }
+		.util .right a { display: flex; }
+	}
+</style>
 <script>
-	// Mobile menu toggle
-	const mobileMenuButton = document.getElementById('mobile-menu-button');
-	const mobileMenu = document.getElementById('mobile-menu');
-	const menuIcon = document.getElementById('menu-icon');
-	const closeIcon = document.getElementById('close-icon');
-
-	if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
-		mobileMenuButton.addEventListener('click', () => {
-			mobileMenu.classList.toggle('hidden');
-			menuIcon.classList.toggle('hidden');
-			closeIcon.classList.toggle('hidden');
-		});
-		
-		// Close menu when clicking outside
-		document.addEventListener('click', (e) => {
-			const target = e.target as Node | null;
-			if (target && !mobileMenuButton.contains(target) && !mobileMenu.contains(target)) {
-				mobileMenu.classList.add('hidden');
-				menuIcon.classList.remove('hidden');
-				closeIcon.classList.add('hidden');
-			}
-		});
-		
-		// Close menu when clicking a link
-		const mobileLinks = mobileMenu.querySelectorAll('a');
-		mobileLinks.forEach(link => {
-			link.addEventListener('click', () => {
-				mobileMenu.classList.add('hidden');
-				menuIcon.classList.remove('hidden');
-				closeIcon.classList.add('hidden');
-			});
-		});
+	const btn = document.querySelector('[data-menu-toggle]') as HTMLButtonElement | null;
+	const drawer = document.getElementById('site-drawer');
+	if (btn && drawer) {
+		const set = (open: boolean) => {
+			drawer.classList.toggle('open', open);
+			drawer.setAttribute('aria-hidden', String(!open));
+			btn.setAttribute('aria-expanded', String(open));
+			btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+			document.body.classList.toggle('menu-open', open);
+			btn.innerHTML = open
+				? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>'
+				: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>';
+		};
+		btn.addEventListener('click', () => set(!drawer.classList.contains('open')));
+		drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => set(false)));
 	}
 </script>

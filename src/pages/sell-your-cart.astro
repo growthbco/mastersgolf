@@ -2,69 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import FAQSchema from '../components/FAQSchema.astro';
 import Schema from '../components/Schema.astro';
-import companyData from '../data/company.json';
-
-const benefitList = [
-	'Fast quotes and fair market offers for gas, electric, and custom carts',
-	'Local pickup available throughout The Villages, Ocala, and surrounding areas',
-	'We handle the paperwork and transportation for a stress-free experience',
-	'Family-owned team with 25+ years helping Central Florida cart owners',
-];
-
-const cartTypes = [
-	{
-		title: 'Standard & Lifted Carts',
-		description:
-			'We purchase 2, 4, and 6-passenger carts—lifted or standard—with interest in both stock and accessorized builds.',
-		image: '/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp',
-		imageAlt: 'Standard and lifted golf cart ready for sale',
-	},
-	{
-		title: 'Street-Legal LSVs',
-		description:
-			'Licensed, street-legal golf carts welcome. Include your paperwork and we will make you a competitive offer.',
-		image: '/images/golf-cart-rentals-page/rent-a-golf-cart_img_v72_250813_161858549.webp',
-		imageAlt: 'Street-legal golf cart parked curbside',
-	},
-	{
-		title: 'Custom & Luxury Builds',
-		description:
-			'From custom paint to upgraded wheels, sound, and lighting packages—we value the upgrades you invested in.',
-		image: '/images/golf-cart-rentals-page/golf-cart-rentals-in-the-villages_img_v69_250813_160043497.webp',
-		imageAlt: 'Custom golf cart with premium upgrades',
-	},
-	{
-		title: 'Utility & Specialty Carts',
-		description:
-			'Work carts, shuttles, medical, and hospitality builds are all considered. Let us know how it was used.',
-		image: '/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp',
-		imageAlt: 'Utility golf cart equipped for hauling',
-	},
-];
-
-const motivations = [
-	'Upgrading to a newer model or switching to lithium power',
-	'Moving out of the area and need a quick, reliable buyer',
-	'Selling a second cart that is no longer being used',
-	'Looking to liquidate a community, resort, or business fleet',
-	'Want a trusted partner instead of listing privately',
-	'Need a fast sale with local pickup and secure payment',
-];
-
-const testimonials = [
-	{
-		name: 'Megan O’Brien',
-		quote: '“Masters Golf Cars made selling my cart quick and easy. I had an offer and pickup scheduled within 24 hours.”',
-	},
-	{
-		name: 'Scott Lenhart',
-		quote: '“Fair price, professional communication, and they handled transport. Highly recommend the Masters team.”',
-	},
-	{
-		name: 'Samantha Blanton',
-		quote: '“Couldn’t have asked for a smoother process. They answered all my questions and sent payment right away.”',
-	},
-];
+import HeroSplit from '../components/sections/HeroSplit.astro';
+import Steps from '../components/sections/Steps.astro';
+import Reviews from '../components/sections/Reviews.astro';
+import Faq from '../components/sections/Faq.astro';
+import FormShell from '../components/forms/FormShell.astro';
+import SellCartForm from '../components/forms/SellCartForm.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Check from '../components/ui/Check.astro';
+import { R } from '../lib/areas';
 
 const faqs = [
 	{
@@ -80,7 +26,7 @@ const faqs = [
 	{
 		question: 'Do you pick up the golf cart?',
 		answer:
-			'Yes. Once we agree on a price, we coordinate local pickup or drop-off at our Belleview location—whatever is easier for you.',
+			'Yes. Once we agree on a price, we coordinate local pickup or drop-off at our Belleview location,whatever is easier for you.',
 	},
 	{
 		question: 'Can I sell multiple carts or a fleet?',
@@ -89,18 +35,6 @@ const faqs = [
 	},
 ];
 
-const serviceAreas = [
-	'The Villages',
-	'Ocala',
-	'Belleview',
-	'Summerfield',
-	'Leesburg',
-	'Marion County',
-	'Lake County',
-	'Alachua County',
-];
-
-// LocalBusiness Schema for Sell Your Cart Page
 const sellCartSchema = {
 	"@context": "https://schema.org",
 	"@type": "LocalBusiness",
@@ -169,322 +103,35 @@ const sellCartSchema = {
 		}
 	]
 };
+
+const crumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "Sell Your Cart", url: "https://mastersgolfcars.com/sell-your-cart" }
+];
 ---
 
-<Layout
-	title="Sell Your Golf Cart - Masters Golf Cars"
-	description="Sell your golf cart quickly with Masters Golf Cars. Fair offers, simple process, and fast pickup for owners across Central Florida."
->
+<Layout title="Sell Your Golf Cart - Masters Golf Cars" description="Sell your golf cart quickly with Masters Golf Cars. Fair offers, simple process, and fast pickup for owners across Central Florida." breadcrumbs={crumbs} quoteHref="#selloffer">
 	<Schema schema={sellCartSchema} slot="schema" />
 	<FAQSchema faqs={faqs} />
-	<section class="bg-white py-16 md:py-20">
-		<div class="container mx-auto px-4 max-w-5xl text-center">
-			<p class="text-sm font-semibold uppercase tracking-[0.32em] text-brand-green mb-3">Sell Your Golf Cart</p>
-			<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Turn Your Golf Cart Into Cash</h1>
-			<p class="text-lg text-gray-600 mb-8">
-				Whether you&rsquo;re upgrading, moving, or simply ready to sell, Masters Golf Cars will evaluate your cart quickly and deliver a competitive offer.
-			</p>
-			<a href="#sell-form" class="inline-flex items-center justify-center bg-brand-green text-white font-semibold px-8 py-3 rounded-full shadow hover:bg-[#1f6612] transition">
-				Request Your Offer Today
-			</a>
-		</div>
+
+	<HeroSplit eyebrow="Sell your golf cart" heading="Get an offer on" accent="your cart." lead="Own a cart you are ready to part with? Tell us about it and one of our staff will contact you with an offer. Trade it toward a new one or sell it outright." cta="Get my offer" ctaHref="#selloffer" checks={['Gas and electric', 'Any condition considered', 'Trade toward a new cart', 'We can pick it up']} img={R + 'clubcar-row.jpg'} alt="Row of white Club Car golf carts" label="We buy carts" pos="50% 60%" />
+
+	<Steps eyebrow="How it works" heading="Three steps to a check." lead="No listing, no strangers in your driveway." items={[['1', 'mail', 'Tell us about it', 'Make, model, year, gas or electric and any extras. Photos help.'], ['2', 'tag', 'Get an offer', 'We look it over and give you a number, in person or by phone.'], ['3', 'dollar', 'Get paid', 'Accept, and we handle the paperwork and pickup.']]} cta="Get my offer" ctaHref="#selloffer" />
+
+	<section class="sec white why">
+		<div class="head"><Eyebrow>Why sell to Masters</Eyebrow><h2 class="h2 md">Simple, fair and fast.</h2><p class="lead" style="max-width:440px">We sell and service carts every day, so we know what yours is worth.</p></div>
+		<div class="check-list" style="gap:14px 24px">{['No online listing or tire kickers', 'Offer good whether you buy from us or not', 'Trade-in credit toward any cart in stock', 'Pickup available around Ocala and The Villages', 'We handle title and paperwork', 'Paid on the spot when we agree'].map((t) => <Check>{t}</Check>)}</div>
 	</section>
 
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="text-center max-w-3xl mx-auto mb-12">
-				<h2 class="text-3xl font-bold text-gray-900 mb-3">Our Golf Cart Buying Options</h2>
-				<p class="text-gray-600">
-					From single carts to specialty builds, we buy a wide range of models. Share your cart details and we&rsquo;ll deliver an offer tailored to its condition and upgrades.
-				</p>
-			</div>
-			<div class="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-				{cartTypes.map((item) => (
-					<div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden flex flex-col">
-						<img src={item.image} alt={item.imageAlt} class="h-40 w-full object-cover" loading="lazy" />
-						<div class="p-6 flex flex-col gap-3">
-							<h3 class="text-lg font-semibold text-gray-900">{item.title}</h3>
-							<p class="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-	</section>
+	<Reviews heading="People who dealt with us." bg="paper" />
+	<Faq items={faqs} heading="Selling questions." bg="white" />
 
-	<section id="sell-process" class="py-16 bg-white">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-start">
-				<div>
-					<h2 class="text-3xl font-bold text-gray-900 mb-6">Why Sell With Masters Golf Cars?</h2>
-					<p class="text-lg text-gray-700 leading-relaxed mb-4">
-						We&rsquo;ve spent more than 25 years helping golf cart owners across Central Florida. From the first conversation to final pickup, our family-owned team keeps the process friendly, transparent, and fast.
-					</p>
-					<p class="text-lg text-gray-700 leading-relaxed mb-6">
-						Share a few details, review your offer, and schedule a convenient pickup or drop-off. It&rsquo;s that simple.
-					</p>
-				</div>
-				<div class="bg-gray-50 border border-gray-200 rounded-3xl shadow-lg p-8">
-					<h3 class="text-xl font-bold text-gray-900 mb-4 uppercase tracking-wide">What You Can Expect</h3>
-					<ul class="space-y-3 text-gray-700">
-						{benefitList.map((item) => (
-							<li class="flex items-start gap-3">
-								<span class="text-brand-green mt-1">✔</span>
-								<span>{item}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-start">
-				<div>
-					<h2 class="text-3xl font-bold text-gray-900 mb-6">Popular Reasons Sellers Choose Us</h2>
-					<p class="text-gray-600 mb-6">
-						From individual owners to communities and businesses, our streamlined process fits a variety of selling situations.
-					</p>
-					<ul class="grid gap-3 text-sm text-gray-700">
-						{motivations.map((item) => (
-							<li class="flex items-start gap-2">
-								<span class="mt-1 text-brand-green">•</span>
-								<span class="leading-relaxed">{item}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div class="grid gap-4">
-					<div class="grid grid-cols-2 gap-4">
-						<img src="/images/gallery/02-04-2025-14-04-55_7.webp" alt="Masters Golf Cars lot" class="rounded-2xl shadow-md object-cover h-44 w-full" loading="lazy" />
-						<img src="/images/gallery/02-04-2025-14-13-24_12.webp" alt="Custom golf cart" class="rounded-2xl shadow-md object-cover h-44 w-full" loading="lazy" />
-					</div>
-					<img src="/images/gallery/02-04-2025-14-28-46_34.webp" alt="Golf cart fleet ready for transport" class="rounded-2xl shadow-md object-cover h-52 w-full" loading="lazy" />
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<h2 class="text-3xl font-bold text-center text-gray-900 mb-10">What Sellers Are Saying</h2>
-			<div class="grid gap-6 md:grid-cols-3">
-				{testimonials.map((item) => (
-					<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col">
-						<p class="text-gray-700 italic mb-4">{item.quote}</p>
-						<p class="text-sm font-semibold text-gray-900">— {item.name}</p>
-					</div>
-				))}
-			</div>
-			<div class="text-center mt-8">
-				<a href="https://g.page/r/Ce6p7W6HMgpTEBM/review" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 font-semibold transition">
-					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-						<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-						<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-						<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-					</svg>
-					See More Reviews on Google
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-white" id="sell-form">
-		<div class="container mx-auto px-4 max-w-5xl text-center mb-10">
-			<h2 class="text-3xl font-bold text-gray-900 mb-3">Get a Quote to Sell Your Golf Cart</h2>
-			<p class="text-gray-600 max-w-3xl mx-auto">
-				Please fill out the form below. Our team will review the details, follow up for photos if needed, and deliver a fair market quote quickly.
-			</p>
-		</div>
-		<div class="container mx-auto px-4 max-w-3xl">
-			<div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
-				<form
-					name="sell-cart"
-					method="POST"
-					data-netlify="true"
-					netlify-honeypot="bot-field"
-					action="/success"
-					class="space-y-5"
-				>
-					<input type="hidden" name="form-name" value="sell-cart" />
-					<p class="hidden">
-						<label>Don't fill this out if you're human: <input name="bot-field" /></label>
-					</p>
-
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-						<div>
-							<label for="sell-name" class="block text-sm font-bold text-gray-900 mb-1">Full Name <span class="text-red-600">*</span></label>
-							<input type="text" id="sell-name" name="name" required placeholder="Your name" autocomplete="name" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-						<div>
-							<label for="sell-phone" class="block text-sm font-bold text-gray-900 mb-1">Phone <span class="text-red-600">*</span></label>
-							<input type="tel" id="sell-phone" name="phone" required placeholder="(352) 555-1234" autocomplete="tel" inputmode="tel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-					</div>
-
-					<div>
-						<label for="sell-email" class="block text-sm font-bold text-gray-900 mb-1">Email <span class="text-red-600">*</span></label>
-						<input type="email" id="sell-email" name="email" required placeholder="you@email.com" autocomplete="email" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-					</div>
-
-					<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-						<div>
-							<label for="sell-make" class="block text-sm font-bold text-gray-900 mb-1">Make / Brand</label>
-							<input type="text" id="sell-make" name="cart_make" placeholder="Club Car, EZGO, Yamaha, etc." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-						<div>
-							<label for="sell-model" class="block text-sm font-bold text-gray-900 mb-1">Model</label>
-							<input type="text" id="sell-model" name="cart_model" placeholder="Precedent, RXV, Drive 2, etc." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-						<div>
-							<label for="sell-year" class="block text-sm font-bold text-gray-900 mb-1">Year</label>
-							<input type="text" id="sell-year" name="cart_year" placeholder="e.g. 2019" inputmode="numeric" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-						</div>
-					</div>
-
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-						<div>
-							<label for="sell-fuel" class="block text-sm font-bold text-gray-900 mb-1">Gas or Electric</label>
-							<select id="sell-fuel" name="cart_fuel" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
-								<option value="">Select...</option>
-								<option value="Electric">Electric</option>
-								<option value="Gas">Gas</option>
-								<option value="Lithium">Lithium</option>
-								<option value="Not sure">Not sure</option>
-							</select>
-						</div>
-						<div>
-							<label for="sell-condition" class="block text-sm font-bold text-gray-900 mb-1">Condition</label>
-							<select id="sell-condition" name="cart_condition" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none">
-								<option value="">Select...</option>
-								<option value="Excellent">Excellent</option>
-								<option value="Good">Good</option>
-								<option value="Fair">Fair</option>
-								<option value="Needs repair">Needs repair</option>
-							</select>
-						</div>
-					</div>
-
-					<div>
-						<label for="sell-asking" class="block text-sm font-bold text-gray-900 mb-1">Asking Price (optional)</label>
-						<input type="text" id="sell-asking" name="asking_price" placeholder="$" class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none" />
-					</div>
-
-					<div>
-						<label for="sell-details" class="block text-sm font-bold text-gray-900 mb-1">Cart Details <span class="text-red-600">*</span></label>
-						<textarea id="sell-details" name="details" rows="5" required placeholder="Tell us about your cart — accessories, batteries, lift kit, body color, recent service, anything else we should know." class="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none"></textarea>
-					</div>
-
-					<div class="flex items-start gap-3 pt-1">
-						<input type="checkbox" id="sell-sms-consent" name="sms_consent" value="yes" class="mt-1 h-4 w-4 rounded border-gray-400 text-brand-green focus:ring-brand-green" />
-						<label for="sell-sms-consent" class="text-sm text-gray-700 leading-relaxed">
-							I agree to receive SMS text messages from Masters Golf Cars in response to this inquiry, including appointment reminders, service updates, quotes, and follow-up communications. Message frequency varies. Msg and data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="/privacy-policy" class="text-brand-green font-bold underline hover:opacity-80">Privacy Policy</a> and <a href="/terms-conditions" class="text-brand-green font-bold underline hover:opacity-80">Terms and Conditions</a>.
-						</label>
-					</div>
-
-					<button type="submit" class="w-full bg-brand-green text-white font-bold uppercase tracking-wide py-3 px-4 rounded-md hover:opacity-90 transition-colors">
-						Request My Quote
-					</button>
-
-					<p class="text-center text-xs text-gray-500">
-						Your information is secure and will never be shared.
-					</p>
-				</form>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-10 lg:grid-cols-[0.9fr,1.1fr] items-start">
-				<div>
-					<img
-						src="/images/gallery/02-04-2025-14-23-09_23.webp"
-						alt="Masters Golf Cars team with customers"
-						class="rounded-3xl shadow-lg object-cover w-full h-full max-h-[420px]"
-						loading="lazy"
-					/>
-				</div>
-				<div>
-					<h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-					<p class="text-gray-600 mb-6">
-						Have more questions about selling your cart? Browse our most common topics below or call our team for a quick answer.
-					</p>
-					<p class="text-lg font-semibold text-brand-green mb-6">{companyData.contact.phone}</p>
-					<div class="space-y-4">
-						{faqs.map((item) => (
-							<details class="bg-white border border-gray-200 rounded-2xl shadow-sm p-5 group">
-								<summary class="flex items-center justify-between cursor-pointer text-left">
-									<span class="text-sm font-semibold text-gray-900">{item.question}</span>
-									<span class="text-brand-green text-lg transition group-open:rotate-45">+</span>
-								</summary>
-								<p class="mt-3 text-sm text-gray-600 leading-relaxed">{item.answer}</p>
-							</details>
-						))}
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-12 lg:grid-cols-[1.1fr,0.9fr] items-start">
-				<div>
-					<h2 class="text-3xl font-bold text-gray-900 mb-4">Areas We Serve</h2>
-					<p class="text-gray-700 leading-relaxed mb-4">
-						Masters Golf Cars proudly purchases carts throughout Central Florida—including The Villages, Ocala, Belleview, and surrounding counties. If you&rsquo;re unsure whether we can reach you, call our team and we&rsquo;ll confirm availability.
-					</p>
-					<p class="text-gray-700 leading-relaxed">
-						We can coordinate local pickup for most offers or schedule a drop-off appointment at our Belleview location.
-					</p>
-				</div>
-				<div>
-					<ul class="grid grid-cols-2 gap-3 text-sm text-gray-700">
-						{serviceAreas.map((area) => (
-							<li class="flex items-center gap-2">
-								<span class="text-brand-green">•</span>
-								<span>{area}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4 max-w-6xl">
-			<div class="grid gap-10 lg:grid-cols-[1fr,1fr] items-start">
-				<div class="space-y-4">
-					<h2 class="text-3xl font-bold text-gray-900">Visit Our Location</h2>
-					<p class="text-gray-600">
-						We are located between Ocala and The Villages on US 441 across from the Market of Marion. Stop by or schedule a pickup after we finalize your offer.
-					</p>
-					<ul class="text-sm text-gray-700 space-y-2">
-						<li><strong>Address:</strong> {companyData.location.full}</li>
-						<li><strong>Phone:</strong> <a href={companyData.contact.phoneLink} class="text-brand-green hover:underline">{companyData.contact.phone}</a></li>
-						<li><strong>Email:</strong> <a href={companyData.contact.email} class="text-brand-green hover:underline">Contact Us</a></li>
-					</ul>
-				</div>
-				<div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200">
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6976.811623455518!2d-82.025011!3d29.034576000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e7cfcec122cd0d%3A0x530a32876eeda9ee!2sMasters%20Golf%20Cars!5e0!3m2!1sen!2sus!4v1762801860534!5m2!1sen!2sus"
-						width="100%"
-						height="400"
-						style="border:0;"
-						allowfullscreen=""
-						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"
-					></iframe>
-				</div>
-			</div>
-		</div>
-	</section>
-
+	<FormShell id="selloffer" eyebrow="Sell your cart" heading="Tell us about" accent="your cart." lead="Fill this out and one of our experienced staff will contact you as soon as possible during business hours.">
+		<SellCartForm />
+	</FormShell>
 </Layout>
 
-
+<style>
+	.why { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: center; }
+	@media (max-width: 1100px) { .why { grid-template-columns: 1fr; gap: 40px; } }
+</style>

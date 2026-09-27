@@ -1,0 +1,127 @@
+{
+ "h1": "Golf Cart Rentals for Florida Horse Park",
+ "lead": [
+  "Masters Golf Cars is the trusted provider for golf cart rentals at Florida Horse Park events. Located at 11008 S County Road 475 in Ocala, this premier multi-purpose equestrian facility hosts major competitions, festivals, and outdoor events throughout the year.",
+  "Since 1999, we've provided fleet rentals for event organizers, exhibitors, and attendees at Florida Horse Park. Whether you need a single cart for navigating the grounds or a fleet for your organization, we deliver reliable golf carts directly to the venue."
+ ],
+ "sections": [
+  {
+   "h2": "About Florida Horse Park",
+   "intro": [
+    "Florida Horse Park is a 500-acre multi-discipline equestrian facility located in the heart of Ocala's horse country. As part of the \"Horse Capital of the World,\" the park hosts prestigious competitions, festivals, and events that draw visitors from across the country.",
+    "The park's extensive grounds include cross-country courses, show rings, vendor areas, and parking facilities. Golf carts are essential for navigating between areas, especially during large events that can attract thousands of attendees."
+   ],
+   "cards": [
+    {
+     "h": "Florida Horse Park Events",
+     "p": [],
+     "items": [
+      "Eventing competitions",
+      "Dressage shows",
+      "Hunter/Jumper events",
+      "Driving competitions",
+      "Special festivals & expos",
+      "Private events & weddings"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Who Rents Carts for Florida Horse Park?",
+   "cards": [
+    {
+     "h": "Event Organizers",
+     "p": [
+      "Fleet rentals for event staff, officials, and volunteers navigating the park during competitions and festivals."
+     ]
+    },
+    {
+     "h": "Competitors & Trainers",
+     "p": [
+      "Transportation between stabling, warm-up areas, and competition rings. Essential for multi-day events."
+     ]
+    },
+    {
+     "h": "Vendors & Exhibitors",
+     "p": [
+      "Utility carts for setting up booths and transporting merchandise. Easy access between vendor area and parking."
+     ]
+    },
+    {
+     "h": "Spectators & Families",
+     "p": [
+      "Navigate the extensive grounds comfortably. Perfect for families with children or those with mobility needs."
+     ]
+    },
+    {
+     "h": "Medical & Security",
+     "p": [
+      "Rapid response carts for medical teams and security personnel to quickly reach any location on the grounds."
+     ]
+    },
+    {
+     "h": "Wedding Parties",
+     "p": [
+      "Florida Horse Park hosts beautiful outdoor weddings. Golf carts provide elegant guest transportation."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Cart Options for Florida Horse Park",
+   "cards": [
+    {
+     "h": "2-Passenger",
+     "p": [
+      "Compact carts for individuals and couples. Easy to maneuver around competition areas."
+     ]
+    },
+    {
+     "h": "4-Passenger",
+     "p": [
+      "Perfect for small groups and families attending events together."
+     ]
+    },
+    {
+     "h": "6-Passenger",
+     "p": [
+      "Shuttle carts for event staff, VIPs, and group transportation needs."
+     ]
+    },
+    {
+     "h": "Utility Carts",
+     "p": [
+      "Cargo beds for vendors, event setup, and transporting equipment and supplies.",
+      "Need a custom fleet for your Florida Horse Park event? We can provide any mix of cart types."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Why Choose Masters Golf Cars",
+   "cards": [
+    {
+     "h": "Event Experience",
+     "p": [],
+     "items": [
+      "26+ years serving Ocala equestrian events",
+      "Experience with Florida Horse Park logistics",
+      "Delivery directly to the venue",
+      "Flexible multi-day rental terms"
+     ]
+    },
+    {
+     "h": "Reliable Service",
+     "p": [],
+     "items": [
+      "All carts cleaned and fully charged",
+      "On-call support during events",
+      "Backup carts available",
+      "Convenient pickup after event ends"
+     ]
+    }
+   ]
+  }
+ ],
+ "faqConst": null
+}

@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 :root {
-	--brand-green: #86CA26;
+	--brand-green: #76c82f;
 }
 
 /* Hover states for links */
 a.hover-brand-green:hover {
-	color: #86CA26 !important;
+	color: #76c82f !important;
 }
 
 .bg-brand-green {
-	background-color: #86CA26 !important;
+	background-color: #76c82f !important;
 }
 
 .bg-brand-green:hover {
-	background-color: #6fa020 !important;
+	background-color: #5fa824 !important;
 }
 
 .text-brand-green {
-	color: #86CA26 !important;
+	color: #76c82f !important;
 }
 
 .border-brand-green {
-	border-color: #86CA26 !important;
+	border-color: #76c82f !important;
 }
 
 .focus-brand-green:focus {
-	outline: 2px solid #86CA26;
+	outline: 2px solid #76c82f;
 	outline-offset: 2px;
 }
 

@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroDark from '../components/sections/HeroDark.astro';
+import FormShell from '../components/forms/FormShell.astro';
+import RentalInquiryForm from '../components/forms/RentalInquiryForm.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Ring from '../components/ui/Ring.astro';
+import Icon from '../components/ui/Icon.astro';
+import Check from '../components/ui/Check.astro';
+import companyData from '../data/company.json';
+import { R } from '../lib/areas';
+
+const CITIES: [string, string, string, string, string[]][] = [
+	['Ocala', 'Marion County seat. Downtown, Golden Ocala, Ocala Palms and the horse farms.', '12 miles north', '/golf-cart-rentals-ocala', ['/golf-cart-repairs-ocala', '/golf-carts-for-sale-ocala']],
+	['The Villages', 'Every village from Spanish Springs to Eastport, delivered to your driveway.', '10 miles south', '/the-villages-golf-cart-rentals', ['/golf-cart-repairs', '/golf-carts-for-sale-the-villages']],
+	['Belleview', 'Home base. Right on 441 across from the Market of Marion.', 'Our shop', '/golf-cart-rentals-belleview', ['/golf-cart-repairs-belleview', '/golf-cart-inventory']],
+	['Spruce Creek', 'Spruce Creek South, Preserve and Del Webb in Summerfield.', '6 miles', '/golf-cart-rentals-spruce-creek', ['/golf-cart-repairs', '/golf-carts-for-sale-spruce-creek']],
+	['On Top of the World', 'Circle Square and the whole OTOW community.', '18 miles', '/golf-cart-rentals-otow', ['/golf-cart-repairs-ocala', '/golf-carts-for-sale-otow']],
+	['Oak Run', 'Oak Run and the SW 27th corridor.', '14 miles', '/golf-cart-rentals-oak-run', ['/golf-cart-repairs-ocala', '/golf-cart-inventory']],
+	['Gainesville', 'UF events, tailgates and Alachua County.', '55 miles', '/golf-cart-rentals-gainesville', ['/golf-cart-repairs-gainesville', '/golf-carts-for-sale-gainesville']],
+	['RV parks and campgrounds', 'Elite RV, Tall Timbers and seasonal parks around Marion County.', 'Countywide', '/golf-cart-rentals-rv-parks', ['/golf-cart-repairs', '/golf-cart-inventory']],
+];
+const VENUES: [string, string, string, string][] = [['World Equestrian Center', 'Shows, competitions and barn to ring runs.', 'flag', '/golf-cart-rentals-wec'], ['HITS Ocala', 'Carts for riders, trainers, grooms and families.', 'award', '/golf-cart-rentals-hits-ocala'], ['Florida Horse Park', 'Events, clinics and shows on the Greenway.', 'star', '/golf-cart-rentals-florida-horse-park']];
+const EVENTS: [string, string][] = [['Weddings', '/golf-cart-rentals-weddings'], ['Festivals and concerts', '/golf-cart-rentals-festivals'], ['Golf tournaments', '/golf-cart-rentals-golf-tournaments'], ['Corporate events', '/golf-cart-rentals-corporate-events']];
+const crumbs = [{ name: "Home", url: "https://mastersgolfcars.com" }, { name: "Locations", url: "https://mastersgolfcars.com/locations" }];
+---
+
+<Layout title="Locations We Serve | Golf Cart Rentals, Service & Sales | Masters Golf Cars" description="Golf cart rentals, repairs and sales across Ocala, The Villages, Belleview, Gainesville and Central Florida, plus event fleets at WEC, HITS and the Florida Horse Park." breadcrumbs={crumbs} quoteHref="#quote">
+	<HeroDark eyebrow="Where we work" heading="Local service." accent="Statewide reach." lead="Rentals, service and sales across Marion, Sumter, Lake and Alachua counties, and event fleets anywhere in Florida. Pick your town for what we do there." cta="Get a quote" ctaHref="#quote" img={R + 'fleet-aerial-sky.jpg'} alt="Aerial view of the Masters rental fleet" pos="50% 60%" />
+
+	<section class="sec white stack" style="gap:48px">
+		<div class="head"><Eyebrow>Towns and communities</Eyebrow><h2 class="h2">Pick your town.</h2><p class="lead">Each page covers what we deliver there, how long it takes and the neighborhoods we know.</p></div>
+		<div class="cities">{CITIES.map(([n, s, d, h, [rep, sale]]) => <div class="city"><div class="row" style="justify-content:space-between"><Ring name="pin" /><span class="dist">{d}</span></div><h3 class="h3" style="font-size:22px;line-height:26px"><a href={h}>{n}</a></h3><p class="body" style="font-size:15px;line-height:24px">{s}</p><div class="row tagrow"><a href={h}>Rentals</a><a href={rep}>Service</a><a href={sale}>Sales</a></div></div>)}</div>
+	</section>
+
+	<section class="sec paper venues">
+		<div class="head"><Eyebrow>Venues</Eyebrow><h2 class="h2 md">Event venues we know by heart.</h2><p class="lead" style="max-width:440px">We have staged fleets at these grounds for years. Tell us the show and we know where the carts go.</p></div>
+		<div class="grid3">{VENUES.map(([n, s, i, h]) => <a href={h} class="venue"><Ring name={i} fill /><h3 class="h3" style="font-size:20px;line-height:26px">{n}</h3><p class="body" style="font-size:15px;line-height:24px">{s}</p><span class="vlink">Event carts<Icon name="arrow" size={16} /></span></a>)}</div>
+	</section>
+
+	<section class="sec white evs">
+		<div class="head"><Eyebrow>Events</Eyebrow><h2 class="h2 md">Fleets for the day.</h2><p class="lead" style="max-width:440px">From a few carts to a few hundred, delivered and staged anywhere in Florida.</p></div>
+		<div class="evlist">{EVENTS.map(([n, h]) => <a href={h}><span>{n}</span><Icon name="arrow" size={20} /></a>)}</div>
+	</section>
+
+	<section class="map on-dark">
+		<div class="stack map-copy" style="gap:28px">
+			<div class="head"><Eyebrow>One shop, a big circle around it</Eyebrow><h2 class="h2" style="font-size:44px">Based in Belleview.<br />Everywhere from here.</h2><p class="lead" style="max-width:460px">Our shop sits on 441 between Ocala and The Villages. Individual rentals and service go out across the surrounding counties. Event fleets travel statewide.</p></div>
+			<div class="check-list" style="grid-template-columns:1fr;gap:12px"><Check>{companyData.location.full}</Check><Check>Mon to Fri 8:30 to 5, Sat 9 to 2</Check><Check>{companyData.contact.phone}</Check></div>
+		</div>
+		<iframe src="https://www.google.com/maps?q=12885+S+US+Hwy+441,+Belleview,+FL+34420&z=10&output=embed" title="Masters Golf Cars service area map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</section>
+
+	<FormShell id="quote" eyebrow="Get a quote" heading="Tell us where you" accent="are." lead="Tell us what you need and where, and our team will get back to you as soon as possible during business hours.">
+		<RentalInquiryForm pageSource="locations" idPrefix="loc" cta="Get my quote" />
+	</FormShell>
+</Layout>
+
+<style>
+	.cities { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+	.city { display: flex; flex-direction: column; gap: 14px; padding: 28px 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+	.city h3 a { color: var(--ink); }
+	.dist { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+	.tagrow { margin-top: auto; flex-wrap: wrap; gap: 8px; padding-top: 8px; }
+	.tagrow a { padding: 6px 10px; border: 1px solid var(--line); font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+	.tagrow a:hover { border-color: var(--green-ink); color: var(--green-ink); }
+	.venues, .evs { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: center; }
+	.venue { display: flex; flex-direction: column; gap: 14px; padding: 28px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--green); color: var(--ink); }
+	.vlink { margin-top: auto; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+	.evlist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; border-top: 1px solid var(--line); }
+	.evlist a { display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 1px solid var(--line); font-size: 16px; font-weight: 500; color: var(--ink); }
+	.map { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; }
+	.map-copy { padding: 72px var(--gx); }
+	.map iframe { width: 100%; min-height: 460px; height: 100%; border: 0; display: block; filter: grayscale(1) contrast(1.05); }
+	@media (max-width: 1100px) { .cities { grid-template-columns: repeat(2, minmax(0, 1fr)); } .venues, .evs, .map { grid-template-columns: 1fr; gap: 40px; } .map-copy { padding: 56px var(--gx); } }
+	@media (max-width: 760px) { .cities, .evlist { grid-template-columns: 1fr; } .map .h2 { font-size: 32px !important; } }
+</style>

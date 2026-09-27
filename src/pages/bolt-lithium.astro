@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Schema from '../components/Schema.astro';
+import FAQSchema from '../components/FAQSchema.astro';
+import ProofBar from '../components/sections/ProofBar.astro';
+import Steps from '../components/sections/Steps.astro';
+import Reviews from '../components/sections/Reviews.astro';
+import Faq from '../components/sections/Faq.astro';
+import FormShell from '../components/forms/FormShell.astro';
+import CartInquiryForm from '../components/forms/CartInquiryForm.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Btn from '../components/ui/Btn.astro';
+import Ring from '../components/ui/Ring.astro';
+import companyData from '../data/company.json';
+import { R } from '../lib/areas';
+
+const BOLT = '<svg width="0.62em" height="0.9em" viewBox="0 0 16 24" fill="#76c82f" aria-hidden="true" style="display:inline-block;vertical-align:-0.06em;margin-left:0.08em"><path d="M10.5 0L0 13.5h6L4.5 24 16 9.5H9.5z"></path></svg>';
+const faqs = [
+	{ question: 'Will it fit my cart?', answer: 'We convert Club Car, E-Z-GO and Yamaha carts in 36, 48 and 72 volt.' },
+	{ question: 'Do I need a new charger?', answer: 'Often, yes. Lithium needs a lithium charger. If yours will not work we include one in your quote.' },
+	{ question: 'What happens to my old batteries?', answer: 'We remove them and recycle them. You do not have to haul anything.' },
+	{ question: 'What about the warranty?', answer: 'Bolt packs carry an industry leading 12 year warranty, and we handle warranty support for you here in Belleview.' },
+	{ question: 'Which pack do most people choose?', answer: 'The 51.2V 105Ah. Up to 50 miles of range, which covers a full day around The Villages with plenty to spare.' },
+];
+const schema = { "@context": "https://schema.org", "@type": "Service", "@id": "https://mastersgolfcars.com/bolt-lithium/#service", "name": "Bolt Energy Lithium Battery Conversions", "serviceType": "Golf cart lithium battery conversion", "description": "Bolt Energy lithium battery conversions for golf carts, installed in Belleview, FL. 36, 48 and 72 volt systems with a 12 year warranty.", "provider": { "@id": "https://mastersgolfcars.com/#localbusiness" }, "areaServed": ["Ocala, FL", "The Villages, FL", "Belleview, FL", "Marion County, FL", "Sumter County, FL"], "url": "https://mastersgolfcars.com/bolt-lithium" };
+const crumbs = [{ name: "Home", url: "https://mastersgolfcars.com" }, { name: "Bolt Lithium", url: "https://mastersgolfcars.com/bolt-lithium" }];
+const packs: [string, string, string, string][] = [['36V', '38.4V 105Ah', 'Up to 30 miles', '36 volt carts and everyday driving'], ['48V', '51.2V 60Ah', 'Up to 24 miles', 'Short trips and lighter use'], ['48V', '51.2V 105Ah', 'Up to 50 miles', 'Daily driving and extended range'], ['48V', '51.2V 160Ah', 'Up to 70 miles', 'Maximum range and heavy use'], ['72V', '73.6V 105Ah', 'Up to 70 miles', '72 volt and higher performance carts']];
+---
+
+<Layout title="Bolt Energy Lithium Battery Conversions | Masters Golf Cars" description="Convert your golf cart to Bolt Energy lithium in Belleview, FL. Up to 70 miles of range, 2 to 4 hour charging, zero maintenance and a 12 year warranty. Serving Ocala and The Villages." breadcrumbs={crumbs} quoteHref="#lithiumquote">
+	<Schema schema={schema} slot="schema" />
+	<FAQSchema faqs={faqs} />
+
+	<section class="sec dark on-dark lhero">
+		<div class="stack" style="gap:26px">
+			<Eyebrow green>Bolt Energy lithium conversions</Eyebrow>
+			<div class="fd" style="font-size:22px;line-height:1.2">Ready to ditch lead-acid?</div>
+			<h1 class="h1 lh1">Go lithium<Fragment set:html={BOLT} /><br />Go further<Fragment set:html={BOLT} /><br /><span class="g">Go Bolt Energy</span><Fragment set:html={BOLT} /></h1>
+			<p class="lead" style="max-width:600px">Central Florida's leader in Bolt Energy lithium battery conversions. Professional installation, premium components and an industry leading 12 year warranty, backed by over 25 years of golf cart experience.</p>
+			<div class="row btn-row" style="gap:16px"><Btn href="#lithiumquote" kind="green">Get my conversion price</Btn><Btn href="#range" kind="ghost-d">Find my Bolt</Btn></div>
+			<div class="row tags">{['More range', 'More power', 'Faster charging', 'Less weight', 'Zero maintenance'].map((t) => <span>{t}</span>)}</div>
+		</div>
+		<img src={R + 'bolt-trio.jpg'} alt="Three Bolt lithium golf cart batteries stacked in front of a golf cart" width="620" height="600" fetchpriority="high" class="lhero-img" />
+	</section>
+	<ProofBar items={[['shield', '12 year warranty', 'Industry leading, backed by Bolt'], ['wrench', 'Installed in our shop', 'By Masters technicians'], ['truck', 'Pickup and delivery', 'Ocala, The Villages and around'], ['award', 'Since 1999', 'Powered by Masters Golf Cars']]} />
+
+	<section class="sec white stack" style="gap:48px">
+		<div class="head"><Eyebrow green>Why switch</Eyebrow><h2 class="h2">Upgrade your ride. <span class="g">Upgrade your power.</span></h2><p class="lead">One lithium pack replaces the whole tray of lead-acid batteries.</p></div>
+		<div class="bens">{[['gauge', 'More range', 'Up to 70 miles on a charge with the right pack.'], ['zap', 'More power', 'Steady power from full to empty, even on hills.'], ['clock', 'Faster charging', '2 to 4 hours, not overnight.'], ['feather', 'Less weight', 'Hundreds of pounds lighter. Easier on your cart.'], ['drop', 'Zero maintenance', 'No watering. No cleaning. No corrosion.'], ['shield', '12 year warranty', 'Industry leading, and we handle the support here.']].map(([i, t, s]) => <div class="ben"><Ring name={i} fill /><h3 class="h3" style="font-size:20px;line-height:26px">{t}</h3><p class="body">{s}</p></div>)}</div>
+	</section>
+
+	<section class="sec dark on-dark cmp">
+		<div class="head"><Eyebrow green>Side by side</Eyebrow><h2 class="h2">Lead-acid vs <span class="g">lithium.</span></h2><p class="lead" style="max-width:400px">The numbers that matter when you own the cart for years.</p></div>
+		<div class="table">
+			<div class="trh"><span></span><span>Lead-acid</span><span style="color:var(--green)">Lithium</span></div>
+			{[['Range per charge', '20 to 25 miles', 'Up to 70 miles'], ['Charge time', '8 to 12 hours', '2 to 4 hours'], ['Warranty', '1 to 2 years', '12 years'], ['Weight', 'Heavy', 'Hundreds of pounds lighter'], ['Upkeep', 'Water and clean monthly', 'None']].map(([a, b, c]) => <div class="tr"><span class="fd" style="font-size:16px">{a}</span><span class="small" style="font-size:17px">{b}</span><span style="font-size:17px;font-weight:700">{c}</span></div>)}
+		</div>
+	</section>
+
+	<section id="range" class="sec white stack" style="gap:48px">
+		<div class="head"><Eyebrow green>Choose your power. Choose your range.</Eyebrow><h2 class="h2">How far do you want to go?</h2><p class="lead" style="max-width:720px">Whether you are cruising the neighborhood, crossing The Villages or powering a high performance cart, there is a Bolt built for the way you drive. Shown for 48 volt carts, the most common.</p></div>
+		<div class="grid3 rcards">
+			{[['24', '60Ah', 'Everyday power', 'Around town trips, golf and neighborhood cruising.', false], ['50', '105Ah', 'Extended range', 'Daily use, The Villages and longer trips. The sweet spot between range, performance and value.', true], ['70', '160Ah', 'Maximum freedom', 'Heavy use, long distance driving and no range anxiety.', false]].map(([mi, ah, lab, who, hot]) => (
+				<div class:list={['rcard', { hot }]}>{hot ? <span class="badge">Most popular</span> : <span style="height:27px"></span>}<div class="fd mi">{mi}<span class="mi-u"> miles</span></div><div class="stack" style="gap:4px"><span class="fd g" style="font-size:20px">{lab}</span><span style="font-size:15px;font-weight:600">51.2V {ah}</span></div><p class="body" style="font-size:15px;line-height:24px">{who}</p><div class="row" style="margin-top:auto"><Btn href="#lithiumquote" kind={hot ? 'dark' : 'ghost'}>Get my price</Btn></div></div>
+			))}
+		</div>
+		<div class="notsure"><div class="stack" style="gap:6px"><span class="fd" style="font-size:22px">Not sure which one you need?</span><span class="body">Tell us what you drive and how you use it. We will match you with the right Bolt Energy system.</span></div><div class="row" style="flex-shrink:0"><Btn href="#lithiumquote" kind="green">Find my Bolt</Btn></div></div>
+		<p class="small" style="font-size:13px">Published Bolt estimates. Real world range varies with cart configuration, passengers, speed, terrain, windshield position and other conditions.</p>
+	</section>
+
+	<section class="sec paper lineup">
+		<div class="stack" style="gap:32px">
+			<div class="head"><Eyebrow green>The Bolt lineup</Eyebrow><h2 class="h2">Your cart. Your voltage. Your Bolt.</h2><p class="lead" style="max-width:420px">36, 48 and 72 volt systems, with the most choice in 48 volt. We match the voltage first, then the capacity.</p></div>
+			<div class="battery"><img src={R + 'bolt-battery.png'} alt="Bolt 51 volt 105 amp hour lithium battery" loading="lazy" width="250" height="250" /></div>
+		</div>
+		<div class="stack">
+			<div class="ph"><span>Cart system</span><span>Bolt battery</span><span>Advertised range</span><span>Best for</span></div>
+			{packs.map(([v, b, r, w]) => <div class="pr"><span class="fd" style="font-size:18px">{v}</span><span class="body">{b}</span><span style="font-weight:600">{r}</span><span class="small" style="font-size:15px">{w}</span></div>)}
+			<p class="small" style="margin-top:16px;line-height:22px"><strong style="color:var(--ink)">What does Ah mean?</strong> Amp hours are your battery&#39;s fuel tank. The higher the Ah, the more energy on board and, generally, the farther you go between charges.</p>
+		</div>
+	</section>
+
+	<Steps eyebrow="How a conversion works" heading="Drop it off. Drive it home lithium." lead="Or we pick your cart up and bring it back." items={[['1', 'wrench', 'We inspect your cart', 'Controller, wiring and charger first.'], ['2', 'battery', 'You pick the pack', 'We match a Bolt pack to your cart and how you drive.'], ['3', 'drop', 'Old batteries out', 'We remove and recycle the lead-acid for you.'], ['4', 'zap', 'Lithium in', 'Pack, mounts and wiring installed in our shop.'], ['5', 'sliders', 'We set it up', 'Charger and gauge configured for lithium.'], ['6', 'check', 'Test drive and walkthrough', 'We test everything and show you how it works.']]} cta="Get my conversion price" ctaHref="#lithiumquote" bg="white" />
+	<Reviews heading="Owners who made the switch." bg="paper" />
+	<Faq items={faqs} heading="Before you switch." bg="white" />
+
+	<FormShell id="lithiumquote" eyebrow="Get your price" heading="You pick the range." accent="We handle the rest." lead="Tell us about your cart and we will get back to you with a quote as soon as possible during business hours.">
+		<CartInquiryForm pageSource="bolt-lithium" idPrefix="lith" cta="Get my conversion price" placeholder="Cart brand, year and model, current batteries (36, 48 or 72 volt) and how you use the cart." />
+	</FormShell>
+</Layout>
+
+<style>
+	.lhero { display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; }
+	.lh1 { font-size: 80px; line-height: 1; letter-spacing: -0.02em; white-space: nowrap; color: #fff; }
+	.lhero-img { display: block; width: 100%; height: 600px; object-fit: cover; object-position: 50% 45%; }
+	.tags { flex-wrap: wrap; gap: 10px 28px; font-size: 14px; font-weight: 600; letter-spacing: .04em; color: var(--muted-d); }
+	.bens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+	.ben { display: flex; flex-direction: column; gap: 16px; padding: 30px 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+	.cmp { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+	.table { display: flex; flex-direction: column; border-top: 1px solid var(--line-d); }
+	.trh, .tr { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px; align-items: center; border-bottom: 1px solid var(--line-d); }
+	.trh { height: 48px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted-d); }
+	.tr { min-height: 68px; padding: 8px 0; }
+	.rcard { display: flex; flex-direction: column; gap: 18px; padding: 36px 32px; background: var(--paper); border: 1px solid var(--line); }
+	.rcard.hot { background: #fff; border-color: var(--green); box-shadow: 0 18px 40px rgba(18,18,17,.08); }
+	.badge { display: inline-flex; align-self: flex-start; padding: 6px 12px; background: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+	.mi { font-size: 64px; line-height: .95; letter-spacing: -0.02em; }
+	.mi-u { font-size: 26px; letter-spacing: 0; }
+	.notsure { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 28px 32px; background: var(--paper); border: 1px solid var(--line); }
+	.lineup { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+	.battery { height: 300px; padding: 24px; background: #fff; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; }
+	.battery img { width: 250px; height: 250px; object-fit: contain; }
+	.ph, .pr { display: grid; grid-template-columns: 1fr 1.1fr 1fr 1.4fr; gap: 24px; align-items: center; border-bottom: 1px solid #c9c9c2; }
+	.ph { height: 48px; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); border-top: 1px solid #c9c9c2; }
+	.pr { min-height: 72px; padding: 12px 0; }
+	@media (max-width: 1100px) { .lhero, .cmp, .lineup { grid-template-columns: 1fr; gap: 40px; } .lh1 { font-size: 52px; white-space: normal; } .lhero-img { height: 400px; } .bens { grid-template-columns: repeat(2, minmax(0, 1fr)); } .notsure { flex-direction: column; align-items: flex-start; } }
+	@media (max-width: 760px) { .lh1 { font-size: 38px; } .lhero-img { height: 280px; } .bens { grid-template-columns: 1fr; } .ph { display: none; } .pr { grid-template-columns: 1fr 1fr; } .mi { font-size: 48px; } }
+</style>

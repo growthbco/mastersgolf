@@ -3,6 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import FAQSchema from '../components/FAQSchema.astro';
 import Schema from '../components/Schema.astro';
 import RentalInquiryForm from '../components/forms/RentalInquiryForm.astro';
+import FormShell from '../components/forms/FormShell.astro';
+import HeroSplit from '../components/sections/HeroSplit.astro';
+import ProofBar from '../components/sections/ProofBar.astro';
+import Steps from '../components/sections/Steps.astro';
+import Faq from '../components/sections/Faq.astro';
+import Reviews from '../components/sections/Reviews.astro';
+import CartCard from '../components/sections/CartCard.astro';
+import LinkList from '../components/sections/LinkList.astro';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Ring from '../components/ui/Ring.astro';
+import { AREAS, R } from '../lib/areas';
 
 // Service Schema for Golf Cart Rentals
 const rentalServiceSchema = {
@@ -155,475 +166,62 @@ const rentalsBreadcrumbs = [
 ];
 
 const rentalFAQs = [
-	{
-		question: "What is the minimum age to rent a golf cart?",
-		answer: "You must be 21 years old or older to rent a golf cart from Masters Golf Cars. This is our rule for all rentals."
-	},
-	{
-		question: "Can I rent a golf cart for an event?",
-		answer: "Yes! Masters Golf Cars rents golf carts for big events like festivals, weddings, rodeos, and concerts. We bring the carts to you and pick them up when you're done. We deliver up to 150 miles from our Belleview shop on US-441. That covers most of Central Florida!"
-	},
-	{
-		question: "Do I need to pay a deposit?",
-		answer: "You need a credit card to hold your rental, but we don't charge a separate deposit. Masters Golf Cars only charges your card based on what you agreed to in your rental deal."
-	},
-	{
-		question: "Can I extend my rental period?",
-		answer: "Yes! If you want to keep your golf cart longer, just call Masters Golf Cars. We'll check if the cart is free and add more days to your rental. Call us at (352) 307-0111 as soon as you know you need more time."
-	},
-	{
-		question: "Do you offer delivery for golf cart rentals?",
-		answer: "Yes! Masters Golf Cars delivers every rental for free. We bring carts to homes within 50 miles of Belleview. For events, we go up to 150 miles. That includes The Villages, Ocala, Gainesville, and lots of other towns in Central Florida."
-	}
+	{ question: "Is there a minimum rental?", answer: "Yes, 3 days. After that, rent by the week, the month or the season." },
+	{ question: "How old do I have to be?", answer: "Renters must be 21 or older with a valid driver license." },
+	{ question: "Do I need to charge it?", answer: "No. Our rental carts are gas powered, so there is nothing to plug in." },
+	{ question: "Can I extend?", answer: "Yes. Call us at (352) 307-0111 before your end date and we will extend it if the cart is available." },
+	{ question: "Do you deliver to The Villages?", answer: "Yes, every neighborhood, along with Ocala, Belleview, Summerfield and the surrounding towns. Delivery is quoted with your reservation." },
+	{ question: "Do I need to pay a deposit?", answer: "You need a credit card to hold your rental, but we do not charge a separate deposit. Your card is only charged for what you agreed to in your rental agreement." },
+	{ question: "What if something goes wrong?", answer: "Call us. Roadside help is available through 24hr Cart Club, and we will get you a replacement cart if needed." },
 ];
 ---
 
-<Layout title="Golf Cart Rentals - Masters Golf Cars" description="Reserve high-quality golf cart rentals for neighborhoods, events, and businesses across Central Florida." breadcrumbs={rentalsBreadcrumbs}>
+<Layout title="Golf Cart Rentals - Masters Golf Cars" description="Reserve high-quality golf cart rentals for neighborhoods, events, and businesses across Central Florida." breadcrumbs={rentalsBreadcrumbs} quoteHref="#reserve">
 	<Schema schema={rentalServiceSchema} slot="schema" />
 	<FAQSchema faqs={rentalFAQs} />
-	<!-- Hero -->
-	<section class="bg-white py-16">
-		<div class="container mx-auto px-4 max-w-7xl">
-			<h1 class="text-4xl md:text-5xl font-black text-gray-900 text-center mb-12">Golf Cart Rentals</h1>
-			<div class="grid lg:grid-cols-2 gap-12 items-start">
-				<div class="space-y-6">
-					<h2 class="text-2xl md:text-3xl font-black text-gray-900">Enjoy the Convenience of Golf Cart Rentals</h2>
-					<p class="text-gray-700 leading-relaxed font-semibold">
-						Renting a golf cart from us is the perfect solution if you need reliable, affordable, and convenient transportation of a golf cart without the commitment of ownership. Whether you need a temporary golf cart for a quick getaway or a large event, we make it easier for you. Other customers come to us after facing issues with golf carts from other dealerships. While we repair their golf carts, they take advantage of our golf cart rental options, staying mobile without interruption. Renting a golf cart from us will give you peace of mind, whether for a short-term fix or a specific need.
-					</p>
-					<p class="text-gray-700 leading-relaxed font-semibold">
-						We have a minimum 3-day golf cart rental, with options for weekly or monthly rentals for individuals. We also offer golf cart fleet rentals for businesses hosting events across Central Florida.
-					</p>
-					<ul class="space-y-2 text-gray-700 font-semibold">
-						<li>• Individual &amp; Event Rentals</li>
-						<li>• Delivery &amp; Pick Up Options</li>
-					</ul>
-					<div class="pt-4">
-						<a href="/rent-a-golf-cart" class="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-green text-white font-bold uppercase tracking-wide hover:opacity-90 transition text-lg shadow-lg">
-							Request a Rental
-						</a>
-					</div>
-				</div>
-				<div class="w-full">
-					<img
-						src="/images/golf-cart-rentals-page/club-car_img_v68_250813_154125925.webp"
-						alt="Club Car golf cart rental"
-						class="w-full h-auto object-contain"
-						loading="eager"
-						width="800"
-						height="600"
-					/>
-				</div>
-			</div>
+
+	<HeroSplit eyebrow="Golf cart rentals, The Villages and Ocala" heading="Your stay. Your needs." accent="Your cart." lead="Clean, late model carts delivered to your door. A week, a month or the whole season. We bring it, you drive it, we pick it up." cta="Reserve a cart" ctaHref="#reserve" checks={['Delivery and pickup included', '2, 4 and 6 passenger, plus utility', '3 day minimum', 'Rentals since 1999']} img={R + 'yamaha-aisle.jpg'} alt="Rows of Yamaha rental golf carts at the Masters lot" label="Over 300 carts in the rental fleet" pos="50% 55%" />
+	<ProofBar items={[['key', '300+ carts', 'The largest rental fleet around'], ['truck', 'Delivered to you', 'Home, rental or venue'], ['calendar', 'Week, month, season', '3 day minimum'], ['star', '4.9 on Google', 'From 93 customer reviews']]} />
+
+	<section id="carts" class="sec white stack" style="gap:48px">
+		<div class="head"><Eyebrow>Pick your cart</Eyebrow><h2 class="h2">Four ways to <span class="g">get around.</span></h2><p class="lead">Quiet, dependable Yamaha and Club Car carts. Tell us how many seats and we will do the rest.</p></div>
+		<div class="grid4 cards">
+			<CartCard href="#reserve" img={R + 'cart-2p.jpg'} alt="Two passenger Yamaha rental golf cart" title="2 passenger" sub="Couples and solo stays. Easy to park at the squares." price="Call for weekly rate" />
+			<CartCard href="#reserve" img={R + 'cart-4p-deluxe.jpg'} alt="Four passenger Yamaha rental golf cart with sun top" title="4 passenger" sub="Our most popular. Family, friends and groceries." price="From <strong>$300</strong> a week" badge="Most popular" />
+			<CartCard href="#reserve" img={R + 'cart-6p.jpg'} alt="Six passenger rental golf cart" title="6 passenger" sub="The whole crew when family visits." price="Call for weekly rate" />
+			<CartCard href="#reserve" img={R + 'carryall.jpg'} alt="Club Car Carryall utility cart" title="Utility cart" sub="Cargo bed for gear, feed and supplies." price="Call for rates" contain />
 		</div>
 	</section>
 
-	<!-- Rental Options -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<h2 class="text-3xl font-black text-gray-900 text-center mb-10">Our Golf Rental Options</h2>
-			<p class="text-center text-gray-700 max-w-3xl mx-auto mb-10 font-semibold">
-				Choose from 2, 4, or 6 passenger golf carts along with utility models to fit your itinerary. Every cart is cleaned, inspected, and fully charged before it heads out the door.
-			</p>
-			<div class="grid grid-cols-2 sm:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto text-center">
-				<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-8">
-					<img src="/images/golf-cart-rentals-page/2-seater-golf-cart_img_v63_250813_142814136.webp" alt="2-seater golf cart" class="mx-auto h-40 md:h-48 object-contain mb-4" loading="lazy" />
-					<p class="font-semibold text-gray-800 text-lg">2-Seater Cart</p>
-				</div>
-				<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-8">
-					<img src="/images/golf-cart-rentals-page/4-seater-golf-cart_img_v64_250813_142836603.webp" alt="4-seater golf cart" class="mx-auto h-40 md:h-48 object-contain mb-4" loading="lazy" />
-					<p class="font-semibold text-gray-800 text-lg">4-Seater Cart</p>
-				</div>
-				<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-8">
-					<img src="/images/golf-cart-rentals-page/6-seater-golf-cart_img_v65_250813_142855008.webp" alt="6-seater golf cart" class="mx-auto h-40 md:h-48 object-contain mb-4" loading="lazy" />
-					<p class="font-semibold text-gray-800 text-lg">6-Seater Cart</p>
-				</div>
-				<div class="bg-white border border-gray-200 rounded-2xl shadow-md p-8">
-					<img src="/images/golf-cart-rentals-page/utility-cart_img_v66_250813_142912878.webp" alt="Utility golf cart" class="mx-auto h-40 md:h-48 object-contain mb-4" loading="lazy" />
-					<p class="font-semibold text-gray-800 text-lg">Utility Cart</p>
-				</div>
-			</div>
+	<section class="sec dark on-dark inc">
+		<div class="head"><Eyebrow>What is included</Eyebrow><h2 class="h2">The quote you get is <span class="g">the price you pay.</span></h2><p class="lead" style="max-width:460px">No delivery fee surprises, no hidden charges.</p></div>
+		<div class="inc-grid">
+			{[['truck', 'Delivery and pickup', 'To your home, rental or venue on the dates you choose.'], ['shield', 'Roadside help', 'Through our partner 24hr Cart Club, across The Villages.'], ['wrench', 'A clean, checked cart', 'Every cart is cleaned and inspected before it goes out.'], ['phone', 'A real person on the phone', 'Mon to Fri 8:30 to 5, Sat 9 to 2. Extend by phone anytime.']].map(([i, t, s]) => (
+				<div class="inc-item"><Ring name={i} fill /><div class="fd" style="font-size:18px;line-height:24px">{t}</div><div class="small" style="font-size:15px;line-height:24px">{s}</div></div>
+			))}
 		</div>
 	</section>
 
-	<!-- Models Banner -->
-	<section class="py-12" style="background-color: #86CA26;">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl border-2 border-gray-200 px-8 py-10 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-8">
-				<div class="text-center lg:text-left mb-4 lg:mb-0">
-					<h3 class="text-2xl md:text-3xl font-black text-gray-900 uppercase tracking-wide">Golf Cart Models for Rent</h3>
-					<p class="text-gray-700 mt-2 font-semibold text-base md:text-lg">Premium brands ready for neighborhoods, events, and commercial sites.</p>
-				</div>
-				<div class="flex items-center justify-center gap-6 md:gap-8 w-full lg:w-auto">
-					<img src="/images/golf-cart-rentals-page/yamaha-logo-icon-0-0-250813163408273.webp" alt="Yamaha golf carts" class="h-12 md:h-16 object-contain" loading="lazy" />
-					<img src="/images/golf-cart-rentals-page/club-car-logo-icon-0-1-250813163408445.webp" alt="Club Car golf carts" class="h-12 md:h-16 object-contain" loading="lazy" />
-				</div>
-			</div>
-		</div>
+	<Steps eyebrow="How renting works" heading="Three steps. No hassle." lead="Book online or call. We handle the rest." items={[['1', 'key', 'Pick your cart', '2, 4 or 6 seats, or a utility cart.'], ['2', 'calendar', 'Pick your dates', 'A week, a month or the whole season. 3 day minimum.'], ['3', 'truck', 'We deliver it and pick it up', 'Right to your driveway or venue. When you are done, we come get it.']]} cta="Reserve a cart" ctaHref="#reserve" />
+
+	<section class="sec white areas">
+		<div class="head"><Eyebrow>Where we deliver</Eyebrow><h2 class="h2 md">Big event or small getaway.<br />We bring the cart to you.</h2><p class="lead" style="max-width:440px">Local service in Marion, Sumter, Lake and Alachua counties. Statewide for events.</p></div>
+		<LinkList items={AREAS} cols={3} />
 	</section>
 
-	<!-- How Rentals Work -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="w-full flex justify-center">
-                    <img 
-                        src="/images/golf-cart-rentals-page/golf-cart-rentals-in-the-villages_img_v69_250813_160043497.webp" 
-                        alt="Golf cart rentals in the villages" 
-                        class="max-w-md w-full h-auto object-contain" 
-                        loading="lazy" 
-                    />
-                </div>
-                <div class="space-y-6">
-                    <p class="text-gray-700 font-semibold leading-relaxed">
-                        If you're within 50 miles, we rent to individuals. If you're planning an event within 150 miles, please reach out to us! We're happy to accommodate weddings, concerts, corporate gatherings, and more.
-                    </p>
-                    <h3 class="text-3xl font-black text-gray-900">How Our Golf Cart Rentals Work</h3>
-                    <ul class="space-y-4 text-gray-700 font-semibold">
-                        <li>
-                            <span class="font-black text-gray-900">Complete the Request Form</span><br />
-                            <span>Submit your information using the form below to get started.</span>
-                        </li>
-                        <li>
-                            <span class="font-black text-gray-900">Select the Golf Cart That Fits Your Needs</span><br />
-                            <span>Choose from our available models based on what you'll need it for.</span>
-                        </li>
-                        <li>
-                            <span class="font-black text-gray-900">Choose Your Rental Period</span><br />
-                            <span>Rentals require a minimum of 3 days, with weekly and monthly options also available.</span>
-                        </li>
-                        <li>
-                            <span class="font-black text-gray-900">Secure Your Reservation with a Credit Card</span><br />
-                            <span>A valid credit card is needed to confirm and hold your rental.</span>
-                        </li>
-                        <li>
-                            <span class="font-black text-gray-900">We Handle Delivery &amp; Pick-Up</span><br />
-                            <span>Your cart will be delivered to your location and picked up once your rental ends—no extra hassle for you. Just enjoy your rental!</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-	</section>
+	<Reviews heading="Snowbirds, families and visitors." bg="paper" />
+	<Faq items={rentalFAQs} heading="Before you book." bg="white" />
 
-	<!-- Pricing & Terms -->
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="grid lg:grid-cols-2 gap-12 items-start">
-				<div class="bg-white rounded-[32px] shadow-2xl border border-gray-200 p-8 md:p-10">
-					<h3 class="text-2xl font-black text-gray-900 mb-4">Rental Pricing</h3>
-					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
-						Our pricing structure is designed to be flexible for your schedule and affordable. For an exact quote, please get in touch with us or fill out the rental request form below.
-					</p>
-					<h4 class="text-xl font-black text-gray-900 mb-3">Golf Cart Rental Terms &amp; Conditions</h4>
-					<ul class="space-y-3 text-gray-700 font-semibold">
-						<li><span class="font-black text-gray-900">Age Requirement:</span> Renters must be at least 21 years old.</li>
-						<li><span class="font-black text-gray-900">Payment:</span> A valid credit card is required to reserve your rental.</li>
-						<li><span class="font-black text-gray-900">Rental Duration:</span> We offer 3-day minimums; day rentals are not available.</li>
-						<li><span class="font-black text-gray-900">Delivery &amp; Pick-Up:</span> All rentals include free delivery and pick-up for your convenience.</li>
-						<li>
-							<span class="font-black text-gray-900">Service Area:</span><br />
-							<span class="ml-4 block">Up to 50 miles for individual rentals</span><br />
-							<span class="ml-4 block">Up to 150 miles for event and fleet rentals</span>
-						</li>
-						<li><span class="font-black text-gray-900">Availability:</span> Rentals are subject to availability. Advanced booking is highly recommended to secure your preferred dates.</li>
-					</ul>
-					<div class="mt-8">
-						<a href="/rentals" class="inline-flex items-center justify-center px-8 py-3 rounded-full bg-brand-green text-white font-bold uppercase tracking-wide hover:opacity-90 transition">Reserve Your Golf Cart Today</a>
-					</div>
-				</div>
-				<div class="w-full flex justify-center">
-					<img 
-						src="/images/golf-cart-rentals-page/yamaha-quietech-efi_img_v71_250813_161157847.webp" 
-						alt="Yamaha Quietech EFI golf cart" 
-						class="max-w-md w-full h-auto object-contain" 
-						loading="lazy" 
-					/>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Why Rent -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="grid lg:grid-cols-2 gap-12 items-center">
-				<div class="w-full flex justify-center">
-					<img 
-						src="/images/golf-cart-rentals-page/rent-a-golf-cart_img_v72_250813_161858549.webp" 
-						alt="Rent a golf cart" 
-						class="max-w-md w-full h-auto object-contain" 
-						loading="lazy" 
-					/>
-				</div>
-				<div class="space-y-6">
-					<h3 class="text-3xl font-black text-gray-900">Why Rent A Golf Cart From Us?</h3>
-					<p class="text-gray-700 leading-relaxed font-semibold">
-						Masters Golf Cars offers top-quality golf carts from trusted brands like Yamaha and Club Car. Whether you need reliable, affordable transportation for an event or a quick getaway, we have the perfect solution for you.
-					</p>
-					<p class="text-gray-700 leading-relaxed font-semibold">
-						We offer flexible rental terms to fit your schedule—rent for days, weeks, or longer periods. Our convenient delivery and pick-up services make it easy for you to get the golf cart you need without any hassle.
-					</p>
-					<p class="text-gray-700 leading-relaxed font-semibold">
-						We're the go-to choice for weddings, festivals, concerts, resorts, and corporate events across Central Florida. Our reliable carts and friendly service ensure your event runs smoothly.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Reviews -->
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<h3 class="text-3xl font-black text-gray-900 text-center mb-4">Reviews</h3>
-			<div class="flex justify-center gap-1 mb-12">
-				{Array.from({ length: 5 }).map((_star, index) => (
-					<svg class="w-6 h-6" fill="#FFD700" viewBox="0 0 20 20">
-						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-					</svg>
-				))}
-			</div>
-			<div class="grid md:grid-cols-3 gap-8">
-				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
-					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
-						"Fantastic people to work with. Delivered my rental cart on time as promised. Highly recommended!"
-					</p>
-					<p class="font-black text-gray-900">-Scott Lenhart</p>
-				</div>
-				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
-					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
-						"They were excellent to work with! They gave us an excellent deal on a rental while they fixed ours. The staff there is extremely knowledgeable and professional."
-					</p>
-					<p class="font-black text-gray-900">-Megan O'Brien</p>
-				</div>
-				<div class="bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
-					<p class="text-gray-700 leading-relaxed mb-6 font-semibold">
-						"The carts were delivered the day before, so we weren't waiting on the day of. The carts performed the job and then some. I would highly recommend renting carts from this great company with awesome staff."
-					</p>
-					<p class="font-black text-gray-900">-Daniel Clark</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- FAQ -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<h3 class="text-3xl font-black text-gray-900 text-center mb-10">Golf Cart Rentals FAQs</h3>
-			<div class="max-w-4xl mx-auto space-y-3">
-				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
-					<summary class="font-black text-gray-900 cursor-pointer">What is the minimum age to rent a golf cart?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">You must be 21 years old or older to rent a golf cart from Masters Golf Cars. This is our rule for all rentals.</p>
-				</details>
-				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
-					<summary class="font-black text-gray-900 cursor-pointer">Can I rent a golf cart for an event?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">Yes! Masters Golf Cars rents golf carts for big events like festivals, weddings, rodeos, and concerts. We bring the carts to you and pick them up when you're done. We deliver up to 150 miles from our Belleview shop on US-441. That covers most of Central Florida!</p>
-				</details>
-				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
-					<summary class="font-black text-gray-900 cursor-pointer">Do I need to pay a deposit?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">You need a credit card to hold your rental, but we don't charge a separate deposit. Masters Golf Cars only charges your card based on what you agreed to in your rental deal.</p>
-				</details>
-				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
-					<summary class="font-black text-gray-900 cursor-pointer">Can I extend my rental period?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">Yes! If you want to keep your golf cart longer, just call Masters Golf Cars. We'll check if the cart is free and add more days to your rental. Call us at (352) 307-0111 as soon as you know you need more time.</p>
-				</details>
-				<details class="bg-gray-50 rounded-2xl px-5 py-4 shadow">
-					<summary class="font-black text-gray-900 cursor-pointer">Do you offer delivery for golf cart rentals?</summary>
-					<p class="mt-3 text-gray-700 font-semibold">Yes! Masters Golf Cars delivers every rental for free. We bring carts to homes within 50 miles of Belleview. For events, we go up to 150 miles. That includes The Villages, Ocala, Gainesville, and lots of other towns in Central Florida.</p>
-				</details>
-			</div>
-			<div class="text-center mt-12">
-				<a href="/rentals" class="inline-flex items-center justify-center px-10 py-4 rounded-full bg-brand-green text-white font-bold uppercase tracking-wide hover:opacity-90 transition">
-					Rent Your Golf Cart Today
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Event Rentals Section -->
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl font-black text-gray-900 text-center mb-10">Rentals by Event Type</h2>
-				<p class="text-center text-gray-700 max-w-3xl mx-auto mb-10 font-semibold">
-					We provide golf cart rentals for special events throughout Central Florida. From intimate weddings to large festivals, we have the fleet to support your event.
-				</p>
-				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Wedding Rentals</h3>
-						<p class="text-gray-700 font-semibold mb-4 text-sm">
-							Golf carts for outdoor weddings, bridal party transport, and guest shuttles.
-						</p>
-						<a href="/golf-cart-rentals-weddings" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Corporate Events</h3>
-						<p class="text-gray-700 font-semibold mb-4 text-sm">
-							Fleet rentals for retreats, conferences, and corporate gatherings.
-						</p>
-						<a href="/golf-cart-rentals-corporate-events" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Festivals & Concerts</h3>
-						<p class="text-gray-700 font-semibold mb-4 text-sm">
-							VIP transport, staff mobility, and vendor support for large events.
-						</p>
-						<a href="/golf-cart-rentals-festivals" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Golf Tournaments</h3>
-						<p class="text-gray-700 font-semibold mb-4 text-sm">
-							Cart fleets for charity tournaments and corporate golf outings.
-						</p>
-						<a href="/golf-cart-rentals-golf-tournaments" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Community Rentals Section -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl font-black text-gray-900 text-center mb-10">Rentals by Community</h2>
-				<p class="text-center text-gray-700 max-w-3xl mx-auto mb-10 font-semibold">
-					We deliver to active adult communities and neighborhoods throughout Central Florida. Click on your community to learn more.
-				</p>
-				<div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-					<div class="bg-gray-50 rounded-lg p-5 border border-gray-200 text-center">
-						<h3 class="text-lg font-bold text-gray-900 mb-2">On Top of The World</h3>
-						<p class="text-gray-700 font-semibold mb-3 text-sm">Candler Hills, Indigo East & more</p>
-						<a href="/golf-cart-rentals-otow" class="text-brand-green font-bold hover:underline text-sm">Learn More</a>
-					</div>
-					<div class="bg-gray-50 rounded-lg p-5 border border-gray-200 text-center">
-						<h3 class="text-lg font-bold text-gray-900 mb-2">Spruce Creek</h3>
-						<p class="text-gray-700 font-semibold mb-3 text-sm">Spruce Creek South & Preserve</p>
-						<a href="/golf-cart-rentals-spruce-creek" class="text-brand-green font-bold hover:underline text-sm">Learn More</a>
-					</div>
-					<div class="bg-gray-50 rounded-lg p-5 border border-gray-200 text-center">
-						<h3 class="text-lg font-bold text-gray-900 mb-2">Oak Run</h3>
-						<p class="text-gray-700 font-semibold mb-3 text-sm">Oak Run Country Club community</p>
-						<a href="/golf-cart-rentals-oak-run" class="text-brand-green font-bold hover:underline text-sm">Learn More</a>
-					</div>
-					<div class="bg-gray-50 rounded-lg p-5 border border-gray-200 text-center">
-						<h3 class="text-lg font-bold text-gray-900 mb-2">RV Parks</h3>
-						<p class="text-gray-700 font-semibold mb-3 text-sm">Citra Royal Palm & campgrounds</p>
-						<a href="/golf-cart-rentals-rv-parks" class="text-brand-green font-bold hover:underline text-sm">Learn More</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Venue Rentals Section -->
-	<section class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl font-black text-gray-900 text-center mb-10">Rentals by Venue</h2>
-				<p class="text-center text-gray-700 max-w-3xl mx-auto mb-10 font-semibold">
-					We provide golf cart rentals at Central Florida's premier equestrian and event venues.
-				</p>
-				<div class="grid md:grid-cols-3 gap-6">
-					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">World Equestrian Center</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Golf cart rentals at WEC Ocala for horse shows and events.
-						</p>
-						<a href="/golf-cart-rentals-wec" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">HITS Ocala</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Golf cart rentals at HITS Ocala equestrian competitions.
-						</p>
-						<a href="/golf-cart-rentals-hits-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-white rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Florida Horse Park</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Golf cart rentals at Florida Horse Park events.
-						</p>
-						<a href="/golf-cart-rentals-florida-horse-park" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Areas We Serve Section -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl font-black text-gray-900 text-center mb-10">Rentals by Location</h2>
-				<p class="text-center text-gray-700 max-w-3xl mx-auto mb-10 font-semibold">
-					We deliver golf cart rentals throughout Central Florida. Click on your area to learn more about our rental services in your location.
-				</p>
-				<div class="grid md:grid-cols-3 gap-6 mb-6">
-					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Ocala</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Golf cart rentals in Ocala, FL. Serving Ocala Palms, Golden Ocala, and more.
-						</p>
-						<a href="/golf-cart-rentals-ocala" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">The Villages</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Golf cart rentals in The Villages, FL. America's premier retirement community.
-						</p>
-						<a href="/the-villages-golf-cart-rentals" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Gainesville</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Golf cart rentals in Gainesville, FL. Serving UF area and Alachua County.
-						</p>
-						<a href="/golf-cart-rentals-gainesville" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-				</div>
-				<div class="grid md:grid-cols-3 gap-6">
-					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Belleview</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Golf cart rentals in Belleview, FL. Our home location with convenient service.
-						</p>
-						<a href="/golf-cart-rentals-belleview" class="text-brand-green font-bold hover:underline">Learn More</a>
-					</div>
-					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Fleet Rentals</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Large fleet rentals for events up to 150 miles from Belleview.
-						</p>
-						<a href="/fleet-rentals-quote" class="text-brand-green font-bold hover:underline">Request Quote</a>
-					</div>
-					<div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center">
-						<h3 class="text-xl font-bold text-gray-900 mb-3">Request a Rental</h3>
-						<p class="text-gray-700 font-semibold mb-4">
-							Ready to reserve your golf cart? Submit your rental request today.
-						</p>
-						<a href="/rent-a-golf-cart" class="text-brand-green font-bold hover:underline">Request Now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<RentalInquiryForm pageSource="Rentals Hub" idPrefix="rental-hub" />
-
-	<!-- Related Articles -->
-	<section class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl font-black text-gray-900 text-center mb-8">Related Articles</h2>
-				<div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-brand-green transition">
-					<a href="/blog/golf-cart-guide-the-villages" class="block">
-						<h3 class="text-xl font-bold text-gray-900 mb-2">The Ultimate Golf Cart Guide for The Villages</h3>
-						<p class="text-gray-700 font-semibold">Visiting The Villages? Learn everything you need to know about navigating this golf cart-friendly community with over 100 miles of cart paths.</p>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+	<FormShell id="reserve" eyebrow="Reserve your cart" heading="Let us get you" accent="rolling." lead="Fill this out and our rental manager will check availability and get back to you as soon as possible during business hours.">
+		<RentalInquiryForm pageSource="golf-cart-rentals" idPrefix="rent" />
+	</FormShell>
 </Layout>
 
+<style>
+	.inc { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: center; }
+	.inc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; }
+	.inc-item { display: flex; flex-direction: column; gap: 14px; padding-top: 24px; border-top: 1px solid var(--line-d); }
+	.areas { display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: center; }
+	@media (max-width: 1100px) { .inc, .areas { grid-template-columns: 1fr; gap: 40px; } }
+	@media (max-width: 760px) { .inc-grid { grid-template-columns: 1fr; gap: 24px; } .cards { grid-template-columns: 1fr; } }
+</style>

@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import FAQSchema from '../components/FAQSchema.astro';
 import companyData from '../data/company.json';
+import Eyebrow from '../components/ui/Eyebrow.astro';
+import Btn from '../components/ui/Btn.astro';
 
 const repairFAQs = [
 	{
@@ -102,7 +104,7 @@ const generalFAQs = [
 	},
 	{
 		question: "What are your business hours?",
-		answer: "Masters Golf Cars is open Monday through Friday from 8:00 AM to 5:00 PM. On Saturday, we're open from 9:00 AM to 2:00 PM. We are closed on Sundays."
+		answer: "Masters Golf Cars is open Monday through Friday from 8:30 AM to 5:00 PM. On Saturday, we're open from 9:00 AM to 2:00 PM. We are closed on Sundays."
 	},
 	{
 		question: "What areas do you serve?",
@@ -116,208 +118,44 @@ const generalFAQs = [
 
 // Combine all FAQs for the schema
 const allFAQs = [...generalFAQs, ...repairFAQs, ...rentalFAQs, ...salesFAQs, ...sellCartFAQs];
+
+const groups = [['General', generalFAQs], ['Rentals', rentalFAQs], ['Service', repairFAQs], ['Sales', salesFAQs], ['Selling your cart', sellCartFAQs]] as const;
+const crumbs = [
+	{ name: "Home", url: "https://mastersgolfcars.com" },
+	{ name: "FAQ", url: "https://mastersgolfcars.com/faq" }
+];
 ---
 
-<Layout
-	title="Frequently Asked Questions | Masters Golf Cars"
-	description="Find answers to common questions about golf cart repairs, rentals, sales, and services at Masters Golf Cars in Belleview, FL. Serving The Villages, Ocala, and Central Florida since 1999."
-	canonical="https://mastersgolfcars.com/faq"
->
+<Layout title="Frequently Asked Questions | Masters Golf Cars" description="Find answers to common questions about golf cart repairs, rentals, sales, and services at Masters Golf Cars in Belleview, FL. Serving The Villages, Ocala, and Central Florida since 1999." breadcrumbs={crumbs}>
 	<FAQSchema faqs={allFAQs} />
-
-	<!-- Hero Section -->
-	<section class="bg-white py-16">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto text-center">
-				<h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Frequently Asked Questions</h1>
-				<p class="text-xl text-gray-700 font-semibold">
-					Find answers to common questions about our golf cart repairs, rentals, sales, and services. Can't find what you're looking for? <a href="/contact" class="text-brand-green hover:underline">Contact us</a> or call <a href="tel:3523070111" class="text-brand-green hover:underline">(352) 307-0111</a>.
-				</p>
-			</div>
-		</div>
+	<section class="sec dark on-dark" style="padding-top:72px;padding-bottom:56px">
+		<div class="head"><Eyebrow>Frequently asked questions</Eyebrow><h1 class="h1" style="font-size:64px">Straight answers.</h1><p class="lead">Rentals, service, lithium and sales. If you do not see your question, call {companyData.contact.phone} and a real person will answer.</p></div>
 	</section>
-
-	<!-- Quick Navigation -->
-	<section class="py-8 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<div class="flex flex-wrap justify-center gap-4">
-					<a href="#general" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">General</a>
-					<a href="#repairs" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Repairs</a>
-					<a href="#rentals" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Rentals</a>
-					<a href="#sales" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Sales</a>
-					<a href="#sell-cart" class="bg-white px-6 py-3 rounded-full font-semibold text-gray-700 hover:bg-brand-green hover:text-white transition shadow-sm border border-gray-200">Sell Your Cart</a>
-				</div>
+	<section class="sec white stack" style="gap:0;padding-top:0;padding-bottom:24px">
+		{groups.map(([name, items]) => (
+			<div class="grp" id={name.toLowerCase().replace(/\s+/g, '-')}>
+				<div class="stack" style="gap:12px"><Eyebrow>{name}</Eyebrow><h2 class="h2" style="font-size:36px">{name}</h2></div>
+				<div class="stack">{items.map((f) => <details class="fq"><summary><h3 class="h3" style="font-size:18px;line-height:26px">{f.question}</h3><span class="plus" aria-hidden="true"></span></summary><p class="body">{f.answer}</p></details>)}</div>
 			</div>
-		</div>
+		))}
 	</section>
-
-	<!-- General FAQs -->
-	<section id="general" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">General Questions</h2>
-				<div class="space-y-3">
-					{generalFAQs.map((faq) => (
-						<details class="bg-gray-50 rounded-lg p-5 shadow">
-							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
-								<span>{faq.question}</span>
-								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-								</svg>
-							</summary>
-							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
-						</details>
-					))}
-				</div>
-			</div>
-		</div>
+	<section class="sec paper cta">
+		<div class="head"><Eyebrow>Still have a question?</Eyebrow><h2 class="h2" style="font-size:44px">Call, text or send a note.</h2></div>
+		<div class="row btn-row" style="gap:16px;flex-shrink:0"><Btn href={companyData.contact.phoneLink}>Call {companyData.contact.phone}</Btn><Btn href="/contact" kind="ghost">Contact us</Btn></div>
 	</section>
-
-	<!-- Repair FAQs -->
-	<section id="repairs" class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Golf Cart Repair Questions</h2>
-				<div class="space-y-3">
-					{repairFAQs.map((faq) => (
-						<details class="bg-white rounded-lg p-5 shadow">
-							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
-								<span>{faq.question}</span>
-								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-								</svg>
-							</summary>
-							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
-						</details>
-					))}
-				</div>
-				<div class="text-center mt-8">
-					<a href="/golf-cart-repairs" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
-						Learn more about our repair services
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-						</svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Rental FAQs -->
-	<section id="rentals" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Golf Cart Rental Questions</h2>
-				<div class="space-y-3">
-					{rentalFAQs.map((faq) => (
-						<details class="bg-gray-50 rounded-lg p-5 shadow">
-							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
-								<span>{faq.question}</span>
-								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-								</svg>
-							</summary>
-							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
-						</details>
-					))}
-				</div>
-				<div class="text-center mt-8">
-					<a href="/golf-cart-rentals" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
-						Learn more about our rental options
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-						</svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Sales FAQs -->
-	<section id="sales" class="py-16 bg-gray-50">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Golf Cart Sales Questions</h2>
-				<div class="space-y-3">
-					{salesFAQs.map((faq) => (
-						<details class="bg-white rounded-lg p-5 shadow">
-							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
-								<span>{faq.question}</span>
-								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-								</svg>
-							</summary>
-							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
-						</details>
-					))}
-				</div>
-				<div class="text-center mt-8">
-					<a href="/golf-cart-inventory" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
-						Browse our golf cart inventory
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-						</svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Sell Your Cart FAQs -->
-	<section id="sell-cart" class="py-16 bg-white">
-		<div class="container mx-auto px-4">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-8 text-gray-900 text-center">Selling Your Golf Cart</h2>
-				<div class="space-y-3">
-					{sellCartFAQs.map((faq) => (
-						<details class="bg-gray-50 rounded-lg p-5 shadow">
-							<summary class="font-bold text-gray-900 cursor-pointer flex items-center justify-between">
-								<span>{faq.question}</span>
-								<svg class="w-5 h-5 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-								</svg>
-							</summary>
-							<p class="mt-4 text-gray-700 font-semibold">{faq.answer}</p>
-						</details>
-					))}
-				</div>
-				<div class="text-center mt-8">
-					<a href="/sell-your-cart" class="inline-flex items-center gap-2 text-brand-green font-bold hover:underline">
-						Get a quote for your golf cart
-						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-						</svg>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- CTA Section -->
-	<section class="py-16 bg-gray-900 text-white">
-		<div class="container mx-auto px-4 text-center">
-			<h2 class="text-3xl md:text-4xl font-bold mb-6">Still Have Questions?</h2>
-			<p class="text-xl mb-8 text-gray-300 font-semibold max-w-2xl mx-auto">
-				Our team is here to help! Contact us today and we'll be happy to answer any questions about our golf cart services.
-			</p>
-			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="/contact" class="bg-brand-green text-white font-bold py-4 px-8 rounded-lg hover:opacity-90 transition">
-					Contact Us
-				</a>
-				<a href="tel:3523070111" class="bg-white text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition">
-					Call (352) 307-0111
-				</a>
-			</div>
-			<p class="text-gray-400 font-semibold mt-8">
-				{companyData.location.full}
-			</p>
-		</div>
-	</section>
-
-	<style>
-		details[open] summary svg {
-			transform: rotate(90deg);
-		}
-	</style>
 </Layout>
+
+<style>
+	.grp { display: grid; grid-template-columns: 300px 1fr; gap: 64px; align-items: start; padding: 56px 0; border-bottom: 1px solid var(--line); }
+	.fq { border-top: 1px solid var(--line); }
+	.fq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0; }
+	.fq summary::-webkit-details-marker { display: none; }
+	.plus { position: relative; flex-shrink: 0; width: 20px; height: 20px; }
+	.plus::before, .plus::after { content: ''; position: absolute; left: 50%; top: 50%; width: 16px; height: 1.5px; background: var(--ink); transform: translate(-50%, -50%); }
+	.plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+	.fq[open] .plus::after { transform: translate(-50%, -50%) rotate(0); }
+	.fq p { padding: 0 44px 22px 0; }
+	.cta { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+	@media (max-width: 1100px) { .grp { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; } .cta { flex-direction: column; align-items: flex-start; } }
+	@media (max-width: 760px) { .h1 { font-size: 40px !important; } .cta .h2 { font-size: 32px !important; } }
+</style>

@@ -1,0 +1,10 @@
+---
+import Icon from './ui/Icon.astro';
+import companyData from '../data/company.json';
+interface Props { quoteHref?: string }
+const { quoteHref = '#quote' } = Astro.props;
+---
+<div class="callbar" data-callbar>
+	<a class="call" href={companyData.contact.phoneLink}><Icon name="phone" size={18} /><span>Call</span></a>
+	<a class="quote" href={quoteHref}><span>Get a quote</span><Icon name="arrow" size={18} /></a>
+</div>

@@ -1,0 +1,204 @@
+{
+ "h1": "Golf Tournament Cart Rentals",
+ "lead": [
+  "Ensure your golf tournament runs smoothly with premium golf cart rentals from Masters Golf Cars. Since 1999, we've provided fleet rentals for charity tournaments, corporate golf outings, and club championships at courses including Golden Ocala Golf & Equestrian, Stone Creek Golf Club, Juliette Falls, and courses throughout The Villages.",
+  "Whether you need 20 carts for a charity scramble or a few extra carts for sponsor shuttles and beverage service, we deliver clean, reliable carts directly to your golf course."
+ ],
+ "sections": [
+  {
+   "h2": "Golf Events We Serve",
+   "cards": [
+    {
+     "h": "Charity Golf Tournaments",
+     "p": [
+      "Support your fundraising event with reliable carts. We've worked with nonprofits hosting events at Golden Ocala, Stone Creek, and community courses throughout Marion and Sumter counties."
+     ]
+    },
+    {
+     "h": "Corporate Golf Outings",
+     "p": [
+      "Impress clients and colleagues with well-maintained carts for corporate golf days at premium courses like Juliette Falls, Mission Inn Resort, and Country Club of Ocala."
+     ]
+    },
+    {
+     "h": "Club Championships",
+     "p": [
+      "Extra carts for club championships and member-guest tournaments when your course's regular fleet isn't enough. Supplement your existing fleet seamlessly."
+     ]
+    },
+    {
+     "h": "Pro-Am Events",
+     "p": [
+      "Professional tournament support with premium carts for players, sponsors, and VIP guests at area golf events and pro-am competitions."
+     ]
+    },
+    {
+     "h": "Memorial & Benefit Tournaments",
+     "p": [
+      "Reliable service for annual memorial tournaments and benefit events. We understand the importance of these special occasions."
+     ]
+    },
+    {
+     "h": "Golf Course Events",
+     "p": [
+      "Demo days, grand openings, and course anniversaries. Extra carts for high-traffic days when your regular fleet needs backup."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Golf Courses We Serve",
+   "cards": [
+    {
+     "h": "Golden Ocala Golf & Equestrian",
+     "p": [
+      "Ocala, FL",
+      "World-class private course featuring holes inspired by famous layouts. Premier venue for corporate and charity tournaments."
+     ]
+    },
+    {
+     "h": "Stone Creek Golf Club",
+     "p": [
+      "Ocala, FL",
+      "Challenging Arthur Hills design in the Stone Creek community. Popular for charity scrambles and corporate outings."
+     ]
+    },
+    {
+     "h": "Juliette Falls Golf Club",
+     "p": [
+      "Dunnellon, FL",
+      "Scenic course with elevation changes and waterfall views. Unique setting for memorable golf events."
+     ]
+    },
+    {
+     "h": "The Villages Golf Courses",
+     "p": [
+      "The Villages, FL",
+      "Multiple executive and championship courses. We serve tournaments throughout The Villages' extensive golf network."
+     ]
+    },
+    {
+     "h": "Country Club of Ocala",
+     "p": [
+      "Ocala, FL",
+      "Historic private club with member-guest tournaments and club championships. Traditional Florida golf."
+     ]
+    },
+    {
+     "h": "Mission Inn Resort",
+     "p": [
+      "Howey-in-the-Hills, FL",
+      "Two championship courses at this historic resort. Perfect for overnight corporate golf retreats and tournaments."
+     ]
+    },
+    {
+     "h": "Oak Run Country Club",
+     "p": [
+      "Ocala, FL",
+      "Community course hosting member tournaments and charity events. Active adult community golf."
+     ]
+    },
+    {
+     "h": "Ocala Palms Golf Club",
+     "p": [
+      "Ocala, FL",
+      "Semi-private course welcoming tournaments and outside events. Accessible pricing for charity organizers."
+     ]
+    },
+    {
+     "h": "Rainbow Springs Golf Club",
+     "p": [
+      "Dunnellon, FL",
+      "Beautiful course near Rainbow Springs State Park. Popular for community and fundraising tournaments."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Tournament Cart Options",
+   "cards": [
+    {
+     "h": "Player Carts",
+     "p": [
+      "Standard 2-passenger golf carts for tournament players. Clean, reliable, and fully charged."
+     ]
+    },
+    {
+     "h": "Sponsor Carts",
+     "p": [
+      "4-passenger carts for sponsors visiting holes and greeting players throughout the course."
+     ]
+    },
+    {
+     "h": "Marshal Shuttles",
+     "p": [
+      "6-passenger carts for course marshals, tournament officials, and VIP transportation."
+     ]
+    },
+    {
+     "h": "Beverage/Utility",
+     "p": [
+      "Utility carts with cargo beds for beverage service, supplies, and tournament operations."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Why Tournament Organizers Choose Us",
+   "cards": [
+    {
+     "h": "Tournament-Ready Carts",
+     "p": [],
+     "items": [
+      "All carts cleaned and fully charged",
+      "Consistent fleet appearance",
+      "Reliable performance throughout play",
+      "Backup carts available on request",
+      "Early delivery for shotgun starts"
+     ]
+    },
+    {
+     "h": "Easy Tournament Logistics",
+     "p": [],
+     "items": [
+      "Delivery directly to the course",
+      "Flexible pickup timing post-event",
+      "Volume pricing for large fleets",
+      "Coordination with course staff",
+      "26+ years of golf event experience"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "How Tournament Rental Works",
+   "cards": [
+    {
+     "h": "Request Quote",
+     "p": [
+      "Tell us your tournament date, golf course, and number of carts needed."
+     ]
+    },
+    {
+     "h": "Confirm Details",
+     "p": [
+      "We'll confirm cart types, delivery time, and coordinate with the course."
+     ]
+    },
+    {
+     "h": "Delivery & Setup",
+     "p": [
+      "Carts delivered and staged before your first tee time."
+     ]
+    },
+    {
+     "h": "Play & Pickup",
+     "p": [
+      "Focus on your event. We handle pickup after play concludes."
+     ]
+    }
+   ]
+  }
+ ],
+ "faqConst": null
+}

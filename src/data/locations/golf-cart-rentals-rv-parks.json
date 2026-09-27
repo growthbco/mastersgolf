@@ -1,0 +1,180 @@
+{
+ "h1": "Golf Cart Rentals for RV Parks & Campgrounds",
+ "lead": [
+  "Make the most of your RV park or campground stay with a golf cart rental from Masters Golf Cars. Since 1999, we've been delivering golf carts to RV resorts throughout Central Florida, including Citra Royal Palm RV Park, Sun RV Resorts, and campgrounds in Marion, Sumter, and Lake counties.",
+  "Golf carts are the preferred way to explore RV resort amenities, visit neighbors, and travel to nearby attractions. We deliver directly to your RV site and pick up when your stay ends."
+ ],
+ "sections": [
+  {
+   "h2": "Why RV Travelers Love Golf Cart Rentals",
+   "cards": [
+    {
+     "h": "Explore the Resort",
+     "p": [
+      "Central Florida RV parks often span hundreds of acres. A golf cart makes accessing amenities effortless and fun."
+     ]
+    },
+    {
+     "h": "Visit Neighbors",
+     "p": [
+      "RV parks are social communities. A golf cart is perfect for meeting fellow travelers and attending park events."
+     ]
+    },
+    {
+     "h": "No Towing Required",
+     "p": [
+      "Leave your tow dolly at home! We deliver the golf cart to your RV site."
+     ]
+    },
+    {
+     "h": "Explore Nearby Attractions",
+     "p": [
+      "Easy access to Silver Springs, The Villages, and local shopping from your RV park."
+     ]
+    },
+    {
+     "h": "Pet-Friendly Transportation",
+     "p": [
+      "Golf carts make it easy to take pets to dog parks and walking trails around the campground."
+     ]
+    },
+    {
+     "h": "Flexible Rental Terms",
+     "p": [
+      "Daily, weekly, and monthly rental options available for any length stay."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "RV Parks & Campgrounds We Serve",
+   "cards": [
+    {
+     "h": "Citra Royal Palm RV Park",
+     "p": [
+      "Citra, FL",
+      "Beautiful RV resort north of Ocala. Popular for weddings, rallies, and seasonal visitors."
+     ]
+    },
+    {
+     "h": "Sun RV Resorts",
+     "p": [
+      "Various Locations",
+      "Multiple Sun RV locations with resort-style amenities throughout Central Florida."
+     ]
+    },
+    {
+     "h": "Ocala Sun RV Resort",
+     "p": [
+      "Ocala, FL",
+      "Active RV community with pools, activities, and social events."
+     ]
+    },
+    {
+     "h": "Grand Oaks RV Resort",
+     "p": [
+      "Weirsdale, FL",
+      "Lakefront resort connected to Grand Oaks Resort with beautiful grounds."
+     ]
+    },
+    {
+     "h": "Lake Weir Campgrounds",
+     "p": [
+      "Lake Weir Area",
+      "Various campgrounds around Lake Weir with lake access."
+     ]
+    },
+    {
+     "h": "Silver Springs Campgrounds",
+     "p": [
+      "Silver Springs, FL",
+      "Campgrounds near Silver Springs State Park.",
+      "Don't see your RV park? We deliver to campgrounds throughout Marion, Sumter, Lake, and Alachua counties."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Golf Cart Options for RV Parks",
+   "cards": [
+    {
+     "h": "2-Passenger",
+     "p": [
+      "Perfect for couples exploring the RV resort."
+     ]
+    },
+    {
+     "h": "4-Passenger",
+     "p": [
+      "Our most popular RV park option for families."
+     ]
+    },
+    {
+     "h": "6-Passenger",
+     "p": [
+      "Great for large families or when friends visit."
+     ]
+    },
+    {
+     "h": "Utility Cart",
+     "p": [
+      "Cargo bed for supplies and camping gear."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Flexible Rental Options",
+   "cards": [
+    {
+     "h": "Weekend Rentals",
+     "p": [
+      "Perfect for short RV trips. Minimum 3-day rental."
+     ]
+    },
+    {
+     "h": "Weekly Rentals",
+     "p": [
+      "Great for vacation stays. Discounted weekly rates."
+     ]
+    },
+    {
+     "h": "Monthly/Seasonal",
+     "p": [
+      "Best value for snowbirds and extended stays."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "How RV Park Delivery Works",
+   "cards": [
+    {
+     "h": "Reserve Your Cart",
+     "p": [
+      "Tell us your RV park, site number, and dates."
+     ]
+    },
+    {
+     "h": "Confirm Details",
+     "p": [
+      "We arrange delivery to match your arrival."
+     ]
+    },
+    {
+     "h": "Cart Delivered",
+     "p": [
+      "Clean, charged cart delivered to your site."
+     ]
+    },
+    {
+     "h": "We Pick Up",
+     "p": [
+      "We pick up when your stay ends. No hassle."
+     ]
+    }
+   ]
+  }
+ ],
+ "faqConst": null
+}

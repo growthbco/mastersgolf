@@ -1,0 +1,122 @@
+{
+ "h1": "Golf Cart Rentals in Belleview, FL",
+ "lead": [
+  "Since 1999, Masters Golf Cars has been serving Belleview and surrounding Marion County with premium golf cart rentals. Located right here in Belleview at 12885 S US Highway 441 (across from the Market of Marion), we're your local golf cart rental experts.",
+  "As Belleview's hometown golf cart dealership, we understand the unique needs of our local community. Whether you need a cart for exploring Belleview neighborhoods, accessing nearby Ocala or The Villages, or for local events, we have the perfect rental solution. Our convenient location makes pickup and delivery quick and easy for Belleview residents."
+ ],
+ "sections": [
+  {
+   "h2": "Why Rent a Golf Cart in Belleview?",
+   "cards": [
+    {
+     "h": "Your Hometown Golf Cart Dealership",
+     "p": [
+      "Masters Golf Cars has been serving Belleview since 1999. We're locally owned and operated, right here in your community at 12885 S US Highway 441. Our convenient location across from the Market of Marion makes us easily accessible from anywhere in Belleview."
+     ]
+    },
+    {
+     "h": "Convenient Location",
+     "p": [
+      "Located on US Highway 441 (Pine Avenue), we're perfectly positioned to serve Belleview residents. Our location is easily accessible from State Road 200, I-75, and SR 40, making pickup and delivery quick and convenient."
+     ]
+    },
+    {
+     "h": "Quick Delivery & Pickup",
+     "p": [
+      "Since we're right here in Belleview, we can provide the fastest delivery and pickup service in the area. Whether you're in central Belleview or on the outskirts, we'll get your golf cart to you quickly."
+     ]
+    },
+    {
+     "h": "Serving Belleview Since 1999",
+     "p": [
+      "As a locally owned and operated business, we understand Belleview's unique needs. Our team has deep roots in the community and has served thousands of Belleview residents over the past 26 years."
+     ],
+     "items": [
+      "26+ years serving Belleview",
+      "Locally owned and operated",
+      "Fastest delivery in the area",
+      "Trusted by Belleview residents"
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Golf Cart Rental Options for Belleview",
+   "cards": [
+    {
+     "h": "2-Passenger",
+     "p": [
+      "Perfect for couples exploring Belleview or nearby areas. Ideal for daily errands and local trips."
+     ]
+    },
+    {
+     "h": "4-Passenger",
+     "p": [
+      "Spacious seating for small groups. Excellent for families or hosting guests in Belleview."
+     ]
+    },
+    {
+     "h": "6-Passenger",
+     "p": [
+      "Maximum capacity for larger groups. Perfect for social gatherings and local events."
+     ]
+    },
+    {
+     "h": "Utility Cart",
+     "p": [
+      "Versatile carts with cargo space. Ideal for moving items, groceries, or local errands."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Nearby Communities We Serve",
+   "cards": [
+    {
+     "h": "On Top of The World",
+     "p": [
+      "Golf cart rentals for OTOW residents. Candler Hills, Indigo East & more."
+     ]
+    },
+    {
+     "h": "Spruce Creek",
+     "p": [
+      "Golf cart rentals for Spruce Creek South and Spruce Creek Preserve."
+     ]
+    },
+    {
+     "h": "Oak Run",
+     "p": [
+      "Golf cart rentals for Oak Run Country Club community."
+     ]
+    },
+    {
+     "h": "Other Areas We Serve",
+     "p": []
+    },
+    {
+     "h": "Ocala Rentals",
+     "p": [
+      "Golf cart rentals in Ocala, FL. Just 8 miles north of Belleview."
+     ]
+    },
+    {
+     "h": "The Villages Rentals",
+     "p": [
+      "Golf cart rentals in The Villages, FL. Serving the premier retirement community."
+     ]
+    },
+    {
+     "h": "Gainesville Rentals",
+     "p": [
+      "Golf cart rentals in Gainesville, FL. Serving UF area and Alachua County."
+     ]
+    }
+   ]
+  },
+  {
+   "h2": "Belleview Golf Cart Rental FAQs"
+  }
+ ],
+ "faqConst": "rentalsBelleviewFAQs"
+}
