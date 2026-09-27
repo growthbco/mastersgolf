@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Schema from '../components/Schema.astro';
 import CallBar from '../components/CallBar.astro';
 import ChatWidget from '../components/ChatWidget.astro';
+import FormCrmBridge from '../components/FormCrmBridge.astro';
 import '../styles/global.css';
 import '../styles/design.css';
 import companyData from '../data/company.json';
@@ -220,6 +221,7 @@ const ogImageUrl = ogImage ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}
 		
 		<CallBar quoteHref={quoteHref} />
 		<ChatWidget />
+		<FormCrmBridge />
 	</body>
 </html>
 

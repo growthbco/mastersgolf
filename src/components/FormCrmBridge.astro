@@ -1,0 +1,55 @@
+---
+/*
+ * Form → CRM bridge. Every Netlify form on the site keeps submitting to
+ * Netlify natively (POST to /success); this also fires a copy of the
+ * submission, with source attribution, to the Masters CRM's
+ * websiteLeadInbound function so leads land in the CRM as inquiries.
+ * Uses navigator.sendBeacon (text/plain) so the copy survives the page
+ * navigation to /success. The chat widget posts to the CRM on its own and
+ * is excluded here.
+ */
+---
+
+<script is:inline>
+	(function () {
+		var ENDPOINT = 'https://us-central1-masters-saas.cloudfunctions.net/websiteLeadInbound';
+		var KEY = 'vkdYkinefZkT80UYkY6MpllZ1FqeybAv';
+
+		function attribution() {
+			var p = {};
+			try {
+				var q = new URLSearchParams(location.search);
+				['utm_source', 'utm_medium', 'utm_campaign', 'gclid'].forEach(function (k) {
+					var v = q.get(k); if (v) p[k] = v;
+				});
+			} catch (e) {}
+			p.referrer = document.referrer || '';
+			p.landing_page = location.pathname;
+			p.site = 'mastersgolfcars.com';
+			p.page = location.pathname;
+			return p;
+		}
+
+		document.addEventListener('submit', function (e) {
+			var form = e.target;
+			if (!form || form.nodeName !== 'FORM') return;
+			// Only Netlify lead forms carry a hidden form-name input.
+			var fn = form.querySelector('input[name="form-name"]');
+			if (!fn) return;
+			// The chat widget handles its own CRM post.
+			if (form.hasAttribute('data-mgc-form')) return;
+			try {
+				var payload = Object.assign({ key: KEY }, attribution());
+				var fd = new FormData(form);
+				fd.forEach(function (v, k) { if (typeof v === 'string' && v) payload[k] = v; });
+				payload.form_name = fn.value || '';
+				if (navigator.sendBeacon) {
+					navigator.sendBeacon(ENDPOINT, new Blob([JSON.stringify(payload)], { type: 'text/plain' }));
+				} else {
+					fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(payload), keepalive: true }).catch(function () {});
+				}
+			} catch (err) { /* never block the native Netlify submission */ }
+			// no preventDefault — Netlify still captures the submission
+		}, true);
+	})();
+</script>
