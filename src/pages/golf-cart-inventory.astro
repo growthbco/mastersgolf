@@ -4,7 +4,6 @@ import Schema from '../components/Schema.astro';
 import inventoryData from '../data/inventory.json';
 import HeroSplit from '../components/sections/HeroSplit.astro';
 import ProofBar from '../components/sections/ProofBar.astro';
-import InventoryGrid from '../components/sections/InventoryGrid.astro';
 import Reviews from '../components/sections/Reviews.astro';
 import FormShell from '../components/forms/FormShell.astro';
 import CartInquiryForm from '../components/forms/CartInquiryForm.astro';
@@ -107,7 +106,6 @@ const FINANCING = 'https://www.sheffieldfinancial.com/';
 	<HeroSplit eyebrow="Golf carts for sale" heading="Find your" accent="next ride." lead="New and pre-owned carts from the brands we service every day. Financing available through Sheffield Financial, and every new cart comes with a free year of 24hr Cart Club roadside help." cta="Browse inventory" ctaHref="#inventory" secondCta="Apply for financing" secondHref={FINANCING} checks={['New and pre-owned', 'Financing available', 'Trade-ins welcome', 'Serviced by the people who sold it']} img={R + 'y4-side.jpg'} alt="Blue Yamaha four passenger golf cart" label="Sales, service and support under one roof" pos="50% 60%" />
 	<ProofBar items={[['tag', 'New and pre-owned', 'Club Car, Yamaha, E-Z-GO, Advanced EV'], ['dollar', 'Financing', 'Apply online with Sheffield Financial'], ['shield', 'Serviced here', 'Same shop, same techs, after the sale'], ['key', 'Trade-ins', 'We buy carts too']]} />
 
-	<InventoryGrid />
 
 	<section class="sec dark on-dark fin">
 		<div class="head"><Eyebrow>Financing</Eyebrow><h2 class="h2">Easy financing on <span class="g">new and used carts.</span></h2><p class="lead" style="max-width:460px">Apply online in a few minutes through Sheffield Financial. Approved buyers can drive away the same day.</p></div>

@@ -4,7 +4,6 @@ import Schema from '../components/Schema.astro';
 import FAQSchema from '../components/FAQSchema.astro';
 import HeroSplit from '../components/sections/HeroSplit.astro';
 import ProofBar from '../components/sections/ProofBar.astro';
-import InventoryGrid from '../components/sections/InventoryGrid.astro';
 import LocalContent from '../components/sections/LocalContent.astro';
 import Reviews from '../components/sections/Reviews.astro';
 import Faq from '../components/sections/Faq.astro';
@@ -141,7 +140,6 @@ const crumbs = [
 	<HeroSplit eyebrow="Golf carts for sale in Ocala" heading="Your next cart," accent="delivered to Ocala." lead={LEAD[0]} cta="Browse inventory" ctaHref="#inventory" checks={['New and pre-owned', 'Financing through Sheffield Financial', 'Trade-ins welcome', 'Delivered to Ocala']} img={R + 'clubcar-row.jpg'} alt="Row of golf carts for sale at Masters Golf Cars" label="12 miles from our shop" pos="50% 60%" />
 	<ProofBar items={[['tag', 'New and pre-owned', 'Club Car, Yamaha, E-Z-GO, Advanced EV'], ['dollar', 'Financing', 'Apply online with Sheffield Financial'], ['truck', 'Delivered to Ocala', 'Set up and ready to drive'], ['star', '4.9 on Google', 'From 93 customer reviews']]} />
 	{LEAD.length > 1 && <section class="sec white" style="padding-bottom:0"><div class="stack" style="gap:16px;max-width:820px">{LEAD.slice(1).map((p) => <p class="body" style="font-size:17px;line-height:28px">{p}</p>)}</div></section>}
-	<InventoryGrid bg="white" />
 	<LocalContent sections={local.sections} eyebrow="Buying a cart in Ocala" />
 
 	<section class="sec dark on-dark fin">
