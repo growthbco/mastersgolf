@@ -74,3 +74,23 @@ http://mastersgolfcars.com/* https://mastersgolfcars.com/:splat 301!
 # Fallback - catch any remaining query params on main pages
 /*?* /:splat 301
 
+# Search Console URL recovery (October 2026)
+/used-golf-carts-for-sale-in-the-villages /golf-carts-for-sale-the-villages/ 301!
+/used-golf-carts-for-sale-in-the-villages/ /golf-carts-for-sale-the-villages/ 301!
+/golf-carts-for-sale /golf-cart-inventory/ 301!
+/golf-carts-for-sale/ /golf-cart-inventory/ 301!
+/blog/electric-vs-gas-golf-garts /blog/electric-vs-gas-golf-carts/ 301!
+/blog/electric-vs-gas-golf-garts/ /blog/electric-vs-gas-golf-carts/ 301!
+/2025-advanced-ev-advent-6l-belleview-fl-34420-psi139864 /golf-cart-inventory/ 301!
+/2025-advanced-ev-advent-6l-belleview-fl-34420-psi139864/ /golf-cart-inventory/ 301!
+/cart/107 /golf-cart-inventory/ 301!
+/cart/107/ /golf-cart-inventory/ 301!
+/cart/108 /golf-cart-inventory/ 301!
+/cart/108/ /golf-cart-inventory/ 301!
+/thank-you /success/ 301!
+/thank-you/ /success/ 301!
+/sell-your-cart/sales@mastersgolfcars.com /sell-your-cart/ 301!
+/fleet-rentals-quote/sales@mastersgolfcars.com /fleet-rentals-quote/ 301!
+# Explicit removal of additional obsolete spam URLs reported by Google
+/noemy-baddiehub-porn-videos-8/ / 410
+/2025/01/06/top-docs-google-com-competitors-alternatives-2/ / 410
