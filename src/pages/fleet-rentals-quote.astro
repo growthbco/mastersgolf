@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import FAQSchema from '../components/FAQSchema.astro';
+import Faq from '../components/sections/Faq.astro';
 import Schema from '../components/Schema.astro';
 import companyData from '../data/company.json';
 import FleetQuoteForm from '../components/forms/FleetQuoteForm.astro';
@@ -13,6 +15,13 @@ import Eyebrow from '../components/ui/Eyebrow.astro';
 import Check from '../components/ui/Check.astro';
 import Icon from '../components/ui/Icon.astro';
 import { EVENTS, R } from '../lib/areas';
+
+const fleetFAQs = [
+ { question: 'Can I rent a fleet of golf carts for an event in Florida?', answer: 'Yes. Masters Golf Cars provides golf cart fleet rentals for equestrian facilities, tournaments, festivals, corporate events and other large events throughout Florida. Send your venue, dates, cart quantities and intended uses so our rental manager can check availability.' },
+ { question: 'Which golf carts should I request for my event?', answer: 'Our fleet includes 2, 4 and 6 passenger gas-powered carts and utility carts. Two passenger carts suit staff and vendors, larger passenger carts help move guests and teams, and utility carts carry equipment and supplies. Tell us what each group needs to do so we can help plan the mix.' },
+ { question: 'Do you deliver and collect event rental carts?', answer: 'Yes. Delivery, staging and pickup are coordinated as part of the rental plan. Include your venue address and preferred delivery and pickup windows when requesting a quote.' },
+ { question: 'How are fleet rental prices determined?', answer: 'We quote each event based on the cart types, quantities, rental dates and location. Daily, weekly and monthly rates are available, with a 3 day minimum and large event and seasonal lease options. Your quote confirms the arrangements and availability.' },
+];
 
 const fleetRentalsSchema = {
 	"@context": "https://schema.org",
@@ -57,6 +66,7 @@ const GAL = [
 
 <Layout title="Golf Cart Fleet Rentals for Florida Events | Masters Golf Cars" description="Request a customized quote for Masters Golf Cars fleet rentals. Choose from 2, 4, 6 passenger, and utility carts for events across Central Florida." breadcrumbs={crumbs} quoteHref="#fleetquote">
 	<Schema schema={fleetRentalsSchema} slot="schema" />
+	<FAQSchema faqs={fleetFAQs} />
 
 	<HeroDark eyebrow="Fleet and event rentals, throughout Florida" heading="Big events require" accent="big fleets." lead="Over 300 carts, delivered, staged and picked up by a team that has done it for 25 years. From a few carts to a full-scale event fleet, we are ready." cta="Request a fleet quote" ctaHref="#fleetquote" img={R + 'fleet-aerial-road.jpg'} alt="Aerial view of the Masters rental fleet" video={R + 'sweep.mp4'} />
 	<ProofBar items={[['key', '300+ carts', 'Late model gas carts'], ['truck', 'Delivered and staged', 'Anywhere in Florida'], ['award', 'Since 1999', 'Experienced event management'], ['calendar', 'Daily, weekly, monthly', 'Event and seasonal rates']]} />
@@ -93,6 +103,8 @@ const GAL = [
 	</section>
 
 	<Reviews heading="Trusted at Florida's biggest events." />
+
+	<Faq items={fleetFAQs} heading="Planning your event fleet." bg="white" />
 
 	<FormShell id="fleetquote" eyebrow="Fleet quote" heading="Let us get your event" accent="moving." lead="Tell us about the event and our rental manager will check availability and get back to you with a quote as soon as possible during business hours.">
 		<FleetQuoteForm pageSource="fleet-rentals-quote" idPrefix="fleet" />
