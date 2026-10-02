@@ -127,6 +127,7 @@ import companyData from '../data/company.json';
 				.then(function (r) { return r.json().catch(function () { return { ok: r.ok }; }); })
 				.then(function (res) {
 					if (res && res.ok) {
+						if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', {form_name: 'text_inquiry', source_page: location.pathname, lead_method: 'text_inquiry'});
 						form.hidden = true;
 						doneEl.hidden = false;
 						doneSub.textContent = 'We’ll reply to ' + phone + '.';

@@ -1,0 +1,40 @@
+<!-- Analytics receives event metadata only, never customer form fields. -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-B3RLS7RLLK"></script>
+<script is:inline>
+  window['ga-disable-G-B3RLS7RLLK'] = navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-B3RLS7RLLK', {allow_google_signals: false, allow_ad_personalization_signals: false});
+  (function () {
+    var pendingKey = 'mgc_pending_lead';
+    // Set a short-lived marker on a valid native submission. A submission
+    // attempt alone is not a lead: wait for Netlify's confirmation page.
+    document.addEventListener('submit', function (event) {
+      var form = event.target;
+      if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-netlify') || !form.checkValidity()) return;
+      var name = form.querySelector('input[name="form-name"]');
+      var trap = form.querySelector('input[name="bot-field"]');
+      if (!name || (trap && trap.value)) return;
+      try {
+        sessionStorage.setItem(pendingKey, JSON.stringify({form_name: name.value, source_page: location.pathname, timestamp: Date.now()}));
+      } catch (_) {}
+    }, true);
+    if (/^\/success\/?$/.test(location.pathname)) {
+      try {
+        var pending = JSON.parse(sessionStorage.getItem(pendingKey) || 'null');
+        sessionStorage.removeItem(pendingKey); // Reloads cannot double-count.
+        if (pending && Date.now() - pending.timestamp >= 0 && Date.now() - pending.timestamp < 300000) {
+          gtag('event', 'generate_lead', {form_name: pending.form_name, source_page: pending.source_page, lead_method: 'website_form'});
+        }
+      } catch (_) {}
+    }
+    document.addEventListener('click', function(event) {
+      var link = event.target instanceof Element ? event.target.closest('a[href]') : null;
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      var method = href.startsWith('tel:') ? 'phone' : href.startsWith('mailto:') ? 'email' : href.startsWith('sms:') ? 'sms' : null;
+      if (method) gtag('event', 'contact_click', {contact_method: method});
+    });
+  })();
+</script>
