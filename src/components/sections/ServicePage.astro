@@ -25,7 +25,7 @@ interface Props {
 	intro?: string;
 	local?: { sections: any[] };
 }
-const { city, eyebrow = city ? `Golf cart repair, ${city}` : 'Service and repair, Belleview', lead = city ? `Serving ${city} from our shop in Belleview. Gas and electric. Club Car, Yamaha, E-Z-GO and more. Most repairs are done in 24 hours, and we can pick your cart up and bring it back.` : 'Gas and electric. Club Car, Yamaha, E-Z-GO and more. Most repairs are done in 24 hours, and we can pick your cart up and bring it back.', pageSource, faqs, defaultLocation = '', intro, local } = Astro.props;
+const { city, eyebrow = city ? `Golf cart repair, ${city}` : 'Service and repair, Belleview', lead = city ? `Serving ${city} from our shop in Belleview. Gas and electric. Club Car, Yamaha, E-Z-GO and more. Most repairs are done in 24 hours, and we can pick your cart up and bring it back.` : 'Expert service for gas and electric golf carts, including Club Car, Yamaha, E-Z-GO, and more. With most repairs completed within 24 hours and convenient pickup and delivery available, getting your cart back on the road has never been easier.', pageSource, faqs, defaultLocation = '', intro, local } = Astro.props;
 
 const GAS = ['Engine maintenance and tune ups', 'Belt replacement', 'Fuel system repairs', 'Battery and electrical system', 'Exhaust system repairs', 'Transmission and clutch', 'Tires, wheels and upgrades', 'Lighting upgrades'];
 const ELEC = ['Battery testing and replacement', 'Charging system service', 'Motor and controller repair and upgrades', 'Electrical troubleshooting', 'Motor brushes and bearings', 'Brakes, tires and wheels', 'Lighting upgrades', 'Lithium conversions'];

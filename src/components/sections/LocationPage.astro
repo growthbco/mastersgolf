@@ -68,10 +68,10 @@ const defaultAlso: [string, string, string, string, string][] = fleet
 <section class="sec white stack" style="gap:48px">
 	<div class="head"><Eyebrow>{fleet ? `Carts for ${name}` : `Carts available in ${name}`}</Eyebrow><h2 class="h2 md">Pick your cart.</h2></div>
 	<div class="grid4 cards">
-		<CartCard href={`#${anchor}`} img={R + 'cart-2p.jpg'} alt="Two passenger rental golf cart" title="2 passenger" sub={fleet ? 'Staff, vendors and quick runs.' : 'Couples and solo stays.'} price={fleet ? 'Quoted per event' : 'Call for weekly rate'} />
-		<CartCard href={`#${anchor}`} img={R + 'cart-4p-deluxe.jpg'} alt="Four passenger rental golf cart" title="4 passenger" sub={fleet ? 'Our most requested event cart.' : `Our most popular in ${name}.`} price={fleet ? 'Quoted per event' : 'From <strong>$300</strong> a week'} badge="Most popular" />
-		<CartCard href={`#${anchor}`} img={R + 'cart-6p.jpg'} alt="Six passenger rental golf cart" title="6 passenger" sub={fleet ? 'Guest shuttles and VIP groups.' : 'Groups and family visits.'} price={fleet ? 'Quoted per event' : 'Call for weekly rate'} />
-		<CartCard href={`#${anchor}`} img={R + 'carryall.jpg'} alt="Club Car Carryall utility cart" title="Utility cart" sub={fleet ? 'Hauls gear, feed and supplies.' : 'Farms, barns and job sites.'} price={fleet ? 'Quoted per event' : 'Call for rates'} contain />
+		<CartCard href={`#${anchor}`} img={R + 'cart-2p.jpg'} alt="Two passenger rental golf cart" title="2 passenger" sub={fleet ? 'Staff, vendors and quick runs.' : 'Couples and solo stays.'} price={fleet ? 'Call for rates' : 'Call for rates'} />
+		<CartCard href={`#${anchor}`} img={R + 'cart-4p-deluxe.jpg'} alt="Four passenger rental golf cart" title="4 passenger" sub={fleet ? 'Our most requested event cart.' : `Our most popular in ${name}.`} price={fleet ? 'Call for rates' : 'Call for rates'} badge="Most popular" />
+		<CartCard href={`#${anchor}`} img={R + 'cart-6p.jpg'} alt="Six passenger rental golf cart" title="6 passenger" sub={fleet ? 'Guest shuttles and VIP groups.' : 'Groups and family visits.'} price={fleet ? 'Call for rates' : 'Call for rates'} />
+		<CartCard href={`#${anchor}`} img={R + 'carryall.jpg'} alt="Club Car Carryall utility cart" title="Utility cart" sub={fleet ? 'Hauls gear, feed and supplies.' : 'Farms, barns and job sites.'} price={fleet ? 'Call for rates' : 'Call for rates'} contain />
 	</div>
 </section>
 
